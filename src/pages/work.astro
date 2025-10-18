@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import ContactCTA from '../components/ContactCTA.astro';
 import Grid from '../components/Grid.astro';
 import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -12,16 +13,23 @@ const projects = (await getCollection('work')).sort(
 ---
 
 <BaseLayout
-	title="My Work | Jeanine White"
-	description="Learn about Jeanine White's most recent projects"
+	title="Works | 大鹿ニク / M1RA"
+	description="生成AIで制作したMV・ショートムービーなどの作品一覧"
 >
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
 			<Hero
-				title="My Work"
-				tagline="See my most recent projects below to get an idea of my past experience."
+				title="Works"
+				tagline="生成AIで制作したMV・ショートムービーをご覧ください。定期的に新作を公開しています。"
 				align="start"
-			/>
+			>
+				<div class="youtube-link">
+					<a href="http://www.youtube.com/@M1RA_Archive_Project" target="_blank" rel="noopener noreferrer" class="youtube-cta">
+						<Icon icon="youtube-logo" size="1.5em" />
+						<span>YouTubeチャンネルを見る</span>
+					</a>
+				</div>
+			</Hero>
 			<Grid variant="offset">
 				{
 					projects.map((project) => (
@@ -35,3 +43,29 @@ const projects = (await getCollection('work')).sort(
 		<ContactCTA />
 	</div>
 </BaseLayout>
+
+<style>
+	.youtube-link {
+		margin-top: 1.5rem;
+	}
+
+	.youtube-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 1rem 2rem;
+		background: var(--gradient-accent);
+		color: var(--gray-999);
+		text-decoration: none;
+		border-radius: 999rem;
+		font-weight: 600;
+		font-size: var(--text-md);
+		transition: all 0.3s ease;
+		box-shadow: var(--shadow-md);
+	}
+
+	.youtube-cta:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-lg);
+	}
+</style>

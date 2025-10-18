@@ -1,0 +1,170 @@
+/* モバイル表示の修正用CSS */
+@media screen and (max-width: 768px) {
+    /* ヘッダーの修正 */
+    header {
+        position: relative;
+        z-index: 100;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .header-container {
+        padding: 10px;
+    }
+    
+    .logo-text {
+        font-size: 1.5rem;
+    }
+    
+    .logo-sub {
+        font-size: 0.7rem;
+    }
+    
+    .nav-links {
+        gap: 10px;
+    }
+    
+    .nav-links a {
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+    
+    /* ヒーローセクションの全体構造を修正 */
+    .hero {
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+        padding: 60px 0 20px; /* 上部に余白を追加してヘッダーとカブらないように */
+        margin-top: 10px;
+    }
+    
+    /* ホログラム（画像）を最初に表示 */
+    .hologram-container {
+        order: 1;
+        position: relative;
+        transform: none;
+        left: auto;
+        top: auto;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto 20px;
+    }
+    
+    /* M1RAの画像サイズと位置を調整 */
+    .mira-image {
+        max-height: 350px;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    /* データ表示の位置調整 */
+    .data-readout {
+        position: relative;
+        transform: none;
+        top: auto;
+        right: auto;
+        font-size: 0.8rem;
+        width: 100%;
+        max-width: 300px;
+        margin: 10px auto;
+    }
+    
+    /* コンテンツ部分を画像の下に表示 */
+    .hero-content {
+        order: 2;
+        position: relative;
+        transform: none;
+        width: 100%;
+        text-align: center;
+        padding: 0 15px;
+        max-width: 100%;
+    }
+    
+    /* ヒーローセクション全体の余白を大幅に増やす */
+    .hero {
+        padding-bottom: 100px; /* セクション下部に大きな余白を追加 */
+        margin-bottom: 80px; /* 次のセクションとの間隔を確保 */
+        position: relative;
+    }
+    
+    /* メッセージセクションの修正 */
+    .mira-message-section {
+        width: 100%;
+        margin-top: 30px;
+        margin-bottom: 60px; /* 下部に余白を大幅に追加 */
+        border-bottom: 1px solid rgba(255, 175, 204, 0.3); /* セクションの区切り線を追加 */
+        padding-bottom: 40px;
+    }
+    
+    .mira-message-container {
+        width: 100%;
+        max-height: 150px; /* メッセージコンテナの高さを制限 */
+        overflow-y: auto; /* 長いメッセージはスクロールできるように */
+    }
+    
+    /* ABOUTセクションの修正 */
+    .about {
+        padding-top: 100px; /* 上部に大きな余白を追加 */
+        margin-top: 60px;
+        position: relative;
+        clear: both; /* 浮動要素をクリア */
+    }
+    
+    /* セクションの区切りを視覧的に明確に */
+    .about::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        height: 2px;
+        background: var(--pastel-gradient);
+    }
+    
+    .about .section-header {
+        margin-bottom: 40px;
+        margin-top: 20px;
+    }
+    
+    /* タイトルとボタンの調整 */
+    .neo-title {
+        font-size: 3.5rem;
+        margin-top: 0;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .cta-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .cta-button {
+        margin: 5px;
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+/* 小さい画面向けの追加調整 */
+@media screen and (max-width: 480px) {
+    .hologram-container {
+        margin-top: 10px;
+    }
+    
+    .mira-image {
+        max-height: 280px;
+    }
+    
+    .neo-title {
+        font-size: 2.8rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+    }
+}

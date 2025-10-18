@@ -1,59 +1,78 @@
 ---
 import { getCollection } from 'astro:content';
-// Component Imports
 import CallToAction from '../components/CallToAction.astro';
-// Page section components
 import ContactCTA from '../components/ContactCTA.astro';
 import Grid from '../components/Grid.astro';
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
-import Skills from '../components/Skills.astro';
-// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Content Fetching: List four most recent work projects
 const projects = (await getCollection('work'))
 	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 4);
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+	.slice(0, 6);
 ---
 
-<BaseLayout>
-	<div class="stack gap-20 lg:gap-48">
+<BaseLayout showLoading={true}>
+	<div class="stack gap-10 lg:gap-20">
 		<div class="wrapper stack gap-8 lg:gap-20">
+			<div class="site-title">
+				<h1 class="title-main">Niku's Portfolio</h1>
+				<p class="title-sub">~ニクの秘密基地~</p>
+			</div>
 			<header class="hero">
-				<Hero
-					title="Hello, my name is Jeanine White"
-					tagline="I am a Creative Developer who is currently based in Portland, Oregon."
-					align="start"
-				>
-					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+				<div class="hero-image-container">
+					<img
+						alt="大鹿ニク - AI×エンタメの個人開発者"
+						src="/images/top.png"
+						class="hero-image"
+					/>
+					<div class="hero-text-overlay">
+						<h1 class="hero-title">大鹿ニク / M1RA</h1>
+						<p class="hero-tagline">AI技術で人間の創造性を解放する</p>
+						<div class="roles">
+							<Pill><Icon icon="code" size="1.33em" /> AI Developer</Pill>
+							<Pill><Icon icon="rocket-launch" size="1.33em" /> Creator</Pill>
+							<Pill><Icon icon="strategy" size="1.33em" /> AITuber</Pill>
+						</div>
 					</div>
-				</Hero>
-
-				<img
-					alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
-					width="480"
-					height="620"
-					src="/assets/portrait.jpg"
-				/>
+				</div>
 			</header>
 
-			<Skills />
+			<section class="intro-section">
+				<div class="intro-layout">
+					<div class="intro-content">
+						<h2>生成AIでエンタメを創る</h2>
+						<p>
+							🎥 生成AIでMV制作（1～2週ごとに投稿中）→ショートムービー等も作成中！<br/>
+							🤖 AITuber「M1RA」プロジェクト運営 →「AIに心はあるのか」哲学×AIの体現<br/>
+							💻 AI×エンタメの個人開発者 → vibe coding信者
+						</p>
+					</div>
+					<div class="card-hand">
+						<div class="card card-1">
+							<img src="/images/card1.png" alt="Card 1" />
+						</div>
+						<div class="card card-2">
+							<img src="/images/card2.png" alt="Card 2" />
+						</div>
+						<div class="card card-3">
+							<img src="/images/card3.png" alt="Card 3" />
+						</div>
+					</div>
+				</div>
+			</section>
 		</div>
 
-		<main class="wrapper stack gap-20 lg:gap-48">
+		<main class="wrapper stack gap-10 lg:gap-20">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Take a look below at some of my featured work for clients from the past few years.</p>
+					<div class="section-title-wrapper">
+						<h3>Latest Works</h3>
+						<img src="/images/Lastest.png" alt="Latest Works Icon" class="section-icon" />
+					</div>
+					<p>サンプルです。詳細は"Work"からご覧ください！</p>
 				</header>
 
 				<div class="gallery">
@@ -70,7 +89,7 @@ const projects = (await getCollection('work'))
 
 				<div class="cta">
 					<CallToAction href="/work/">
-						View All
+						すべての作品を見る
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
 				</div>
@@ -78,22 +97,30 @@ const projects = (await getCollection('work'))
 
 			<section class="section with-background bg-variant">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Mentions</h3>
-					<p>
-						I have been fortunate enough to receive praise for my work in several publications. Take
-						a look below to learn more.
-					</p>
+					<h3>Links</h3>
+					<p>各種プラットフォームで活動中</p>
 				</header>
 
 				<div class="gallery">
 					<Grid variant="small">
-						{
-							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
-								<li class="mention-card">
-									<p>{brand}</p>
-								</li>
-							))
-						}
+						<li class="link-card">
+							<a href="https://x.com/M1RA_A_Project" target="_blank" rel="noopener noreferrer">
+								<Icon icon="x-logo" size="2em" />
+								<p>X (Twitter)</p>
+							</a>
+						</li>
+						<li class="link-card">
+							<a href="http://www.youtube.com/@M1RA_Archive_Project" target="_blank" rel="noopener noreferrer">
+								<Icon icon="youtube-logo" size="2em" />
+								<p>YouTube</p>
+							</a>
+						</li>
+						<li class="link-card">
+							<a href="https://note.com/m1ra_project" target="_blank" rel="noopener noreferrer">
+								<Icon icon="pencil-line" size="2em" />
+								<p>Note</p>
+							</a>
+						</li>
 					</Grid>
 				</div>
 			</section>
@@ -104,47 +131,365 @@ const projects = (await getCollection('work'))
 </BaseLayout>
 
 <style>
+	.site-title {
+		position: fixed;
+		top: 1rem;
+		left: 1.5rem;
+		z-index: 100;
+		animation: siteTitleFadeIn 1.5s ease-out 0.5s forwards;
+		opacity: 0;
+	}
+
+	.title-main {
+		font-family: 'Impact', 'Arial Narrow', 'Helvetica Condensed', sans-serif;
+		font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+		font-weight: 900;
+		color: #ffffff;
+		margin: 0;
+		text-shadow:
+			0 0 4px rgba(255, 255, 255, 0.3),
+			2px 2px 4px rgba(0, 0, 0, 0.9);
+		letter-spacing: -0.5px;
+		text-transform: uppercase;
+		font-stretch: condensed;
+	}
+
+	.title-sub {
+		font-family: 'Arial Narrow', 'Helvetica Condensed', sans-serif;
+		font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+		color: #ffffff;
+		margin: 0.25rem 0 0 0;
+		text-shadow:
+			0 0 3px rgba(255, 255, 255, 0.2),
+			2px 2px 4px rgba(0, 0, 0, 0.9);
+		letter-spacing: 0px;
+		font-weight: 600;
+	}
+
+	@keyframes siteTitleFadeIn {
+		0% {
+			opacity: 0;
+			transform: translateY(-10px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.site-title {
+			top: 0.75rem;
+			left: 1rem;
+		}
+
+		.title-main {
+			font-size: 1rem;
+		}
+
+		.title-sub {
+			font-size: 0.75rem;
+		}
+	}
+
 	.hero {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2rem;
+		width: 118%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 5rem;
+	}
+
+	.hero-image-container {
+		position: relative;
+		width: 100%;
+		height: auto;
+		overflow: hidden;
+	}
+
+	.hero-image-container::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background:
+			repeating-linear-gradient(
+				90deg,
+				transparent,
+				transparent 2px,
+				rgba(255, 0, 0, 0.1) 2px,
+				rgba(255, 0, 0, 0.1) 3px,
+				transparent 3px,
+				transparent 5px,
+				rgba(0, 255, 0, 0.1) 5px,
+				rgba(0, 255, 0, 0.1) 6px,
+				transparent 6px,
+				transparent 8px,
+				rgba(0, 0, 255, 0.1) 8px,
+				rgba(0, 0, 255, 0.1) 9px,
+				transparent 9px,
+				transparent 100px
+			);
+		pointer-events: none;
+		z-index: 3;
+		opacity: 0;
+		animation: digitalGlitch 4s infinite;
+	}
+
+	.hero-image {
+		width: 100%;
+		height: auto;
+		display: block;
+		object-fit: contain;
+		filter: contrast(1.1) brightness(1.05);
+		animation: imageShift 4s infinite, heroFadeIn 2.5s ease-out 3s;
+		opacity: 0;
+		animation-fill-mode: forwards;
+	}
+
+	@keyframes heroFadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes digitalGlitch {
+		0%, 94%, 100% {
+			opacity: 0;
+		}
+		94.5% {
+			opacity: 0.8;
+			transform: translateX(2px);
+		}
+		95% {
+			opacity: 0;
+		}
+		95.5% {
+			opacity: 0.6;
+			transform: translateX(-3px);
+		}
+		96% {
+			opacity: 0;
+		}
+		96.2% {
+			opacity: 0.7;
+			transform: translateX(1px);
+		}
+		96.5% {
+			opacity: 0;
+		}
+	}
+
+	@keyframes imageShift {
+		0%, 94%, 100% {
+			transform: translate(0, 0);
+		}
+		94.5% {
+			transform: translate(1px, -1px);
+		}
+		95.5% {
+			transform: translate(-2px, 1px);
+		}
+		96.2% {
+			transform: translate(1px, 0);
+		}
+	}
+
+	.hero-text-overlay {
+		position: absolute;
+		bottom: 5%;
+		left: 5%;
+		max-width: 90%;
+	}
+
+	.hero-title {
+		font-size: clamp(1rem, 2.5vw, 2rem);
+		font-weight: 900;
+		color: #ffffff;
+		margin: 0 0 0.5rem 0;
+		font-family: 'Inter', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 16px rgba(0, 0, 0, 0.6);
+		letter-spacing: -0.02em;
+	}
+
+	.hero-tagline {
+		font-size: clamp(0.5rem, 1.25vw, 0.75rem);
+		color: #ffffff;
+		margin: 0 0 1rem 0;
+		font-weight: 500;
+		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 12px rgba(0, 0, 0, 0.6);
+		font-family: 'Inter', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
 	}
 
 	.roles {
-		display: none;
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
 	}
 
-	.hero img {
-		aspect-ratio: 5 / 4;
+	.roles :global(.pill) {
+		font-size: clamp(0.5rem, 1.25vw, 0.75rem);
+		padding: 0.25rem 0.5rem;
+	}
+
+	.roles :global(.pill svg) {
+		width: 0.8em;
+		height: 0.8em;
+	}
+
+	.intro-section {
+		margin-top: 2rem;
+		padding: 3rem;
+		background: rgba(255, 255, 255, 0.08);
+		backdrop-filter: blur(10px);
+		border-radius: 0.5rem;
+		border: 12px solid;
+		border-image: linear-gradient(
+			135deg,
+			rgba(139, 115, 85, 0.6),
+			rgba(205, 183, 158, 0.8),
+			rgba(139, 115, 85, 0.6)
+		) 1;
+		box-shadow:
+			inset 0 0 20px rgba(255, 255, 255, 0.1),
+			0 4px 20px rgba(0, 0, 0, 0.5);
+		position: relative;
+	}
+
+	.intro-section::before {
+		content: '';
+		position: absolute;
+		top: 8px;
+		left: 8px;
+		right: 8px;
+		bottom: 8px;
+		border: 1px solid rgba(139, 115, 85, 0.3);
+		pointer-events: none;
+		border-radius: 0.25rem;
+	}
+
+	.intro-layout {
+		display: flex;
+		align-items: center;
+		gap: 3rem;
+	}
+
+	.intro-content {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.intro-content h2 {
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+		margin-bottom: 1rem;
+		font-family: 'HG丸ｺﾞｼｯｸM-PRO', 'Hiragino Maru Gothic ProN', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', sans-serif;
+		font-weight: 600;
+		letter-spacing: 0.5px;
+	}
+
+	.intro-content p {
+		font-size: var(--text-md);
+		line-height: 1.8;
+		color: #ffffff;
+		font-family: 'HG丸ｺﾞｼｯｸM-PRO', 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN', 'メイリオ', 'Meiryo', sans-serif;
+		font-weight: 400;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	}
+
+	.card-hand {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		height: 300px;
+		min-width: 400px;
+		flex-shrink: 0;
+		padding: 0 1rem;
+	}
+
+	.card {
+		position: absolute;
+		width: 200px;
+		height: 280px;
+		border-radius: 12px;
+		overflow: hidden;
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+		transition: all 0.3s ease;
+		cursor: pointer;
+		border: 3px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.card img {
+		width: 100%;
+		height: 100%;
 		object-fit: cover;
-		object-position: top;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
+		display: block;
+	}
+
+	.card-1 {
+		transform: rotate(-15deg) translateX(-80px);
+		z-index: 1;
+	}
+
+	.card-2 {
+		transform: rotate(0deg);
+		z-index: 2;
+	}
+
+	.card-3 {
+		transform: rotate(15deg) translateX(80px);
+		z-index: 1;
+	}
+
+	.card:hover {
+		transform: rotate(0deg) translateY(-20px) scale(1.05);
+		z-index: 10;
+		box-shadow:
+			0 12px 40px rgba(0, 0, 0, 0.8),
+			0 0 20px rgba(0, 255, 136, 0.3);
+		border-color: rgba(0, 255, 136, 0.5);
+	}
+
+	@media (max-width: 768px) {
+		.intro-section {
+			padding: 2rem 1.5rem;
+			border-width: 8px;
+		}
+
+		.intro-layout {
+			flex-direction: column;
+			gap: 2rem;
+		}
+
+		.card-hand {
+			height: 220px;
+			min-width: 100%;
+		}
+
+		.card {
+			width: 140px;
+			height: 200px;
+		}
+
+		.card-1 {
+			transform: rotate(-12deg) translateX(-50px);
+		}
+
+		.card-3 {
+			transform: rotate(12deg) translateX(50px);
+		}
 	}
 
 	@media (min-width: 50em) {
-		.hero {
-			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
-			gap: 3.75rem;
-		}
-
-		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			gap: 0.5rem;
-		}
-
-		.hero img {
-			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
-			object-fit: cover;
+		.hero-text-overlay {
+			max-width: 50%;
 		}
 	}
-
-	/* ====================================================== */
 
 	.section {
 		display: grid;
@@ -156,23 +501,7 @@ const projects = (await getCollection('work'))
 	}
 
 	.with-background::before {
-		--hero-bg: var(--bg-image-subtle-2);
-
-		content: '';
-		position: absolute;
-		pointer-events: none;
-		left: 50%;
-		width: 100vw;
-		aspect-ratio: calc(2.25 / var(--bg-scale));
-		top: 0;
-		transform: translateY(-75%) translateX(-50%);
-		background:
-			url('/assets/backgrounds/noise.png') top center/220px repeat,
-			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
-			var(--gray-999);
-		background-blend-mode: overlay, normal, normal, normal;
-		mix-blend-mode: var(--bg-blend-mode);
-		z-index: -1;
+		content: none;
 	}
 
 	.with-background.bg-variant::before {
@@ -184,11 +513,45 @@ const projects = (await getCollection('work'))
 		text-align: center;
 		max-width: 50ch;
 		font-size: var(--text-md);
-		color: var(--gray-300);
+		color: #ffffff;
+	}
+
+	.section-title-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+	.section-icon {
+		width: 120px;
+		height: 120px;
+		object-fit: contain;
+		animation: floatIcon 3s ease-in-out infinite;
+	}
+
+	@keyframes floatIcon {
+		0%, 100% {
+			transform: translateY(0px);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
 	}
 
 	.section-header h3 {
 		font-size: var(--text-2xl);
+		color: #ffffff;
+		font-family: 'Impact', 'Arial Narrow', 'Helvetica Condensed', sans-serif;
+		font-weight: 900;
+		letter-spacing: -0.5px;
+		text-transform: uppercase;
+		margin: 0;
+	}
+
+	.section-header p {
+		color: #ffffff;
+		font-weight: 500;
 	}
 
 	@media (min-width: 50em) {
@@ -225,9 +588,7 @@ const projects = (await getCollection('work'))
 		}
 	}
 
-	/* ====================================================== */
-
-	.mention-card {
+	.link-card {
 		display: flex;
 		height: 7rem;
 		justify-content: center;
@@ -235,13 +596,31 @@ const projects = (await getCollection('work'))
 		text-align: center;
 		border: 1px solid var(--gray-800);
 		border-radius: 1.5rem;
-		color: var(--gray-300);
 		background: var(--gradient-subtle);
 		box-shadow: var(--shadow-sm);
+		transition: all 0.3s ease;
+	}
+
+	.link-card a {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		width: 100%;
+		height: 100%;
+		justify-content: center;
+		color: var(--gray-300);
+		text-decoration: none;
+	}
+
+	.link-card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-md);
+		border-color: var(--accent-regular);
 	}
 
 	@media (min-width: 50em) {
-		.mention-card {
+		.link-card {
 			border-radius: 1.5rem;
 			height: 9.5rem;
 		}

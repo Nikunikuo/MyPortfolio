@@ -1,0 +1,147 @@
+---
+---
+
+<div class="loading-screen" id="loading-screen">
+	<div class="loading-content">
+		<div class="terminal">
+			<div class="terminal-header">
+				<span class="terminal-title">SYSTEM INITIALIZING...</span>
+			</div>
+			<div class="terminal-body">
+				<p class="loading-text">
+					<span class="prompt">&gt;</span> Accessing M1RA Archive...
+				</p>
+				<p class="loading-text delay-1">
+					<span class="prompt">&gt;</span> Loading creative protocols...
+				</p>
+				<p class="loading-text delay-2">
+					<span class="prompt">&gt;</span> Establishing connection...
+				</p>
+				<div class="loading-bar">
+					<div class="loading-progress"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.loading-screen {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: #000;
+		z-index: 9999;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: opacity 0.8s ease-out;
+	}
+
+	.loading-screen.fade-out {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.loading-content {
+		max-width: 600px;
+		width: 90%;
+	}
+
+	.terminal {
+		background: rgba(0, 20, 40, 0.9);
+		border: 2px solid #00ff88;
+		border-radius: 8px;
+		box-shadow:
+			0 0 20px rgba(0, 255, 136, 0.3),
+			inset 0 0 30px rgba(0, 255, 136, 0.05);
+		overflow: hidden;
+	}
+
+	.terminal-header {
+		background: rgba(0, 255, 136, 0.1);
+		padding: 0.75rem 1rem;
+		border-bottom: 1px solid #00ff88;
+	}
+
+	.terminal-title {
+		color: #00ff88;
+		font-family: 'Courier New', monospace;
+		font-size: 0.9rem;
+		font-weight: bold;
+		letter-spacing: 2px;
+	}
+
+	.terminal-body {
+		padding: 2rem 1.5rem;
+	}
+
+	.loading-text {
+		color: #00ff88;
+		font-family: 'Courier New', monospace;
+		font-size: 0.95rem;
+		margin: 0.5rem 0;
+		opacity: 0;
+		animation: fadeInText 0.5s ease-out forwards;
+	}
+
+	.loading-text.delay-1 {
+		animation-delay: 0.3s;
+	}
+
+	.loading-text.delay-2 {
+		animation-delay: 0.6s;
+	}
+
+	.prompt {
+		color: #00ccff;
+		margin-right: 0.5rem;
+	}
+
+	.loading-bar {
+		margin-top: 2rem;
+		height: 8px;
+		background: rgba(0, 255, 136, 0.1);
+		border-radius: 4px;
+		overflow: hidden;
+		border: 1px solid rgba(0, 255, 136, 0.3);
+	}
+
+	.loading-progress {
+		height: 100%;
+		background: linear-gradient(90deg, #00ff88, #00ccff);
+		width: 0%;
+		animation: loadingProgress 1.5s ease-out forwards;
+		box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+	}
+
+	@keyframes fadeInText {
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes loadingProgress {
+		to {
+			width: 100%;
+		}
+	}
+</style>
+
+<script>
+	window.addEventListener('load', () => {
+		const loadingScreen = document.getElementById('loading-screen');
+
+		// Wait for loading animation to complete
+		setTimeout(() => {
+			loadingScreen?.classList.add('fade-out');
+
+			// Remove from DOM after fade out
+			setTimeout(() => {
+				loadingScreen?.remove();
+			}, 800);
+		}, 2500);
+	});
+</script>

@@ -1,0 +1,377 @@
+/* 季節スライダーのスタイル */
+.seasons-slider-container {
+    width: 100%;
+    max-width: 800px; /* 幅を制限して縦長画像に合わせる */
+    position: relative;
+    overflow: hidden;
+    margin: 50px auto; /* 中央揃え */
+    border-radius: 15px; /* 角丸 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* 影を追加 */
+}
+
+.seasons-slider {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* 滑らかなアニメーション */
+    width: 400%;
+    height: 600px; /* さらに高さを増やして画像を大きく */
+}
+
+.season-slide {
+    width: 25%;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.season-content {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+/* 背景画像 */
+.season-slide {
+    position: relative;
+    background-position: center top; /* 上部から表示 */
+    background-size: contain; /* 画像全体が見えるように */
+    background-repeat: no-repeat;
+    background-color: #111; /* 背景色を追加 */
+}
+
+#spring {
+    background-image: url('spring.png');
+}
+
+#summer {
+    background-image: url('summer.png');
+}
+
+#autumn {
+    background-image: url('fall.png');
+}
+
+#winter {
+    background-image: url('winter.png');
+}
+
+/* オーバーレイ */
+.season-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* 透明度を上げて画像をより目立たせる */
+    z-index: -1;
+}
+
+/* コンテンツスタイル */
+.season-header {
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.3s;
+}
+
+.season-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--pastel-primary);
+    margin-bottom: 10px;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 15px rgba(255, 175, 204, 0.9);
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+.season-header h3 {
+    font-size: 2.5rem;
+    color: white;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    background: linear-gradient(90deg, rgba(255,255,255,0.8), #fff, rgba(255,255,255,0.8));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.season-description {
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.6s;
+}
+
+.season-description p {
+    color: #f1f1f1;
+    line-height: 1.8;
+    font-size: 1.2rem;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    backdrop-filter: blur(3px);
+}
+
+/* アニメーション */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 15px rgba(255, 175, 204, 0.9);
+    }
+    50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 20px rgba(255, 175, 204, 1), 0 0 30px rgba(255, 175, 204, 0.7);
+    }
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 15px rgba(255, 175, 204, 0.9);
+    }
+}
+
+/* グリッチエフェクト */
+.glitch-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.glitch-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    z-index: -1;
+    opacity: 0;
+}
+
+@keyframes glitch-anim-1 {
+    0% { 
+        opacity: 1;
+        transform: translateX(0);
+        clip-path: inset(10% 0 80% 0);
+    }
+    6% { 
+        clip-path: inset(30% 0 70% 0);
+        transform: translateX(-2px);
+    }
+    12% { 
+        clip-path: inset(60% 0 10% 0);
+        transform: translateX(2px);
+    }
+    18% { 
+        clip-path: inset(10% 0 90% 0);
+        transform: translateX(-1px);
+    }
+    24% { 
+        clip-path: inset(40% 0 40% 0);
+        transform: translateX(1px);
+    }
+    30% { 
+        clip-path: inset(80% 0 5% 0);
+        transform: translateX(3px);
+    }
+    36% { 
+        clip-path: inset(10% 0 20% 0);
+        transform: translateX(-3px);
+    }
+    42% { 
+        clip-path: inset(50% 0 35% 0);
+        transform: translateX(1px);
+    }
+    48% { 
+        clip-path: inset(70% 0 10% 0);
+        transform: translateX(-1px);
+    }
+    54% { 
+        clip-path: inset(20% 0 50% 0);
+        transform: translateX(2px);
+    }
+    60% { 
+        clip-path: inset(30% 0 60% 0);
+        transform: translateX(-2px);
+    }
+    66% { 
+        clip-path: inset(5% 0 80% 0);
+        transform: translateX(3px);
+    }
+    72% { 
+        clip-path: inset(80% 0 5% 0);
+        transform: translateX(-3px);
+    }
+    78% { 
+        clip-path: inset(40% 0 30% 0);
+        transform: translateX(2px);
+    }
+    84% { 
+        clip-path: inset(20% 0 70% 0);
+        transform: translateX(-2px);
+    }
+    90% { 
+        clip-path: inset(60% 0 20% 0);
+        transform: translateX(1px);
+    }
+    96% {
+        clip-path: inset(30% 0 40% 0);
+        transform: translateX(-1px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(0);
+        clip-path: inset(10% 0 80% 0);
+    }
+}
+
+.active-glitch::before {
+    animation: glitch-anim-1 0.6s steps(1) forwards;
+    background-image: inherit;
+    background-position: inherit;
+    background-size: inherit;
+    background-repeat: inherit;
+    filter: saturate(200%) hue-rotate(20deg) brightness(120%) contrast(150%);
+    opacity: 1;
+}
+
+/* スライダーコントロール */
+.slider-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.slider-dots {
+    display: flex;
+    gap: 15px;
+}
+
+.slider-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.slider-dot.active {
+    background: var(--pastel-primary);
+    transform: scale(1.2);
+    border-color: white;
+}
+
+.slider-dot:hover {
+    background: rgba(255, 175, 204, 0.7);
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    .seasons-slider-container {
+        margin: 30px auto;
+        max-width: 95%;
+    }
+    
+    .seasons-slider {
+        width: 400%;
+        height: 450px; /* スマホ用に高さを調整 */
+    }
+    
+    .season-slide {
+        background-size: contain;
+        background-position: center 20%;
+    }
+    
+    .season-content {
+        padding: 15px;
+        justify-content: flex-end; /* テキストを下寄せにして画像が見えるように */
+        padding-bottom: 60px; /* ドットインジケーターと被らないように下部に余白を追加 */
+    }
+    
+    .season-header {
+        margin-bottom: 15px;
+        animation-delay: 0.1s;
+    }
+    
+    .season-number {
+        font-size: 1.8rem;
+    }
+    
+    .season-header h3 {
+        font-size: 1.8rem;
+    }
+    
+    .season-description {
+        animation-delay: 0.3s;
+    }
+    
+    .season-description p {
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 8px;
+    }
+    
+    /* スマホでスライドしやすいようにする */
+    .slider-controls {
+        bottom: 15px;
+    }
+    
+    .slider-dots {
+        gap: 10px;
+    }
+    
+    .slider-dot {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* 小さいスマートフォン向け */
+@media screen and (max-width: 480px) {
+    .seasons-slider {
+        height: 400px;
+    }
+    
+    .season-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .season-number {
+        font-size: 1.5rem;
+    }
+    
+    .season-description p {
+        font-size: 0.9rem;
+    }
+}

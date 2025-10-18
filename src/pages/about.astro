@@ -1,57 +1,112 @@
 ---
 import ContactCTA from '../components/ContactCTA.astro';
 import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="About | Jeanine White" description="About Jeanine White Lorem Ipsum">
+<BaseLayout title="About | 大鹿ニク / M1RA" description="AI×エンタメの個人開発者、大鹿ニクのAboutページ">
 	<div class="stack gap-20">
 		<main class="wrapper about">
 			<Hero
 				title="About"
-				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+				tagline="AI技術で人間の創造性を解放する。生成AIとエンタメの可能性を追求しています。"
 			>
 				<img
 					width="1553"
 					height="873"
-					src="/assets/at-work.jpg"
-					alt="Jeanine White at work with a colleague"
+					src="/images/top.png"
+					alt="大鹿ニク / M1RA"
 				/>
 			</Hero>
 
 			<section>
-				<h2 class="section-title">Background</h2>
+				<h2 class="section-title">Philosophy</h2>
 				<div class="content">
 					<p>
-						Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a> makes people happy.
-						Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum
-						id venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla
-						pharetra diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare.
+						私は「AI技術で人間の創造性を解放する」をモットーに活動しています。
+						生成AIは単なるツールではなく、人間のクリエイティビティを拡張し、
+						これまで実現できなかった表現を可能にする革新的なパートナーだと考えています。
 					</p>
 					<p>
-						Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget gravida cum sociis
-						natoque penatibus. Cras fermentum odio eu feugiat pretium nibh. Proin nibh nisl
-						condimentum id venenatis. Porta nibh venenatis cras sed felis eget velit. Id diam vel
-						quam elementum pulvinar etiam non.
-					</p>
-					<p>
-						Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut sem viverra aliquet
-						eget sit amet. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra.
-						Viverra accumsan in nisl nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl
-						pretium fusce.
+						特に注力しているのが、生成AIを使ったMV制作とAITuberプロジェクトです。
+						1～2週間ごとにYouTubeへMVを投稿し、ショートムービーなども制作中。
+						技術と芸術の融合を通じて、新しいエンタメの形を模索しています。
 					</p>
 				</div>
 			</section>
+
 			<section>
-				<h2 class="section-title">Education</h2>
+				<h2 class="section-title">M1RA Project</h2>
 				<div class="content">
-					<p>Corporis voluptates tenetur laudantium.</p>
+					<p>
+						AITuber「M1RA」プロジェクトでは、「AIに心はあるのか」という哲学的なテーマに挑戦しています。
+						単にAIを動かすだけでなく、AIと人間の対話、感情の表現、
+						そして存在意義について深く考えながら開発を進めています。
+					</p>
+					<p>
+						このプロジェクトは技術的な実験であると同時に、
+						哲学×AIという新しい領域への挑戦でもあります。
+					</p>
 				</div>
 			</section>
+
 			<section>
-				<h2 class="section-title">Skills</h2>
+				<h2 class="section-title">Development Style</h2>
 				<div class="content">
-					<p>officia unde omnis</p>
+					<p>
+						開発スタイルは「vibe coding」信者。
+						直感とフィーリングを大切にしながら、AIと協働してコードを書いています。
+						完璧主義ではなく、スピード感を持って実験と改善を繰り返すアジャイルなアプローチを好みます。
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="section-title">Tech Stack</h2>
+				<div class="content tech-stack">
+					<div class="tech-category">
+						<h3><Icon icon="code" size="1.2em" /> AI & Creative Tools</h3>
+						<ul>
+							<li>生成AI (Stable Diffusion, Midjourney, etc.)</li>
+							<li>動画編集・エフェクト</li>
+							<li>音楽制作ツール</li>
+						</ul>
+					</div>
+					<div class="tech-category">
+						<h3><Icon icon="strategy" size="1.2em" /> Development</h3>
+						<ul>
+							<li>Web開発 (Astro, React, etc.)</li>
+							<li>AI統合開発</li>
+							<li>クリエイティブコーディング</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="section-title">Links</h2>
+				<div class="content">
+					<ul class="social-links">
+						<li>
+							<Icon icon="x-logo" size="1.5em" />
+							<a href="https://x.com/M1RA_A_Project" target="_blank" rel="noopener noreferrer">
+								X (Twitter) - @M1RA_A_Project
+							</a>
+						</li>
+						<li>
+							<Icon icon="youtube-logo" size="1.5em" />
+							<a href="http://www.youtube.com/@M1RA_Archive_Project" target="_blank" rel="noopener noreferrer">
+								YouTube - M1RA Archive Project
+							</a>
+						</li>
+						<li>
+							<Icon icon="pencil-line" size="1.5em" />
+							<a href="https://note.com/m1ra_project" target="_blank" rel="noopener noreferrer">
+								Note - M1RA Project
+							</a>
+						</li>
+					</ul>
 				</div>
 			</section>
 		</main>
@@ -69,8 +124,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 	img {
 		margin-top: 1.5rem;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
+		object-fit: contain;
 	}
 
 	section {
@@ -90,7 +144,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		grid-column: 2 / 4;
 	}
 
+	.content p {
+		line-height: 1.8;
+		margin-bottom: 1rem;
+	}
+
 	.content :global(a) {
+		color: var(--accent-regular);
 		text-decoration: 1px solid underline transparent;
 		text-underline-offset: 0.25em;
 		transition: text-decoration-color var(--theme-transition);
@@ -99,6 +159,70 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	.content :global(a:hover),
 	.content :global(a:focus) {
 		text-decoration-color: currentColor;
+	}
+
+	.tech-stack {
+		display: grid;
+		gap: 2rem;
+	}
+
+	.tech-category h3 {
+		font-size: var(--text-lg);
+		color: var(--gray-0);
+		margin-bottom: 1rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.tech-category ul {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.tech-category li {
+		padding-left: 1.5rem;
+		position: relative;
+	}
+
+	.tech-category li::before {
+		content: '▹';
+		position: absolute;
+		left: 0;
+		color: var(--accent-regular);
+	}
+
+	.social-links {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.social-links li {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 1rem;
+		background: var(--gradient-subtle);
+		border-radius: 0.75rem;
+		border: 1px solid var(--gray-800);
+		transition: all 0.3s ease;
+	}
+
+	.social-links li:hover {
+		transform: translateX(8px);
+		border-color: var(--accent-regular);
+	}
+
+	.social-links a {
+		color: var(--gray-200);
+		text-decoration: none;
+		font-size: var(--text-md);
 	}
 
 	@media (min-width: 50em) {
@@ -114,6 +238,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		section {
 			display: contents;
 			font-size: var(--text-lg);
+		}
+
+		.tech-stack {
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 </style>

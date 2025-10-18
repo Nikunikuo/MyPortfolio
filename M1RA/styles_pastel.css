@@ -1,0 +1,705 @@
+/* パステルカラーを基調とした優しいデザイン */
+
+:root {
+    --pastel-primary: #ffafcc;    /* パステルピンク */
+    --pastel-secondary: #a2d2ff;  /* パステルブルー */
+    --pastel-accent: #cdb4db;     /* パステルパープル */
+    --pastel-light: #fef6e4;      /* クリーム色 */
+    --pastel-dark: #3c474d;       /* 深いグレー */
+    --pastel-gradient: linear-gradient(135deg, var(--pastel-primary) 0%, var(--pastel-secondary) 100%);
+}
+
+/* サイバー要素の緩和 */
+.grid-overlay, .scanner-line {
+    opacity: 0.1;
+}
+
+.cyber-bg {
+    opacity: 0.08;
+}
+
+/* ヒーローセクションの温かみのある再設計 */
+.hero {
+    background: linear-gradient(to bottom, rgba(255, 175, 204, 0.1), rgba(162, 210, 255, 0.1));
+    border-bottom: 1px solid rgba(205, 180, 219, 0.3);
+}
+
+.hero-content h1 {
+    background: var(--pastel-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 15px rgba(255, 175, 204, 0.5);
+}
+
+.subtitle {
+    color: var(--pastel-dark);
+    background: rgba(254, 246, 228, 0.8);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* ホログラムエフェクトの優しい再設計 */
+.hologram-rays {
+    background: radial-gradient(ellipse at center, rgba(255, 175, 204, 0.2) 0%, rgba(162, 210, 255, 0) 70%);
+    animation: gentle-pulse 4s ease-in-out infinite;
+}
+
+@keyframes gentle-pulse {
+    0%, 100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.hologram-scanlines {
+    background: linear-gradient(to bottom,
+        rgba(205, 180, 219, 0) 0%,
+        rgba(205, 180, 219, 0.03) 50%,
+        rgba(205, 180, 219, 0) 100%);
+    opacity: 0.5;
+}
+
+.hologram-platform {
+    background: linear-gradient(to right, transparent, rgba(255, 175, 204, 0.4), transparent);
+}
+
+/* ボタンのデザイン変更 */
+.cta-button {
+    transition: all 0.3s ease;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button.primary {
+    background: var(--pastel-gradient);
+    border: none;
+}
+
+.cta-button.secondary {
+    background: transparent;
+    border: 2px solid var(--pastel-accent);
+    color: var(--pastel-accent);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* セクションヘッダーのスタイル変更 */
+.section-header h2 {
+    background: var(--pastel-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+    text-shadow: 0 2px 10px rgba(255, 175, 204, 0.3);
+    font-weight: 700;
+}
+
+.section-header h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--pastel-gradient);
+    border-radius: 3px;
+}
+
+.section-line {
+    background: var(--pastel-gradient);
+    height: 2px;
+    width: 100px;
+    opacity: 0.7;
+}
+
+/* 特徴カードの新しいデザイン - 和風要素を取り入れたスタイル */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.feature {
+    background: rgba(254, 246, 228, 0.9);
+    border-radius: 10px;
+    padding: 25px;
+    width: 280px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.feature::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--pastel-gradient);
+}
+
+.feature:nth-child(1)::before {
+    background: linear-gradient(to right, var(--pastel-primary), var(--pastel-accent));
+}
+
+.feature:nth-child(2)::before {
+    background: linear-gradient(to right, var(--pastel-accent), var(--pastel-secondary));
+}
+
+.feature:nth-child(3)::before {
+    background: linear-gradient(to right, var(--pastel-secondary), var(--pastel-primary));
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: white;
+    background: var(--pastel-gradient);
+}
+
+.feature:nth-child(1) .feature-icon {
+    background: linear-gradient(135deg, var(--pastel-primary) 0%, var(--pastel-accent) 100%);
+}
+
+.feature:nth-child(2) .feature-icon {
+    background: linear-gradient(135deg, var(--pastel-accent) 0%, var(--pastel-secondary) 100%);
+}
+
+.feature:nth-child(3) .feature-icon {
+    background: linear-gradient(135deg, var(--pastel-secondary) 0%, var(--pastel-primary) 100%);
+}
+
+.feature h3 {
+    font-weight: 600;
+    color: var(--pastel-dark);
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.feature p {
+    color: #5a6872;
+    line-height: 1.6;
+}
+
+/* 特徴ボックスの画像スタイル */
+.feature-image {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin: 15px auto 0;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 和風パターン要素 */
+.japanese-pattern {
+    position: absolute;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.wave-pattern {
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,25 C25,50 75,0 100,25 L100,100 L0,100 Z" fill="currentColor"/></svg>');
+    background-size: 50px 50px;
+    color: #ffafcc;
+}
+
+.sakura-pattern {
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="8" fill="currentColor"/><circle cx="20" cy="50" r="8" fill="currentColor"/><circle cx="80" cy="50" r="8" fill="currentColor"/><circle cx="50" cy="20" r="8" fill="currentColor"/><circle cx="50" cy="80" r="8" fill="currentColor"/></svg>');
+    background-size: 50px 50px;
+    color: #a2d2ff;
+}
+
+/* アーカイブセクションのスタイル変更 */
+.archive {
+    background: linear-gradient(to bottom, rgba(162, 210, 255, 0.05), rgba(205, 180, 219, 0.05));
+    position: relative;
+}
+
+.progress-step {
+    background: rgba(254, 246, 228, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.progress-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+    font-size: 24px;
+    font-weight: 700;
+    background: var(--pastel-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--pastel-primary);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-content h3 {
+    color: var(--pastel-dark);
+    margin-bottom: 5px;
+}
+
+.step-content p {
+    color: #5a6872;
+}
+
+/* ビデオセクションの新デザイン */
+.video-section {
+    background: linear-gradient(to bottom, rgba(255, 175, 204, 0.05), rgba(162, 210, 255, 0.05));
+    border-top: 1px solid rgba(205, 180, 219, 0.3);
+    border-bottom: 1px solid rgba(205, 180, 219, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.video-container {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 5px solid rgba(254, 246, 228, 0.9);
+}
+
+.video-description p:first-child {
+    color: var(--pastel-primary);
+    background: rgba(254, 246, 228, 0.9);
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+/* フッターの新デザイン */
+footer {
+    background: linear-gradient(to right, rgba(255, 175, 204, 0.1), rgba(162, 210, 255, 0.1));
+    border-top: 1px solid rgba(205, 180, 219, 0.3);
+}
+
+/* ミラの引用スタイル */
+.mira-quote {
+    margin: 40px auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.mira-quote h3 {
+    margin-bottom: 20px;
+    color: var(--pastel-primary);
+    font-weight: 600;
+}
+
+.mira-quote blockquote {
+    background: rgba(254, 246, 228, 0.7);
+    border-radius: 15px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--pastel-primary);
+}
+
+/* テキスト強調スタイル */
+.emphasis {
+    color: var(--pastel-primary);
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(255, 175, 204, 0.5);
+    letter-spacing: 0.5px;
+}
+
+/* ネオスフィア紹介スタイル */
+.neosphere-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.neosphere-image {
+    width: 45%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    animation: neosphere-glitch 4s infinite;
+}
+
+.neosphere-image:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(162, 210, 255, 0.3);
+    animation: neosphere-glitch-intense 2s infinite;
+}
+
+/* グリッチエフェクトアニメーション */
+@keyframes neosphere-glitch {
+    0% {
+        filter: none;
+        transform: translate(0, 0);
+    }
+    2% {
+        filter: hue-rotate(90deg) saturate(150%);
+        transform: translate(-3px, 1px);
+    }
+    4% {
+        filter: none;
+        transform: translate(0, 0);
+    }
+    10% {
+        filter: none;
+        transform: translate(0, 0);
+    }
+    12% {
+        filter: contrast(150%) brightness(110%);
+        transform: translate(3px, -2px);
+        box-shadow: -3px 0 rgba(255, 0, 0, 0.3), 3px 0 rgba(0, 255, 255, 0.3);
+    }
+    14% {
+        filter: none;
+        transform: translate(0, 0);
+        box-shadow: none;
+    }
+    98% {
+        filter: none;
+        transform: translate(0, 0);
+    }
+    100% {
+        filter: none;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes neosphere-glitch-intense {
+    0% {
+        filter: none;
+        transform: translateY(-5px) scale(1.02) translate(0, 0);
+    }
+    5% {
+        filter: hue-rotate(120deg) saturate(200%);
+        transform: translateY(-5px) scale(1.02) translate(-5px, 2px);
+        box-shadow: 0 8px 25px rgba(162, 210, 255, 0.3), -5px 0 rgba(255, 0, 0, 0.5), 5px 0 rgba(0, 255, 255, 0.5);
+    }
+    10% {
+        filter: none;
+        transform: translateY(-5px) scale(1.02) translate(5px, -2px);
+        box-shadow: 0 8px 25px rgba(162, 210, 255, 0.3);
+    }
+    15% {
+        filter: contrast(200%) brightness(150%);
+        transform: translateY(-5px) scale(1.02) translate(-3px, 0);
+        box-shadow: 0 8px 25px rgba(162, 210, 255, 0.3), -3px 0 rgba(255, 0, 0, 0.3), 3px 0 rgba(0, 255, 255, 0.3);
+    }
+    20% {
+        filter: none;
+        transform: translateY(-5px) scale(1.02) translate(0, 0);
+        box-shadow: 0 8px 25px rgba(162, 210, 255, 0.3);
+    }
+    100% {
+        filter: none;
+        transform: translateY(-5px) scale(1.02) translate(0, 0);
+        box-shadow: 0 8px 25px rgba(162, 210, 255, 0.3);
+    }
+}
+
+.neosphere-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.neosphere-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background: linear-gradient(135deg, rgba(162, 210, 255, 0.2) 0%, rgba(205, 180, 219, 0.2) 100%);
+    border: 1px solid rgba(205, 180, 219, 0.4);
+    border-radius: 20px;
+    color: var(--pastel-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.neosphere-link:hover {
+    background: linear-gradient(135deg, rgba(162, 210, 255, 0.4) 0%, rgba(205, 180, 219, 0.4) 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(162, 210, 255, 0.2);
+    color: #3c474d;
+}
+
+.mira-quote blockquote p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--pastel-dark);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.mira-quote blockquote cite {
+    display: block;
+    text-align: right;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--pastel-accent);
+}
+
+.mira-quote blockquote:before {
+    content: '"';
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 5rem;
+    color: rgba(255, 175, 204, 0.2);
+    font-family: serif;
+    line-height: 1;
+}
+
+/* AITuber活動の注釈スタイル */
+.ai-tuber-note {
+    background: linear-gradient(to right, rgba(255, 175, 204, 0.1), rgba(162, 210, 255, 0.1));
+    border-left: 3px solid var(--pastel-accent);
+    padding: 12px 15px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 15px;
+    font-size: 0.95rem;
+    position: relative;
+}
+
+.ai-tuber-note:before {
+    content: '・';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--pastel-accent);
+    opacity: 0.8;
+}
+
+/* タイピングエフェクト */
+.mira-typing-container {
+    margin-top: 30px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mira-typing {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--pastel-light);
+    font-size: 1rem;
+    font-style: italic;
+    text-align: center;
+    max-width: 80%;
+    opacity: 0.8;
+}
+
+.typing-cursor {
+    color: var(--pastel-primary);
+    font-weight: 700;
+    margin-left: 2px;
+    animation: cursor-blink 1s infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    
+    .header {
+        padding: 10px 0;
+    }
+    
+    .header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .header p {
+        font-size: 1rem;
+    }
+    
+    /* ヒーローセクションのモバイル最適化 */
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden;
+        padding-bottom: 20px;
+    }
+    
+    .hero-content {
+        order: 2; /* コンテンツを下に配置 */
+        width: 100%;
+        padding: 0 15px;
+        margin-top: 20px;
+    }
+    
+    .hologram-container {
+        order: 1; /* ホログラム（画像）を上に配置 */
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        margin: 10px auto 20px;
+    }
+    
+    .mira-image {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .neo-title {
+        font-size: 3rem;
+        margin-top: 0;
+    }
+    
+    .mira-message-section {
+        margin-top: 20px;
+        width: 100%;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin: 20px 0;
+    }
+    
+    .features {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .feature {
+        width: 100%;
+        max-width: 320px;
+        margin-bottom: 10px;
+    }
+    
+    .japanese-pattern {
+        display: none;
+    }
+    
+    .quote-container {
+        padding: 20px 15px;
+    }
+    
+    .quote-text {
+        font-size: 1.1rem;
+    }
+    
+    .neosphere-images {
+        gap: 10px;
+    }
+    
+    .neosphere-image {
+        width: 90%;
+    }
+    
+    /* フッターのレスポンシブ対応 */
+    .footer {
+        padding: 20px 0;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .footer-links, .footer-social {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* 小さいスマートフォン向け */
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .quote-text {
+        font-size: 1rem;
+    }
+    
+    .refresh-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}

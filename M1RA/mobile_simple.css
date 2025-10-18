@@ -1,0 +1,274 @@
+/* モバイル表示のシンプル化用CSS */
+@media screen and (max-width: 768px) {
+    /* 基本設定 */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* ヘッダー */
+    header {
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 10px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .logo-text {
+        font-size: 1.5rem;
+    }
+    
+    .logo-sub {
+        font-size: 0.7rem;
+    }
+    
+    .nav-links {
+        gap: 10px;
+    }
+    
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+    
+    /* セクション間の基本間隔 */
+    section {
+        padding: 40px 0;
+        margin: 0;
+        clear: both;
+        position: relative;
+    }
+    
+    /* ヒーローセクション */
+    .hero {
+        padding-top: 20px;
+        min-height: auto;
+        display: block;
+    }
+    
+    /* ホログラム（画像）*/
+    .hologram-container {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-bottom: 20px;
+    }
+    
+    .mira-image {
+        max-width: 300px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    /* データ表示 */
+    .data-readout {
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+        margin: 10px auto;
+        transform: none;
+        top: auto;
+        right: auto;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    
+    /* ヒーローコンテンツ */
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        transform: none;
+        top: auto;
+        left: auto;
+        text-align: center;
+        padding: 0 15px;
+    }
+    
+    .neo-title {
+        font-size: 3rem;
+        margin-top: 0;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+        margin: 15px 0;
+    }
+    
+    /* ボタン */
+    .cta-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 0;
+    }
+    
+    .cta-button {
+        margin: 0;
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+    
+    /* メッセージセクション */
+    .mira-message-section {
+        width: 100%;
+        margin: 20px 0 40px;
+    }
+    
+    .mira-message-container {
+        width: 92%;
+        max-height: none;
+        overflow-y: visible;
+        padding: 15px;
+    }
+    
+    .mira-message-title {
+        font-size: 0.9rem;
+    }
+    
+    /* モバイル版ではミラの画像を上に配置 */
+    .mira-message-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .mira-avatar {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 5px;
+        /* 上から下に浮いてくるアニメーション */
+        animation: float-down 0.5s ease-out;
+    }
+    
+    @keyframes float-down {
+        from {
+            transform: translateY(-10px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    .mira-message-content {
+        max-height: none;
+        height: auto;
+        overflow: visible;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+        /* メッセージがフェードインするアニメーション */
+        animation: fade-in 0.7s ease-out;
+    }
+    
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    /* ABOUTセクション */
+    .about {
+        border-top: 2px solid var(--pastel-primary);
+        padding-top: 40px;
+        margin-top: 60px; /* 充分な余白を追加 */
+        position: relative;
+    }
+    
+    /* セクション関連のバグを防止するための調整 */
+    .hero::after {
+        content: '';
+        display: block;
+        height: 50px; /* 区切り用の余白 */
+        width: 100%;
+        clear: both;
+    }
+    
+    #about {
+        scroll-margin-top: 70px; /* アンカーリンクのスクロール位置を調整 */
+    }
+    
+    /* モバイルでの余白調整 */
+    .hero {
+        margin-bottom: 100px;
+        padding-bottom: 60px;
+    }
+    
+    .mira-message-section {
+        margin-bottom: 60px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin: 20px 0;
+    }
+    
+    /* 特徴カード */
+    .features {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .feature {
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    /* セクション区切り */
+    .mobile-section-divider {
+        display: none; /* デスクトップでは非表示 */
+    }
+    
+    #about-divider {
+        display: block;
+        height: 20px;
+        background: linear-gradient(90deg, var(--pastel-primary), var(--pastel-secondary));
+        margin: 40px 0;
+        opacity: 0.5;
+        border-radius: 10px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* 装飾要素の非表示 */
+    .japanese-pattern,
+    .grid-overlay,
+    .scanner-line,
+    .cyber-bg,
+    .parallax-stars,
+    .archive-decoration,
+    .connect-decoration {
+        display: none;
+    }
+}
+
+/* 小さいスマートフォン向け */
+@media screen and (max-width: 480px) {
+    .neo-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .mira-image {
+        max-width: 250px;
+    }
+}
