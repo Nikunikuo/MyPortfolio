@@ -131,17 +131,37 @@
 </style>
 
 <script>
-	window.addEventListener('load', () => {
-		const loadingScreen = document.getElementById('loading-screen');
+	// より確実にローディングを終了させる
+	const loadingScreen = document.getElementById('loading-screen');
+	let hasEnded = false;
 
-		// Wait for loading animation to complete
+	const endLoading = () => {
+		if (hasEnded || !loadingScreen) return;
+		hasEnded = true;
+
 		setTimeout(() => {
-			loadingScreen?.classList.add('fade-out');
+			loadingScreen.classList.add('fade-out');
 
 			// Remove from DOM after fade out
 			setTimeout(() => {
-				loadingScreen?.remove();
+				loadingScreen.remove();
 			}, 800);
 		}, 2500);
-	});
+	};
+
+	// DOMContentLoaded（より早く発火）
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', endLoading);
+	} else {
+		// すでにロード済みの場合は即実行
+		endLoading();
+	}
+
+	// 保険として最大5秒で強制終了
+	setTimeout(() => {
+		if (!hasEnded) {
+			console.log('Loading timeout - forcing end');
+			endLoading();
+		}
+	}, 5000);
 </script>

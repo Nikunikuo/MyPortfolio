@@ -7,6 +7,7 @@ import Footer from '../components/Footer.astro';
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav.astro';
 import LoadingScreen from '../components/LoadingScreen.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	title?: string | undefined;
@@ -20,13 +21,14 @@ const { title, description, showLoading = false } = Astro.props;
 <html lang="en">
 	<head>
 		<MainHead title={title} description={description} />
+		<ViewTransitions />
 	</head>
 	<body>
 		{showLoading && <LoadingScreen />}
-		<video autoplay muted loop playsinline class="bg-video">
+		<video autoplay muted loop playsinline class="bg-video" transition:persist>
 			<source src="/movies/BG.mp4" type="video/mp4">
 		</video>
-		<div class="bg-overlay"></div>
+		<div class="bg-overlay" transition:persist></div>
 		<div class="stack backgrounds">
 			<Nav />
 			<slot />
@@ -39,6 +41,26 @@ const { title, description, showLoading = false } = Astro.props;
 		</script>
 
 		<style>
+			@keyframes fade-in {
+				from {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fade-out {
+				to {
+					opacity: 0;
+				}
+			}
+
+			::view-transition-old(root) {
+				animation: 300ms cubic-bezier(0.4, 0, 1, 1) both fade-out;
+			}
+
+			::view-transition-new(root) {
+				animation: 500ms cubic-bezier(0, 0, 0.2, 1) both fade-in;
+			}
+
 			.bg-video {
 				position: fixed;
 				top: 0;

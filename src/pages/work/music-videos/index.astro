@@ -1,0 +1,238 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Hero from '../../../components/Hero.astro';
+import Icon from '../../../components/Icon.astro';
+import ContactCTA from '../../../components/ContactCTA.astro';
+
+const title = 'ミュージックビデオ | 大鹿ニク / M1RA';
+const description = '生成AIを活用して制作したミュージックビデオ作品一覧';
+
+// ミュージックビデオ作品データ（新しい順）
+const musicVideos = [
+	{
+		title: 'Your Life is Yours',
+		youtubeId: 'j7ab6JBxoFc',
+		description: '',
+		releaseDate: '',
+		isNew: true,
+	},
+	{
+		title: 'AI☆NIKE PUNK!',
+		youtubeId: 'ywRXhxSJdMw',
+		description: '',
+		releaseDate: '',
+	},
+	{
+		title: 'Unbreakable',
+		youtubeId: 'XCN4nPhHr9E',
+		description: '',
+		releaseDate: '',
+	},
+	{
+		title: '無敵の船長',
+		youtubeId: 'Cj-lY7xvow0',
+		description: '',
+		releaseDate: '',
+	},
+	{
+		title: '街角の亡霊',
+		youtubeId: '9nNO0_YVM0k',
+		description: '',
+		releaseDate: '',
+	},
+	{
+		title: 'NEOSPHERE PARADE',
+		youtubeId: 'cqAXSlSeUTI',
+		description: '',
+		releaseDate: '',
+	},
+	{
+		title: 'ヴァルカンとパラス',
+		youtubeId: 'ZhJS_KGtdo4',
+		description: '',
+		releaseDate: '',
+	},
+	{
+		title: 'リブート.',
+		youtubeId: 'fY9wQ_4xpZA',
+		description: '',
+		releaseDate: '',
+	},
+	{
+		title: '名前の無い木',
+		youtubeId: 'r-4K6_aHMYc',
+		description: '',
+		releaseDate: '',
+	},
+];
+---
+
+<BaseLayout title={title} description={description}>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+				title="ミュージックビデオ"
+				tagline="生成AIを活用して制作したミュージックビデオ作品集"
+				align="start"
+			>
+				<div class="youtube-link">
+					<a href="http://www.youtube.com/@M1RA_Archive_Project" target="_blank" rel="noopener noreferrer" class="youtube-cta">
+						<Icon icon="youtube-logo" size="1.5em" />
+						<span>YouTubeチャンネルを見る</span>
+					</a>
+				</div>
+			</Hero>
+
+			<section class="mv-list">
+				{musicVideos.map((mv) => (
+					<div class="mv-card">
+						<div class="mv-video">
+							{mv.isNew && <span class="new-badge">NEW</span>}
+							<iframe
+								width="100%"
+								height="315"
+								src={`https://www.youtube.com/embed/${mv.youtubeId}`}
+								title={mv.title}
+								frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen
+								loading="lazy"
+							></iframe>
+						</div>
+						<div class="mv-info">
+							<h3>{mv.title}</h3>
+							<p class="mv-date">{mv.releaseDate}</p>
+							<p class="mv-description">{mv.description}</p>
+						</div>
+					</div>
+				))}
+			</section>
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.youtube-link {
+		margin-top: 1.5rem;
+	}
+
+	.youtube-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 1rem 2rem;
+		background: var(--gradient-accent);
+		color: var(--gray-999);
+		text-decoration: none;
+		border-radius: 999rem;
+		font-weight: 600;
+		font-size: var(--text-md);
+		transition: all 0.3s ease;
+		box-shadow: var(--shadow-md);
+	}
+
+	.youtube-cta:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-lg);
+	}
+
+	.mv-list {
+		display: grid;
+		gap: 3rem;
+		margin-top: 2rem;
+	}
+
+	.mv-card {
+		background: rgba(0, 20, 40, 0.6);
+		border: 2px solid rgba(0, 255, 136, 0.3);
+		border-radius: 1rem;
+		overflow: hidden;
+		transition: all 0.3s ease;
+	}
+
+	.mv-card:hover {
+		border-color: #00ff88;
+		box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+		transform: translateY(-5px);
+	}
+
+	.mv-video {
+		position: relative;
+		width: 100%;
+		padding-bottom: 56.25%; /* 16:9 aspect ratio */
+		height: 0;
+		overflow: hidden;
+	}
+
+	.mv-video iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.new-badge {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		z-index: 10;
+		background: linear-gradient(135deg, #ff0080, #ff8c00);
+		color: #ffffff;
+		padding: 0.5rem 1rem;
+		border-radius: 0.5rem;
+		font-weight: 700;
+		font-size: var(--text-sm);
+		letter-spacing: 0.1em;
+		box-shadow: 0 4px 12px rgba(255, 0, 128, 0.5);
+		animation: pulse 2s ease-in-out infinite;
+	}
+
+	@keyframes pulse {
+		0%, 100% {
+			transform: scale(1);
+			box-shadow: 0 4px 12px rgba(255, 0, 128, 0.5);
+		}
+		50% {
+			transform: scale(1.05);
+			box-shadow: 0 6px 20px rgba(255, 0, 128, 0.7);
+		}
+	}
+
+	.mv-info {
+		padding: 2rem;
+	}
+
+	.mv-info h3 {
+		font-size: var(--text-2xl);
+		color: #ffffff;
+		margin-bottom: 0.5rem;
+		font-weight: 700;
+	}
+
+	.mv-date {
+		font-size: var(--text-sm);
+		color: #00ff88;
+		margin-bottom: 1rem;
+	}
+
+	.mv-description {
+		font-size: var(--text-base);
+		color: rgba(255, 255, 255, 0.9);
+		line-height: 1.6;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+	}
+
+	@media (min-width: 768px) {
+		.mv-card {
+			display: grid;
+			grid-template-columns: 1.5fr 1fr;
+		}
+
+		.mv-video {
+			padding-bottom: 0;
+			height: 100%;
+		}
+	}
+</style>

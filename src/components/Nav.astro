@@ -7,7 +7,8 @@ import ThemeToggle from './ThemeToggle.astro';
 const textLinks: { label: string; href: string }[] = [
 	{ label: 'Home', href: '/' },
 	{ label: 'Work', href: '/work/' },
-	{ label: 'About', href: '/about/' },
+	{ label: 'Niku', href: '/about/' },
+	{ label: 'M1RA', href: '/mira/' },
 ];
 
 /** Icon links to social media */
@@ -38,7 +39,11 @@ const isCurrentPage = (href: string) => {
 		</a>
 		<a href="/about/" class="menu-item" aria-current={isCurrentPage('/about/') ? 'page' : null}>
 			<Icon icon="pencil-line" size="1.2em" />
-			<span>About</span>
+			<span>Niku</span>
+		</a>
+		<a href="/mira/" class="menu-item" aria-current={isCurrentPage('/mira/') ? 'page' : null}>
+			<Icon icon="strategy" size="1.2em" />
+			<span>M1RA</span>
 		</a>
 		<div class="menu-divider"></div>
 		{

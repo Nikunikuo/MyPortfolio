@@ -14,13 +14,13 @@ const projects = (await getCollection('work')).sort(
 
 <BaseLayout
 	title="Works | 大鹿ニク / M1RA"
-	description="生成AIで制作したMV・ショートムービーなどの作品一覧"
+	description="生成AIで制作したものの紹介ページ。定期的に新作を公開しています。"
 >
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
 			<Hero
 				title="Works"
-				tagline="生成AIで制作したMV・ショートムービーをご覧ください。定期的に新作を公開しています。"
+				tagline="生成AIで制作したものの紹介ページ。定期的に新作を公開しています。"
 				align="start"
 			>
 				<div class="youtube-link">
@@ -30,15 +30,142 @@ const projects = (await getCollection('work')).sort(
 					</a>
 				</div>
 			</Hero>
-			<Grid variant="offset">
-				{
-					projects.map((project) => (
-						<li>
-							<PortfolioPreview project={project} />
-						</li>
-					))
-				}
-			</Grid>
+
+			<section class="work-category">
+				<div class="category-header">
+					<h2>🎵 ディスコグラフィー</h2>
+					<p>生成AIで制作した楽曲・MV作品</p>
+				</div>
+				<div class="category-content">
+					<div class="category-card">
+						<div class="card-icon">
+							<Icon icon="youtube-logo" size="3em" />
+						</div>
+						<h3>ミュージックビデオ</h3>
+						<p>生成AIを活用して制作したミュージックビデオ作品集。映像と音楽の融合を追求しています。</p>
+						<a href="/work/music-videos/" class="card-link">
+							作品ページへ
+							<Icon icon="arrow-right" size="1em" />
+						</a>
+					</div>
+					<div class="category-card">
+						<div class="card-icon">
+							<Icon icon="strategy" size="3em" />
+						</div>
+						<h3>楽曲</h3>
+						<p>AIと人間のコラボレーションで生まれた楽曲たち。ジャンルを超えた音楽制作に挑戦中。</p>
+						<div class="card-links-group">
+							<a href="https://suno.com/@yajusika" target="_blank" rel="noopener noreferrer" class="card-link">
+								Sunoプロフィール
+								<Icon icon="arrow-right" size="1em" />
+							</a>
+							<a href="https://open.spotify.com/intl-ja/artist/4MjpBNzO8tRzviKOgXeHoY" target="_blank" rel="noopener noreferrer" class="card-link">
+								Spotify
+								<Icon icon="arrow-right" size="1em" />
+							</a>
+							<a href="https://music.apple.com/jp/artist/%E5%A4%A7%E9%B9%BF%E3%83%8B%E3%82%AF/1831287955" target="_blank" rel="noopener noreferrer" class="card-link">
+								Apple Music
+								<Icon icon="arrow-right" size="1em" />
+							</a>
+						</div>
+					</div>
+					<div class="category-card">
+						<div class="card-icon">
+							<Icon icon="rocket-launch" size="3em" />
+						</div>
+						<h3>AIアニメーション</h3>
+						<p>生成AIで作成したアニメーション作品。短編から実験的な映像表現まで。</p>
+						<a href="http://www.youtube.com/@M1RA_Archive_Project" target="_blank" rel="noopener noreferrer" class="card-link">
+							視聴する
+							<Icon icon="arrow-right" size="1em" />
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="work-category">
+				<div class="category-header">
+					<h2>💻 開発プロジェクト</h2>
+					<p>AI技術を活用した個人開発アプリケーション</p>
+				</div>
+				<div class="category-content">
+					<div class="category-card">
+						<div class="card-icon">
+							<Icon icon="code" size="3em" />
+						</div>
+						<h3>大鹿堂（Boothページ）</h3>
+						<p>オリジナルグッズや制作物を販売しているBoothショップです。</p>
+						<a href="#" class="card-link">
+							ショップを見る
+							<Icon icon="arrow-right" size="1em" />
+						</a>
+					</div>
+					<div class="category-card">
+						<div class="card-icon">
+							<Icon icon="strategy" size="3em" />
+						</div>
+						<h3>AITuber M1RA</h3>
+						<p>AITuber「M1RA」プロジェクト。AIと人間の新しい関係性を探求しています。</p>
+						<a href="/mira/" class="card-link">
+							詳細を見る
+							<Icon icon="arrow-right" size="1em" />
+						</a>
+					</div>
+					<div class="category-card">
+						<div class="card-icon">
+							<Icon icon="rocket-launch" size="3em" />
+						</div>
+						<h3>Coming Soon</h3>
+						<p>新しいプロジェクトを準備中です。お楽しみに！</p>
+						<div class="card-link disabled">
+							準備中
+							<Icon icon="arrow-right" size="1em" />
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="work-category">
+				<div class="category-header">
+					<h2>📝 その他</h2>
+					<p>実験的な取り組みや試作品など</p>
+				</div>
+				<div class="category-content">
+					<div class="category-card">
+						<div class="card-icon">
+							<Icon icon="pencil-line" size="3em" />
+						</div>
+						<h3>AI活用記事</h3>
+						<p>生成AIの活用方法や技術解説をNoteで公開しています。</p>
+						<a href="https://note.com/m1ra_project" target="_blank" rel="noopener noreferrer" class="card-link">
+							記事を読む
+							<Icon icon="arrow-right" size="1em" />
+						</a>
+					</div>
+					<div class="category-card">
+						<div class="card-icon">
+							<Icon icon="strategy" size="3em" />
+						</div>
+						<h3>実験的プロジェクト</h3>
+						<p>新しい技術やアイデアを試すための実験的な取り組みです。</p>
+						<a href="#" class="card-link">
+							詳細を見る
+							<Icon icon="arrow-right" size="1em" />
+						</a>
+					</div>
+					<div class="category-card">
+						<div class="card-icon">
+							<Icon icon="code" size="3em" />
+						</div>
+						<h3>オープンソース</h3>
+						<p>GitHubで公開している個人プロジェクトやライブラリです。</p>
+						<a href="https://github.com/Nikunikuo" target="_blank" rel="noopener noreferrer" class="card-link">
+							GitHubを見る
+							<Icon icon="arrow-right" size="1em" />
+						</a>
+					</div>
+				</div>
+			</section>
 		</main>
 		<ContactCTA />
 	</div>
@@ -67,5 +194,124 @@ const projects = (await getCollection('work')).sort(
 	.youtube-cta:hover {
 		transform: translateY(-2px);
 		box-shadow: var(--shadow-lg);
+	}
+
+	.work-category {
+		margin-top: 4rem;
+		padding: 2rem 0;
+	}
+
+	.category-header {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.category-header h2 {
+		font-size: var(--text-3xl);
+		color: #ffffff;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+	}
+
+	.category-header p {
+		font-size: var(--text-lg);
+		color: rgba(255, 255, 255, 0.8);
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+	}
+
+	.category-content {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.category-card {
+		background: rgba(0, 20, 40, 0.6);
+		border: 2px solid rgba(0, 255, 136, 0.3);
+		border-radius: 1rem;
+		padding: 2rem;
+		text-align: center;
+		transition: all 0.3s ease;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.category-card:hover {
+		border-color: #00ff88;
+		box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+		transform: translateY(-5px);
+	}
+
+	.card-icon {
+		color: #00ff88;
+		margin-bottom: 0.5rem;
+	}
+
+	.category-card h3 {
+		font-size: var(--text-xl);
+		color: #ffffff;
+		font-weight: 700;
+		margin: 0;
+	}
+
+	.category-card p {
+		font-size: var(--text-base);
+		color: rgba(255, 255, 255, 0.9);
+		line-height: 1.6;
+		flex-grow: 1;
+		margin: 0;
+	}
+
+	.card-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1.5rem;
+		background: rgba(0, 255, 136, 0.1);
+		border: 2px solid #00ff88;
+		border-radius: 0.5rem;
+		color: #00ff88;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		margin-top: auto;
+	}
+
+	.card-link:hover {
+		background: rgba(0, 255, 136, 0.2);
+		box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+	}
+
+	.card-link.disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+
+	.card-links-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		margin-top: auto;
+	}
+
+	.card-links-group .card-link {
+		margin-top: 0;
+	}
+
+	@media (max-width: 768px) {
+		.category-content {
+			grid-template-columns: 1fr;
+		}
+
+		.category-header h2 {
+			font-size: var(--text-2xl);
+		}
+
+		.work-category {
+			margin-top: 2rem;
+		}
 	}
 </style>
