@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create astro@latest)",
+      "Bash(npm create:*)",
+      "Bash(powershell -Command \"Get-ChildItem -Path agreeable-aperture -Recurse | Move-Item -Destination . -Force; Remove-Item agreeable-aperture -Force\")",
+      "Bash(git init:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
