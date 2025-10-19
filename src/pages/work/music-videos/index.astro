@@ -5,7 +5,7 @@ import Icon from '../../../components/Icon.astro';
 import ContactCTA from '../../../components/ContactCTA.astro';
 
 const title = 'ミュージックビデオ | 大鹿ニク / M1RA';
-const description = '生成AIを活用して制作したミュージックビデオ作品一覧';
+const description = '生成AIで制作したミュージックビデオ全10作品。最新作「君は人間ですか」から「名前の無い木」まで。AIと人間の境界を問う哲学的作品から、パンクロック、エレクトロニックまで幅広いジャンル。1～2週ごとに新作公開中。';
 
 // ミュージックビデオ作品データ（新しい順）
 const musicVideos = [
@@ -74,6 +74,34 @@ const musicVideos = [
 ---
 
 <BaseLayout title={title} description={description}>
+	<!-- Breadcrumb Schema -->
+	<script type="application/ld+json" slot="head">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": 1,
+				"name": "Home",
+				"item": "https://niku.studio/"
+			},
+			{
+				"@type": "ListItem",
+				"position": 2,
+				"name": "Work",
+				"item": "https://niku.studio/work/"
+			},
+			{
+				"@type": "ListItem",
+				"position": 3,
+				"name": "ミュージックビデオ",
+				"item": "https://niku.studio/work/music-videos/"
+			}
+		]
+	}
+	</script>
+
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
 			<Hero

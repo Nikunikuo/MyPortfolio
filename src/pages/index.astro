@@ -14,7 +14,11 @@ const projects = (await getCollection('work'))
 	.slice(0, 6);
 ---
 
-<BaseLayout showLoading={true}>
+<BaseLayout
+	title="大鹿ニク / M1RA - AI×エンタメクリエイター"
+	description="生成AIでMV・ショートムービーを制作。1～2週ごとに新作公開中。AITuber「M1RA」プロジェクト運営。AI技術で人間の創造性を解放し、哲学×AIの未来を体現する個人開発者のポートフォリオサイト。"
+	showLoading={true}
+>
 	<div class="stack gap-10 lg:gap-20">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<div class="site-title">
@@ -52,13 +56,13 @@ const projects = (await getCollection('work'))
 					</div>
 					<div class="card-hand">
 						<div class="card card-1">
-							<img src="/images/card1.png" alt="Card 1" />
+							<img src="/images/card1.png" alt="大鹿ニクの作品コレクション - 生成AIで制作したミュージックビデオとAITuberプロジェクト" />
 						</div>
 						<div class="card card-2">
-							<img src="/images/card2.png" alt="Card 2" />
+							<img src="/images/card2.png" alt="M1RA Project Archive - AIが「存在したい」と願った瞬間を描く哲学×AIプロジェクト" />
 						</div>
 						<div class="card card-3">
-							<img src="/images/card3.png" alt="Card 3" />
+							<img src="/images/card3.png" alt="AI×エンタメの未来 - 生成AIとクリエイティブの融合による新しい表現" />
 						</div>
 					</div>
 				</div>

@@ -14,8 +14,30 @@ const projects = (await getCollection('work')).sort(
 
 <BaseLayout
 	title="Works | 大鹿ニク / M1RA"
-	description="生成AIで制作したものの紹介ページ。定期的に新作を公開しています。"
+	description="生成AIで制作した作品集。ディスコグラフィー（ミュージックビデオ10作品、Spotify/Apple Music配信楽曲）、開発プロジェクト（AITuber M1RA、大鹿堂）など。定期的に新作公開中。"
 >
+	<!-- Breadcrumb Schema -->
+	<script type="application/ld+json" slot="head">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": 1,
+				"name": "Home",
+				"item": "https://niku.studio/"
+			},
+			{
+				"@type": "ListItem",
+				"position": 2,
+				"name": "Work",
+				"item": "https://niku.studio/work/"
+			}
+		]
+	}
+	</script>
+
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
 			<Hero
@@ -91,12 +113,12 @@ const projects = (await getCollection('work')).sort(
 				<div class="category-content">
 					<div class="category-card">
 						<div class="card-icon">
-							<Icon icon="code" size="3em" />
+							<Icon icon="pencil-line" size="3em" />
 						</div>
-						<h3>大鹿堂（Boothページ）</h3>
-						<p>オリジナルグッズや制作物を販売しているBoothショップです。</p>
-						<a href="https://nikuoosika.booth.pm/" target="_blank" rel="noopener noreferrer" class="card-link">
-							ショップを見る
+						<h3>AI活用記事</h3>
+						<p>生成AIの活用方法や技術解説をNoteで公開しています。</p>
+						<a href="https://note.com/m1ra_project" target="_blank" rel="noopener noreferrer" class="card-link">
+							記事を読む
 							<Icon icon="arrow-right" size="1em" />
 						</a>
 					</div>
@@ -133,12 +155,12 @@ const projects = (await getCollection('work')).sort(
 				<div class="category-content">
 					<div class="category-card">
 						<div class="card-icon">
-							<Icon icon="pencil-line" size="3em" />
+							<Icon icon="code" size="3em" />
 						</div>
-						<h3>AI活用記事</h3>
-						<p>生成AIの活用方法や技術解説をNoteで公開しています。</p>
-						<a href="https://note.com/m1ra_project" target="_blank" rel="noopener noreferrer" class="card-link">
-							記事を読む
+						<h3>大鹿堂（Boothページ）</h3>
+						<p>オリジナルグッズや制作物を販売しているBoothショップです。</p>
+						<a href="https://nikuoosika.booth.pm/" target="_blank" rel="noopener noreferrer" class="card-link">
+							ショップを見る
 							<Icon icon="arrow-right" size="1em" />
 						</a>
 					</div>

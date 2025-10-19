@@ -5,7 +5,41 @@ import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Niku | 大鹿ニク / M1RA" description="AI×エンタメの個人開発者、大鹿ニクのプロフィールページ">
+<BaseLayout
+	title="Niku | 大鹿ニク / M1RA"
+	description="AI技術で人間の創造性を解放する。vibe coding信者のAI×エンタメクリエイター、大鹿ニク（OosikaNiku）のプロフィール。生成AIでMV制作、AITuberプロジェクト運営。哲学×AIの可能性を追求。"
+>
+	<!-- Breadcrumb Schema -->
+	<script type="application/ld+json" slot="head">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": 1,
+				"name": "Home",
+				"item": "https://niku.studio/"
+			},
+			{
+				"@type": "ListItem",
+				"position": 2,
+				"name": "Niku",
+				"item": "https://niku.studio/about/"
+			}
+		]
+	}
+	</script>
+
+	<!-- AboutPage Schema -->
+	<script type="application/ld+json" slot="head">
+	{
+		"@context": "https://schema.org",
+		"@type": "AboutPage",
+		"mainEntity": { "@id": "https://niku.studio/#person" }
+	}
+	</script>
+
 	<div class="stack gap-20">
 		<main class="wrapper about">
 			<Hero
