@@ -18,6 +18,9 @@ const {
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
 
+<!-- Canonical URL -->
+<link rel="canonical" href={Astro.url.href} />
+
 <!-- Open Graph / Social Media -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://niku.studio/" />
@@ -297,6 +300,39 @@ const {
 			},
 			"mainEntity": {
 				"@id": "https://niku.studio/#person"
+			}
+		},
+		{
+			"@type": "Organization",
+			"@id": "https://niku.studio/#organization",
+			"name": "大鹿ニク / M1RA",
+			"alternateName": ["M1RA Project Archive", "OosikaNiku"],
+			"url": "https://niku.studio/",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://niku.studio/images/top.png",
+				"width": 1200,
+				"height": 630
+			},
+			"image": "https://niku.studio/images/top.png",
+			"description": "生成AIでMV・ショートムービーを制作。AI技術で人間の創造性を解放する、AI×エンタメの個人開発者。",
+			"founder": {
+				"@id": "https://niku.studio/#person"
+			},
+			"sameAs": [
+				"https://x.com/M1RA_A_Project",
+				"https://www.youtube.com/@M1RA_Archive_Project",
+				"https://note.com/m1ra_project",
+				"https://github.com/Nikunikuo",
+				"https://nikuoosika.booth.pm/",
+				"https://suno.com/@yajusika",
+				"https://open.spotify.com/intl-ja/artist/4MjpBNzO8tRzviKOgXeHoY",
+				"https://music.apple.com/jp/artist/%E5%A4%A7%E9%B9%BF%E3%83%8B%E3%82%AF/1831287955"
+			],
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"contactType": "Creator",
+				"url": "https://niku.studio/"
 			}
 		}
 	]
