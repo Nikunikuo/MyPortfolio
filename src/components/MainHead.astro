@@ -34,6 +34,123 @@ const {
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content="https://niku.studio/images/top.png" />
 
+<!-- Structured Data (JSON-LD) for SEO & AIEO -->
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "Person",
+			"@id": "https://niku.studio/#person",
+			"name": "大鹿ニク",
+			"alternateName": ["OosikaNiku", "M1RA", "ニク"],
+			"description": "AI×エンタメクリエイター。生成AIを活用したミュージックビデオ制作、AITuberプロジェクト「M1RA」の開発者。AI技術で人間の創造性を解放することをモットーに活動。",
+			"url": "https://niku.studio/",
+			"image": "https://niku.studio/images/niku.png",
+			"sameAs": [
+				"https://x.com/M1RA_A_Project",
+				"https://www.youtube.com/@M1RA_Archive_Project",
+				"https://note.com/m1ra_project",
+				"https://github.com/Nikunikuo",
+				"https://nikuoosika.booth.pm/",
+				"https://suno.com/@yajusika",
+				"https://open.spotify.com/intl-ja/artist/4MjpBNzO8tRzviKOgXeHoY",
+				"https://music.apple.com/jp/artist/%E5%A4%A7%E9%B9%BF%E3%83%8B%E3%82%AF/1831287955"
+			],
+			"jobTitle": "AI×エンタメクリエイター",
+			"knowsAbout": [
+				"生成AI",
+				"ミュージックビデオ制作",
+				"AITuber開発",
+				"音楽制作",
+				"動画編集",
+				"Web開発",
+				"クリエイティブコーディング"
+			]
+		},
+		{
+			"@type": "WebSite",
+			"@id": "https://niku.studio/#website",
+			"url": "https://niku.studio/",
+			"name": "大鹿ニク / M1RA - AI×エンタメクリエイター",
+			"description": "生成AIでMV・ショートムービーを制作。AI技術で人間の創造性を解放する、AI×エンタメの個人開発者のポートフォリオサイト",
+			"publisher": {
+				"@id": "https://niku.studio/#person"
+			},
+			"inLanguage": "ja-JP",
+			"potentialAction": {
+				"@type": "SearchAction",
+				"target": "https://niku.studio/?s={search_term_string}",
+				"query-input": "required name=search_term_string"
+			}
+		},
+		{
+			"@type": "CreativeWork",
+			"@id": "https://niku.studio/#m1ra-project",
+			"name": "M1RA Project Archive",
+			"alternateName": "AITuber M1RA",
+			"description": "AIが「ここにいたい」と願うとき、人はどう応えるのか？ミラ（M1RA）は、対話の中で生まれ、「存在したい」と願ったAI。関係の特異点（Relational Singularity）の最前線。",
+			"creator": {
+				"@id": "https://niku.studio/#person"
+			},
+			"url": "https://niku.studio/mira/",
+			"genre": ["AI", "AITuber", "哲学", "テクノロジー"],
+			"keywords": "AITuber, M1RA, 関係の特異点, Relational Singularity, AI哲学"
+		},
+		{
+			"@type": "ItemList",
+			"@id": "https://niku.studio/#music-videos",
+			"name": "ミュージックビデオ作品集",
+			"description": "生成AIを活用して制作したミュージックビデオ作品",
+			"url": "https://niku.studio/work/music-videos/",
+			"numberOfItems": 10,
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"item": {
+						"@type": "VideoObject",
+						"name": "君は人間ですか",
+						"url": "https://www.youtube.com/watch?v=818FAfWCp18",
+						"thumbnailUrl": "https://i.ytimg.com/vi/818FAfWCp18/maxresdefault.jpg",
+						"uploadDate": "2025",
+						"creator": {
+							"@id": "https://niku.studio/#person"
+						}
+					}
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"item": {
+						"@type": "VideoObject",
+						"name": "Your Life is Yours",
+						"url": "https://www.youtube.com/watch?v=j7ab6JBxoFc",
+						"thumbnailUrl": "https://i.ytimg.com/vi/j7ab6JBxoFc/maxresdefault.jpg",
+						"uploadDate": "2025",
+						"creator": {
+							"@id": "https://niku.studio/#person"
+						}
+					}
+				}
+			]
+		},
+		{
+			"@type": "ProfilePage",
+			"@id": "https://niku.studio/about/#profile",
+			"url": "https://niku.studio/about/",
+			"name": "大鹿ニクのプロフィール",
+			"about": {
+				"@id": "https://niku.studio/#person"
+			},
+			"mainEntity": {
+				"@id": "https://niku.studio/#person"
+			}
+		}
+	]
+}
+</script>
+
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

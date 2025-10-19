@@ -1,0 +1,35 @@
+# robots.txt for niku.studio
+# AI×エンタメクリエイター 大鹿ニク / M1RA
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# AI Search Engine Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Sitemap
+Sitemap: https://niku.studio/sitemap-index.xml
+Sitemap: https://niku.studio/sitemap-0.xml
+
+# Host
+Host: https://niku.studio
