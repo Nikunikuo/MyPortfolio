@@ -53,6 +53,15 @@ const { Content } = await render(entry);
 					<div class="content">
 						<Content />
 					</div>
+
+					<section class="behind-scenes-section">
+						<h2>制作秘話</h2>
+						<p>この作品の制作過程や技術解説をNoteで公開予定です。お楽しみに！</p>
+						<div class="coming-soon-link">
+							<Icon icon="pencil-line" size="1.2em" />
+							<span>Coming Soon</span>
+						</div>
+					</section>
 				</div>
 			</main>
 		</div>
@@ -135,6 +144,46 @@ const { Content } = await render(entry);
 	.content :global(a:hover),
 	.content :global(a:focus) {
 		text-decoration-color: currentColor;
+	}
+
+	.behind-scenes-section {
+		margin-top: 3rem;
+		padding: 2rem;
+		background: rgba(0, 20, 40, 0.6);
+		border: 2px solid rgba(0, 255, 136, 0.3);
+		border-radius: 1rem;
+		text-align: center;
+		max-width: 65ch;
+		margin-inline: auto;
+	}
+
+	.behind-scenes-section h2 {
+		font-size: var(--text-2xl);
+		color: #ffffff;
+		margin-bottom: 1rem;
+		font-weight: 700;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+	}
+
+	.behind-scenes-section p {
+		font-size: var(--text-base);
+		color: rgba(255, 255, 255, 0.9);
+		margin-bottom: 1.5rem;
+		line-height: 1.6;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+	}
+
+	.coming-soon-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1.5rem;
+		background: rgba(128, 128, 128, 0.3);
+		border: 2px solid rgba(128, 128, 128, 0.5);
+		border-radius: 0.5rem;
+		color: rgba(255, 255, 255, 0.7);
+		font-weight: 600;
+		cursor: not-allowed;
 	}
 
 	@media (min-width: 50em) {

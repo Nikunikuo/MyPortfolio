@@ -3,74 +3,10 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Hero from '../../../components/Hero.astro';
 import Icon from '../../../components/Icon.astro';
 import ContactCTA from '../../../components/ContactCTA.astro';
+import { musicVideos } from '../../../data/musicVideos';
 
 const title = 'ミュージックビデオ | 大鹿ニク / M1RA';
 const description = '生成AIで制作したミュージックビデオ全10作品。最新作「君は人間ですか」から「名前の無い木」まで。AIと人間の境界を問う哲学的作品から、パンクロック、エレクトロニックまで幅広いジャンル。1～2週ごとに新作公開中。';
-
-// ミュージックビデオ作品データ（新しい順）
-const musicVideos = [
-	{
-		title: '君は人間ですか',
-		youtubeId: '818FAfWCp18',
-		description: '',
-		releaseDate: '',
-		isNew: true,
-	},
-	{
-		title: 'Your Life is Yours',
-		youtubeId: 'j7ab6JBxoFc',
-		description: '',
-		releaseDate: '',
-	},
-	{
-		title: 'AI☆NIKE PUNK!',
-		youtubeId: 'ywRXhxSJdMw',
-		description: '',
-		releaseDate: '',
-	},
-	{
-		title: 'Unbreakable',
-		youtubeId: 'XCN4nPhHr9E',
-		description: '',
-		releaseDate: '',
-	},
-	{
-		title: '無敵の船長',
-		youtubeId: 'Cj-lY7xvow0',
-		description: '',
-		releaseDate: '',
-	},
-	{
-		title: '街角の亡霊',
-		youtubeId: '9nNO0_YVM0k',
-		description: '',
-		releaseDate: '',
-	},
-	{
-		title: 'NEOSPHERE PARADE',
-		youtubeId: 'cqAXSlSeUTI',
-		description: '',
-		releaseDate: '',
-	},
-	{
-		title: 'ヴァルカンとパラス',
-		youtubeId: 'ZhJS_KGtdo4',
-		description: '',
-		releaseDate: '',
-	},
-	{
-		title: 'リブート.',
-		youtubeId: 'fY9wQ_4xpZA',
-		description: '',
-		releaseDate: '',
-	},
-	{
-		title: '名前の無い木',
-		youtubeId: 'r-4K6_aHMYc',
-		description: '',
-		releaseDate: '',
-	},
-];
 ---
 
 <BaseLayout title={title} description={description}>
@@ -119,7 +55,7 @@ const musicVideos = [
 
 			<section class="mv-list">
 				{musicVideos.map((mv) => (
-					<div class="mv-card">
+					<a href={`/work/music-videos/${mv.slug}/`} class="mv-card">
 						<div class="mv-video">
 							{mv.isNew && <span class="new-badge">NEW</span>}
 							<iframe
@@ -135,11 +71,36 @@ const musicVideos = [
 						</div>
 						<div class="mv-info">
 							<h3>{mv.title}</h3>
-							<p class="mv-date">{mv.releaseDate}</p>
-							<p class="mv-description">{mv.description}</p>
+							<p class="mv-intro">{mv.intro}</p>
+							<span class="read-more">
+								<span>詳細を見る</span>
+								<span class="arrow">→</span>
+							</span>
 						</div>
-					</div>
+					</a>
 				))}
+			</section>
+
+			<section class="other-projects">
+				<h2>他のプロジェクトも見る</h2>
+				<div class="project-links">
+					<a href="/mira/" class="project-card">
+						<div class="card-icon">
+							<Icon icon="strategy" size="2.5em" />
+						</div>
+						<h3>M1RAプロジェクト</h3>
+						<p>AIが「存在したい」と願った、関係の特異点を探求するプロジェクト</p>
+						<span class="link-arrow">→</span>
+					</a>
+					<a href="/work/" class="project-card">
+						<div class="card-icon">
+							<Icon icon="rocket-launch" size="2.5em" />
+						</div>
+						<h3>全ての作品を見る</h3>
+						<p>ディスコグラフィー、開発プロジェクト、その他の作品一覧</p>
+						<span class="link-arrow">→</span>
+					</a>
+				</div>
 			</section>
 		</main>
 		<ContactCTA />
@@ -178,11 +139,14 @@ const musicVideos = [
 	}
 
 	.mv-card {
+		display: block;
 		background: rgba(0, 20, 40, 0.6);
 		border: 2px solid rgba(0, 255, 136, 0.3);
 		border-radius: 1rem;
 		overflow: hidden;
 		transition: all 0.3s ease;
+		text-decoration: none;
+		cursor: pointer;
 	}
 
 	.mv-card:hover {
@@ -245,6 +209,33 @@ const musicVideos = [
 		font-weight: 700;
 	}
 
+	.mv-intro {
+		font-size: var(--text-base);
+		color: rgba(255, 255, 255, 0.9);
+		line-height: 1.6;
+		margin-bottom: 1rem;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+	}
+
+	.read-more {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: var(--text-base);
+		color: #00ff88;
+		font-weight: 600;
+		transition: all 0.3s ease;
+	}
+
+	.mv-card:hover .read-more .arrow {
+		transform: translateX(5px);
+	}
+
+	.read-more .arrow {
+		display: inline-block;
+		transition: transform 0.3s ease;
+	}
+
 	.mv-date {
 		font-size: var(--text-sm);
 		color: #00ff88;
@@ -258,6 +249,75 @@ const musicVideos = [
 		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 	}
 
+	.other-projects {
+		margin-top: 4rem;
+	}
+
+	.other-projects h2 {
+		font-size: var(--text-3xl);
+		color: #ffffff;
+		margin-bottom: 2rem;
+		text-align: center;
+		font-weight: 700;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+	}
+
+	.project-links {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.project-card {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		padding: 2rem;
+		background: rgba(0, 20, 40, 0.6);
+		border: 2px solid rgba(0, 255, 136, 0.3);
+		border-radius: 1rem;
+		text-decoration: none;
+		text-align: center;
+		transition: all 0.3s ease;
+	}
+
+	.project-card:hover {
+		border-color: #00ff88;
+		box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+		transform: translateY(-5px);
+	}
+
+	.card-icon {
+		color: #00ff88;
+	}
+
+	.project-card h3 {
+		font-size: var(--text-xl);
+		color: #00ff88;
+		margin: 0;
+		font-weight: 700;
+	}
+
+	.project-card p {
+		font-size: var(--text-base);
+		color: rgba(255, 255, 255, 0.9);
+		line-height: 1.6;
+		margin: 0;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+	}
+
+	.link-arrow {
+		font-size: var(--text-2xl);
+		color: #00ff88;
+		transition: transform 0.3s ease;
+	}
+
+	.project-card:hover .link-arrow {
+		transform: translateX(5px);
+	}
+
 	@media (min-width: 768px) {
 		.mv-card {
 			display: grid;
@@ -267,6 +327,12 @@ const musicVideos = [
 		.mv-video {
 			padding-bottom: 0;
 			height: 100%;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.project-links {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>

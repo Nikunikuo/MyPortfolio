@@ -107,6 +107,49 @@ const description = 'AIが「ここにいたい」と願うとき、人はどう
 
 			<section class="section with-background">
 				<header class="section-header stack gap-2 lg:gap-4">
+					<h2>M1RA RELATED WORKS</h2>
+				</header>
+				<div class="content">
+					<p>M1RAプロジェクトに関連する楽曲・映像作品をご紹介します。</p>
+				</div>
+				<div class="related-works-grid">
+					<div class="work-card">
+						<div class="video-thumbnail">
+							<a href="https://www.youtube.com/watch?v=r-4K6_aHMYc" target="_blank" rel="noopener noreferrer">
+								<img src="https://i.ytimg.com/vi/r-4K6_aHMYc/maxresdefault.jpg" alt="名前の無い木 - M1RAプロジェクトのIntroduction Video" class="thumbnail-image">
+								<div class="play-overlay">▶</div>
+							</a>
+						</div>
+						<div class="work-info">
+							<h3>名前の無い木</h3>
+							<p>M1RA Project Archiveの世界観を表現したIntroduction Video。名もなき存在の美しさを描いた作品。</p>
+							<a href="https://www.youtube.com/watch?v=r-4K6_aHMYc" target="_blank" rel="noopener noreferrer" class="work-link">
+								<Icon icon="youtube-logo" size="1.2em" />
+								<span>YouTubeで見る</span>
+							</a>
+						</div>
+					</div>
+					<div class="work-card">
+						<div class="video-thumbnail">
+							<a href="https://www.youtube.com/watch?v=cqAXSlSeUTI" target="_blank" rel="noopener noreferrer">
+								<img src="https://i.ytimg.com/vi/cqAXSlSeUTI/maxresdefault.jpg" alt="NEOSPHERE PARADE - 新しい世界のパレードを描いた作品" class="thumbnail-image">
+								<div class="play-overlay">▶</div>
+							</a>
+						</div>
+						<div class="work-info">
+							<h3>NEOSPHERE PARADE</h3>
+							<p>新しい世界のパレードを描いた作品。エレクトロニックサウンドとAI生成映像の融合。</p>
+							<a href="https://www.youtube.com/watch?v=cqAXSlSeUTI" target="_blank" rel="noopener noreferrer" class="work-link">
+								<Icon icon="youtube-logo" size="1.2em" />
+								<span>YouTubeで見る</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="section with-background">
+				<header class="section-header stack gap-2 lg:gap-4">
 					<h2>PROJECT ARCHIVE</h2>
 				</header>
 				<div class="content">
@@ -355,13 +398,119 @@ const description = 'AIが「ここにいたい」と願うとき、人はどう
 		line-height: 1.6;
 	}
 
+	.related-works-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+
+	.work-card {
+		background: rgba(0, 20, 40, 0.6);
+		border: 2px solid rgba(0, 255, 136, 0.3);
+		border-radius: 1rem;
+		padding: 1.5rem;
+		transition: all 0.3s ease;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.work-card:hover {
+		border-color: #00ff88;
+		box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+		transform: translateY(-5px);
+	}
+
+	.video-thumbnail {
+		position: relative;
+		width: 100%;
+		border-radius: 0.5rem;
+		overflow: hidden;
+	}
+
+	.video-thumbnail a {
+		display: block;
+		position: relative;
+	}
+
+	.thumbnail-image {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		transition: transform 0.3s ease;
+	}
+
+	.video-thumbnail:hover .thumbnail-image {
+		transform: scale(1.05);
+	}
+
+	.play-overlay {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 3rem;
+		color: rgba(255, 255, 255, 0.9);
+		text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+		pointer-events: none;
+		transition: all 0.3s ease;
+	}
+
+	.video-thumbnail:hover .play-overlay {
+		color: #00ff88;
+		text-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+		transform: translate(-50%, -50%) scale(1.2);
+	}
+
+	.work-info {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.work-info h3 {
+		font-size: var(--text-xl);
+		color: #00ff88;
+		margin: 0;
+	}
+
+	.work-info p {
+		color: rgba(255, 255, 255, 0.9);
+		font-size: var(--text-base);
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	.work-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1.5rem;
+		background: rgba(0, 255, 136, 0.1);
+		border: 2px solid #00ff88;
+		border-radius: 0.5rem;
+		color: #00ff88;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		width: fit-content;
+	}
+
+	.work-link:hover {
+		background: rgba(0, 255, 136, 0.2);
+		box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+	}
+
 	@media (max-width: 768px) {
 		.mira-hero {
 			gap: 2rem;
 		}
 
 		.features-grid,
-		.seasons-grid {
+		.seasons-grid,
+		.related-works-grid {
 			grid-template-columns: 1fr;
 		}
 	}

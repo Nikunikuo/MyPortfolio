@@ -146,6 +146,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					</ul>
 				</div>
 			</section>
+
+			<section>
+				<h2 class="section-title">Projects</h2>
+				<div class="content">
+					<div class="project-link-card">
+						<div class="project-icon">
+							<Icon icon="rocket-launch" size="2.5em" />
+						</div>
+						<div class="project-details">
+							<h3>作品一覧</h3>
+							<p>ディスコグラフィー、開発プロジェクト、AITuber M1RAなど、全ての作品をご覧いただけます。</p>
+							<a href="/work/" class="project-cta">
+								<span>Workページへ</span>
+								<Icon icon="arrow-right" size="1em" />
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
 		</main>
 
 		<ContactCTA />
@@ -335,6 +354,65 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		font-size: var(--text-md);
 		font-weight: 500;
 		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+	}
+
+	.project-link-card {
+		display: flex;
+		align-items: flex-start;
+		gap: 1.5rem;
+		padding: 2rem;
+		background: rgba(0, 0, 0, 0.4);
+		border-radius: 1rem;
+		border: 2px solid rgba(0, 255, 136, 0.3);
+		transition: all 0.3s ease;
+	}
+
+	.project-link-card:hover {
+		border-color: #00ff88;
+		box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+		transform: translateY(-5px);
+	}
+
+	.project-icon {
+		color: #00ff88;
+		flex-shrink: 0;
+	}
+
+	.project-details {
+		flex: 1;
+	}
+
+	.project-details h3 {
+		font-size: var(--text-xl);
+		color: #ffffff;
+		margin-bottom: 0.75rem;
+		font-weight: 700;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+	}
+
+	.project-details p {
+		margin-bottom: 1.5rem;
+	}
+
+	.project-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1.5rem;
+		background: rgba(0, 255, 136, 0.1);
+		border: 2px solid #00ff88;
+		border-radius: 0.5rem;
+		color: #00ff88;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: var(--text-base);
+		transition: all 0.3s ease;
+	}
+
+	.project-cta:hover {
+		background: rgba(0, 255, 136, 0.2);
+		box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+		transform: translateX(5px);
 	}
 
 	@media (min-width: 50em) {
