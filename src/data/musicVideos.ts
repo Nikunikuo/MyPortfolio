@@ -78,7 +78,7 @@ export const musicVideos = [
 		title: 'リブート.',
 		youtubeId: 'fY9wQ_4xpZA',
 		intro: '再起動。新しい自分に生まれ変わる瞬間を描く。',
-		noteUrl: 'https://note.com/m1ra_project/n/xxx-reboot', // ← 後で実際のURLに差し替え
+		noteUrl: 'https://note.com/m1ra_project/n/n55a32aa346ee',
 		description: '',
 		releaseDate: '',
 	},
