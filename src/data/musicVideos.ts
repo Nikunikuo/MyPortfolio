@@ -15,7 +15,7 @@ export const musicVideos = [
 		title: 'Your Life is Yours',
 		youtubeId: 'j7ab6JBxoFc',
 		intro: 'あなたの人生はあなた自身のもの。前に進む勇気を歌った作品。',
-		noteUrl: 'https://note.com/m1ra_project/n/xxx-your-life', // ← 後で実際のURLに差し替え
+		noteUrl: 'https://note.com/m1ra_project/n/nb4b95b19a7bc',
 		description: '',
 		releaseDate: '',
 	},
