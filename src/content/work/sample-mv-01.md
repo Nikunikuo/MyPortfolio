@@ -1,34 +1,32 @@
 ---
-title: 最新MV作品
+title: AI Music Video 2025年上半期クロスフェード
 publishDate: 2025-01-15 00:00:00
 img: /images/top.png
-img_alt: 生成AIで制作したMV作品のサムネイル
+img_alt: AI Music Video 2025年上半期クロスフェードのサムネイル
 description: |
-  生成AIを活用して制作したミュージックビデオ作品。
-  1～2週間ごとに新作を公開中。
-youtubeUrl: https://youtu.be/j7ab6JBxoFc
+  2025年上半期に公開したAI Music Videoのクロスフェード映像。
+  様々な楽曲のハイライトをまとめてご紹介。
+youtubeUrl: https://youtu.be/19XJHhlEPQs
 tags:
   - 生成AI
   - MV制作
-  - 映像作品
+  - クロスフェード
 ---
 
 ## 作品について
 
-生成AIを使って制作したミュージックビデオ作品です。
+2025年上半期に公開したAI Music Videoのクロスフェード映像です。
 
-### 制作プロセス
+### コンセプト
 
-- AI画像生成ツールを使用した映像素材の作成
-- 動画編集ソフトでの編集・エフェクト処理
-- 音楽との同期調整
+これまでに制作した様々なミュージックビデオのハイライトをまとめ、
+作品の雰囲気や世界観を一気にお楽しみいただけます。
 
-### 使用ツール
+### 収録楽曲
 
-- 生成AI（画像生成）
-- 動画編集ソフト
-- エフェクト処理ツール
+生成AIを活用して制作した複数の楽曲を収録。
+ジャンルを超えた音楽表現をお楽しみください。
 
 YouTubeチャンネルで全編をご覧いただけます。
 
-[YouTubeで見る](http://www.youtube.com/@M1RA_Archive_Project)
+[YouTubeで見る](https://youtu.be/19XJHhlEPQs)

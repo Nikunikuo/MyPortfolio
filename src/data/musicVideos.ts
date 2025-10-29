@@ -2,16 +2,25 @@
 export const musicVideos = [
 	{
 		slug: '01',
-		title: '君は人間ですか',
-		youtubeId: '818FAfWCp18',
-		intro: 'AIと人間の境界を問う、哲学的なミュージックビデオ。',
-		noteUrl: 'https://note.com/m1ra_project/n/xxx-kimi-wa-ningen', // ← 後で実際のURLに差し替え
+		title: 'Step to "me"',
+		youtubeId: 'lKCH_9_7HpM',
+		intro: '自分自身へと踏み出す一歩を描いた、内省的なミュージックビデオ。',
+		noteUrl: 'https://note.com/m1ra_project/n/xxx-step-to-me', // ← 後で実際のURLに差し替え
 		description: '',
 		releaseDate: '',
 		isNew: true,
 	},
 	{
 		slug: '02',
+		title: '君は人間ですか',
+		youtubeId: '818FAfWCp18',
+		intro: 'AIと人間の境界を問う、哲学的なミュージックビデオ。',
+		noteUrl: 'https://note.com/m1ra_project/n/xxx-kimi-wa-ningen', // ← 後で実際のURLに差し替え
+		description: '',
+		releaseDate: '',
+	},
+	{
+		slug: '03',
 		title: 'Your Life is Yours',
 		youtubeId: 'j7ab6JBxoFc',
 		intro: 'あなたの人生はあなた自身のもの。前に進む勇気を歌った作品。',
@@ -20,7 +29,7 @@ export const musicVideos = [
 		releaseDate: '',
 	},
 	{
-		slug: '03',
+		slug: '04',
 		title: 'AI☆NIKE PUNK!',
 		youtubeId: 'ywRXhxSJdMw',
 		intro: 'パンクロックで突き進む、AIの反骨精神を表現。',
@@ -29,7 +38,7 @@ export const musicVideos = [
 		releaseDate: '',
 	},
 	{
-		slug: '04',
+		slug: '05',
 		title: 'Unbreakable',
 		youtubeId: 'XCN4nPhHr9E',
 		intro: '決して折れない心を描いた、エモーショナルな楽曲。',
@@ -38,7 +47,7 @@ export const musicVideos = [
 		releaseDate: '',
 	},
 	{
-		slug: '05',
+		slug: '06',
 		title: '無敵の船長',
 		youtubeId: 'Cj-lY7xvow0',
 		intro: '航海に出る船長の冒険心を歌ったミュージックビデオ。',
@@ -47,7 +56,7 @@ export const musicVideos = [
 		releaseDate: '',
 	},
 	{
-		slug: '06',
+		slug: '07',
 		title: '街角の亡霊',
 		youtubeId: '9nNO0_YVM0k',
 		intro: '都会の片隅に佇む、記憶の残像を描いた作品。',
@@ -56,7 +65,7 @@ export const musicVideos = [
 		releaseDate: '',
 	},
 	{
-		slug: '07',
+		slug: '08',
 		title: 'NEOSPHERE PARADE',
 		youtubeId: 'cqAXSlSeUTI',
 		intro: '新しい世界のパレード。未来への期待感を表現。',
@@ -65,7 +74,7 @@ export const musicVideos = [
 		releaseDate: '',
 	},
 	{
-		slug: '08',
+		slug: '09',
 		title: 'ヴァルカンとパラス',
 		youtubeId: 'ZhJS_KGtdo4',
 		intro: '神話に登場する二柱の神を題材にした幻想的な作品。',
@@ -74,7 +83,7 @@ export const musicVideos = [
 		releaseDate: '',
 	},
 	{
-		slug: '09',
+		slug: '10',
 		title: 'リブート.',
 		youtubeId: 'fY9wQ_4xpZA',
 		intro: '再起動。新しい自分に生まれ変わる瞬間を描く。',
@@ -83,7 +92,7 @@ export const musicVideos = [
 		releaseDate: '',
 	},
 	{
-		slug: '10',
+		slug: '11',
 		title: '名前の無い木',
 		youtubeId: 'r-4K6_aHMYc',
 		intro: '名もなき存在の静かな物語。初期作品。',
