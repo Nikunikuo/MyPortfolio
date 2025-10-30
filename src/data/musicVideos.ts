@@ -13,7 +13,7 @@ export const musicVideos = [
 	{
 		slug: '02',
 		title: '君は人間ですか',
-		youtubeId: '818FAfWCp18',
+		youtubeId: 'oNsT8Pgaj7Q',
 		intro: 'AIと人間の境界を問う、哲学的なミュージックビデオ。',
 		noteUrl: 'https://note.com/m1ra_project/n/xxx-kimi-wa-ningen', // ← 後で実際のURLに差し替え
 		description: '',
