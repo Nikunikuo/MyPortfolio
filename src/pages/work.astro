@@ -105,6 +105,28 @@ const projects = (await getCollection('work')).sort(
 				</div>
 			</section>
 
+			<!-- #AI創作100日チャレンジ -->
+			<section class="work-category challenge-section">
+				<div class="category-header">
+					<h2>🔥 #AI創作100日チャレンジ</h2>
+					<p>2025/8/9～ 生成AIで毎日創作を続ける100日間の軌跡</p>
+				</div>
+				<div class="challenge-card-wrapper">
+					<a href="/100days/" class="challenge-card-full">
+						<div class="challenge-icon">
+							<Icon icon="rocket-launch" size="3em" />
+						</div>
+						<div class="challenge-info">
+							<h3>2025/8/9～　100日チャレンジの軌跡</h3>
+							<p>生成AIを使った創作を100日間毎日継続するチャレンジ。音楽、アニメ、ツール開発など多岐にわたる創作活動の記録を公開中。</p>
+						</div>
+						<div class="challenge-arrow">
+							<Icon icon="arrow-right" size="2em" />
+						</div>
+					</a>
+				</div>
+			</section>
+
 			<section class="work-category">
 				<div class="category-header">
 					<h2>💻 開発プロジェクト</h2>
@@ -323,6 +345,68 @@ const projects = (await getCollection('work')).sort(
 		margin-top: 0;
 	}
 
+	/* 100日チャレンジセクション */
+	.challenge-section {
+		margin-top: 4rem;
+		margin-bottom: 4rem;
+	}
+
+	.challenge-card-wrapper {
+		width: 100%;
+	}
+
+	.challenge-card-full {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		padding: 2.5rem;
+		background: rgba(0, 20, 40, 0.6);
+		border: 2px solid rgba(0, 255, 136, 0.3);
+		border-radius: 1rem;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	.challenge-card-full:hover {
+		border-color: #00ff88;
+		box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+		transform: translateY(-5px);
+	}
+
+	.challenge-icon {
+		color: #00ff88;
+		flex-shrink: 0;
+	}
+
+	.challenge-info {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.challenge-info h3 {
+		font-size: var(--text-2xl);
+		color: #ffffff;
+		font-weight: 700;
+		margin-bottom: 0.75rem;
+	}
+
+	.challenge-info p {
+		font-size: var(--text-base);
+		color: rgba(255, 255, 255, 0.9);
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	.challenge-arrow {
+		color: #00ff88;
+		flex-shrink: 0;
+		transition: transform 0.3s ease;
+	}
+
+	.challenge-card-full:hover .challenge-arrow {
+		transform: translateX(10px);
+	}
+
 	@media (max-width: 768px) {
 		.category-content {
 			grid-template-columns: 1fr;
@@ -334,6 +418,20 @@ const projects = (await getCollection('work')).sort(
 
 		.work-category {
 			margin-top: 2rem;
+		}
+
+		.challenge-card-full {
+			flex-direction: column;
+			text-align: center;
+			padding: 2rem;
+		}
+
+		.challenge-arrow {
+			transform: rotate(90deg);
+		}
+
+		.challenge-card-full:hover .challenge-arrow {
+			transform: rotate(90deg) translateX(10px);
 		}
 	}
 </style>
