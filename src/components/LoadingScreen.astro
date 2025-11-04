@@ -113,8 +113,8 @@
 		height: 100%;
 		background: linear-gradient(90deg, #00ff88, #00ccff);
 		width: 0%;
-		animation: loadingProgress 1.5s ease-out forwards;
 		box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+		transition: width 0.3s ease-out;
 	}
 
 	@keyframes fadeInText {
@@ -122,46 +122,70 @@
 			opacity: 1;
 		}
 	}
-
-	@keyframes loadingProgress {
-		to {
-			width: 100%;
-		}
-	}
 </style>
 
 <script>
-	// より確実にローディングを終了させる
 	const loadingScreen = document.getElementById('loading-screen');
-	let hasEnded = false;
+	const loadingProgress = loadingScreen?.querySelector('.loading-progress') as HTMLElement;
 
+	let hasEnded = false;
+	let currentProgress = 0;
+	const startTime = Date.now();
+	const minDisplayTime = 1500; // 最低1.5秒は表示
+
+	// プログレスバーを更新する関数
+	const updateProgress = (progress: number) => {
+		if (loadingProgress) {
+			loadingProgress.style.width = `${Math.min(progress, 100)}%`;
+		}
+	};
+
+	// プログレスバーをじわじわ進める（疑似的）
+	const progressInterval = setInterval(() => {
+		if (currentProgress < 90) {
+			// 90%まではゆっくり進む
+			currentProgress += Math.random() * 10;
+			updateProgress(currentProgress);
+		}
+	}, 200);
+
+	// ローディングを終了する関数
 	const endLoading = () => {
 		if (hasEnded || !loadingScreen) return;
-		hasEnded = true;
 
+		const elapsedTime = Date.now() - startTime;
+		const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
+
+		// プログレスバーを100%に
+		clearInterval(progressInterval);
+		updateProgress(100);
+
+		// 最低表示時間を確保してからフェードアウト
 		setTimeout(() => {
+			hasEnded = true;
 			loadingScreen.classList.add('fade-out');
 
-			// Remove from DOM after fade out
+			// フェードアウト後にDOMから削除
 			setTimeout(() => {
 				loadingScreen.remove();
 			}, 800);
-		}, 2500);
+		}, remainingTime + 300); // プログレスバーが100%になってから少し待つ
 	};
 
-	// DOMContentLoaded（より早く発火）
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', endLoading);
-	} else {
-		// すでにロード済みの場合は即実行
+	// 全リソース読み込み完了を待つ（最も確実）
+	if (document.readyState === 'complete') {
+		// すでに読み込み完了している場合
 		endLoading();
+	} else {
+		// loadイベントを待つ（画像・動画・CSS全て完了）
+		window.addEventListener('load', endLoading);
 	}
 
-	// 保険として最大5秒で強制終了
+	// 保険として最大8秒で強制終了
 	setTimeout(() => {
 		if (!hasEnded) {
-			console.log('Loading timeout - forcing end');
+			console.warn('Loading timeout - forcing end');
 			endLoading();
 		}
-	}, 5000);
+	}, 8000);
 </script>
