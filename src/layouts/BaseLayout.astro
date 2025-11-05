@@ -35,6 +35,8 @@ const { title, description, showLoading = false } = Astro.props;
 			<Footer />
 		</div>
 
+		<script is:inline src="/scripts/i18n.js"></script>
+
 		<script>
 			// Add "loaded" class once the document has completely loaded.
 			addEventListener('load', () => document.documentElement.classList.add('loaded'));

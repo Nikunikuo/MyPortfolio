@@ -22,8 +22,8 @@ const projects = (await getCollection('work'))
 	<div class="stack gap-10 lg:gap-20">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<div class="site-title">
-				<h1 class="title-main">Niku's Portfolio</h1>
-				<p class="title-sub">~ニクの秘密基地~</p>
+				<h1 class="title-main" data-i18n="site_title">Niku's Portfolio</h1>
+				<p class="title-sub" data-i18n="site_subtitle">~ニクの秘密基地~</p>
 			</div>
 			<header class="hero">
 				<div class="hero-image-container">
@@ -33,12 +33,12 @@ const projects = (await getCollection('work'))
 						class="hero-image"
 					/>
 					<div class="hero-text-overlay">
-						<h1 class="hero-title">大鹿ニク / M1RA</h1>
-						<p class="hero-tagline">AI技術で人間の創造性を解放する</p>
+						<h1 class="hero-title" data-i18n="hero_name">大鹿ニク / M1RA</h1>
+						<p class="hero-tagline" data-i18n="hero_tagline">AI技術で人間の創造性を解放する</p>
 						<div class="roles">
-							<Pill><Icon icon="code" size="1.33em" /> AI Developer</Pill>
-							<Pill><Icon icon="rocket-launch" size="1.33em" /> Creator</Pill>
-							<Pill><Icon icon="strategy" size="1.33em" /> AITuber</Pill>
+							<Pill><Icon icon="code" size="1.33em" /> <span data-i18n="hero_role_developer">AI Developer</span></Pill>
+							<Pill><Icon icon="rocket-launch" size="1.33em" /> <span data-i18n="hero_role_creator">Creator</span></Pill>
+							<Pill><Icon icon="strategy" size="1.33em" /> <span data-i18n="hero_role_aituber">AITuber</span></Pill>
 						</div>
 					</div>
 				</div>
@@ -47,8 +47,8 @@ const projects = (await getCollection('work'))
 			<section class="intro-section">
 				<div class="intro-layout">
 					<div class="intro-content">
-						<h2>生成AIでエンタメを創る</h2>
-						<p>
+						<h2 data-i18n="intro_heading">生成AIでエンタメを創る</h2>
+						<p data-i18n="intro_text">
 							🎥 生成AIでMV制作（1～2週ごとに投稿中）→ショートムービー等も作成中！<br/>
 							🤖 AITuber「M1RA」プロジェクト運営 →「AIに心はあるのか」哲学×AIの体現<br/>
 							💻 AI×エンタメの個人開発者 → vibe coding信者
@@ -73,10 +73,10 @@ const projects = (await getCollection('work'))
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
 					<div class="section-title-wrapper">
-						<h3>Latest Works</h3>
+						<h3 data-i18n="latest_works_title">Latest Works</h3>
 						<img src="/images/Lastest.png" alt="Latest Works Icon" class="section-icon" />
 					</div>
-					<p>サンプルです。詳細は"Work"からご覧ください！（2025/10/29更新）</p>
+					<p data-i18n="latest_works_desc">サンプルです。詳細は"Work"からご覧ください！（2025/10/29更新）</p>
 				</header>
 
 				<div class="gallery">
@@ -93,7 +93,7 @@ const projects = (await getCollection('work'))
 
 				<div class="cta">
 					<CallToAction href="/work/">
-						すべての作品を見る
+						<span data-i18n="latest_works_cta">すべての作品を見る</span>
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
 				</div>
@@ -101,8 +101,8 @@ const projects = (await getCollection('work'))
 
 			<section class="section with-background bg-variant">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Links</h3>
-					<p>各種プラットフォームで活動中</p>
+					<h3 data-i18n="links_title">Links</h3>
+					<p data-i18n="links_desc">各種プラットフォームで活動中</p>
 				</header>
 
 				<div class="gallery">

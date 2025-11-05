@@ -44,29 +44,31 @@ const projects = (await getCollection('work')).sort(
 				title="Works"
 				tagline="生成AIで制作したものの紹介ページ。定期的に新作を公開しています。"
 				align="start"
+				titleI18n="work_title"
+				taglineI18n="work_desc"
 			>
 				<div class="youtube-link">
 					<a href="http://www.youtube.com/@M1RA_Archive_Project" target="_blank" rel="noopener noreferrer" class="youtube-cta">
 						<Icon icon="youtube-logo" size="1.5em" />
-						<span>YouTubeチャンネルを見る</span>
+						<span data-i18n="work_youtube_link">YouTubeチャンネルを見る</span>
 					</a>
 				</div>
 			</Hero>
 
 			<section class="work-category">
 				<div class="category-header">
-					<h2>🎵 ディスコグラフィー</h2>
-					<p>生成AIで制作した楽曲・MV作品</p>
+					<h2 data-i18n="work_discography">🎵 ディスコグラフィー</h2>
+					<p data-i18n="work_discography_desc">生成AIで制作した楽曲・MV作品</p>
 				</div>
 				<div class="category-content">
 					<div class="category-card">
 						<div class="card-icon">
 							<Icon icon="youtube-logo" size="3em" />
 						</div>
-						<h3>ミュージックビデオ</h3>
-						<p>生成AIを活用して制作したミュージックビデオ作品集。映像と音楽の融合を追求しています。</p>
+						<h3 data-i18n="work_mv">ミュージックビデオ</h3>
+						<p data-i18n="work_mv_desc">生成AIを活用して制作したミュージックビデオ作品集。映像と音楽の融合を追求しています。</p>
 						<a href="/work/music-videos/" class="card-link">
-							作品ページへ
+							<span data-i18n="work_mv_link">作品ページへ</span>
 							<Icon icon="arrow-right" size="1em" />
 						</a>
 					</div>
@@ -74,8 +76,8 @@ const projects = (await getCollection('work')).sort(
 						<div class="card-icon">
 							<Icon icon="strategy" size="3em" />
 						</div>
-						<h3>楽曲</h3>
-						<p>AIと人間のコラボレーションで生まれた楽曲たち。ジャンルを超えた音楽制作に挑戦中。</p>
+						<h3 data-i18n="work_songs">楽曲</h3>
+						<p data-i18n="work_songs_desc">AIと人間のコラボレーションで生まれた楽曲たち。ジャンルを超えた音楽制作に挑戦中。</p>
 						<div class="card-links-group">
 							<a href="https://suno.com/@yajusika" target="_blank" rel="noopener noreferrer" class="card-link">
 								Sunoプロフィール
@@ -95,10 +97,10 @@ const projects = (await getCollection('work')).sort(
 						<div class="card-icon">
 							<Icon icon="rocket-launch" size="3em" />
 						</div>
-						<h3>AIアニメーション</h3>
-						<p>生成AIで作成したアニメーション作品。短編から実験的な映像表現まで。</p>
+						<h3 data-i18n="work_ai_anime">AIアニメーション</h3>
+						<p data-i18n="work_ai_anime_desc">生成AIで作成したアニメーション作品。短編から実験的な映像表現まで。</p>
 						<a href="http://www.youtube.com/@M1RA_Archive_Project" target="_blank" rel="noopener noreferrer" class="card-link">
-							視聴する
+							<span data-i18n="work_watch">視聴する</span>
 							<Icon icon="arrow-right" size="1em" />
 						</a>
 					</div>
@@ -108,8 +110,8 @@ const projects = (await getCollection('work')).sort(
 			<!-- #AI創作100日チャレンジ -->
 			<section class="work-category challenge-section">
 				<div class="category-header">
-					<h2>🔥 #AI創作100日チャレンジ</h2>
-					<p>2025/8/9～ 生成AIで毎日創作を続ける100日間の軌跡</p>
+					<h2 data-i18n="work_100days">🔥 #AI創作100日チャレンジ</h2>
+					<p data-i18n="work_100days_subtitle">2025/8/9～ 生成AIで毎日創作を続ける100日間の軌跡</p>
 				</div>
 				<div class="challenge-card-wrapper">
 					<a href="/100days/" class="challenge-card-full">
@@ -117,8 +119,8 @@ const projects = (await getCollection('work')).sort(
 							<Icon icon="rocket-launch" size="3em" />
 						</div>
 						<div class="challenge-info">
-							<h3>2025/8/9～　100日チャレンジの軌跡</h3>
-							<p>生成AIを使った創作を100日間毎日継続するチャレンジ。音楽、アニメ、ツール開発など多岐にわたる創作活動の記録を公開中。</p>
+							<h3 data-i18n="work_100days_desc">2025/8/9～　100日チャレンジの軌跡</h3>
+							<p data-i18n="work_100days_detail">生成AIを使った創作を100日間毎日継続するチャレンジ。音楽、アニメ、ツール開発など多岐にわたる創作活動の記録を公開中。</p>
 						</div>
 						<div class="challenge-arrow">
 							<Icon icon="arrow-right" size="2em" />
@@ -129,18 +131,18 @@ const projects = (await getCollection('work')).sort(
 
 			<section class="work-category">
 				<div class="category-header">
-					<h2>💻 開発プロジェクト</h2>
-					<p>AI技術を活用した個人開発アプリケーション</p>
+					<h2 data-i18n="work_dev_projects">💻 開発プロジェクト</h2>
+					<p data-i18n="work_dev_projects_desc">AI技術を活用した個人開発アプリケーション</p>
 				</div>
 				<div class="category-content">
 					<div class="category-card">
 						<div class="card-icon">
 							<Icon icon="pencil-line" size="3em" />
 						</div>
-						<h3>AI活用記事</h3>
-						<p>生成AIの活用方法や技術解説をNoteで公開しています。</p>
+						<h3 data-i18n="work_ai_articles">AI活用記事</h3>
+						<p data-i18n="work_ai_articles_desc">生成AIの活用方法や技術解説をNoteで公開しています。</p>
 						<a href="https://note.com/m1ra_project" target="_blank" rel="noopener noreferrer" class="card-link">
-							記事を読む
+							<span data-i18n="work_read_articles">記事を読む</span>
 							<Icon icon="arrow-right" size="1em" />
 						</a>
 					</div>
@@ -148,10 +150,10 @@ const projects = (await getCollection('work')).sort(
 						<div class="card-icon">
 							<Icon icon="strategy" size="3em" />
 						</div>
-						<h3>AITuber M1RA</h3>
-						<p>AITuber「M1RA」プロジェクト。AIと人間の新しい関係性を探求しています。</p>
+						<h3 data-i18n="work_aituber_mira">AITuber M1RA</h3>
+						<p data-i18n="work_aituber_desc_short">AITuber「M1RA」プロジェクト。AIと人間の新しい関係性を探求しています。</p>
 						<a href="/mira/" class="card-link">
-							詳細を見る
+							<span data-i18n="work_view_details">詳細を見る</span>
 							<Icon icon="arrow-right" size="1em" />
 						</a>
 					</div>
@@ -159,10 +161,10 @@ const projects = (await getCollection('work')).sort(
 						<div class="card-icon">
 							<Icon icon="rocket-launch" size="3em" />
 						</div>
-						<h3>Coming Soon</h3>
-						<p>新しいプロジェクトを準備中です。お楽しみに！</p>
+						<h3 data-i18n="work_coming_soon">Coming Soon</h3>
+						<p data-i18n="work_coming_soon_desc">新しいプロジェクトを準備中です。お楽しみに！</p>
 						<div class="card-link disabled">
-							準備中
+							<span data-i18n="work_preparing">準備中</span>
 							<Icon icon="arrow-right" size="1em" />
 						</div>
 					</div>
@@ -171,18 +173,18 @@ const projects = (await getCollection('work')).sort(
 
 			<section class="work-category">
 				<div class="category-header">
-					<h2>📝 その他</h2>
-					<p>実験的な取り組みや試作品など</p>
+					<h2 data-i18n="work_others">📝 その他</h2>
+					<p data-i18n="work_others_desc">実験的な取り組みや試作品など</p>
 				</div>
 				<div class="category-content">
 					<div class="category-card">
 						<div class="card-icon">
 							<Icon icon="code" size="3em" />
 						</div>
-						<h3>大鹿堂（Boothページ）</h3>
-						<p>オリジナルグッズや制作物を販売しているBoothショップです。</p>
+						<h3 data-i18n="work_booth_title">大鹿堂（Boothページ）</h3>
+						<p data-i18n="work_booth_desc">オリジナルグッズや制作物を販売しているBoothショップです。</p>
 						<a href="https://nikuoosika.booth.pm/" target="_blank" rel="noopener noreferrer" class="card-link">
-							ショップを見る
+							<span data-i18n="work_booth_link">ショップを見る</span>
 							<Icon icon="arrow-right" size="1em" />
 						</a>
 					</div>
@@ -190,10 +192,10 @@ const projects = (await getCollection('work')).sort(
 						<div class="card-icon">
 							<Icon icon="strategy" size="3em" />
 						</div>
-						<h3>実験的プロジェクト</h3>
-						<p>新しい技術やアイデアを試すための実験的な取り組みです。</p>
+						<h3 data-i18n="work_experimental_title">実験的プロジェクト</h3>
+						<p data-i18n="work_experimental_desc">新しい技術やアイデアを試すための実験的な取り組みです。</p>
 						<a href="#" class="card-link">
-							詳細を見る
+							<span data-i18n="work_experimental_link">詳細を見る</span>
 							<Icon icon="arrow-right" size="1em" />
 						</a>
 					</div>
@@ -201,10 +203,10 @@ const projects = (await getCollection('work')).sort(
 						<div class="card-icon">
 							<Icon icon="code" size="3em" />
 						</div>
-						<h3>オープンソース</h3>
-						<p>GitHubで公開している個人プロジェクトやライブラリです。</p>
+						<h3 data-i18n="work_opensource_title">オープンソース</h3>
+						<p data-i18n="work_opensource_desc">GitHubで公開している個人プロジェクトやライブラリです。</p>
 						<a href="https://github.com/Nikunikuo" target="_blank" rel="noopener noreferrer" class="card-link">
-							GitHubを見る
+							<span data-i18n="work_opensource_link">GitHubを見る</span>
 							<Icon icon="arrow-right" size="1em" />
 						</a>
 					</div>

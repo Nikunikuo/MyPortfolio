@@ -53,6 +53,9 @@ const isCurrentPage = (href: string) => {
 				</a>
 			))
 		}
+		<button id="lang-switch-btn" class="menu-item lang-switch" aria-label="Switch to English">
+			EN
+		</button>
 	</div>
 	<noscript>
 		<ul class="nav-items">
@@ -207,6 +210,20 @@ const isCurrentPage = (href: string) => {
 		height: 1.5rem;
 		background: rgba(255, 255, 255, 0.2);
 		margin: 0 0.5rem;
+	}
+
+	.lang-switch {
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-family: var(--font-brand);
+		font-weight: 600;
+		font-size: 0.875rem;
+		letter-spacing: 0.5px;
+	}
+
+	.lang-switch:hover {
+		color: var(--accent-regular);
 	}
 
 	@media (max-width: 768px) {

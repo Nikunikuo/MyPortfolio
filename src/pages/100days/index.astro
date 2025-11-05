@@ -16,27 +16,29 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 				title="#AI創作100日チャレンジ"
 				tagline="2025/8/9～ 生成AIで毎日創作を続ける100日間の軌跡"
 				align="start"
+				titleI18n="100days_title"
+				taglineI18n="100days_tagline"
 			/>
 
 			<!-- 検索・フィルター・ソートエリア -->
 			<section class="controls">
 				<div class="search-box">
 					<Icon icon="search" size="1.2em" />
-					<input type="text" id="searchInput" placeholder="タイトルや内容で検索..." />
+					<input type="text" id="searchInput" data-i18n-placeholder="100days_search" placeholder="タイトルや内容で検索..." />
 				</div>
 
 				<div class="filter-buttons">
-					<button class="filter-btn active" data-category="all">全て</button>
-					<button class="filter-btn" data-category="music">🎵 音楽</button>
-					<button class="filter-btn" data-category="anime">🎬 アニメ</button>
-					<button class="filter-btn" data-category="tool">💻 ツール</button>
-					<button class="filter-btn" data-category="manga">📚 漫画</button>
-					<button class="filter-btn" data-category="other">✨ その他</button>
+					<button class="filter-btn active" data-category="all" data-i18n="100days_filter_all">全て</button>
+					<button class="filter-btn" data-category="music" data-i18n="100days_filter_music">🎵 音楽</button>
+					<button class="filter-btn" data-category="anime" data-i18n="100days_filter_anime">🎬 アニメ</button>
+					<button class="filter-btn" data-category="tool" data-i18n="100days_filter_tool">💻 ツール</button>
+					<button class="filter-btn" data-category="manga" data-i18n="100days_filter_manga">📚 漫画</button>
+					<button class="filter-btn" data-category="other" data-i18n="100days_filter_other">✨ その他</button>
 				</div>
 
 				<div class="sort-buttons">
-					<button class="sort-btn active" data-sort="asc">古い順 ↑</button>
-					<button class="sort-btn" data-sort="desc">新しい順 ↓</button>
+					<button class="sort-btn active" data-sort="asc" data-i18n="100days_sort_old">古い順 ↑</button>
+					<button class="sort-btn" data-sort="desc" data-i18n="100days_sort_new">新しい順 ↓</button>
 				</div>
 			</section>
 
@@ -67,7 +69,7 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 			<!-- 結果がない場合のメッセージ -->
 			<div id="noResults" class="no-results" style="display: none;">
 				<Icon icon="warning" size="3em" />
-				<p>該当する投稿が見つかりませんでした</p>
+				<p data-i18n="100days_no_results">該当する投稿が見つかりませんでした</p>
 			</div>
 		</main>
 		<ContactCTA />

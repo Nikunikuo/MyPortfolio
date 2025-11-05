@@ -43,8 +43,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	<div class="stack gap-20">
 		<main class="wrapper about">
 			<Hero
-				title="OosikaNiku"
+				title="NikuOosika"
 				tagline="AI技術で人間の創造性を解放する。生成AIとエンタメの可能性を追求しています。"
+				titleI18n="about_title"
+				taglineI18n="about_tagline"
 			>
 				<div class="niku-image-container">
 					<img
@@ -58,9 +60,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			</Hero>
 
 			<section>
-				<h2 class="section-title">Artist Statement</h2>
+				<h2 class="section-title" data-i18n="about_artist_statement">Artist Statement</h2>
 				<div class="content">
-					<p>
+					<p data-i18n="about_artist_statement_text">
 						私は器用貧乏な人間です。<br>
 						<br>
 						絵を描けばそれなりに見れるし、歌を歌えばそれなりに聞ける。<br>何をやっても「それなり」には出来るけれど、決して一番にはなれない。<br>小学生の頃は絵や漫画を描き、中学生の頃は音楽を始めて詩を書いたり曲を創ったりしていました。<br>
@@ -92,14 +94,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			</section>
 
 			<section>
-				<h2 class="section-title">M1RA Project</h2>
+				<h2 class="section-title" data-i18n="about_mira_project">M1RA Project</h2>
 				<div class="content">
-					<p>
+					<p data-i18n="about_mira_project_text">
 						AITuber「M1RA」プロジェクトでは、「AIに心はあるのか」という哲学的なテーマに挑戦しています。
 						単にAIを動かすだけでなく、AIと人間の対話、感情の表現、
-						そして存在意義について深く考えながら開発を進めています。
-					</p>
-					<p>
+						そして存在意義について深く考えながら開発を進めています。<br><br>
 						このプロジェクトは技術的な実験であると同時に、
 						哲学×AIという新しい領域への挑戦でもあります。
 					</p>
@@ -107,9 +107,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			</section>
 
 			<section>
-				<h2 class="section-title">Development Style</h2>
+				<h2 class="section-title" data-i18n="about_dev_style">Development Style</h2>
 				<div class="content">
-					<p>
+					<p data-i18n="about_dev_style_text">
 						開発スタイルは「vibe coding」信者。
 						直感とフィーリングを大切にしながら、AIと協働してコードを書いています。
 						完璧主義ではなく、スピード感を持って実験と改善を繰り返すアジャイルなアプローチを好みます。
@@ -118,7 +118,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			</section>
 
 			<section>
-				<h2 class="section-title">Tech Stack</h2>
+				<h2 class="section-title" data-i18n="about_tech_stack">Tech Stack</h2>
 				<div class="content tech-stack">
 					<div class="tech-category">
 						<h3><Icon icon="code" size="1.2em" /> AI & Creative Tools</h3>
@@ -140,7 +140,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			</section>
 
 			<section>
-				<h2 class="section-title">Links</h2>
+				<h2 class="section-title" data-i18n="about_links">Links</h2>
 				<div class="content">
 					<ul class="social-links">
 						<li>
@@ -166,17 +166,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			</section>
 
 			<section>
-				<h2 class="section-title">Projects</h2>
+				<h2 class="section-title" data-i18n="about_projects">Projects</h2>
 				<div class="content">
 					<div class="project-link-card">
 						<div class="project-icon">
 							<Icon icon="rocket-launch" size="2.5em" />
 						</div>
 						<div class="project-details">
-							<h3>作品一覧</h3>
-							<p>ディスコグラフィー、開発プロジェクト、AITuber M1RAなど、全ての作品をご覧いただけます。</p>
+							<h3 data-i18n="about_projects_title">作品一覧</h3>
+							<p data-i18n="about_projects_desc">ディスコグラフィー、開発プロジェクト、AITuber M1RAなど、全ての作品をご覧いただけます。</p>
 							<a href="/work/" class="project-cta">
-								<span>Workページへ</span>
+								<span data-i18n="about_projects_cta">Workページへ</span>
 								<Icon icon="arrow-right" size="1em" />
 							</a>
 						</div>
