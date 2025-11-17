@@ -80,6 +80,22 @@ const projects = (await getCollection('work'))
 				</header>
 
 				<div class="gallery">
+					<!-- GHOSTS Special Card -->
+					<a href="/ghosts/" class="ghosts-special-card">
+						<div class="ghosts-card-bg">
+							<img src="/images/GHOSTS/logo.webp" alt="GHOSTS Logo" class="ghosts-logo" />
+						</div>
+						<div class="ghosts-card-content">
+							<h3 class="ghosts-title">GHOSTS</h3>
+							<p class="ghosts-subtitle">プロジェクト始動！</p>
+							<p class="ghosts-tagline">AI統治下の2163年、音楽が消された世界で立ち上がる4人の物語</p>
+							<div class="ghosts-badge">
+								<Icon icon="rocket-launch" size="1.5rem" />
+								<span>NEW PROJECT</span>
+							</div>
+						</div>
+					</a>
+
 					<Grid variant="offset">
 						{
 							projects.map((project) => (
@@ -642,6 +658,184 @@ const projects = (await getCollection('work'))
 		.link-card {
 			border-radius: 1.5rem;
 			height: 9.5rem;
+		}
+	}
+
+	/* GHOSTS Special Card */
+	.ghosts-special-card {
+		position: relative;
+		display: block;
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto 4rem;
+		padding: 3rem;
+		background: linear-gradient(135deg, rgba(15, 15, 30, 0.95), rgba(30, 15, 25, 0.95));
+		border: 3px solid rgba(255, 8, 68, 0.5);
+		border-radius: 1.5rem;
+		text-decoration: none;
+		overflow: hidden;
+		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		box-shadow:
+			0 10px 40px rgba(0, 0, 0, 0.6),
+			0 0 30px rgba(255, 8, 68, 0.3);
+	}
+
+	.ghosts-special-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			45deg,
+			transparent 0%,
+			rgba(255, 8, 68, 0.1) 50%,
+			transparent 100%
+		);
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		pointer-events: none;
+	}
+
+	.ghosts-special-card:hover::before {
+		opacity: 1;
+	}
+
+	.ghosts-special-card:hover {
+		border-color: #FF0844;
+		transform: translateY(-10px);
+		box-shadow:
+			0 20px 60px rgba(0, 0, 0, 0.8),
+			0 0 50px rgba(255, 8, 68, 0.6),
+			0 0 80px rgba(39, 225, 255, 0.3);
+	}
+
+	.ghosts-card-bg {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 50%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0.15;
+		pointer-events: none;
+	}
+
+	.ghosts-logo {
+		width: 80%;
+		height: auto;
+		object-fit: contain;
+		filter: drop-shadow(0 0 20px rgba(255, 8, 68, 0.8));
+		animation: ghostsLogoFloat 4s ease-in-out infinite;
+	}
+
+	@keyframes ghostsLogoFloat {
+		0%, 100% {
+			transform: translateY(0) scale(1);
+		}
+		50% {
+			transform: translateY(-15px) scale(1.05);
+		}
+	}
+
+	.ghosts-card-content {
+		position: relative;
+		z-index: 2;
+		max-width: 60%;
+	}
+
+	.ghosts-title {
+		font-size: clamp(2.5rem, 5vw, 4rem);
+		font-weight: 900;
+		color: #FF0844;
+		margin: 0 0 0.5rem 0;
+		font-family: 'Impact', 'Arial Narrow', 'Helvetica Condensed', sans-serif;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		text-shadow:
+			0 0 20px rgba(255, 8, 68, 0.8),
+			0 0 40px rgba(255, 8, 68, 0.5),
+			2px 2px 4px rgba(0, 0, 0, 0.9);
+		transition: all 0.3s ease;
+	}
+
+	.ghosts-special-card:hover .ghosts-title {
+		color: #27E1FF;
+		text-shadow:
+			0 0 30px rgba(39, 225, 255, 0.9),
+			0 0 50px rgba(39, 225, 255, 0.6),
+			2px 2px 4px rgba(0, 0, 0, 0.9);
+	}
+
+	.ghosts-subtitle {
+		font-size: clamp(1.5rem, 3vw, 2.5rem);
+		font-weight: 700;
+		color: #27E1FF;
+		margin: 0 0 1rem 0;
+		font-family: 'HG丸ｺﾞｼｯｸM-PRO', 'Hiragino Maru Gothic ProN', sans-serif;
+		text-shadow:
+			0 0 15px rgba(39, 225, 255, 0.7),
+			2px 2px 4px rgba(0, 0, 0, 0.8);
+	}
+
+	.ghosts-tagline {
+		font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+		color: #E0E0E0;
+		line-height: 1.8;
+		margin: 0 0 1.5rem 0;
+		font-weight: 400;
+		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+	}
+
+	.ghosts-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1.5rem;
+		background: rgba(255, 8, 68, 0.2);
+		border: 2px solid rgba(255, 8, 68, 0.5);
+		border-radius: 0.5rem;
+		color: #FF0844;
+		font-weight: 700;
+		font-size: 0.95rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		box-shadow: 0 0 20px rgba(255, 8, 68, 0.3);
+		transition: all 0.3s ease;
+	}
+
+	.ghosts-special-card:hover .ghosts-badge {
+		background: rgba(39, 225, 255, 0.2);
+		border-color: #27E1FF;
+		color: #27E1FF;
+		box-shadow: 0 0 30px rgba(39, 225, 255, 0.5);
+	}
+
+	@media (max-width: 768px) {
+		.ghosts-special-card {
+			padding: 2rem 1.5rem;
+			margin-bottom: 3rem;
+		}
+
+		.ghosts-card-content {
+			max-width: 100%;
+		}
+
+		.ghosts-card-bg {
+			width: 100%;
+			opacity: 0.08;
+		}
+
+		.ghosts-logo {
+			width: 60%;
+		}
+
+		.ghosts-badge {
+			font-size: 0.8rem;
+			padding: 0.5rem 1rem;
 		}
 	}
 </style>
