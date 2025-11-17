@@ -62,13 +62,40 @@ const description = `${mv.intro} - 生成AIで制作したミュージックビ�
 		"name": mv.title,
 		"description": mv.intro,
 		"uploadDate": mv.releaseDate || "2024-01-01",
-		"thumbnailUrl": `https://img.youtube.com/vi/${mv.youtubeId}/maxresdefault.jpg`,
+		"thumbnailUrl": [
+			`https://i.ytimg.com/vi/${mv.youtubeId}/maxresdefault.jpg`,
+			`https://i.ytimg.com/vi/${mv.youtubeId}/sddefault.jpg`
+		],
 		"embedUrl": `https://www.youtube.com/embed/${mv.youtubeId}`,
 		"contentUrl": `https://www.youtube.com/watch?v=${mv.youtubeId}`,
+		"url": `https://niku.studio/work/music-videos/${mv.slug}/`,
+		"inLanguage": "ja",
+		"genre": ["Music Video", "AI Music", "J-Pop"],
+		"keywords": "生成AI, ミュージックビデオ, AI音楽, ${mv.title}",
 		"creator": {
 			"@type": "Person",
 			"name": "大鹿ニク",
-			"alternateName": "M1RA"
+			"alternateName": ["M1RA", "OosikaNiku"],
+			"url": "https://niku.studio/"
+		},
+		"author": {
+			"@type": "Person",
+			"name": "大鹿ニク",
+			"url": "https://niku.studio/"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "大鹿ニク / M1RA",
+			"url": "https://niku.studio/",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://niku.studio/images/top.png"
+			}
+		},
+		"isPartOf": {
+			"@type": "WebPage",
+			"name": "ミュージックビデオ作品集",
+			"url": "https://niku.studio/work/music-videos/"
 		}
 	}
 	</script>

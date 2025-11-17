@@ -1,6 +1,6 @@
 # ポートフォリオサイト システム概要ドキュメント
 
-**最終更新**: 2025-10-20
+**最終更新**: 2025-11-15
 **サイトURL**: https://niku.studio
 **制作者**: 大鹿ニク（OosikaNiku / M1RA）
 
@@ -12,12 +12,13 @@
 2. [技術スタック](#技術スタック)
 3. [ディレクトリ構造](#ディレクトリ構造)
 4. [ページ構成](#ページ構成)
-5. [データ管理](#データ管理)
-6. [コンポーネント一覧](#コンポーネント一覧)
-7. [スタイリング方針](#スタイリング方針)
-8. [よくある編集パターン](#よくある編集パターン)
-9. [ビルド・デプロイ](#ビルドデプロイ)
-10. [重要な仕様・制約](#重要な仕様制約)
+5. [GHOSTSポータルサイト](#ghostsポータルサイト)
+6. [データ管理](#データ管理)
+7. [コンポーネント一覧](#コンポーネント一覧)
+8. [スタイリング方針](#スタイリング方針)
+9. [よくある編集パターン](#よくある編集パターン)
+10. [ビルド・デプロイ](#ビルドデプロイ)
+11. [重要な仕様・制約](#重要な仕様制約)
 
 ---
 
@@ -28,6 +29,7 @@
 **主要コンテンツ**:
 - ミュージックビデオ作品（10作品、週1-2更新）
 - M1RA AITuberプロジェクト
+- **GHOSTS ポータルサイト**（架空のバンドIPプロジェクト）
 - 開発プロジェクト（大鹿堂、AITuber開発記事）
 - プロフィール・SNSリンク
 
@@ -66,6 +68,8 @@ D:/Portfplio/
 │   │   ├── 404.astro             # 404エラーページ
 │   │   ├── mira/
 │   │   │   └── index.astro       # M1RAプロジェクトページ
+│   │   ├── ghosts/
+│   │   │   └── index.astro       # GHOSTSポータルサイト
 │   │   └── work/
 │   │       ├── [...slug].astro   # 動的作品詳細ページ
 │   │       └── music-videos/
@@ -74,6 +78,7 @@ D:/Portfplio/
 │   ├── components/               # 再利用可能コンポーネント
 │   │   ├── MainHead.astro        # SEO/AIEO対策（構造化データ）
 │   │   ├── Nav.astro             # フローティングナビゲーション
+│   │   ├── GhostsNav.astro       # GHOSTS専用ナビゲーション
 │   │   ├── Footer.astro          # フッター
 │   │   ├── BaseLayout.astro      # レイアウトラッパー
 │   │   ├── Hero.astro            # ヒーローセクション
@@ -89,7 +94,8 @@ D:/Portfplio/
 │   │   ├── Skills.astro          # スキルセクション
 │   │   └── ThemeToggle.astro     # ダークモード切替
 │   ├── layouts/
-│   │   └── BaseLayout.astro      # メインレイアウト
+│   │   ├── BaseLayout.astro      # メインレイアウト
+│   │   └── GhostsLayout.astro    # GHOSTS専用レイアウト
 │   ├── content/
 │   │   └── work/                 # Markdown作品データ
 │   │       ├── sample-mv-01.md
@@ -104,6 +110,11 @@ D:/Portfplio/
 │   │   └── backgrounds/          # 背景画像（light/dark）
 │   ├── images/
 │   │   ├── mira/                 # M1RA関連画像（seasonal: spring/summer/fall/winter）
+│   │   ├── GHOSTS/               # GHOSTSキャラクター画像
+│   │   │   ├── Yuna.webp         # YUNAキャラクター画像
+│   │   │   ├── Ruku.webp         # LUKキャラクター画像
+│   │   │   ├── Akira.webp        # AKIRAキャラクター画像
+│   │   │   └── Doji.webp         # DOJIキャラクター画像
 │   │   ├── card*.png             # ヒーローカード画像
 │   │   ├── top.png               # メインヒーロー画像
 │   │   ├── niku.png              # プロフィール画像
@@ -133,6 +144,7 @@ D:/Portfplio/
 | `/work/music-videos/01/` | `pages/work/music-videos/[slug].astro` | 個別MVページ（01-10） |
 | `/work/[slug]/` | `pages/work/[...slug].astro` | Markdown作品詳細ページ |
 | `/mira/` | `pages/mira/index.astro` | M1RAプロジェクト専用ページ |
+| `/ghosts/` | `pages/ghosts/index.astro` | **GHOSTSポータルサイト**（独立レイアウト） |
 | `/404` | `pages/404.astro` | 404エラーページ |
 
 ### ページ特性
@@ -167,6 +179,100 @@ D:/Portfplio/
 - Introduction Video（YouTube埋め込み）
 - Related Works（2作品：名前の無い木、NEOSPHERE PARADE）
 - 季節アーカイブ（春夏秋冬の画像）
+
+**GHOSTSページ** (`ghosts/index.astro`):
+- **独立したポータルサイト構造**（niku.studioとは別のレイアウト）
+- GHOSTS専用ナビゲーション（HOME/NEWS/WORLD/MEMBERS/WORKS）
+- ターミナル風起動画面
+- 世界観紹介（2163年、AI統治、音楽禁止）
+- メンバー4人紹介（YUNA/LUK/AKIRA/DOJI）
+- NEWSセクション（Coming Soon）
+- 関連作品リンク（MV、0話プロローグ等）
+- GHOSTS専用フッター
+
+---
+
+## GHOSTSポータルサイト
+
+### 概要
+
+GHOSTSは架空のバンドIPプロジェクトとして、niku.studioとは**完全に独立したポータルサイト構造**で実装されています。鬼滅の刃などの作品ポータルサイトを参考に、将来的なコンテンツ拡張を見越した設計になっています。
+
+### 独立レイアウトシステム
+
+**従来のページ** → `BaseLayout.astro` を使用（niku.studioのナビゲーション）
+**GHOSTSページ** → `GhostsLayout.astro` を使用（GHOSTS専用ナビゲーション）
+
+これにより、GHOSTS関連ページは完全に独立したデザイン・ナビゲーションを持つことができます。
+
+### GHOSTS専用コンポーネント
+
+| ファイル | 説明 |
+|---------|------|
+| `layouts/GhostsLayout.astro` | GHOSTS専用レイアウト。GHOSTS専用フッター、SEO設定を含む |
+| `components/GhostsNav.astro` | GHOSTS専用ナビゲーション。サイバーパンク風デザイン |
+
+### GHOSTSナビゲーション構造
+
+```
+┌─────────────────────────────────────┐
+│ GHOSTS | HOME NEWS WORLD MEMBERS WORKS | ← niku.studio │
+└─────────────────────────────────────┘
+```
+
+**メニュー項目**:
+- **HOME** - トップへスクロール
+- **NEWS** - 最新情報セクション（Coming Soon）
+- **WORLD** - 世界観紹介セクション
+- **MEMBERS** - メンバー紹介セクション
+- **WORKS** - 関連作品セクション
+- **← niku.studio** - メインサイトへ戻る
+
+### ページセクション構成
+
+| セクション | ID | 内容 |
+|-----------|-------|------|
+| 起動画面 | `#top` | ターミナル風ブート画面、グリッチロゴ |
+| ニュース | `#news` | 最新情報（現在Coming Soon） |
+| 世界観 | `#world` | 2163年のAI統治世界、音楽禁止の設定 |
+| メンバー | `#members` | 4人のメンバー紹介カード（画像+プロフィール） |
+| 作品 | `#works` | 関連MV、0話プロローグ、メンバー詳細へのリンク |
+
+### メンバーデータ
+
+| キャラクター | 画像 | 設定 |
+|------------|------|------|
+| YUNA (Vocal) | `/images/GHOSTS/Yuna.webp` | 22歳、中層都市出身、感情抑圧された過去 |
+| LUK (Bass) | `/images/GHOSTS/Ruku.webp` | 24歳、外縁都市出身、記憶を失った青年 |
+| AKIRA (Guitar) | `/images/GHOSTS/Akira.webp` | 23歳、上層都市出身、元模範市民 |
+| DOJI (Drums) | `/images/GHOSTS/Doji.webp` | 25歳、デッドゾーン出身、13年間待ち続けた |
+
+### デザインコンセプト
+
+**カラーパレット**:
+- ネオンレッド: `#FF0844` (YUNA)
+- シアン: `#27E1FF` (LUK)
+- アンバー: `#FFB700` (AKIRA)
+- パープル: `#8B5CF6` (DOJI)
+- ダーク背景: `#0F0F1E`、`#1A1A2E`
+
+**エフェクト**:
+- グリッチテキスト
+- ネオングロー
+- ターミナル風UI
+- スムーズスクロール
+- パルスアニメーション
+
+### 今後の拡張予定
+
+- NEWSページの実装（最新情報、MV公開情報等）
+- メンバー個別詳細ページ（`/ghosts/members/`）
+- 0話プロローグページ
+- 関連MVギャラリー
+
+### Workページとの連携
+
+Workページの「開発プロジェクト」セクションに、GHOSTS特設サイトへのバナーリンクを配置。横長カード形式で目立つデザイン。
 
 ---
 

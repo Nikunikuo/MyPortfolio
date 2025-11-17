@@ -1,0 +1,1531 @@
+---
+import GhostsLayout from '../../layouts/GhostsLayout.astro';
+import Icon from '../../components/Icon.astro';
+
+const pageTitle = 'GHOSTS 公式ポータルサイト';
+const pageDescription = 'AI統治下の2163年。音楽が禁じられた世界で、4人の若者が音を鳴らし始めた。架空のバンド「GHOSTS」の公式ポータルサイト。';
+---
+
+<GhostsLayout
+  title={pageTitle}
+  description={pageDescription}
+>
+  <div class="ghosts-container" id="top">
+    <!-- Terminal Boot Screen -->
+    <section class="boot-screen" id="home">
+      <div class="logo-container">
+        <img src="/images/GHOSTS/poster1.webp" alt="GHOSTS - Noise in the Silence" class="main-poster" />
+
+        <div class="terminal-overlay">
+          <div class="terminal-line">
+            <span class="prompt">&gt;</span>
+            <span class="glitch" data-text="SYSTEM_BOOT">SYSTEM_BOOT</span>
+            <span class="cursor">_</span>
+          </div>
+          <div class="terminal-line delay-1">
+            <span class="prompt">&gt;</span>
+            <span>LOADING GHOSTS PROTOCOL...</span>
+          </div>
+          <div class="terminal-line delay-2">
+            <span class="prompt">&gt;</span>
+            <span class="warning">WARNING: UNAUTHORIZED AUDIO DETECTED</span>
+          </div>
+          <div class="terminal-line delay-3">
+            <span class="prompt">&gt;</span>
+            <span class="error">ERROR: EMOTIONAL_ANOMALY_DETECTED</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <span>SCROLL TO ENTER</span>
+        <Icon icon="arrow-down" size="1.5rem" />
+      </div>
+    </section>
+
+    <!-- World Overview -->
+    <section class="world-section" id="world">
+      <div class="content-block">
+        <h2 class="section-title glitch" data-text="2163">2163</h2>
+        <div class="text-content">
+          <p class="year-label">AI統治120年目の世界</p>
+          <p>音楽は"予測不能な<span class="glitch-char">感情</span>の<span class="glitch-char">揺らぎ</span>"として排除された。</p>
+          <p><span class="glitch-char">感情</span>は最適化され、<span class="glitch-char">揺らぎ</span>は治療される。</p>
+          <p>静寂こそが、秩序であり、<span class="glitch-char">幸福</span>だと教えられた。</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="content-block">
+        <p class="emphasis">しかし——</p>
+        <div class="text-content">
+          <p>AI<span class="glitch-char">監</span>視網の隙<span class="glitch-char">間</span>に、</p>
+          <p class="highlight"><span class="glitch-char">4</span>人の若<span class="glitch-char">者</span>が禁<span class="glitch-char">断</span>の音を鳴らし始めた。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaser Video -->
+    <section class="teaser-section">
+      <div class="teaser-container">
+        <h2 class="teaser-title">ティザー映像</h2>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/mNVX1HILIhw"
+            title="GHOSTS ティザー映像"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Band Info -->
+    <section class="band-section" id="members">
+      <h2 class="members-title">GHOSTS　MEMBERS</h2>
+      <div class="band-grid">
+        <div class="member-card" data-color="red">
+          <div class="member-image">
+            <img src="/images/GHOSTS/Yuna.webp" alt="YUNA" />
+          </div>
+          <h3>YUNA</h3>
+          <p class="role">Vocal / 22歳</p>
+          <p class="origin">中層都市・エイドロン出身</p>
+          <div class="member-description">
+            <p>感情を抑圧されて育った少女。</p>
+            <p>「大声は治療対象」として矯正された過去を持つ。</p>
+            <p>今、取り戻した声で、AIが消そうとした感情を証明する。</p>
+          </div>
+          <a href="/ghosts/members/yuna/" class="member-detail-link">詳細はこちら →</a>
+        </div>
+
+        <div class="member-card" data-color="cyan">
+          <div class="member-image">
+            <img src="/images/GHOSTS/Ruku.webp" alt="LUK" />
+          </div>
+          <h3>LUK</h3>
+          <p class="role">Bass / 24歳</p>
+          <p class="origin">外縁都市・メビウス環出身</p>
+          <div class="member-description">
+            <p>記憶の大半を失った青年。</p>
+            <p>失った過去の代わりに、ベースの低音で新しい記憶を刻み続ける。</p>
+            <p>「まぁいいけど」が口癖。実は全部大切にしている。</p>
+          </div>
+          <a href="/ghosts/members/luk/" class="member-detail-link">詳細はこちら →</a>
+        </div>
+
+        <div class="member-card" data-color="amber">
+          <div class="member-image">
+            <img src="/images/GHOSTS/Akira.webp" alt="AKIRA" />
+          </div>
+          <h3>AKIRA</h3>
+          <p class="role">Guitar / 23歳</p>
+          <p class="origin">上層都市・ルーメン出身</p>
+          <div class="member-description">
+            <p>元「模範市民」。幸福指数100%の世界で生きていた。</p>
+            <p>完璧に最適化された日常に退屈し、不完全なギターの音に魅了された。</p>
+            <p>完璧さを捨てて、堕ちてきた男。</p>
+          </div>
+          <a href="/ghosts/members/akira/" class="member-detail-link">詳細はこちら →</a>
+        </div>
+
+        <div class="member-card" data-color="purple">
+          <div class="member-image">
+            <img src="/images/GHOSTS/Doji.webp" alt="DOJI" />
+          </div>
+          <h3>DOJI</h3>
+          <p class="role">Drums / 25歳</p>
+          <p class="origin">放棄領域・デッドゾーン出身</p>
+          <div class="member-description">
+            <p>最年長メンバー。音楽を「体験」として知る唯一の存在。</p>
+            <p>13年間、誰も来ない地下でドラムを叩き続けた。</p>
+            <p>「誰かが必ず来る」という言葉を信じて。</p>
+          </div>
+          <a href="/ghosts/members/doji/" class="member-detail-link">詳細はこちら →</a>
+        </div>
+      </div>
+
+      <div class="band-statement">
+        <p class="quote">"AIは静寂を幸福と呼ぶ。</p>
+        <p class="quote">俺たちは揺らぎを幸福と呼ぶ。"</p>
+
+        <!-- Art Slideshow -->
+        <div class="art-slideshow">
+          <div class="art-track">
+            <div class="art-slide">
+              <img src="/images/GHOSTS/Arts/1.png" alt="GHOSTS Art 1" />
+            </div>
+            <div class="art-slide">
+              <img src="/images/GHOSTS/Arts/2.png" alt="GHOSTS Art 2" />
+            </div>
+            <div class="art-slide">
+              <img src="/images/GHOSTS/Arts/3.png" alt="GHOSTS Art 3" />
+            </div>
+            <div class="art-slide">
+              <img src="/images/GHOSTS/Arts/4.png" alt="GHOSTS Art 4" />
+            </div>
+            <div class="art-slide">
+              <img src="/images/GHOSTS/Arts/5.png" alt="GHOSTS Art 5" />
+            </div>
+            <!-- 無限ループ用の複製 -->
+            <div class="art-slide">
+              <img src="/images/GHOSTS/Arts/1.png" alt="GHOSTS Art 1" />
+            </div>
+            <div class="art-slide">
+              <img src="/images/GHOSTS/Arts/2.png" alt="GHOSTS Art 2" />
+            </div>
+            <div class="art-slide">
+              <img src="/images/GHOSTS/Arts/3.png" alt="GHOSTS Art 3" />
+            </div>
+            <div class="art-slide">
+              <img src="/images/GHOSTS/Arts/4.png" alt="GHOSTS Art 4" />
+            </div>
+            <div class="art-slide">
+              <img src="/images/GHOSTS/Arts/5.png" alt="GHOSTS Art 5" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section" id="news">
+      <div class="news-header-wrapper">
+        <h2 class="section-title">NEWS</h2>
+      </div>
+
+      <div class="news-scroll-container">
+        <button class="news-scroll-btn news-scroll-left" id="newsScrollLeft" aria-label="前へ">
+          <Icon icon="arrow-left" size="1.5rem" />
+        </button>
+        <div class="news-scroll-wrapper" id="newsScrollWrapper">
+          <div class="news-grid">
+          <a href="/ghosts/" class="news-card">
+            <div class="news-thumbnail">
+              <img src="/images/GHOSTS/poster1.webp" alt="公式ポータルサイトオープン" />
+            </div>
+            <div class="news-info">
+              <time class="news-date">2025.11.17</time>
+              <span class="news-category category-launch">LAUNCH</span>
+              <h3 class="news-title">公式ポータルサイトオープン</h3>
+            </div>
+          </a>
+
+          <a href="https://note.com/m1ra_project/n/n53a7463618e7" target="_blank" rel="noopener noreferrer" class="news-card">
+            <div class="news-thumbnail">
+              <img src="/images/GHOSTS/newssamnail/1.webp" alt="EPISODE 0公開" />
+            </div>
+            <div class="news-info">
+              <time class="news-date">2025.11.17</time>
+              <span class="news-category category-story">STORY</span>
+              <h3 class="news-title">EPISODE 0公開</h3>
+            </div>
+          </a>
+
+          <a href="/ghosts/videos/" class="news-card">
+            <div class="news-thumbnail">
+              <img src="/images/GHOSTS/Yuna.webp" alt="関連MV公開" />
+            </div>
+            <div class="news-info">
+              <time class="news-date">2025.11.17</time>
+              <span class="news-category category-video">VIDEO</span>
+              <h3 class="news-title">関連MV公開</h3>
+            </div>
+          </a>
+
+          <a href="#members" class="news-card">
+            <div class="news-thumbnail">
+              <img src="/images/GHOSTS/members/Akirapage.webp" alt="メンバープロフィール公開" />
+            </div>
+            <div class="news-info">
+              <time class="news-date">2025.11.17</time>
+              <span class="news-category category-members">MEMBERS</span>
+              <h3 class="news-title">メンバープロフィール公開</h3>
+            </div>
+          </a>
+
+          <a href="/ghosts/anime/" class="news-card">
+            <div class="news-thumbnail">
+              <img src="/images/GHOSTS/Arts/3.png" alt="ショートアニメ公開" />
+            </div>
+            <div class="news-info">
+              <time class="news-date">2025.11.17</time>
+              <span class="news-category category-video">ANIME</span>
+              <h3 class="news-title">ショートアニメ公開</h3>
+            </div>
+          </a>
+
+          <a href="/ghosts/manga/" class="news-card">
+            <div class="news-info no-thumbnail">
+              <time class="news-date">2025.11.17</time>
+              <span class="news-category category-story">MANGA</span>
+              <h3 class="news-title">漫画版制作決定</h3>
+            </div>
+          </a>
+
+          <div class="news-card news-card-coming-soon">
+            <div class="news-info no-thumbnail">
+              <time class="news-date">2025.11.15</time>
+              <span class="news-category category-launch">UPDATE</span>
+              <h3 class="news-title">世界観設定資料公開</h3>
+              <span class="coming-soon-badge">COMING SOON</span>
+            </div>
+          </div>
+
+          <div class="news-card news-card-coming-soon">
+            <div class="news-info no-thumbnail">
+              <time class="news-date">2025.11.10</time>
+              <span class="news-category category-story">STORY</span>
+              <h3 class="news-title">カタコンベの秘密</h3>
+              <span class="coming-soon-badge">COMING SOON</span>
+            </div>
+          </div>
+        </div>
+        </div>
+        <button class="news-scroll-btn news-scroll-right" id="newsScrollRight" aria-label="次へ">
+          <Icon icon="arrow-right" size="1.5rem" />
+        </button>
+      </div>
+    </section>
+
+    <!-- Links Section -->
+    <section class="links-section" id="works">
+      <h2 class="section-title">ENTER THE GHOSTS</h2>
+
+      <div class="links-grid">
+        <a href="/ghosts/videos/" class="link-card" data-platform="youtube">
+          <Icon icon="youtube-logo" size="2rem" />
+          <span class="link-title">関連動画</span>
+          <span class="link-description">GHOSTS世界観の楽曲・映像作品</span>
+        </a>
+
+        <a href="/ghosts/novel/" class="link-card" data-platform="note">
+          <Icon icon="paper-plane-tilt" size="2rem" />
+          <span class="link-title">小説</span>
+          <span class="link-description">物語として体験する世界観</span>
+        </a>
+
+        <a href="/ghosts/manga/" class="link-card coming-soon" data-platform="manga">
+          <Icon icon="book-open-text" size="2rem" />
+          <span class="link-title">漫画</span>
+          <span class="link-description">GHOSTSの物語をコミックで</span>
+          <span class="status">COMING SOON</span>
+        </a>
+
+        <a href="/ghosts/anime/" class="link-card coming-soon" data-platform="anime">
+          <Icon icon="rocket-launch" size="2rem" />
+          <span class="link-title">アニメ</span>
+          <span class="link-description">動くGHOSTSの世界</span>
+          <span class="status">COMING SOON</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</GhostsLayout>
+
+<style>
+  .ghosts-container {
+    width: 100%;
+    min-height: 100vh;
+    background: #0a0a0a;
+    color: #E0E0E0;
+    overflow-x: hidden;
+  }
+
+  /* Boot Screen */
+  .boot-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    background: linear-gradient(180deg, #0a0a0a 0%, #151515 100%);
+  }
+
+  .terminal-overlay {
+    position: absolute;
+    top: 28%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    font-family: 'Courier New', monospace;
+    font-size: clamp(0.7rem, 1.2vw, 1rem);
+    opacity: 0;
+    animation: fadeIn 1s ease-out 2.5s forwards;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .terminal-line {
+    margin: 0.5rem 0;
+    opacity: 0;
+    animation: terminalLine 0.5s ease-out forwards;
+    white-space: nowrap;
+  }
+
+  .terminal-line.delay-1 { animation-delay: 3s; }
+  .terminal-line.delay-1 span:not(.prompt) { color: #000000; }
+  .terminal-line.delay-2 { animation-delay: 3.5s; }
+  .terminal-line.delay-3 { animation-delay: 4s; }
+
+  .prompt {
+    color: #27E1FF;
+    margin-right: 0.5rem;
+  }
+
+  .warning {
+    color: #FFB700;
+  }
+
+  .error {
+    color: #FF0844;
+  }
+
+  .cursor {
+    animation: blink 1s infinite;
+  }
+
+  /* Main Poster */
+  .logo-container {
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 2s forwards;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .main-poster {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 30px rgba(255, 8, 68, 0.5));
+    transition: all 0.3s ease;
+  }
+
+  .main-poster:hover {
+    filter: drop-shadow(0 0 50px rgba(39, 225, 255, 0.6));
+    transform: scale(1.02);
+  }
+
+  /* Glitch Effect */
+  .glitch {
+    position: relative;
+    display: inline-block;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+  }
+
+  .glitch::before {
+    animation: glitch-1 0.3s infinite;
+    color: #FF0844;
+    z-index: -1;
+  }
+
+  .glitch::after {
+    animation: glitch-2 0.3s infinite;
+    color: #27E1FF;
+    z-index: -2;
+  }
+
+  /* Random Character Glitch */
+  .glitch-char {
+    display: inline-block;
+    position: relative;
+    animation: charGlitch 3s ease-in-out infinite;
+  }
+
+  .glitch-char:nth-child(1) { animation-delay: 0.5s; }
+  .glitch-char:nth-child(2) { animation-delay: 1.2s; }
+  .glitch-char:nth-child(3) { animation-delay: 2.1s; }
+  .glitch-char:nth-child(4) { animation-delay: 0.8s; }
+  .glitch-char:nth-child(5) { animation-delay: 1.7s; }
+
+  @keyframes charGlitch {
+    0%, 90%, 100% {
+      transform: translate(0);
+      opacity: 1;
+    }
+    91% {
+      transform: translate(-2px, 1px);
+      opacity: 0.8;
+      color: #FF0844;
+      text-shadow: 2px -1px 0 #27E1FF, -2px 1px 0 #FFB700;
+    }
+    92% {
+      transform: translate(2px, -1px);
+      opacity: 0.9;
+      color: #27E1FF;
+      text-shadow: -2px 1px 0 #FF0844, 2px -1px 0 #FFB700;
+    }
+    93% {
+      transform: translate(-1px, -1px);
+      opacity: 1;
+      color: inherit;
+      text-shadow: 1px 1px 0 #FF0844, -1px -1px 0 #27E1FF;
+    }
+    94%, 100% {
+      transform: translate(0);
+      opacity: 1;
+      color: inherit;
+      text-shadow: none;
+    }
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.8rem;
+    letter-spacing: 0.2rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 3s forwards, float 2s ease-in-out infinite;
+  }
+
+  /* World Section */
+  .world-section {
+    min-height: 100vh;
+    padding: 6rem 2rem 2rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .content-block {
+    margin: 4rem 0 2rem 0;
+  }
+
+  .content-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
+    color: #FFB700;
+    margin-bottom: 2rem;
+    letter-spacing: 0.3rem;
+    text-shadow:
+      0 0 10px rgba(255, 183, 0, 0.8),
+      0 0 20px rgba(255, 183, 0, 0.6),
+      0 0 30px rgba(255, 183, 0, 0.4),
+      0 0 40px rgba(255, 183, 0, 0.2);
+    animation: titleGlow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes titleGlow {
+    0% {
+      text-shadow:
+        0 0 10px rgba(255, 183, 0, 0.8),
+        0 0 20px rgba(255, 183, 0, 0.6),
+        0 0 30px rgba(255, 183, 0, 0.4);
+    }
+    100% {
+      text-shadow:
+        0 0 20px rgba(255, 183, 0, 1),
+        0 0 30px rgba(255, 183, 0, 0.8),
+        0 0 40px rgba(255, 183, 0, 0.6),
+        0 0 50px rgba(255, 183, 0, 0.4);
+    }
+  }
+
+  .year-label {
+    font-size: 1.2rem;
+    color: #FFB700;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+  }
+
+  .text-content p {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    line-height: 2;
+    margin: 1.5rem 0;
+    color: #B0B0B0;
+  }
+
+  .emphasis {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: #FF0844;
+    font-weight: 700;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .highlight {
+    color: #27E1FF;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(39, 225, 255, 0.5);
+  }
+
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      #FF0844 25%,
+      #FFB700 50%,
+      #27E1FF 75%,
+      transparent 100%);
+    margin: 4rem 0;
+    opacity: 0.5;
+  }
+
+  /* Teaser Section */
+  .teaser-section {
+    padding: 0 2rem 6rem 2rem;
+    background: #0a0a0a;
+  }
+
+  .teaser-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .teaser-title {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin: 3rem 0 2rem 0;
+    color: #FF0844;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-shadow:
+      0 0 10px rgba(255, 8, 68, 0.8),
+      0 0 20px rgba(255, 8, 68, 0.6),
+      0 0 30px rgba(255, 8, 68, 0.4),
+      0 0 40px rgba(255, 8, 68, 0.2);
+    animation: teaserGlow 2.5s ease-in-out infinite alternate;
+    position: relative;
+  }
+
+  .teaser-title::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FF0844, transparent);
+    animation: scanline 2s linear infinite;
+  }
+
+  @keyframes teaserGlow {
+    0% {
+      text-shadow:
+        0 0 10px rgba(255, 8, 68, 0.8),
+        0 0 20px rgba(255, 8, 68, 0.6),
+        0 0 30px rgba(255, 8, 68, 0.4);
+    }
+    100% {
+      text-shadow:
+        0 0 20px rgba(255, 8, 68, 1),
+        0 0 30px rgba(255, 8, 68, 0.8),
+        0 0 40px rgba(255, 8, 68, 0.6),
+        0 0 50px rgba(255, 8, 68, 0.4);
+    }
+  }
+
+  @keyframes scanline {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background: #000;
+    border: 2px solid rgba(255, 8, 68, 0.3);
+    box-shadow: 0 0 30px rgba(255, 8, 68, 0.2);
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Band Section */
+  .band-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, #0a0a0a 0%, #151515 50%, #0a0a0a 100%);
+  }
+
+  .members-title {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin: 0 auto 4rem;
+    color: #27E1FF;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-shadow:
+      0 0 10px rgba(39, 225, 255, 0.8),
+      0 0 20px rgba(39, 225, 255, 0.6),
+      0 0 30px rgba(39, 225, 255, 0.4),
+      0 0 40px rgba(39, 225, 255, 0.2);
+    animation: membersGlow 2.5s ease-in-out infinite alternate;
+    position: relative;
+    max-width: 1200px;
+  }
+
+  .members-title::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #27E1FF, transparent);
+    animation: scanline 2s linear infinite;
+  }
+
+  @keyframes membersGlow {
+    0% {
+      text-shadow:
+        0 0 10px rgba(39, 225, 255, 0.8),
+        0 0 20px rgba(39, 225, 255, 0.6),
+        0 0 30px rgba(39, 225, 255, 0.4);
+    }
+    100% {
+      text-shadow:
+        0 0 20px rgba(39, 225, 255, 1),
+        0 0 30px rgba(39, 225, 255, 0.8),
+        0 0 40px rgba(39, 225, 255, 0.6),
+        0 0 50px rgba(39, 225, 255, 0.4);
+    }
+  }
+
+  .band-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+  }
+
+  .member-card {
+    background: rgba(20, 20, 20, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 0;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .member-card:hover::before {
+    left: 100%;
+  }
+
+  .member-card[data-color="red"]:hover {
+    border-color: #FF0844;
+    box-shadow: 0 0 20px rgba(255, 8, 68, 0.3);
+  }
+
+  .member-card[data-color="cyan"]:hover {
+    border-color: #27E1FF;
+    box-shadow: 0 0 20px rgba(39, 225, 255, 0.3);
+  }
+
+  .member-card[data-color="amber"]:hover {
+    border-color: #FFB700;
+    box-shadow: 0 0 20px rgba(255, 183, 0, 0.3);
+  }
+
+  .member-card[data-color="purple"]:hover {
+    border-color: #8B5CF6;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+
+  .member-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(180deg, rgba(15, 15, 30, 0.5) 0%, rgba(26, 26, 46, 0.8) 100%);
+  }
+
+  .member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+  }
+
+  .member-card:hover .member-image img {
+    transform: scale(1.05);
+  }
+
+  .member-card h3 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 0.2rem;
+    margin: 1.5rem 0 0.5rem;
+    padding: 0 1.5rem;
+  }
+
+  .member-card[data-color="red"] h3 { color: #FF0844; }
+  .member-card[data-color="cyan"] h3 { color: #27E1FF; }
+  .member-card[data-color="amber"] h3 { color: #FFB700; }
+  .member-card[data-color="purple"] h3 { color: #8B5CF6; }
+
+  .role {
+    font-size: 0.85rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    margin: 0;
+    padding: 0 1.5rem;
+  }
+
+  .origin {
+    font-size: 0.8rem;
+    color: #666;
+    margin: 0.5rem 0 1rem;
+    padding: 0 1.5rem;
+    font-style: italic;
+  }
+
+  .member-description {
+    padding: 0 1.5rem 2rem;
+    text-align: left;
+    flex-grow: 1;
+  }
+
+  .member-description p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #B0B0B0;
+    margin: 0.75rem 0;
+  }
+
+  .member-detail-link {
+    display: inline-block;
+    margin: 1rem 1.5rem 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, rgba(255, 8, 68, 0.2), rgba(39, 225, 255, 0.2));
+    border: 2px solid rgba(255, 8, 68, 0.5);
+    color: #FF0844;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+  }
+
+  .member-detail-link:hover {
+    background: linear-gradient(135deg, rgba(255, 8, 68, 0.4), rgba(39, 225, 255, 0.4));
+    border-color: #27E1FF;
+    color: #27E1FF;
+    transform: translateX(5px);
+    box-shadow: 0 0 20px rgba(39, 225, 255, 0.4);
+  }
+
+  .band-statement {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 3rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Art Slideshow */
+  .art-slideshow {
+    position: relative;
+    width: 100%;
+    margin: 3rem auto 0;
+    overflow: hidden;
+    border: 2px solid rgba(255, 8, 68, 0.3);
+    box-shadow: 0 0 30px rgba(255, 8, 68, 0.2);
+    padding: 2rem 0;
+  }
+
+  .art-track {
+    display: flex;
+    gap: 2rem;
+    animation: slideScroll 40s linear infinite;
+    width: max-content;
+  }
+
+  .art-track:hover {
+    animation-play-state: paused;
+  }
+
+  .art-slide {
+    flex-shrink: 0;
+    width: 500px;
+    height: auto;
+  }
+
+  .art-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  @keyframes slideScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .art-slide {
+      width: 300px;
+    }
+  }
+
+  .quote {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    line-height: 1.8;
+    color: #27E1FF;
+    font-weight: 500;
+    font-style: italic;
+    margin: 0.5rem 0;
+  }
+
+  /* News Section */
+  .news-section {
+    padding: 1rem 2rem 6rem 2rem;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .news-header-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 0 2rem 1rem 2rem;
+  }
+
+  .news-ticker {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 8, 68, 0.1);
+    border: 1px solid rgba(255, 8, 68, 0.3);
+    border-radius: 999px;
+  }
+
+  .ticker-dot {
+    width: 8px;
+    height: 8px;
+    background: #FF0844;
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 8px rgba(255, 8, 68, 0.8);
+    }
+    50% {
+      opacity: 0.5;
+      box-shadow: 0 0 15px rgba(255, 8, 68, 1);
+    }
+  }
+
+  .ticker-text {
+    font-size: 0.85rem;
+    color: #FF0844;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .news-scroll-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .news-scroll-btn {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 8, 68, 0.3);
+    background: rgba(15, 15, 30, 0.8);
+    color: #FF0844;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .news-scroll-btn:hover {
+    background: rgba(255, 8, 68, 0.2);
+    border-color: #FF0844;
+    box-shadow: 0 0 20px rgba(255, 8, 68, 0.4);
+    transform: scale(1.1);
+  }
+
+  .news-scroll-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .news-scroll-btn [astro-icon] {
+    color: #FF0844;
+  }
+
+  .news-scroll-wrapper {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex: 1;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+    user-select: none;
+  }
+
+  .news-scroll-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .news-scroll-wrapper.dragging {
+    cursor: grabbing;
+  }
+
+  .news-grid {
+    display: flex;
+    gap: 1rem;
+    padding: 0 1rem 1rem 1rem;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .news-card {
+    flex-shrink: 0;
+    width: 200px;
+    background: rgba(15, 15, 30, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 280px;
+  }
+
+  .news-thumbnail {
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .news-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .news-card:hover .news-thumbnail img {
+    transform: scale(1.1);
+  }
+
+  .news-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .news-info.no-thumbnail {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .news-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 20px 20px 0;
+    border-color: transparent #0F0F1E transparent transparent;
+    transition: all 0.3s ease;
+  }
+
+  .news-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, rgba(255, 8, 68, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .news-card:hover::before {
+    opacity: 1;
+  }
+
+  .news-card:hover {
+    background: rgba(15, 15, 30, 0.8);
+    border-color: rgba(255, 8, 68, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(255, 8, 68, 0.3);
+  }
+
+  .news-date {
+    font-size: 0.65rem;
+    color: #666;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .news-category {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 0.25rem;
+    width: fit-content;
+  }
+
+  .category-launch {
+    background: rgba(255, 8, 68, 0.2);
+    color: #FF0844;
+    border: 1px solid rgba(255, 8, 68, 0.5);
+  }
+
+  .category-story {
+    background: rgba(39, 225, 255, 0.2);
+    color: #27E1FF;
+    border: 1px solid rgba(39, 225, 255, 0.5);
+  }
+
+  .category-video {
+    background: rgba(255, 183, 0, 0.2);
+    color: #FFB700;
+    border: 1px solid rgba(255, 183, 0, 0.5);
+  }
+
+  .category-members {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+    border: 1px solid rgba(139, 92, 246, 0.5);
+  }
+
+  .news-title {
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+    margin: 0;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .news-card:hover .news-title {
+    color: #27E1FF;
+  }
+
+  .news-card-coming-soon {
+    cursor: default;
+    opacity: 0.6;
+    position: relative;
+  }
+
+  .news-card-coming-soon:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .news-card-coming-soon:hover .news-thumbnail img {
+    transform: scale(1);
+  }
+
+  .news-card-coming-soon::before,
+  .news-card-coming-soon::after {
+    opacity: 0 !important;
+    display: none;
+  }
+
+  .coming-soon-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    background: rgba(255, 183, 0, 0.2);
+    border: 1px solid rgba(255, 183, 0, 0.5);
+    color: #FFB700;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 0.25rem;
+    margin-top: auto;
+    width: fit-content;
+  }
+
+  @media (max-width: 768px) {
+    .news-header-wrapper {
+      padding: 0 1rem 1rem 1rem;
+    }
+
+    .news-scroll-container {
+      max-width: 100%;
+      gap: 0.5rem;
+    }
+
+    .news-scroll-btn {
+      width: 40px;
+      height: 40px;
+    }
+
+    .news-grid {
+      padding: 0 0.5rem 1rem 0.5rem;
+    }
+
+    .news-card {
+      width: 160px;
+      height: 260px;
+    }
+
+    .news-thumbnail {
+      height: 120px;
+    }
+
+    .news-title {
+      font-size: 0.85rem;
+    }
+  }
+
+  .coming-soon-message {
+    text-align: center;
+    opacity: 0.7;
+  }
+
+  .coming-soon-message [astro-icon] {
+    color: #FFB700;
+    margin-bottom: 2rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .coming-soon-text {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #FFB700;
+    margin: 1rem 0;
+    letter-spacing: 0.2rem;
+  }
+
+  .coming-soon-desc {
+    font-size: 1.1rem;
+    color: #888;
+    margin-top: 1rem;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+  }
+
+  /* Links Section */
+  .links-section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .links-section .section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .link-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    background: rgba(20, 20, 20, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .link-card:hover {
+    border-color: #FF0844;
+    box-shadow: 0 0 30px rgba(255, 8, 68, 0.3);
+    transform: translateY(-5px);
+  }
+
+  .link-card[data-platform="youtube"]:hover { border-color: #FF0844; }
+  .link-card[data-platform="note"]:hover { border-color: #27E1FF; }
+  .link-card[data-platform="members"]:hover { border-color: #FFB700; }
+
+  .link-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+  }
+
+  .link-description {
+    font-size: 0.95rem;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .status {
+    font-size: 0.8rem;
+    color: #FFB700;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    margin-top: auto;
+  }
+
+  .coming-soon {
+    opacity: 0.7;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes terminalLine {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes glitch-1 {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+  }
+
+  @keyframes glitch-2 {
+    0% { transform: translate(0); }
+    20% { transform: translate(2px, -2px); }
+    40% { transform: translate(2px, 2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(-2px, 2px); }
+    100% { transform: translate(0); }
+  }
+
+  /* Responsive */
+  @media (max-width: 50em) {
+    .boot-screen {
+      padding: 0;
+      justify-content: flex-start;
+    }
+
+    .logo-container {
+      width: 100%;
+    }
+
+    .terminal-overlay {
+      font-size: 0.65rem;
+      padding: 1rem 1.5rem;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .terminal-line {
+      margin: 0.4rem 0;
+    }
+
+    .main-poster {
+      width: 100%;
+    }
+
+    .world-section,
+    .band-section,
+    .links-section {
+      padding: 4rem 1.5rem;
+    }
+
+    .band-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .quote {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .terminal-overlay {
+      font-size: 0.6rem;
+      padding: 0.75rem 1rem;
+    }
+  }
+</style>
+
+<script>
+  // NEWSスクロール機能
+  const newsWrapper = document.getElementById('newsScrollWrapper');
+  const scrollLeftBtn = document.getElementById('newsScrollLeft');
+  const scrollRightBtn = document.getElementById('newsScrollRight');
+
+  if (newsWrapper && scrollLeftBtn && scrollRightBtn) {
+    // ボタンクリックでスクロール
+    const scrollAmount = 220; // カード幅 + gap
+
+    scrollRightBtn.addEventListener('click', () => {
+      newsWrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    scrollLeftBtn.addEventListener('click', () => {
+      newsWrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    // ドラッグスクロール
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    newsWrapper.addEventListener('mousedown', (e) => {
+      isDown = true;
+      newsWrapper.classList.add('dragging');
+      startX = e.pageX - newsWrapper.offsetLeft;
+      scrollLeft = newsWrapper.scrollLeft;
+    });
+
+    newsWrapper.addEventListener('mouseleave', () => {
+      isDown = false;
+      newsWrapper.classList.remove('dragging');
+    });
+
+    newsWrapper.addEventListener('mouseup', () => {
+      isDown = false;
+      newsWrapper.classList.remove('dragging');
+    });
+
+    newsWrapper.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - newsWrapper.offsetLeft;
+      const walk = (x - startX) * 2;
+      newsWrapper.scrollLeft = scrollLeft - walk;
+    });
+
+    // ボタンの有効/無効を更新
+    function updateButtons() {
+      const maxScroll = newsWrapper.scrollWidth - newsWrapper.clientWidth;
+      scrollLeftBtn.disabled = newsWrapper.scrollLeft <= 0;
+      scrollRightBtn.disabled = newsWrapper.scrollLeft >= maxScroll - 1;
+    }
+
+    newsWrapper.addEventListener('scroll', updateButtons);
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
+  }
+</script>

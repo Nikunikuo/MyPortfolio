@@ -14,8 +14,12 @@ const {
 
 <meta charset="UTF-8" />
 <meta name="description" property="og:description" content={description} />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 <meta name="generator" content={Astro.generator} />
+<meta name="keywords" content="大鹿ニク, M1RA, AITuber, 生成AI, ミュージックビデオ, AI音楽, 関係の特異点, AI×エンタメ, クリエイター, ポートフォリオ" />
+<meta name="author" content="大鹿ニク / M1RA" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="theme-color" content="#00ff88" />
 <title>{title}</title>
 
 <!-- Canonical URL -->
@@ -23,19 +27,24 @@ const {
 
 <!-- Open Graph / Social Media -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://niku.studio/" />
+<meta property="og:url" content={Astro.url.href} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
+<meta property="og:site_name" content="大鹿ニク / M1RA - AI×エンタメクリエイター" />
 <meta property="og:image" content="https://niku.studio/images/top.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="大鹿ニク / M1RA - AI×エンタメクリエイター ポートフォリオサイト" />
+<meta property="og:locale" content="ja_JP" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@M1RA_A_Project" />
+<meta name="twitter:creator" content="@M1RA_A_Project" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content="https://niku.studio/images/top.png" />
+<meta name="twitter:image:alt" content="大鹿ニク / M1RA - AI×エンタメクリエイター ポートフォリオサイト" />
 
 <!-- Structured Data (JSON-LD) for SEO & AIEO -->
 <script type="application/ld+json">

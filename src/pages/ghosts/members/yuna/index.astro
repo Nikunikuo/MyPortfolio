@@ -1,0 +1,401 @@
+---
+const pageTitle = 'YUNA - GHOSTS Members';
+const pageDescription = '感情を抑圧されて育ったボーカリスト、YUNAの詳細プロフィール。';
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="ghosts-body">
+    <!-- Floating Logo -->
+    <a href="/ghosts/" class="floating-logo">
+      <img src="/images/GHOSTS/logo.webp" alt="GHOSTS" />
+    </a>
+
+    <main>
+      <!-- Header Section -->
+      <section class="detail-header">
+        <div class="header-image">
+          <img src="/images/GHOSTS/members/Yunapage.webp" alt="YUNA" />
+          <div class="header-overlay">
+            <h1 class="member-name">YUNA<span class="member-name-kana">ユーナ</span></h1>
+            <p class="member-part">VOCAL</p>
+            <p class="member-tagline">―――取り戻した声で、感情を証明する。</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="member-detail-container">
+        <!-- Back Link -->
+        <a href="/ghosts/#members" class="back-link">← メンバー一覧に戻る</a>
+
+        <!-- Basic Info -->
+    <section class="info-section">
+      <h2 class="section-title">基本情報</h2>
+      <table class="info-table">
+        <tr>
+          <td class="label">年齢</td>
+          <td>22歳</td>
+        </tr>
+        <tr>
+          <td class="label">出身地</td>
+          <td>エイドロン・ブロック（中層都市）</td>
+        </tr>
+        <tr>
+          <td class="label">パート</td>
+          <td>Vocal</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Personality -->
+    <section class="info-section">
+      <h2 class="section-title">基本性格</h2>
+      <table class="info-table">
+        <tr>
+          <td class="label">表面 vs 本質</td>
+          <td>クールぶってるパンク少女 vs 認めて欲しくて仕方ない</td>
+        </tr>
+        <tr>
+          <td class="label">口癖・仕草</td>
+          <td>「はぁ？」「...で？」／タバコ吸う時に遠く見る癖</td>
+        </tr>
+        <tr>
+          <td class="label">弱点</td>
+          <td>「声が小さい」でムッとする／本音を言う時に目を逸らす</td>
+        </tr>
+        <tr>
+          <td class="label">意外な一面</td>
+          <td>少女漫画を隠し持つ／野良猫に話しかける</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Music -->
+    <section class="info-section">
+      <h2 class="section-title">音楽について</h2>
+      <table class="info-table">
+        <tr>
+          <td class="label">音楽への姿勢</td>
+          <td>「届かないなら、届くまで歌う」</td>
+        </tr>
+        <tr>
+          <td class="label">音楽ジャンル</td>
+          <td>オルタナティブロック、ポストパンク</td>
+        </tr>
+        <tr>
+          <td class="label">欲求</td>
+          <td>「抑圧されていた声で、AIが消そうとした感情を証明したい」</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Background -->
+    <section class="info-section">
+      <h2 class="section-title">バックグラウンド</h2>
+      <div class="background-story">
+        <h3>過去</h3>
+        <p>AI-PSYの感情抑制下で育つ。「大声は治療対象」として矯正された。ある日、友人の「揺れ人」から闇ルートで少女漫画を入手→PSYに発覚→「感情異常者」として再教育施設送りが決定。</p>
+
+        <h3>逃亡とカタコンベ</h3>
+        <p>施設送りの前夜、パニックで無意識に叫ぶ→PSYアラート発動。友人が教えてくれた逃走ルートでカタコンベへ。到着した瞬間、「声を出しても何も反応しない」ことに気づく。</p>
+
+        <h3>声との再会</h3>
+        <p>3ヶ月かけて声をリハビリ。Echo-Netで偶然聴いた古い歌手の音源を真似て練習。沈黙の図書館で『ボーカリストの技法』発見。「声は楽器である」という一文に衝撃を受ける。</p>
+
+        <h3>現在（2163年）</h3>
+        <p>カタコンベ在住／地下ネットワークとの連絡係／GHOSTSのボーカリスト</p>
+      </div>
+    </section>
+
+    <!-- Back Link -->
+    <a href="/ghosts/#members" class="back-link bottom">← メンバー一覧に戻る</a>
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  /* Global Styles for GHOSTS */
+  .ghosts-body {
+    background: #0a0a0a;
+    color: #E0E0E0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    min-height: 100vh;
+  }
+
+  /* Floating Logo */
+  .floating-logo {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1000;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  .floating-logo img {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 0 15px rgba(255, 8, 68, 0.8));
+    transition: all 0.3s ease;
+  }
+
+  .floating-logo:hover img {
+    filter: drop-shadow(0 0 20px rgba(39, 225, 255, 1));
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    .floating-logo {
+      top: 1.5rem;
+      left: 1.5rem;
+    }
+
+    .floating-logo img {
+      height: 50px;
+    }
+  }
+
+
+  .member-detail-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #E0E0E0;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(39, 225, 255, 0.1);
+    border: 2px solid rgba(39, 225, 255, 0.3);
+    color: #27E1FF;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+  }
+
+  .back-link:hover {
+    background: rgba(39, 225, 255, 0.2);
+    border-color: #27E1FF;
+    transform: translateX(-5px);
+    box-shadow: 0 0 20px rgba(39, 225, 255, 0.3);
+  }
+
+  .back-link.bottom {
+    margin-top: 4rem;
+    margin-bottom: 0;
+  }
+
+  /* Header Section */
+  .detail-header {
+    margin: 0 0 4rem 0;
+    position: relative;
+    width: 100%;
+  }
+
+  .header-image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .header-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .header-overlay {
+    position: absolute;
+    top: 50%;
+    right: 4rem;
+    transform: translateY(-50%);
+    z-index: 2;
+    text-align: right;
+  }
+
+  .member-name {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    color: #FF0844;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5rem;
+    text-shadow:
+      0 0 20px rgba(255, 8, 68, 1),
+      0 0 40px rgba(255, 8, 68, 0.8),
+      0 0 60px rgba(255, 8, 68, 0.6),
+      0 0 80px rgba(255, 8, 68, 0.4);
+    animation: titlePulse 3s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .member-name-kana {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 400;
+    letter-spacing: 0.3rem;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+  }
+
+  @keyframes titlePulse {
+    0%, 100% {
+      text-shadow:
+        0 0 20px rgba(255, 8, 68, 1),
+        0 0 40px rgba(255, 8, 68, 0.8),
+        0 0 60px rgba(255, 8, 68, 0.6);
+    }
+    50% {
+      text-shadow:
+        0 0 30px rgba(255, 8, 68, 1),
+        0 0 50px rgba(255, 8, 68, 0.9),
+        0 0 70px rgba(255, 8, 68, 0.7),
+        0 0 90px rgba(255, 8, 68, 0.5);
+    }
+  }
+
+  .member-part {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: #27E1FF;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow:
+      0 0 10px rgba(39, 225, 255, 0.8),
+      0 0 20px rgba(39, 225, 255, 0.5);
+  }
+
+  .member-tagline {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: #E0E0E0;
+    line-height: 1.6;
+    max-width: 800px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Info Sections */
+  .info-section {
+    margin-bottom: 3rem;
+    background: rgba(20, 20, 20, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
+    color: #FFB700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(255, 183, 0, 0.3);
+    padding-bottom: 0.5rem;
+  }
+
+  /* Table Styles */
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .info-table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .info-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .info-table td {
+    padding: 1rem;
+    line-height: 1.7;
+  }
+
+  .info-table td.label {
+    font-weight: 600;
+    color: #27E1FF;
+    width: 30%;
+    min-width: 150px;
+    vertical-align: top;
+  }
+
+  .info-table td:not(.label) {
+    color: #E0E0E0;
+  }
+
+  /* Background Story */
+  .background-story h3 {
+    font-size: 1.2rem;
+    color: #FF0844;
+    margin: 2rem 0 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .background-story h3:first-child {
+    margin-top: 0;
+  }
+
+  .background-story p {
+    color: #B0B0B0;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .member-detail-container {
+      padding: 1rem;
+    }
+
+    .detail-header {
+      margin: 0 0 3rem 0;
+    }
+
+    .header-overlay {
+      right: 1.5rem;
+      text-align: right;
+    }
+
+    .member-name {
+      letter-spacing: 0.3rem;
+    }
+
+    .member-part {
+      letter-spacing: 0.2em;
+    }
+
+    .info-table td.label {
+      width: auto;
+      min-width: 100px;
+    }
+
+    .info-table td {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .info-section {
+      padding: 1.5rem;
+    }
+  }
+</style>

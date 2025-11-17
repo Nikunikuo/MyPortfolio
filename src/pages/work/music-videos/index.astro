@@ -38,6 +38,50 @@ const description = '生成AIで制作したミュージックビデオ全11作�
 	}
 	</script>
 
+	<!-- Music Videos Collection JSON-LD -->
+	<script type="application/ld+json" slot="head">
+	{
+		"@context": "https://schema.org",
+		"@type": "CollectionPage",
+		"name": "ミュージックビデオ作品集",
+		"description": "生成AIで制作したミュージックビデオ全11作品。最新作から過去作まで、AIと人間の境界を問う哲学的作品から、パンクロック、エレクトロニックまで幅広いジャンル。",
+		"url": "https://niku.studio/work/music-videos/",
+		"inLanguage": "ja",
+		"mainEntity": {
+			"@type": "ItemList",
+			"numberOfItems": ${musicVideos.length},
+			"itemListElement": ${JSON.stringify(musicVideos.map((mv, index) => ({
+				"@type": "ListItem",
+				"position": index + 1,
+				"item": {
+					"@type": "VideoObject",
+					"name": mv.title,
+					"description": mv.intro,
+					"url": `https://www.youtube.com/watch?v=${mv.youtubeId}`,
+					"embedUrl": `https://www.youtube.com/embed/${mv.youtubeId}`,
+					"thumbnailUrl": `https://i.ytimg.com/vi/${mv.youtubeId}/maxresdefault.jpg`,
+					"contentUrl": `https://niku.studio/work/music-videos/${mv.slug}/`,
+					"creator": {
+						"@type": "Person",
+						"name": "大鹿ニク",
+						"url": "https://niku.studio/"
+					}
+				}
+			})))}
+		},
+		"author": {
+			"@type": "Person",
+			"name": "大鹿ニク",
+			"url": "https://niku.studio/"
+		},
+		"isPartOf": {
+			"@type": "WebSite",
+			"name": "大鹿ニク / M1RA",
+			"url": "https://niku.studio/"
+		}
+	}
+	</script>
+
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
 			<Hero

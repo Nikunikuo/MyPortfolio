@@ -55,6 +55,26 @@ const projects = (await getCollection('work')).sort(
 				</div>
 			</Hero>
 
+			<!-- GHOSTS Section -->
+			<section class="ghosts-section">
+				<a href="/ghosts/" class="ghosts-banner">
+					<div class="ghosts-banner-bg"></div>
+					<div class="ghosts-banner-content">
+						<div class="ghosts-banner-icon">
+							<Icon icon="rocket-launch" size="3em" />
+						</div>
+						<div class="ghosts-banner-info">
+							<h2 class="ghosts-banner-title">GHOSTS</h2>
+							<p class="ghosts-banner-subtitle">Noise in the Silence</p>
+							<p class="ghosts-banner-desc">AI統治下の2163年。音楽が禁じられた世界で、4人の若者が音を鳴らし始めた。</p>
+						</div>
+						<div class="ghosts-banner-arrow">
+							<Icon icon="arrow-right" size="2.5em" />
+						</div>
+					</div>
+				</a>
+			</section>
+
 			<section class="work-category">
 				<div class="category-header">
 					<h2 data-i18n="work_discography">🎵 ディスコグラフィー</h2>
@@ -409,6 +429,127 @@ const projects = (await getCollection('work')).sort(
 		transform: translateX(10px);
 	}
 
+	/* GHOSTS Banner Section */
+	.ghosts-section {
+		margin: 3rem 0;
+		padding: 0;
+	}
+
+	.ghosts-banner {
+		display: block;
+		width: 100%;
+		text-decoration: none;
+		position: relative;
+		overflow: hidden;
+		border-radius: 1rem;
+		border: 3px solid #FF0844;
+		background: linear-gradient(135deg, #0F0F1E 0%, #1A1A2E 100%);
+		box-shadow: 0 0 30px rgba(255, 8, 68, 0.4);
+		transition: all 0.4s ease;
+	}
+
+	.ghosts-banner:hover {
+		border-color: #27E1FF;
+		box-shadow: 0 0 50px rgba(39, 225, 255, 0.6);
+		transform: translateY(-5px);
+	}
+
+	.ghosts-banner-bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background:
+			linear-gradient(45deg, transparent 30%, rgba(255, 8, 68, 0.1) 50%, transparent 70%),
+			linear-gradient(-45deg, transparent 30%, rgba(39, 225, 255, 0.1) 50%, transparent 70%);
+		background-size: 200% 200%;
+		animation: ghosts-gradient 8s ease infinite;
+		opacity: 0.5;
+	}
+
+	.ghosts-banner-content {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		padding: 2.5rem 3rem;
+		min-height: 160px;
+	}
+
+	.ghosts-banner-icon {
+		flex-shrink: 0;
+		color: #FF0844;
+		filter: drop-shadow(0 0 15px rgba(255, 8, 68, 0.8));
+		animation: pulse 2s ease-in-out infinite;
+	}
+
+	.ghosts-banner-info {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.ghosts-banner-title {
+		font-size: clamp(2rem, 4vw, 3rem);
+		font-weight: 900;
+		letter-spacing: 0.3rem;
+		color: #FF0844;
+		text-shadow:
+			0 0 10px rgba(255, 8, 68, 0.8),
+			0 0 20px rgba(255, 8, 68, 0.5);
+		margin: 0 0 0.25rem 0;
+		animation: glitch-text 3s ease-in-out infinite;
+	}
+
+	.ghosts-banner-subtitle {
+		font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+		color: #27E1FF;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+		margin: 0 0 1rem 0;
+		opacity: 0.9;
+	}
+
+	.ghosts-banner-desc {
+		font-size: clamp(1rem, 1.8vw, 1.2rem);
+		color: rgba(255, 255, 255, 0.95);
+		line-height: 1.6;
+		margin: 0;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+	}
+
+	.ghosts-banner-arrow {
+		flex-shrink: 0;
+		color: #FF0844;
+		filter: drop-shadow(0 0 10px rgba(255, 8, 68, 0.6));
+		transition: transform 0.4s ease;
+	}
+
+	.ghosts-banner:hover .ghosts-banner-arrow {
+		transform: translateX(15px);
+		color: #27E1FF;
+		filter: drop-shadow(0 0 15px rgba(39, 225, 255, 0.8));
+	}
+
+	@keyframes ghosts-gradient {
+		0% { background-position: 0% 50%; }
+		50% { background-position: 100% 50%; }
+		100% { background-position: 0% 50%; }
+	}
+
+	@keyframes pulse {
+		0%, 100% { transform: scale(1); }
+		50% { transform: scale(1.1); }
+	}
+
+	@keyframes glitch-text {
+		0%, 90%, 100% { transform: translate(0); }
+		92% { transform: translate(-2px, 2px); }
+		94% { transform: translate(2px, -2px); }
+		96% { transform: translate(-2px, -2px); }
+		98% { transform: translate(2px, 2px); }
+	}
+
 	@media (max-width: 768px) {
 		.category-content {
 			grid-template-columns: 1fr;
@@ -433,6 +574,22 @@ const projects = (await getCollection('work')).sort(
 		}
 
 		.challenge-card-full:hover .challenge-arrow {
+			transform: rotate(90deg) translateX(10px);
+		}
+
+		/* GHOSTS Banner Mobile */
+		.ghosts-banner-content {
+			flex-direction: column;
+			text-align: center;
+			padding: 2rem 1.5rem;
+			gap: 1.5rem;
+		}
+
+		.ghosts-banner-arrow {
+			transform: rotate(90deg);
+		}
+
+		.ghosts-banner:hover .ghosts-banner-arrow {
 			transform: rotate(90deg) translateX(10px);
 		}
 	}

@@ -1,0 +1,401 @@
+---
+const pageTitle = 'AKIRA - GHOSTS Members';
+const pageDescription = '完璧な世界から逃れたギタリスト、AKIRAの詳細プロフィール。';
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="ghosts-body">
+    <!-- Floating Logo -->
+    <a href="/ghosts/" class="floating-logo">
+      <img src="/images/GHOSTS/logo.webp" alt="GHOSTS" />
+    </a>
+
+    <main>
+      <!-- Header Section -->
+      <section class="detail-header">
+        <div class="header-image">
+          <img src="/images/GHOSTS/members/Akirapage.webp" alt="AKIRA" />
+          <div class="header-overlay">
+            <h1 class="member-name">AKIRA<span class="member-name-kana">アキラ</span></h1>
+            <p class="member-part">GUITAR</p>
+            <p class="member-tagline">―――完璧な世界が間違っていることを、不完全な音楽で証明する。</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="member-detail-container">
+        <!-- Back Link -->
+        <a href="/ghosts/#members" class="back-link">← メンバー一覧に戻る</a>
+
+        <!-- Basic Info -->
+    <section class="info-section">
+      <h2 class="section-title">基本情報</h2>
+      <table class="info-table">
+        <tr>
+          <td class="label">年齢</td>
+          <td>23歳</td>
+        </tr>
+        <tr>
+          <td class="label">出身地</td>
+          <td>ルーメン・シティ(上層都市)</td>
+        </tr>
+        <tr>
+          <td class="label">パート</td>
+          <td>Guitar</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Personality -->
+    <section class="info-section">
+      <h2 class="section-title">基本性格</h2>
+      <table class="info-table">
+        <tr>
+          <td class="label">表面 vs 本質</td>
+          <td>完璧主義ナルシスト vs 失敗が怖くて仕方ない</td>
+        </tr>
+        <tr>
+          <td class="label">口癖・仕草</td>
+          <td>「俺、天才だから」「まぁ俺なら余裕」／鏡でチェック</td>
+        </tr>
+        <tr>
+          <td class="label">弱点</td>
+          <td>技術的ミスを指摘される／「下手」と言われる</td>
+        </tr>
+        <tr>
+          <td class="label">意外な一面</td>
+          <td>極度の方向音痴／LUX配給の最適化スキンケアを今でも使用(習慣)</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Music -->
+    <section class="info-section">
+      <h2 class="section-title">音楽について</h2>
+      <table class="info-table">
+        <tr>
+          <td class="label">音楽への姿勢</td>
+          <td>「ギターは俺の魂の叫び(笑)」←カッコつけてる</td>
+        </tr>
+        <tr>
+          <td class="label">音楽ジャンル</td>
+          <td>ヴィジュアル系、プログレッシブロック</td>
+        </tr>
+        <tr>
+          <td class="label">欲求</td>
+          <td>「完璧な世界が間違っていることを、不完全な音楽で証明したい」</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Background -->
+    <section class="info-section">
+      <h2 class="section-title">バックグラウンド</h2>
+      <div class="background-story">
+        <h3>AI-LUXの優等生</h3>
+        <p>幸福指数100%の「模範市民」。しかしある日突然「退屈だ」と感じる。何もかもが予測通り、最適化されている。密かにハッキング技術を習得し、GNNの禁止データベースに侵入。</p>
+
+        <h3>ギターとの運命的出会い</h3>
+        <p>禁止画像の中で「エレキギターを弾くロックスター」の写真を発見。歪んだ音、激しい演奏、汗を流す姿—「これだ、俺が求めていたのは」。その「不完全な美しさ」に魅了される。闇市で自分の「幸福指数100%の記憶」(約1000メモリ相当)と引き換えにギターを入手。</p>
+
+        <h3>完璧な世界からの逃亡</h3>
+        <p>ギター所持がLUXに発覚→「異常行動」として記録。再教育を拒否し、カタコンベへ逃亡。「完璧な世界」から「不完全な世界」への自発的な堕落。Echo-Netの禁書でギター理論を学び、3ヶ月間独学で練習。</p>
+
+        <h3>現在(2163年)</h3>
+        <p>カタコンベ在住／外での「普通市民」の演技担当／完璧さを捨てた元・模範市民</p>
+      </div>
+    </section>
+
+    <!-- Back Link -->
+    <a href="/ghosts/#members" class="back-link bottom">← メンバー一覧に戻る</a>
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  /* Global Styles for GHOSTS */
+  .ghosts-body {
+    background: #0a0a0a;
+    color: #E0E0E0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    min-height: 100vh;
+  }
+
+  /* Floating Logo */
+  .floating-logo {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1000;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  .floating-logo img {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 0 15px rgba(255, 8, 68, 0.8));
+    transition: all 0.3s ease;
+  }
+
+  .floating-logo:hover img {
+    filter: drop-shadow(0 0 20px rgba(39, 225, 255, 1));
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    .floating-logo {
+      top: 1.5rem;
+      left: 1.5rem;
+    }
+
+    .floating-logo img {
+      height: 50px;
+    }
+  }
+
+
+  .member-detail-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #E0E0E0;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(39, 225, 255, 0.1);
+    border: 2px solid rgba(39, 225, 255, 0.3);
+    color: #27E1FF;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+  }
+
+  .back-link:hover {
+    background: rgba(39, 225, 255, 0.2);
+    border-color: #27E1FF;
+    transform: translateX(-5px);
+    box-shadow: 0 0 20px rgba(39, 225, 255, 0.3);
+  }
+
+  .back-link.bottom {
+    margin-top: 4rem;
+    margin-bottom: 0;
+  }
+
+  /* Header Section */
+  .detail-header {
+    margin: 0 0 4rem 0;
+    position: relative;
+    width: 100%;
+  }
+
+  .header-image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .header-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .header-overlay {
+    position: absolute;
+    top: 50%;
+    right: 4rem;
+    transform: translateY(-50%);
+    z-index: 2;
+    text-align: right;
+  }
+
+  .member-name {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    color: #FFB700;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5rem;
+    text-shadow:
+      0 0 20px rgba(255, 183, 0, 1),
+      0 0 40px rgba(255, 183, 0, 0.8),
+      0 0 60px rgba(255, 183, 0, 0.6),
+      0 0 80px rgba(255, 183, 0, 0.4);
+    animation: titlePulse 3s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .member-name-kana {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 400;
+    letter-spacing: 0.3rem;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+  }
+
+  @keyframes titlePulse {
+    0%, 100% {
+      text-shadow:
+        0 0 20px rgba(255, 183, 0, 1),
+        0 0 40px rgba(255, 183, 0, 0.8),
+        0 0 60px rgba(255, 183, 0, 0.6);
+    }
+    50% {
+      text-shadow:
+        0 0 30px rgba(255, 183, 0, 1),
+        0 0 50px rgba(255, 183, 0, 0.9),
+        0 0 70px rgba(255, 183, 0, 0.7),
+        0 0 90px rgba(255, 183, 0, 0.5);
+    }
+  }
+
+  .member-part {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: #27E1FF;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow:
+      0 0 10px rgba(39, 225, 255, 0.8),
+      0 0 20px rgba(39, 225, 255, 0.5);
+  }
+
+  .member-tagline {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: #E0E0E0;
+    line-height: 1.6;
+    max-width: 800px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Info Sections */
+  .info-section {
+    margin-bottom: 3rem;
+    background: rgba(20, 20, 20, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
+    color: #FFB700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(255, 183, 0, 0.3);
+    padding-bottom: 0.5rem;
+  }
+
+  /* Table Styles */
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .info-table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .info-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .info-table td {
+    padding: 1rem;
+    line-height: 1.7;
+  }
+
+  .info-table td.label {
+    font-weight: 600;
+    color: #27E1FF;
+    width: 30%;
+    min-width: 150px;
+    vertical-align: top;
+  }
+
+  .info-table td:not(.label) {
+    color: #E0E0E0;
+  }
+
+  /* Background Story */
+  .background-story h3 {
+    font-size: 1.2rem;
+    color: #FFB700;
+    margin: 2rem 0 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .background-story h3:first-child {
+    margin-top: 0;
+  }
+
+  .background-story p {
+    color: #B0B0B0;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .member-detail-container {
+      padding: 1rem;
+    }
+
+    .detail-header {
+      margin: 0 0 3rem 0;
+    }
+
+    .header-overlay {
+      right: 1.5rem;
+      text-align: right;
+    }
+
+    .member-name {
+      letter-spacing: 0.3rem;
+    }
+
+    .member-part {
+      letter-spacing: 0.2em;
+    }
+
+    .info-table td.label {
+      width: auto;
+      min-width: 100px;
+    }
+
+    .info-table td {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .info-section {
+      padding: 1.5rem;
+    }
+  }
+</style>

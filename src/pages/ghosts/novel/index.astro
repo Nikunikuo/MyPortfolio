@@ -1,0 +1,484 @@
+---
+import Icon from '../../../components/Icon.astro';
+
+const pageTitle = 'GHOSTS - 小説';
+const pageDescription = 'GHOSTSの物語を小説で体験';
+
+// エピソード一覧
+const episodes = [
+  {
+    number: 0,
+    title: 'EPISODE 0',
+    description: 'AI統治下の2163年、音楽が消された世界で4人が出会う運命の夜。',
+    status: '公開中',
+    noteUrl: 'https://note.com/m1ra_project/n/n53a7463618e7',
+    thumbnail: '/images/GHOSTS/newssamnail/1.webp',
+    isFree: true,
+  },
+  // 今後追加予定
+];
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content="GHOSTS, 小説, AI統治, 2163年, カタコンベ, サイバーパンク小説, ディストピア, 音楽, YUNA, LUK, AKIRA, DOJI" />
+    <meta name="author" content="大鹿ニク / M1RA" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0F0F1E" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="GHOSTS - niku.studio" />
+    <meta property="og:image" content={new URL('/images/GHOSTS/logo.webp', Astro.site)} />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={new URL('/images/GHOSTS/logo.webp', Astro.site)} />
+    <meta name="twitter:site" content="@M1RA_A_Project" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": pageTitle,
+      "description": pageDescription,
+      "url": new URL(Astro.url.pathname, Astro.site).toString(),
+      "author": {
+        "@type": "Person",
+        "name": "大鹿ニク / M1RA"
+      },
+      "genre": "サイバーパンク小説",
+      "inLanguage": "ja",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "GHOSTS",
+        "url": new URL('/ghosts/', Astro.site).toString()
+      }
+    })} />
+  </head>
+  <body class="ghosts-body">
+    <!-- Floating Logo -->
+    <a href="/ghosts/" class="floating-logo">
+      <img src="/images/GHOSTS/logo.webp" alt="GHOSTS" />
+    </a>
+
+    <main>
+      <div class="novel-container">
+    <!-- Header -->
+    <section class="novel-header">
+      <h1 class="page-title">GHOSTS - 小説</h1>
+      <p class="page-description">
+        AI統治下の2163年、音楽が消された世界で立ち上がる4人の物語。
+      </p>
+    </section>
+
+    <!-- Episodes List -->
+    <section class="episodes-section">
+      {episodes.map((episode) => (
+        <article class="episode-card">
+          <div class="episode-main">
+            <div class="episode-header">
+              {episode.isFree && <span class="episode-badge">無料公開</span>}
+              <span class="episode-number">EP.{episode.number}</span>
+            </div>
+            <div class="episode-content">
+              <h2 class="episode-title">{episode.title}</h2>
+              <p class="episode-description">{episode.description}</p>
+              <div class="episode-footer">
+                {episode.noteUrl ? (
+                  <a href={episode.noteUrl} target="_blank" rel="noopener noreferrer" class="note-link">
+                    <Icon icon="paper-plane-tilt" size="1.2rem" />
+                    <span>Noteで読む</span>
+                    <span class="link-arrow">→</span>
+                  </a>
+                ) : (
+                  <div class="coming-soon-label">
+                    <Icon icon="rocket-launch" size="1.2rem" />
+                    <span>{episode.status}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+          {episode.thumbnail && (
+            <div class="episode-thumbnail">
+              <img src={episode.thumbnail} alt={episode.title} />
+            </div>
+          )}
+        </article>
+      ))}
+    </section>
+
+    <!-- Back Link -->
+    <div class="back-section">
+      <a href="/ghosts/" class="back-link">← GHOSTSトップに戻る</a>
+    </div>
+  </div>
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  /* GHOSTS Body */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ghosts-body {
+    background: #0F0F1E;
+    color: #E0E0E0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Floating Logo */
+  .floating-logo {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 100;
+    transition: all 0.3s ease;
+  }
+
+  .floating-logo img {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(255, 8, 68, 0.5));
+    transition: all 0.3s ease;
+  }
+
+  .floating-logo:hover img {
+    filter: drop-shadow(0 0 15px rgba(39, 225, 255, 0.8));
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .floating-logo {
+      top: 1rem;
+      left: 1rem;
+    }
+
+    .floating-logo img {
+      height: 44px;
+    }
+  }
+
+  main {
+    padding-top: 100px;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0F0F1E;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #FF0844, #27E1FF);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #27E1FF, #FF0844);
+  }
+
+  ::selection {
+    background: #FF0844;
+    color: white;
+  }
+</style>
+
+<style>
+  .novel-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* Header */
+  .novel-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: #FF0844;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    text-shadow:
+      0 0 20px rgba(255, 8, 68, 0.8),
+      0 0 40px rgba(255, 8, 68, 0.5);
+  }
+
+  .page-description {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: #B0B0B0;
+    line-height: 1.8;
+  }
+
+  /* Episodes Section */
+  .episodes-section {
+    margin-bottom: 4rem;
+  }
+
+  /* Episode Card - コンパクト版 */
+  .episode-card {
+    background: rgba(15, 15, 30, 0.5);
+    border-left: 3px solid rgba(255, 8, 68, 0.3);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .episode-main {
+    flex: 1;
+  }
+
+  .episode-thumbnail {
+    flex-shrink: 0;
+    width: 180px;
+    height: 120px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 8, 68, 0.2);
+  }
+
+  .episode-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .episode-card:hover .episode-thumbnail img {
+    transform: scale(1.1);
+  }
+
+  .episode-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #FF0844, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .episode-card:hover::before {
+    opacity: 1;
+  }
+
+  .episode-card:hover {
+    background: rgba(15, 15, 30, 0.8);
+    transform: translateX(5px);
+  }
+
+  .episode-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .episode-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(0, 255, 136, 0.2);
+    border: 1px solid #00ff88;
+    color: #00ff88;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    border-radius: 0.25rem;
+  }
+
+  .episode-number {
+    font-size: 0.75rem;
+    color: #666;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .episode-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .episode-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0;
+    letter-spacing: 0.02em;
+    transition: color 0.3s ease;
+  }
+
+  .episode-card:hover .episode-title {
+    color: #27E1FF;
+  }
+
+  .episode-description {
+    font-size: 0.9rem;
+    color: #888;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .episode-footer {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  .note-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #FF0844;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  .note-link:hover {
+    color: #27E1FF;
+  }
+
+  .link-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .note-link:hover .link-arrow {
+    transform: translateX(3px);
+  }
+
+  .coming-soon-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #FFB700;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .episode-card {
+      flex-direction: column-reverse;
+      align-items: stretch;
+    }
+
+    .episode-thumbnail {
+      width: 100%;
+      height: 160px;
+    }
+  }
+
+  /* Coming Soon Message */
+  .coming-soon-message {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: rgba(20, 20, 20, 0.6);
+    border: 2px solid rgba(255, 8, 68, 0.3);
+    border-radius: 0.5rem;
+  }
+
+  .coming-soon-message [astro-icon] {
+    color: #FFB700;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .coming-soon-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 900;
+    color: #27E1FF;
+    margin-bottom: 1rem;
+    letter-spacing: 0.2rem;
+    text-shadow:
+      0 0 15px rgba(39, 225, 255, 0.5),
+      0 0 30px rgba(39, 225, 255, 0.3);
+  }
+
+  .coming-soon-text {
+    font-size: 0.95rem;
+    color: #B0B0B0;
+    line-height: 1.8;
+  }
+
+  /* Back Section */
+  .back-section {
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: rgba(39, 225, 255, 0.1);
+    border: 2px solid rgba(39, 225, 255, 0.3);
+    border-radius: 0.5rem;
+    color: #27E1FF;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+  }
+
+  .back-link:hover {
+    background: rgba(39, 225, 255, 0.2);
+    border-color: #27E1FF;
+    box-shadow: 0 0 20px rgba(39, 225, 255, 0.3);
+    transform: translateX(-5px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .novel-container {
+      padding: 1rem;
+    }
+
+    .episode-content {
+      padding: 2rem 1.5rem;
+    }
+
+    .episode-content p {
+      font-size: 1rem;
+    }
+  }
+</style>
