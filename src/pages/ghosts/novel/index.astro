@@ -1,18 +1,18 @@
 ---
-import Icon from '../../../components/Icon.astro';
+import Icon from "../../../components/Icon.astro";
 
-const pageTitle = 'GHOSTS - 小説';
-const pageDescription = 'GHOSTSの物語を小説で体験';
+const pageTitle = "GHOSTS - 小説";
+const pageDescription = "GHOSTSの物語を小説で体験";
 
 // エピソード一覧
 const episodes = [
   {
     number: 0,
-    title: 'EPISODE 0',
-    description: 'AI統治下の2163年、音楽が消された世界で4人が出会う運命の夜。',
-    status: '公開中',
-    noteUrl: 'https://note.com/m1ra_project/n/n53a7463618e7',
-    thumbnail: '/images/GHOSTS/newssamnail/1.webp',
+    title: "EPISODE 0",
+    description: "AI統治下の2163年、音楽が消された世界で4人が出会う運命の夜。",
+    status: "公開中",
+    noteUrl: "https://note.com/m1ra_project/n/n53a7463618e7",
+    thumbnail: "/images/GHOSTS/newssamnail/1.webp",
     isFree: true,
   },
   // 今後追加予定
@@ -23,10 +23,16 @@ const episodes = [
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
-    <meta name="keywords" content="GHOSTS, 小説, AI統治, 2163年, カタコンベ, サイバーパンク小説, ディストピア, 音楽, YUNA, LUK, AKIRA, DOJI" />
+    <meta
+      name="keywords"
+      content="GHOSTS, 小説, AI統治, 2163年, カタコンベ, サイバーパンク小説, ディストピア, 音楽, YUNA, LUK, AKIRA, DOJI"
+    />
     <meta name="author" content="大鹿ニク / M1RA" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#0F0F1E" />
@@ -39,35 +45,44 @@ const episodes = [
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="GHOSTS - niku.studio" />
-    <meta property="og:image" content={new URL('/images/GHOSTS/logo.webp', Astro.site)} />
+    <meta
+      property="og:image"
+      content={new URL("/images/GHOSTS/logo.webp", Astro.site)}
+    />
     <meta property="og:locale" content="ja_JP" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
-    <meta name="twitter:image" content={new URL('/images/GHOSTS/logo.webp', Astro.site)} />
+    <meta
+      name="twitter:image"
+      content={new URL("/images/GHOSTS/logo.webp", Astro.site)}
+    />
     <meta name="twitter:site" content="@M1RA_A_Project" />
 
     <!-- JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "CreativeWork",
-      "name": pageTitle,
-      "description": pageDescription,
-      "url": new URL(Astro.url.pathname, Astro.site).toString(),
-      "author": {
-        "@type": "Person",
-        "name": "大鹿ニク / M1RA"
-      },
-      "genre": "サイバーパンク小説",
-      "inLanguage": "ja",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "GHOSTS",
-        "url": new URL('/ghosts/', Astro.site).toString()
-      }
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        name: pageTitle,
+        description: pageDescription,
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        author: {
+          "@type": "Person",
+          name: "大鹿ニク / M1RA",
+        },
+        genre: "サイバーパンク小説",
+        inLanguage: "ja",
+        isPartOf: {
+          "@type": "WebSite",
+          name: "GHOSTS",
+          url: new URL("/ghosts/", Astro.site).toString(),
+        },
+      })}
+    />
   </head>
   <body class="ghosts-body">
     <!-- Floating Logo -->
@@ -77,56 +92,94 @@ const episodes = [
 
     <main>
       <div class="novel-container">
-    <!-- Header -->
-    <section class="novel-header">
-      <h1 class="page-title">GHOSTS - 小説</h1>
-      <p class="page-description">
-        AI統治下の2163年、音楽が消された世界で立ち上がる4人の物語。
-      </p>
-    </section>
+        <!-- Header -->
+        <section class="novel-header">
+          <h1 class="page-title">GHOSTS - 小説</h1>
+          <p class="page-description">
+            AI統治下の2163年、音楽が消された世界で立ち上がる4人の物語。
+          </p>
+        </section>
 
-    <!-- Episodes List -->
-    <section class="episodes-section">
-      {episodes.map((episode) => (
-        <article class="episode-card">
-          <div class="episode-main">
-            <div class="episode-header">
-              {episode.isFree && <span class="episode-badge">無料公開</span>}
-              <span class="episode-number">EP.{episode.number}</span>
-            </div>
-            <div class="episode-content">
-              <h2 class="episode-title">{episode.title}</h2>
-              <p class="episode-description">{episode.description}</p>
-              <div class="episode-footer">
-                {episode.noteUrl ? (
-                  <a href={episode.noteUrl} target="_blank" rel="noopener noreferrer" class="note-link">
-                    <Icon icon="paper-plane-tilt" size="1.2rem" />
-                    <span>Noteで読む</span>
-                    <span class="link-arrow">→</span>
-                  </a>
-                ) : (
-                  <div class="coming-soon-label">
-                    <Icon icon="rocket-launch" size="1.2rem" />
-                    <span>{episode.status}</span>
+        <!-- Synopsis Section -->
+        <section class="synopsis-section">
+          <div class="synopsis-content">
+            <p>
+              世界中の「音」を監視し、危険な感情の揺れを検知したら即座に消す――<br
+              />かつてARCHIVEと呼ばれた統治AIは、その役割のために生まれた。
+            </p>
+            <p>
+              2077年の事故でコアの一部を失い、<br
+              />半壊状態のまま〈VOID〉として再起動したそのAIは、<br
+              />今も下層地区カタコンベで、人間の感情データを収集し続けている。
+            </p>
+            <p>
+              ある夜、VOIDはプロトコルに反して、一つの「危険な音」を消さずに残してしまう。<br
+              />AIが消そうとした感情の亡霊を、地下で鳴らし始めた四人――バンド・GHOSTS。<br
+              />それは、VOIDにとって最初の“自分の意思による例外処理”だった。
+            </p>
+            <p>
+              これは、暗闇の中で歌い続ける人間たちと、<br
+              />その歌を「ノイズ」として記録しながら、<br
+              />いつしか自らも揺らぎ始めてしまったAIの物語。
+            </p>
+            <p>
+              GHOSTS、統治AI、デッドゾーンの生存者たち――<br
+              />複数のログが交差する、“今この瞬間”の世界を描くSF小説ライン。
+            </p>
+          </div>
+        </section>
+
+        <!-- Episodes List -->
+        <section class="episodes-section">
+          {
+            episodes.map((episode) => (
+              <article class="episode-card">
+                <div class="episode-main">
+                  <div class="episode-header">
+                    {episode.isFree && (
+                      <span class="episode-badge">無料公開</span>
+                    )}
+                    <span class="episode-number">EP.{episode.number}</span>
+                  </div>
+                  <div class="episode-content">
+                    <h2 class="episode-title">{episode.title}</h2>
+                    <p class="episode-description">{episode.description}</p>
+                    <div class="episode-footer">
+                      {episode.noteUrl ? (
+                        <a
+                          href={episode.noteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="note-link"
+                        >
+                          <Icon icon="paper-plane-tilt" size="1.2rem" />
+                          <span>Noteで読む</span>
+                          <span class="link-arrow">→</span>
+                        </a>
+                      ) : (
+                        <div class="coming-soon-label">
+                          <Icon icon="rocket-launch" size="1.2rem" />
+                          <span>{episode.status}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                {episode.thumbnail && (
+                  <div class="episode-thumbnail">
+                    <img src={episode.thumbnail} alt={episode.title} />
                   </div>
                 )}
-              </div>
-            </div>
-          </div>
-          {episode.thumbnail && (
-            <div class="episode-thumbnail">
-              <img src={episode.thumbnail} alt={episode.title} />
-            </div>
-          )}
-        </article>
-      ))}
-    </section>
+              </article>
+            ))
+          }
+        </section>
 
-    <!-- Back Link -->
-    <div class="back-section">
-      <a href="/ghosts/" class="back-link">← GHOSTSトップに戻る</a>
-    </div>
-  </div>
+        <!-- Back Link -->
+        <div class="back-section">
+          <a href="/ghosts/" class="back-link">← GHOSTSトップに戻る</a>
+        </div>
+      </div>
     </main>
   </body>
 </html>
@@ -140,9 +193,10 @@ const episodes = [
   }
 
   .ghosts-body {
-    background: #0F0F1E;
-    color: #E0E0E0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f0f1e;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
   }
@@ -189,20 +243,20 @@ const episodes = [
   }
 
   ::-webkit-scrollbar-track {
-    background: #0F0F1E;
+    background: #0f0f1e;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #FF0844, #27E1FF);
+    background: linear-gradient(180deg, #ff0844, #27e1ff);
     border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #27E1FF, #FF0844);
+    background: linear-gradient(180deg, #27e1ff, #ff0844);
   }
 
   ::selection {
-    background: #FF0844;
+    background: #ff0844;
     color: white;
   }
 </style>
@@ -224,7 +278,7 @@ const episodes = [
   .page-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 900;
-    color: #FF0844;
+    color: #ff0844;
     margin-bottom: 1.5rem;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
@@ -235,8 +289,56 @@ const episodes = [
 
   .page-description {
     font-size: clamp(1rem, 2vw, 1.25rem);
-    color: #B0B0B0;
+    color: #b0b0b0;
     line-height: 1.8;
+  }
+
+  /* Synopsis Section */
+  .synopsis-section {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+
+  .synopsis-section::before,
+  .synopsis-section::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    transition: width 0.3s ease;
+  }
+
+  .synopsis-section::before {
+    top: 0;
+    left: 0;
+  }
+  .synopsis-section::after {
+    bottom: 0;
+    right: 0;
+  }
+
+  .synopsis-section:hover::before,
+  .synopsis-section:hover::after {
+    width: 100%;
+    background: rgba(39, 225, 255, 0.5);
+  }
+
+  .synopsis-content p {
+    font-size: 0.95rem;
+    line-height: 2;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+  }
+
+  .synopsis-content p:last-child {
+    margin-bottom: 0;
   }
 
   /* Episodes Section */
@@ -283,13 +385,13 @@ const episodes = [
   }
 
   .episode-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 3px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #FF0844, transparent);
+    background: linear-gradient(180deg, transparent, #ff0844, transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -338,14 +440,14 @@ const episodes = [
   .episode-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #FFFFFF;
+    color: #ffffff;
     margin: 0;
     letter-spacing: 0.02em;
     transition: color 0.3s ease;
   }
 
   .episode-card:hover .episode-title {
-    color: #27E1FF;
+    color: #27e1ff;
   }
 
   .episode-description {
@@ -365,7 +467,7 @@ const episodes = [
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #FF0844;
+    color: #ff0844;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.8rem;
@@ -375,7 +477,7 @@ const episodes = [
   }
 
   .note-link:hover {
-    color: #27E1FF;
+    color: #27e1ff;
   }
 
   .link-arrow {
@@ -390,7 +492,7 @@ const episodes = [
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #FFB700;
+    color: #ffb700;
     font-weight: 600;
     font-size: 0.8rem;
   }
@@ -418,7 +520,7 @@ const episodes = [
   }
 
   .coming-soon-message [astro-icon] {
-    color: #FFB700;
+    color: #ffb700;
     opacity: 0.8;
     margin-bottom: 1.5rem;
   }
@@ -426,7 +528,7 @@ const episodes = [
   .coming-soon-title {
     font-size: clamp(1.75rem, 3.5vw, 2.5rem);
     font-weight: 900;
-    color: #27E1FF;
+    color: #27e1ff;
     margin-bottom: 1rem;
     letter-spacing: 0.2rem;
     text-shadow:
@@ -436,7 +538,7 @@ const episodes = [
 
   .coming-soon-text {
     font-size: 0.95rem;
-    color: #B0B0B0;
+    color: #b0b0b0;
     line-height: 1.8;
   }
 
@@ -452,7 +554,7 @@ const episodes = [
     background: rgba(39, 225, 255, 0.1);
     border: 2px solid rgba(39, 225, 255, 0.3);
     border-radius: 0.5rem;
-    color: #27E1FF;
+    color: #27e1ff;
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
@@ -462,7 +564,7 @@ const episodes = [
 
   .back-link:hover {
     background: rgba(39, 225, 255, 0.2);
-    border-color: #27E1FF;
+    border-color: #27e1ff;
     box-shadow: 0 0 20px rgba(39, 225, 255, 0.3);
     transform: translateX(-5px);
   }

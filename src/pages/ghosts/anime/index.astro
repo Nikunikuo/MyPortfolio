@@ -1,25 +1,25 @@
 ---
-import Icon from '../../../components/Icon.astro';
+import Icon from "../../../components/Icon.astro";
 
-const pageTitle = 'GHOSTS - アニメ';
-const pageDescription = '動くGHOSTSの世界 - ショートアニメと長編アニメで展開';
+const pageTitle = "GHOSTS - アニメ";
+const pageDescription = "動くGHOSTSの世界 - ショートアニメと長編アニメで展開";
 
 // ショートアニメ一覧
 const shortAnimes = [
   {
     number: 1,
-    title: 'ヒナ＆ノア＆プルケ',
-    videoPath: '/images/GHOSTS/Anime/01.mp4',
+    title: "ヒナ＆ノア＆プルケ",
+    videoPath: "/images/GHOSTS/Anime/01.mp4",
   },
   {
     number: 2,
-    title: 'AIs',
-    videoPath: '/images/GHOSTS/Anime/02.mp4',
+    title: "AIs",
+    videoPath: "/images/GHOSTS/Anime/02.mp4",
   },
   {
     number: 3,
-    title: 'リブート紹介',
-    videoPath: '/images/GHOSTS/Anime/reboot.mp4',
+    title: "リブート紹介",
+    videoPath: "/images/GHOSTS/Anime/reboot.mp4",
   },
 ];
 
@@ -33,10 +33,16 @@ const longAnimes = [
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
-    <meta name="keywords" content="GHOSTS, アニメ, ショートアニメ, 長編アニメ, アニメーション, AI統治, 2163年, サイバーパンク, ディストピア, 動画, エピソード" />
+    <meta
+      name="keywords"
+      content="GHOSTS, アニメ, ショートアニメ, 長編アニメ, アニメーション, AI統治, 2163年, サイバーパンク, ディストピア, 動画, エピソード"
+    />
     <meta name="author" content="大鹿ニク / M1RA" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#0F0F1E" />
@@ -49,35 +55,44 @@ const longAnimes = [
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
     <meta property="og:type" content="video.other" />
     <meta property="og:site_name" content="GHOSTS - niku.studio" />
-    <meta property="og:image" content={new URL('/images/GHOSTS/logo.webp', Astro.site)} />
+    <meta
+      property="og:image"
+      content={new URL("/images/GHOSTS/logo.webp", Astro.site)}
+    />
     <meta property="og:locale" content="ja_JP" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
-    <meta name="twitter:image" content={new URL('/images/GHOSTS/logo.webp', Astro.site)} />
+    <meta
+      name="twitter:image"
+      content={new URL("/images/GHOSTS/logo.webp", Astro.site)}
+    />
     <meta name="twitter:site" content="@M1RA_A_Project" />
 
     <!-- JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "CreativeWork",
-      "name": pageTitle,
-      "description": pageDescription,
-      "url": new URL(Astro.url.pathname, Astro.site).toString(),
-      "author": {
-        "@type": "Person",
-        "name": "大鹿ニク / M1RA"
-      },
-      "genre": "サイバーパンクアニメ",
-      "inLanguage": "ja",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "GHOSTS",
-        "url": new URL('/ghosts/', Astro.site).toString()
-      }
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        name: pageTitle,
+        description: pageDescription,
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        author: {
+          "@type": "Person",
+          name: "大鹿ニク / M1RA",
+        },
+        genre: "サイバーパンクアニメ",
+        inLanguage: "ja",
+        isPartOf: {
+          "@type": "WebSite",
+          name: "GHOSTS",
+          url: new URL("/ghosts/", Astro.site).toString(),
+        },
+      })}
+    />
   </head>
   <body class="ghosts-body">
     <!-- Floating Logo -->
@@ -87,98 +102,138 @@ const longAnimes = [
 
     <main>
       <div class="novel-container">
-    <!-- Header -->
-    <section class="novel-header">
-      <h1 class="page-title">GHOSTS - アニメ</h1>
-      <p class="page-description">
-        GHOSTSの世界が動き出す——ショートアニメと長編アニメで展開するプロジェクト
-      </p>
-    </section>
+        <!-- Header -->
+        <section class="novel-header">
+          <h1 class="page-title">GHOSTS - アニメ</h1>
+          <p class="page-description">
+            GHOSTSの世界が動き出す——ショートアニメと長編アニメで展開するプロジェクト
+          </p>
+        </section>
 
-    <!-- Long Anime Section -->
-    <section class="anime-category-section">
-      <div class="category-header">
-        <h2 class="category-title">長編アニメ</h2>
-        <p class="category-description">本格的にGHOSTSの物語を描く、15～30分のエピソード形式作品</p>
-      </div>
-
-      <div class="episodes-section">
-        {longAnimes.length > 0 ? (
-          longAnimes.map((episode) => (
-            <article class="episode-card">
-              <div class="episode-header">
-                {episode.isFree && <span class="episode-badge">無料公開</span>}
-                <span class="episode-number">EP.{episode.number}</span>
-              </div>
-              <div class="episode-content">
-                <h3 class="episode-title">{episode.title}</h3>
-                <p class="episode-description">{episode.description}</p>
-                <div class="episode-footer">
-                  {episode.url ? (
-                    <a href={episode.url} target="_blank" rel="noopener noreferrer" class="note-link">
-                      <Icon icon="youtube-logo" size="1.2rem" />
-                      <span>視聴する</span>
-                      <span class="link-arrow">→</span>
-                    </a>
-                  ) : (
-                    <div class="coming-soon-label">
-                      <Icon icon="rocket-launch" size="1.2rem" />
-                      <span>{episode.status}</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </article>
-          ))
-        ) : (
-          <div class="coming-soon-message">
-            <Icon icon="television" size="4rem" />
-            <h3 class="coming-soon-subtitle">COMING SOON</h3>
-            <p class="coming-soon-text">
-              AI統治下の2163年、音楽が消された世界で立ち上がる4人の物語。<br>
-              カタコンベの暗闇、ネオンに染まる都市、そして音楽の復活——<br>
-              全てが動き出す長編アニメーションプロジェクトが始動予定です。
+        <!-- Synopsis Section -->
+        <section class="synopsis-section">
+          <div class="synopsis-content">
+            <p>
+              2163年。AI統治が当たり前になって久しい都市〈ルーメンシティ〉では、<br
+              />人の心を大きく揺らす「音楽」は、危険物として消され続けてきた。
+            </p>
+            <p>
+              廃工場と地下街が入り組む下層地区〈カタコンベ〉で、<br
+              />行き場をなくした四人の若者が、偶然ひとつのスタジオに集まる。<br
+              />誰も知らないはずの音楽とバンド――ボーカル、ギター、ベース、ドラム。<br
+              />彼らは、自分たちを“GHOSTS”と名乗り、禁じられた音を鳴らし始める。
+            </p>
+            <p>
+              半壊AI〈VOID〉の監視の穴をすり抜けて広がるそのノイズは、<br
+              />やがて都市全体の感情を揺らし、統治AIたちとの衝突を呼び込んでいく。<br
+              />静寂の世界に走った一本のノイズは、果たして何を壊し、何を救うのか――。
             </p>
           </div>
-        )}
-      </div>
-    </section>
+        </section>
 
-    <!-- Short Anime Section -->
-    <section class="anime-category-section">
-      <div class="category-header">
-        <h2 class="category-title">ショートアニメ</h2>
-        <p class="category-description">1～3分で楽しめる、GHOSTSの世界観を描いた短編アニメーション</p>
-      </div>
+        <!-- Long Anime Section -->
+        <section class="anime-category-section">
+          <div class="category-header">
+            <h2 class="category-title">長編アニメ</h2>
+            <p class="category-description">
+              本格的にGHOSTSの物語を描く、15～30分のエピソード形式作品
+            </p>
+          </div>
 
-      <div class="short-anime-grid">
-        {shortAnimes.map((anime) => (
-          <article class="short-anime-card">
-            <div class="short-anime-header">
-              <span class="short-anime-number">SHORT #{anime.number}</span>
-              <h3 class="short-anime-title">{anime.title}</h3>
-            </div>
-            <div class="video-wrapper">
-              <video
-                controls
-                preload="metadata"
-                poster={`${anime.videoPath.replace('.mp4', '')}-poster.jpg`}
-                class="short-anime-video"
-              >
-                <source src={anime.videoPath} type="video/mp4" />
-                お使いのブラウザは動画の再生に対応していません。
-              </video>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
+          <div class="episodes-section">
+            {
+              longAnimes.length > 0 ? (
+                longAnimes.map((episode) => (
+                  <article class="episode-card">
+                    <div class="episode-header">
+                      {episode.isFree && (
+                        <span class="episode-badge">無料公開</span>
+                      )}
+                      <span class="episode-number">EP.{episode.number}</span>
+                    </div>
+                    <div class="episode-content">
+                      <h3 class="episode-title">{episode.title}</h3>
+                      <p class="episode-description">{episode.description}</p>
+                      <div class="episode-footer">
+                        {episode.url ? (
+                          <a
+                            href={episode.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="note-link"
+                          >
+                            <Icon icon="youtube-logo" size="1.2rem" />
+                            <span>視聴する</span>
+                            <span class="link-arrow">→</span>
+                          </a>
+                        ) : (
+                          <div class="coming-soon-label">
+                            <Icon icon="rocket-launch" size="1.2rem" />
+                            <span>{episode.status}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </article>
+                ))
+              ) : (
+                <div class="coming-soon-message">
+                  <Icon icon="television" size="4rem" />
+                  <h3 class="coming-soon-subtitle">COMING SOON</h3>
+                  <p class="coming-soon-text">
+                    AI統治下の2163年、音楽が消された世界で立ち上がる4人の物語。
+                    <br />
+                    カタコンベの暗闇、ネオンに染まる都市、そして音楽の復活——
+                    <br />
+                    全てが動き出す長編アニメーションプロジェクトが始動予定です。
+                  </p>
+                </div>
+              )
+            }
+          </div>
+        </section>
 
-    <!-- Back Link -->
-    <div class="back-section">
-      <a href="/ghosts/" class="back-link">← GHOSTSトップに戻る</a>
-    </div>
-  </div>
+        <!-- Short Anime Section -->
+        <section class="anime-category-section">
+          <div class="category-header">
+            <h2 class="category-title">ショートアニメ</h2>
+            <p class="category-description">
+              1～3分で楽しめる、GHOSTSの世界観を描いた短編アニメーション
+            </p>
+          </div>
+
+          <div class="short-anime-grid">
+            {
+              shortAnimes.map((anime) => (
+                <article class="short-anime-card">
+                  <div class="short-anime-header">
+                    <span class="short-anime-number">
+                      SHORT #{anime.number}
+                    </span>
+                    <h3 class="short-anime-title">{anime.title}</h3>
+                  </div>
+                  <div class="video-wrapper">
+                    <video
+                      controls
+                      preload="metadata"
+                      poster={`${anime.videoPath.replace(".mp4", "")}-poster.jpg`}
+                      class="short-anime-video"
+                    >
+                      <source src={anime.videoPath} type="video/mp4" />
+                      お使いのブラウザは動画の再生に対応していません。
+                    </video>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </section>
+
+        <!-- Back Link -->
+        <div class="back-section">
+          <a href="/ghosts/" class="back-link">← GHOSTSトップに戻る</a>
+        </div>
+      </div>
     </main>
   </body>
 </html>
@@ -192,9 +247,10 @@ const longAnimes = [
   }
 
   .ghosts-body {
-    background: #0F0F1E;
-    color: #E0E0E0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f0f1e;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
   }
@@ -241,20 +297,20 @@ const longAnimes = [
   }
 
   ::-webkit-scrollbar-track {
-    background: #0F0F1E;
+    background: #0f0f1e;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #FF0844, #27E1FF);
+    background: linear-gradient(180deg, #ff0844, #27e1ff);
     border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #27E1FF, #FF0844);
+    background: linear-gradient(180deg, #27e1ff, #ff0844);
   }
 
   ::selection {
-    background: #FF0844;
+    background: #ff0844;
     color: white;
   }
 </style>
@@ -276,7 +332,7 @@ const longAnimes = [
   .page-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 900;
-    color: #FF0844;
+    color: #ff0844;
     margin-bottom: 1.5rem;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
@@ -287,7 +343,7 @@ const longAnimes = [
 
   .page-description {
     font-size: clamp(1rem, 2vw, 1.25rem);
-    color: #B0B0B0;
+    color: #b0b0b0;
     line-height: 1.8;
   }
 
@@ -305,7 +361,7 @@ const longAnimes = [
   .category-title {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
     font-weight: 800;
-    color: #27E1FF;
+    color: #27e1ff;
     margin-bottom: 0.75rem;
     letter-spacing: 0.1rem;
     text-shadow:
@@ -317,6 +373,54 @@ const longAnimes = [
     font-size: clamp(0.9rem, 1.5vw, 1rem);
     color: #999;
     line-height: 1.6;
+  }
+
+  /* Synopsis Section */
+  .synopsis-section {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+
+  .synopsis-section::before,
+  .synopsis-section::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    transition: width 0.3s ease;
+  }
+
+  .synopsis-section::before {
+    top: 0;
+    left: 0;
+  }
+  .synopsis-section::after {
+    bottom: 0;
+    right: 0;
+  }
+
+  .synopsis-section:hover::before,
+  .synopsis-section:hover::after {
+    width: 100%;
+    background: rgba(39, 225, 255, 0.5);
+  }
+
+  .synopsis-content p {
+    font-size: 0.95rem;
+    line-height: 2;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+  }
+
+  .synopsis-content p:last-child {
+    margin-bottom: 0;
   }
 
   /* Episodes Section */
@@ -335,13 +439,13 @@ const longAnimes = [
   }
 
   .episode-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 3px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #FF0844, transparent);
+    background: linear-gradient(180deg, transparent, #ff0844, transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -390,14 +494,14 @@ const longAnimes = [
   .episode-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #FFFFFF;
+    color: #ffffff;
     margin: 0;
     letter-spacing: 0.02em;
     transition: color 0.3s ease;
   }
 
   .episode-card:hover .episode-title {
-    color: #27E1FF;
+    color: #27e1ff;
   }
 
   .episode-description {
@@ -417,7 +521,7 @@ const longAnimes = [
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #FF0844;
+    color: #ff0844;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.8rem;
@@ -427,7 +531,7 @@ const longAnimes = [
   }
 
   .note-link:hover {
-    color: #27E1FF;
+    color: #27e1ff;
   }
 
   .link-arrow {
@@ -442,7 +546,7 @@ const longAnimes = [
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #FFB700;
+    color: #ffb700;
     font-weight: 600;
     font-size: 0.8rem;
   }
@@ -458,7 +562,7 @@ const longAnimes = [
   }
 
   .coming-soon-message [astro-icon] {
-    color: #27E1FF;
+    color: #27e1ff;
     opacity: 0.6;
     margin-bottom: 1rem;
   }
@@ -466,7 +570,7 @@ const longAnimes = [
   .coming-soon-subtitle {
     font-size: clamp(1.3rem, 2.5vw, 1.8rem);
     font-weight: 700;
-    color: #FFB700;
+    color: #ffb700;
     margin-bottom: 0.75rem;
     letter-spacing: 0.15rem;
     text-shadow:
@@ -492,7 +596,7 @@ const longAnimes = [
     background: rgba(39, 225, 255, 0.1);
     border: 2px solid rgba(39, 225, 255, 0.3);
     border-radius: 0.5rem;
-    color: #27E1FF;
+    color: #27e1ff;
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
@@ -502,7 +606,7 @@ const longAnimes = [
 
   .back-link:hover {
     background: rgba(39, 225, 255, 0.2);
-    border-color: #27E1FF;
+    border-color: #27e1ff;
     box-shadow: 0 0 20px rgba(39, 225, 255, 0.3);
     transform: translateX(-5px);
   }
@@ -526,13 +630,19 @@ const longAnimes = [
   }
 
   .short-anime-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, transparent, #FF0844, #27E1FF, transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      #ff0844,
+      #27e1ff,
+      transparent
+    );
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -542,7 +652,7 @@ const longAnimes = [
   }
 
   .short-anime-card:hover {
-    border-color: #FF0844;
+    border-color: #ff0844;
     box-shadow: 0 0 30px rgba(255, 8, 68, 0.3);
     transform: translateY(-5px);
   }
@@ -557,7 +667,7 @@ const longAnimes = [
     background: rgba(255, 8, 68, 0.2);
     border: 1px solid rgba(255, 8, 68, 0.5);
     border-radius: 0.25rem;
-    color: #FF0844;
+    color: #ff0844;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -567,14 +677,14 @@ const longAnimes = [
   .short-anime-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #FFFFFF;
+    color: #ffffff;
     margin: 0.5rem 0 0 0;
     letter-spacing: 0.05em;
     transition: color 0.3s ease;
   }
 
   .short-anime-card:hover .short-anime-title {
-    color: #27E1FF;
+    color: #27e1ff;
   }
 
   .video-wrapper {
