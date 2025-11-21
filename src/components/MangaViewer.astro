@@ -1,0 +1,330 @@
+---
+interface Props {
+    images: string[];
+    title: string;
+    backLink?: string;
+}
+
+const { images, title, backLink = "/ghosts/manga/" } = Astro.props;
+const backLinkUrl = backLink;
+---
+
+<div class="manga-viewer">
+    <div class="viewer-header">
+        <a href={backLink} class="back-button"> ← 戻る </a>
+        <h1 class="viewer-title">{title}</h1>
+        <div class="page-indicator">
+            <span id="current-page">1</span> / <span id="total-pages"
+                >{images.length}</span
+            >
+        </div>
+    </div>
+
+    <div
+        class="viewer-container"
+        id="viewer-container"
+        data-back-link={backLink}
+    >
+        {
+            images.map((src, index) => (
+                <div
+                    class={`manga-page ${index === 0 ? "active" : ""}`}
+                    data-index={index}
+                >
+                    <img
+                        src={src}
+                        alt={`${title} - Page ${index + 1}`}
+                        loading={index < 2 ? "eager" : "lazy"}
+                    />
+                </div>
+            ))
+        }
+
+        <div class="click-areas">
+            <div class="click-prev" id="click-prev"></div>
+            <div class="click-next" id="click-next"></div>
+        </div>
+    </div>
+
+    <div class="viewer-controls">
+        <button id="btn-prev" class="control-btn" disabled>前へ</button>
+        <input
+            type="range"
+            id="page-slider"
+            min="1"
+            max={images.length}
+            value="1"
+            class="page-slider"
+        />
+        <button id="btn-next" class="control-btn">次へ</button>
+    </div>
+</div>
+
+<script>
+    function initViewer() {
+        const container = document.getElementById("viewer-container");
+        if (!container) return;
+
+        const pages = container.querySelectorAll(".manga-page");
+        const totalPages = pages.length;
+        let currentIndex = 0;
+
+        const btnPrev = document.getElementById(
+            "btn-prev",
+        ) as HTMLButtonElement;
+        const btnNext = document.getElementById(
+            "btn-next",
+        ) as HTMLButtonElement;
+        const clickPrev = document.getElementById("click-prev");
+        const clickNext = document.getElementById("click-next");
+        const pageIndicator = document.getElementById("current-page");
+        const pageSlider = document.getElementById(
+            "page-slider",
+        ) as HTMLInputElement;
+
+        function updateView() {
+            // Hide all pages
+            pages.forEach((page) => page.classList.remove("active"));
+            // Show current page
+            pages[currentIndex].classList.add("active");
+
+            // Update controls
+            if (btnPrev) btnPrev.disabled = currentIndex === 0;
+            if (btnNext) {
+                btnNext.textContent =
+                    currentIndex === totalPages - 1 ? "読了" : "次へ";
+                // Last page action could be different, but for now just keep it enabled until the end
+                if (currentIndex === totalPages - 1) {
+                    // Optional: Disable or change style
+                }
+            }
+
+            // Update indicator
+            if (pageIndicator)
+                pageIndicator.textContent = (currentIndex + 1).toString();
+
+            // Update slider
+            if (pageSlider) pageSlider.value = (currentIndex + 1).toString();
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function nextPage() {
+            if (currentIndex < totalPages - 1) {
+                currentIndex++;
+                updateView();
+            } else {
+                // 最後のページで「読了」ボタンを押したら一覧に戻る
+                const backUrl = container?.getAttribute("data-back-link");
+                if (backUrl) {
+                    window.location.href = backUrl;
+                }
+            }
+        }
+
+        function prevPage() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateView();
+            }
+        }
+
+        function goToPage(index: number) {
+            if (index >= 0 && index < totalPages) {
+                currentIndex = index;
+                updateView();
+            }
+        }
+
+        // Event Listeners
+        btnPrev?.addEventListener("click", prevPage);
+        btnNext?.addEventListener("click", nextPage);
+        clickPrev?.addEventListener("click", prevPage);
+        clickNext?.addEventListener("click", nextPage);
+
+        pageSlider?.addEventListener("input", (e) => {
+            const target = e.target as HTMLInputElement;
+            goToPage(parseInt(target.value) - 1);
+        });
+
+        // Keyboard navigation
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowRight" || e.key === " ") {
+                nextPage();
+            } else if (e.key === "ArrowLeft") {
+                prevPage();
+            }
+        });
+
+        // Initial update
+        updateView();
+    }
+
+    // Run on load and on Astro page transitions
+    initViewer();
+    document.addEventListener("astro:page-load", initViewer);
+</script>
+
+<style>
+    .manga-viewer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        background: #0f0f1e;
+        color: #fff;
+        padding-bottom: 4rem;
+    }
+
+    .viewer-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+        background: rgba(15, 15, 30, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .back-button {
+        color: #27e1ff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .viewer-title {
+        font-size: 1rem;
+        margin: 0;
+        color: #fff;
+        text-align: center;
+        flex: 1;
+    }
+
+    .page-indicator {
+        font-family: monospace;
+        color: #888;
+    }
+
+    .viewer-container {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        margin: 1rem auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 200px);
+        max-height: calc(100vh - 200px);
+    }
+
+    .manga-page {
+        display: none;
+        width: 100%;
+        height: 100%;
+    }
+
+    .manga-page.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .manga-page img {
+        max-width: 100%;
+        max-height: calc(100vh - 200px);
+        width: auto;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .click-areas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        z-index: 10;
+    }
+
+    .click-prev {
+        width: 30%;
+        height: 100%;
+        cursor: w-resize;
+    }
+
+    .click-next {
+        width: 70%;
+        height: 100%;
+        cursor: e-resize;
+    }
+
+    .viewer-controls {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 15, 30, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 100;
+    }
+
+    .control-btn {
+        background: rgba(39, 225, 255, 0.1);
+        border: 1px solid #27e1ff;
+        color: #27e1ff;
+        padding: 0.5rem 1.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .control-btn:hover:not(:disabled) {
+        background: rgba(39, 225, 255, 0.3);
+    }
+
+    .control-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        border-color: #555;
+        color: #555;
+    }
+
+    .page-slider {
+        flex: 1;
+        max-width: 300px;
+        accent-color: #ff0844;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .viewer-title {
+            font-size: 0.9rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+</style>

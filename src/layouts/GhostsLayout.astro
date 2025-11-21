@@ -1,5 +1,5 @@
 ---
-import GhostsNav from '../components/GhostsNav.astro';
+import GhostsNav from "../components/GhostsNav.astro";
 
 interface Props {
   title: string;
@@ -15,16 +15,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="GHOSTS, バンド, AI統治, 2163年, 音楽, 小説, 漫画, アニメ, ミュージックビデオ, 大鹿ニク, M1RA, サイバーパンク, ディストピア, 近未来" />
+    <meta
+      name="keywords"
+      content="GHOSTS, バンド, AI統治, 2163年, 音楽, 小説, 漫画, アニメ, ミュージックビデオ, 大鹿ニク, M1RA, サイバーパンク, ディストピア, 近未来"
+    />
     <meta name="author" content="大鹿ニク / M1RA" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
     <meta name="theme-color" content="#0F0F1E" />
     <link rel="canonical" href={canonicalURL} />
 
@@ -34,7 +43,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="GHOSTS - niku.studio" />
-    <meta property="og:image" content={new URL('/images/GHOSTS/poster1.webp', Astro.site).toString()} />
+    <meta
+      property="og:image"
+      content={new URL("/images/GHOSTS/poster1.webp", Astro.site).toString()}
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="GHOSTS - Noise in the Silence" />
@@ -44,7 +56,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL('/images/GHOSTS/poster1.webp', Astro.site).toString()} />
+    <meta
+      name="twitter:image"
+      content={new URL("/images/GHOSTS/poster1.webp", Astro.site).toString()}
+    />
     <meta name="twitter:image:alt" content="GHOSTS - Noise in the Silence" />
     <meta name="twitter:site" content="@M1RA_A_Project" />
     <meta name="twitter:creator" content="@M1RA_A_Project" />
@@ -58,46 +73,53 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     />
 
     <!-- JSON-LD - WebSite -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "GHOSTS",
-      "description": description,
-      "url": canonicalURL.toString(),
-      "inLanguage": "ja",
-      "author": {
-        "@type": "Person",
-        "name": "大鹿ニク / M1RA",
-        "url": "https://niku.studio"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "GHOSTS Project",
-        "logo": {
-          "@type": "ImageObject",
-          "url": new URL('/images/GHOSTS/logo.webp', Astro.site).toString()
-        }
-      }
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "GHOSTS",
+        description: description,
+        url: canonicalURL.toString(),
+        inLanguage: "ja",
+        author: {
+          "@type": "Person",
+          name: "大鹿ニク / M1RA",
+          url: "https://niku.studio",
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "GHOSTS Project",
+          logo: {
+            "@type": "ImageObject",
+            url: new URL("/images/GHOSTS/logo.webp", Astro.site).toString(),
+          },
+        },
+      })}
+    />
 
     <!-- JSON-LD - Organization -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "GHOSTS",
-      "description": "AI統治下の2163年、音楽が消された世界で立ち上がる架空のバンド",
-      "url": new URL('/ghosts/', Astro.site).toString(),
-      "logo": new URL('/images/GHOSTS/logo.webp', Astro.site).toString(),
-      "sameAs": [
-        "https://x.com/M1RA_A_Project",
-        "https://note.com/m1ra_project",
-        "https://www.youtube.com/@M1RA_A_Project"
-      ],
-      "founder": {
-        "@type": "Person",
-        "name": "大鹿ニク / M1RA"
-      }
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "GHOSTS",
+        description:
+          "AI統治下の2163年、音楽が消された世界で立ち上がる架空のバンド",
+        url: new URL("/ghosts/", Astro.site).toString(),
+        logo: new URL("/images/GHOSTS/logo.webp", Astro.site).toString(),
+        sameAs: [
+          "https://x.com/M1RA_A_Project",
+          "https://note.com/m1ra_project",
+          "https://www.youtube.com/@M1RA_A_Project",
+        ],
+        founder: {
+          "@type": "Person",
+          name: "大鹿ニク / M1RA",
+        },
+      })}
+    />
   </head>
   <body>
     {showNav && <GhostsNav />}
@@ -108,15 +130,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <footer class="ghosts-footer">
       <div class="footer-content">
-        <p class="footer-notice">本作品はAIを題材にした作品です<br>そのため、作品のビジュアルの大部分は生成AIで作成しています。<br>ストーリーや世界観、小説、歌詞等の文章については原作者が大部分を担当しています。</p>
-        <p class="footer-text">GHOSTS - A Project by 大鹿ニク</p>
-        <p class="footer-links">
-          <a href="/">niku.studio</a>
-          <span class="separator">|</span>
-          <a href="https://x.com/M1RA_A_Project" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
-          <span class="separator">|</span>
-          <a href="https://note.com/m1ra_project" target="_blank" rel="noopener noreferrer">Note</a>
+        <p class="footer-notice">
+          本作品はAIを題材にした作品です<br
+          />そのため、作品のビジュアルの大部分は生成AIで作成しています。<br
+          />ストーリーや世界観、小説、歌詞等の文章については原作者が大部分を担当しています。
         </p>
+        <p class="footer-text">GHOSTS - A Project by 大鹿ニク</p>
         <p class="copyright">&copy; 2025 OosikaNiku. All rights reserved.</p>
       </div>
     </footer>
@@ -127,12 +146,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   /* GHOSTS Global Styles */
   :root {
     /* GHOSTS Color Palette */
-    --ghosts-red: #FF0844;
-    --ghosts-cyan: #27E1FF;
-    --ghosts-amber: #FFB700;
-    --ghosts-purple: #8B5CF6;
-    --ghosts-dark: #0F0F1E;
-    --ghosts-dark-2: #1A1A2E;
+    --ghosts-red: #ff0844;
+    --ghosts-cyan: #27e1ff;
+    --ghosts-amber: #ffb700;
+    --ghosts-purple: #8b5cf6;
+    --ghosts-dark: #0f0f1e;
+    --ghosts-dark-2: #1a1a2e;
   }
 
   * {
@@ -147,8 +166,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   body {
     background: var(--ghosts-dark);
-    color: #E0E0E0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
     padding-top: 80px; /* ナビゲーション分の余白 */
@@ -160,7 +180,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   /* Footer Styles */
   .ghosts-footer {
-    background: linear-gradient(180deg, rgba(15, 15, 30, 0.5) 0%, rgba(26, 26, 46, 0.9) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(15, 15, 30, 0.5) 0%,
+      rgba(26, 26, 46, 0.9) 100%
+    );
     border-top: 2px solid rgba(255, 8, 68, 0.3);
     padding: 3rem 2rem 2rem;
     margin-top: 4rem;
@@ -174,7 +198,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   .footer-text {
     font-size: 1rem;
-    color: #B0B0B0;
+    color: #b0b0b0;
     margin-bottom: 1rem;
     letter-spacing: 0.1rem;
   }
@@ -185,13 +209,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
 
   .footer-links a {
-    color: #27E1FF;
+    color: #27e1ff;
     text-decoration: none;
     transition: all 0.3s ease;
   }
 
   .footer-links a:hover {
-    color: #FF0844;
+    color: #ff0844;
     text-shadow: 0 0 10px rgba(255, 8, 68, 0.5);
   }
 
