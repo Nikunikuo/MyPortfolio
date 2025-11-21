@@ -1,34 +1,39 @@
 ---
-const pageTitle = 'GHOSTS - 関連動画';
-const pageDescription = 'GHOSTSの世界観を描いたミュージックビデオ作品集';
+const pageTitle = "GHOSTS - 関連動画";
+const pageDescription = "GHOSTSの世界観を描いたミュージックビデオ作品集";
 
 // GHOSTS関連のMV（指定された順序）
 const ghostsVideos = [
   {
-    title: '街角の亡霊',
-    youtubeId: '9nNO0_YVM0k',
-    description: '都会の片隅に佇む、記憶の残像を描いた作品。GHOSTSの世界観を象徴する楽曲。',
+    title: "街角の亡霊",
+    youtubeId: "9nNO0_YVM0k",
+    description:
+      "都会の片隅に佇む、記憶の残像を描いた作品。GHOSTSの世界観を象徴する楽曲。",
   },
   {
-    title: 'Unbreakable',
-    youtubeId: 'XCN4nPhHr9E',
-    description: '決して折れない心を描いた、エモーショナルな楽曲。抑圧されても消えない意志。',
+    title: "Unbreakable",
+    youtubeId: "XCN4nPhHr9E",
+    description:
+      "決して折れない心を描いた、エモーショナルな楽曲。抑圧されても消えない意志。",
   },
   {
-    title: '無敵の船長',
-    youtubeId: 'Cj-lY7xvow0',
-    description: '航海に出る船長の冒険心を歌ったミュージックビデオ。未知への挑戦。',
+    title: "無敵の船長",
+    youtubeId: "Cj-lY7xvow0",
+    description:
+      "航海に出る船長の冒険心を歌ったミュージックビデオ。未知への挑戦。",
   },
   {
-    title: '君は人間ですか',
-    youtubeId: 'oNsT8Pgaj7Q',
-    description: 'AIと人間の境界を問う、哲学的なミュージックビデオ。謎のキャラクターZOYが登場。',
-    character: 'ZOY',
+    title: "君は人間ですか",
+    youtubeId: "oNsT8Pgaj7Q",
+    description:
+      "AIと人間の境界を問う、哲学的なミュージックビデオ。謎のキャラクターZOYが登場。",
+    character: "ZOY",
   },
   {
-    title: 'リブート.',
-    youtubeId: 'fY9wQ_4xpZA',
-    description: '再起動。新しい自分に生まれ変わる瞬間を描く、再生と変化の物語。',
+    title: "リブート.",
+    youtubeId: "fY9wQ_4xpZA",
+    description:
+      "再起動。新しい自分に生まれ変わる瞬間を描く、再生と変化の物語。",
   },
 ];
 ---
@@ -37,10 +42,16 @@ const ghostsVideos = [
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
-    <meta name="keywords" content="GHOSTS, ミュージックビデオ, MV, 街角の亡霊, Unbreakable, 無敵の船長, 君は人間ですか, ZOY, YouTube, 動画, 音楽" />
+    <meta
+      name="keywords"
+      content="GHOSTS, ミュージックビデオ, MV, 街角の亡霊, Unbreakable, 無敵の船長, 君は人間ですか, ZOY, YouTube, 動画, 音楽"
+    />
     <meta name="author" content="大鹿ニク / M1RA" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#0F0F1E" />
@@ -53,94 +64,113 @@ const ghostsVideos = [
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
     <meta property="og:type" content="video.other" />
     <meta property="og:site_name" content="GHOSTS - niku.studio" />
-    <meta property="og:image" content={new URL('/images/GHOSTS/logo.webp', Astro.site)} />
+    <meta
+      property="og:image"
+      content={new URL("/images/GHOSTS/logo.webp", Astro.site)}
+    />
     <meta property="og:locale" content="ja_JP" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
-    <meta name="twitter:image" content={new URL('/images/GHOSTS/logo.webp', Astro.site)} />
+    <meta
+      name="twitter:image"
+      content={new URL("/images/GHOSTS/logo.webp", Astro.site)}
+    />
     <meta name="twitter:site" content="@M1RA_A_Project" />
-    <meta name="twitter:player" content="https://www.youtube.com/embed/9nNO0_YVM0k" />
+    <meta
+      name="twitter:player"
+      content="https://www.youtube.com/embed/9nNO0_YVM0k"
+    />
 
     <!-- JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": pageTitle,
-      "description": pageDescription,
-      "url": new URL(Astro.url.pathname, Astro.site).toString(),
-      "itemListElement": ghostsVideos.map((video, index) => ({
-        "@type": "VideoObject",
-        "position": index + 1,
-        "name": video.title,
-        "description": video.description,
-        "embedUrl": `https://www.youtube.com/embed/${video.youtubeId}`,
-        "thumbnailUrl": `https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`,
-        "uploadDate": "2025-01-01",
-        "contentUrl": `https://www.youtube.com/watch?v=${video.youtubeId}`,
-        "inLanguage": "ja"
-      }))
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: pageTitle,
+        description: pageDescription,
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        itemListElement: ghostsVideos.map((video, index) => ({
+          "@type": "VideoObject",
+          position: index + 1,
+          name: video.title,
+          description: video.description,
+          embedUrl: `https://www.youtube.com/embed/${video.youtubeId}`,
+          thumbnailUrl: `https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`,
+          uploadDate: "2025-01-01",
+          contentUrl: `https://www.youtube.com/watch?v=${video.youtubeId}`,
+          inLanguage: "ja",
+        })),
+      })}
+    />
   </head>
   <body class="ghosts-body">
     <!-- Floating Logo -->
     <a href="/ghosts/" class="floating-logo">
-      <img src="/images/GHOSTS/logo.webp" alt="GHOSTS" />
+      <img
+        src="/images/GHOSTS/logo.webp"
+        alt="GHOSTSプロジェクトのロゴ。ノイズと静寂をテーマにした、サイバーパンク調の鋭利なデザイン"
+      />
     </a>
 
     <main>
       <div class="videos-container">
-    <!-- Header -->
-    <section class="videos-header">
-      <h1 class="page-title">GHOSTS - 関連動画</h1>
-      <p class="page-description">
-        AI統治下の世界で、音楽の自由を求めて戦うバンド「GHOSTS」の世界観を描いた映像作品集。
-      </p>
-    </section>
+        <!-- Header -->
+        <section class="videos-header">
+          <h1 class="page-title">GHOSTS - 関連動画</h1>
+          <p class="page-description">
+            AI統治下の世界で、音楽の自由を求めて戦うバンド「GHOSTS」の世界観を描いた映像作品集。
+          </p>
+        </section>
 
-    <!-- Videos Grid -->
-    <section class="videos-grid">
-      {ghostsVideos.map((video) => (
-        <div class="video-card">
-          <div class="video-player">
-            <iframe
-              width="100%"
-              height="100%"
-              src={`https://www.youtube.com/embed/${video.youtubeId}`}
-              title={video.title}
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
-          </div>
-          <div class="video-info">
-            <h2 class="video-title">{video.title}</h2>
-            {video.character && (
-              <span class="character-badge">Character: {video.character}</span>
-            )}
-            <p class="video-description">{video.description}</p>
-            <a
-              href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="youtube-link"
-            >
-              <span>YouTubeで見る</span>
-              <span class="arrow">→</span>
-            </a>
-          </div>
+        <!-- Videos Grid -->
+        <section class="videos-grid">
+          {
+            ghostsVideos.map((video) => (
+              <div class="video-card">
+                <div class="video-player">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                    title={video.title}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"
+                  />
+                </div>
+                <div class="video-info">
+                  <h2 class="video-title">{video.title}</h2>
+                  {video.character && (
+                    <span class="character-badge">
+                      Character: {video.character}
+                    </span>
+                  )}
+                  <p class="video-description">{video.description}</p>
+                  <a
+                    href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="youtube-link"
+                  >
+                    <span>YouTubeで見る</span>
+                    <span class="arrow">→</span>
+                  </a>
+                </div>
+              </div>
+            ))
+          }
+        </section>
+
+        <!-- Back Link -->
+        <div class="back-section">
+          <a href="/ghosts/" class="back-link">← GHOSTSトップに戻る</a>
         </div>
-      ))}
-    </section>
-
-    <!-- Back Link -->
-    <div class="back-section">
-      <a href="/ghosts/" class="back-link">← GHOSTSトップに戻る</a>
-    </div>
-  </div>
+      </div>
     </main>
   </body>
 </html>
@@ -154,9 +184,10 @@ const ghostsVideos = [
   }
 
   .ghosts-body {
-    background: #0F0F1E;
-    color: #E0E0E0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f0f1e;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
   }
@@ -203,20 +234,20 @@ const ghostsVideos = [
   }
 
   ::-webkit-scrollbar-track {
-    background: #0F0F1E;
+    background: #0f0f1e;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #FF0844, #27E1FF);
+    background: linear-gradient(180deg, #ff0844, #27e1ff);
     border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #27E1FF, #FF0844);
+    background: linear-gradient(180deg, #27e1ff, #ff0844);
   }
 
   ::selection {
-    background: #FF0844;
+    background: #ff0844;
     color: white;
   }
 </style>
@@ -238,7 +269,7 @@ const ghostsVideos = [
   .page-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 900;
-    color: #FF0844;
+    color: #ff0844;
     margin-bottom: 1.5rem;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
@@ -249,7 +280,7 @@ const ghostsVideos = [
 
   .page-description {
     font-size: clamp(1rem, 2vw, 1.25rem);
-    color: #B0B0B0;
+    color: #b0b0b0;
     line-height: 1.8;
     max-width: 800px;
     margin: 0 auto;
@@ -271,7 +302,7 @@ const ghostsVideos = [
   }
 
   .video-card:hover {
-    border-color: #FF0844;
+    border-color: #ff0844;
     box-shadow: 0 0 30px rgba(255, 8, 68, 0.4);
     transform: translateY(-5px);
   }
@@ -300,7 +331,7 @@ const ghostsVideos = [
   .video-title {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: #27E1FF;
+    color: #27e1ff;
     margin-bottom: 1rem;
     letter-spacing: 0.1rem;
   }
@@ -309,9 +340,9 @@ const ghostsVideos = [
     display: inline-block;
     padding: 0.5rem 1rem;
     background: rgba(139, 92, 246, 0.2);
-    border: 1px solid #8B5CF6;
+    border: 1px solid #8b5cf6;
     border-radius: 0.5rem;
-    color: #8B5CF6;
+    color: #8b5cf6;
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -320,7 +351,7 @@ const ghostsVideos = [
 
   .video-description {
     font-size: 1rem;
-    color: #B0B0B0;
+    color: #b0b0b0;
     line-height: 1.8;
     margin-bottom: 1.5rem;
   }
@@ -333,7 +364,7 @@ const ghostsVideos = [
     background: rgba(255, 8, 68, 0.1);
     border: 2px solid rgba(255, 8, 68, 0.3);
     border-radius: 0.5rem;
-    color: #FF0844;
+    color: #ff0844;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
@@ -343,7 +374,7 @@ const ghostsVideos = [
 
   .youtube-link:hover {
     background: rgba(255, 8, 68, 0.2);
-    border-color: #FF0844;
+    border-color: #ff0844;
     box-shadow: 0 0 20px rgba(255, 8, 68, 0.3);
   }
 
@@ -367,7 +398,7 @@ const ghostsVideos = [
     background: rgba(39, 225, 255, 0.1);
     border: 2px solid rgba(39, 225, 255, 0.3);
     border-radius: 0.5rem;
-    color: #27E1FF;
+    color: #27e1ff;
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
@@ -377,7 +408,7 @@ const ghostsVideos = [
 
   .back-link:hover {
     background: rgba(39, 225, 255, 0.2);
-    border-color: #27E1FF;
+    border-color: #27e1ff;
     box-shadow: 0 0 20px rgba(39, 225, 255, 0.3);
     transform: translateX(-5px);
   }

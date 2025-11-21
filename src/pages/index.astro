@@ -1,15 +1,15 @@
 ---
-import { getCollection } from 'astro:content';
-import CallToAction from '../components/CallToAction.astro';
-import ContactCTA from '../components/ContactCTA.astro';
-import Grid from '../components/Grid.astro';
-import Hero from '../components/Hero.astro';
-import Icon from '../components/Icon.astro';
-import Pill from '../components/Pill.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from "astro:content";
+import CallToAction from "../components/CallToAction.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+import Grid from "../components/Grid.astro";
+import Hero from "../components/Hero.astro";
+import Icon from "../components/Icon.astro";
+import Pill from "../components/Pill.astro";
+import PortfolioPreview from "../components/PortfolioPreview.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-const projects = (await getCollection('work'))
+const projects = (await getCollection("work"))
 	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
 	.slice(0, 6);
 ---
@@ -22,8 +22,12 @@ const projects = (await getCollection('work'))
 	<div class="stack gap-10 lg:gap-20">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<div class="site-title">
-				<h1 class="title-main" data-i18n="site_title">Niku's Portfolio</h1>
-				<p class="title-sub" data-i18n="site_subtitle">~ニクの秘密基地~</p>
+				<h1 class="title-main" data-i18n="site_title">
+					Niku's Portfolio
+				</h1>
+				<p class="title-sub" data-i18n="site_subtitle">
+					~ニクの秘密基地~
+				</p>
 			</div>
 			<header class="hero">
 				<div class="hero-image-container">
@@ -33,12 +37,31 @@ const projects = (await getCollection('work'))
 						class="hero-image"
 					/>
 					<div class="hero-text-overlay">
-						<h1 class="hero-title" data-i18n="hero_name">大鹿ニク / M1RA</h1>
-						<p class="hero-tagline" data-i18n="hero_tagline">AI技術で人間の創造性を解放する</p>
+						<h1 class="hero-title" data-i18n="hero_name">
+							大鹿ニク / M1RA
+						</h1>
+						<p class="hero-tagline" data-i18n="hero_tagline">
+							AI技術で人間の創造性を解放する
+						</p>
 						<div class="roles">
-							<Pill><Icon icon="code" size="1.33em" /> <span data-i18n="hero_role_developer">AI Developer</span></Pill>
-							<Pill><Icon icon="rocket-launch" size="1.33em" /> <span data-i18n="hero_role_creator">Creator</span></Pill>
-							<Pill><Icon icon="strategy" size="1.33em" /> <span data-i18n="hero_role_aituber">AITuber</span></Pill>
+							<Pill
+								><Icon icon="code" size="1.33em" />
+								<span data-i18n="hero_role_developer"
+									>AI Developer</span
+								></Pill
+							>
+							<Pill
+								><Icon icon="rocket-launch" size="1.33em" />
+								<span data-i18n="hero_role_creator"
+									>Creator</span
+								></Pill
+							>
+							<Pill
+								><Icon icon="strategy" size="1.33em" />
+								<span data-i18n="hero_role_aituber"
+									>AITuber</span
+								></Pill
+							>
 						</div>
 					</div>
 				</div>
@@ -47,22 +70,36 @@ const projects = (await getCollection('work'))
 			<section class="intro-section">
 				<div class="intro-layout">
 					<div class="intro-content">
-						<h2 data-i18n="intro_heading">生成AIでエンタメを創る</h2>
+						<h2 data-i18n="intro_heading">
+							生成AIでエンタメを創る
+						</h2>
 						<p data-i18n="intro_text">
-							🎥 生成AIでMV制作（1～2週ごとに投稿中）→ショートムービー等も作成中！<br/>
-							🤖 AITuber「M1RA」プロジェクト運営 →「AIに心はあるのか」哲学×AIの体現<br/>
+							🎥
+							生成AIでMV制作（1～2週ごとに投稿中）→ショートムービー等も作成中！<br
+							/>
+							🤖 AITuber「M1RA」プロジェクト運営 →「AIに心はあるのか」哲学×AIの体現<br
+							/>
 							💻 AI×エンタメの個人開発者 → vibe coding信者
 						</p>
 					</div>
 					<div class="card-hand">
 						<div class="card card-1">
-							<img src="/images/card1.png" alt="大鹿ニクの作品コレクション - 生成AIで制作したミュージックビデオとAITuberプロジェクト" />
+							<img
+								src="/images/card1.png"
+								alt="大鹿ニクの作品コレクションのサムネイル。生成AIを活用したミュージックビデオ制作やAITuberプロジェクトのビジュアルが並んでいる"
+							/>
 						</div>
 						<div class="card card-2">
-							<img src="/images/card2.png" alt="M1RA Project Archive - AIが「存在したい」と願った瞬間を描く哲学×AIプロジェクト" />
+							<img
+								src="/images/card2.png"
+								alt="M1RA Project Archiveのサムネイル。AIが「存在したい」と願う瞬間をテーマにした、哲学的かつ幻想的なビジュアルアート"
+							/>
 						</div>
 						<div class="card card-3">
-							<img src="/images/card3.png" alt="AI×エンタメの未来 - 生成AIとクリエイティブの融合による新しい表現" />
+							<img
+								src="/images/card3.png"
+								alt="AI×エンタメの未来を表現したサムネイル。生成AI技術とクリエイティブの融合による、新しい表現の可能性を示唆する抽象的なグラフィック"
+							/>
 						</div>
 					</div>
 				</div>
@@ -74,167 +111,184 @@ const projects = (await getCollection('work'))
 				<header class="section-header stack gap-2 lg:gap-4">
 					<div class="section-title-wrapper">
 						<h3 data-i18n="latest_works_title">Latest Works</h3>
-						<img src="/images/Lastest.png" alt="Latest Works Icon" class="section-icon" />
-					</div>
-					<p data-i18n="latest_works_desc">サンプルです。詳細は"Work"からご覧ください！（2025/10/29更新）</p>
-				</header>
-
-				<div class="gallery">
-					<!-- GHOSTS Special Card -->
-					<a href="/ghosts/" class="ghosts-special-card">
-						<div class="ghosts-card-bg">
-							<img src="/images/GHOSTS/logo.webp" alt="GHOSTS Logo" class="ghosts-logo" />
-						</div>
-						<div class="ghosts-card-content">
-							<h3 class="ghosts-title">GHOSTS</h3>
-							<p class="ghosts-subtitle">プロジェクト始動！</p>
-							<p class="ghosts-tagline">AI統治下の2163年、音楽が消された世界で立ち上がる4人の物語</p>
-							<div class="ghosts-badge">
-								<Icon icon="rocket-launch" size="1.5rem" />
-								<span>NEW PROJECT</span>
+						<a href="/ghosts/" class="ghosts-special-card">
+							<div class="ghosts-card-bg">
+								<img
+									src="/images/GHOSTS/logo.webp"
+									alt="GHOSTSプロジェクトのロゴ。ノイズと静寂をテーマにした、サイバーパンク調の鋭利なデザイン"
+									class="ghosts-logo"
+								/>
 							</div>
-						</div>
-					</a>
+							<div class="ghosts-card-content">
+								<h3 class="ghosts-title">GHOSTS</h3>
+								<p class="ghosts-subtitle">
+									プロジェクト始動！
+								</p>
+								<p class="ghosts-tagline">
+									AI統治下の2163年、音楽が消された世界で立ち上がる4人の物語
+								</p>
+								<div class="ghosts-badge">
+									<Icon icon="rocket-launch" size="1.5rem" />
+									<span>NEW PROJECT</span>
+								</div>
+							</div>
+						</a>
 
-					<Grid variant="offset">
-						{
-							projects.map((project) => (
-								<li>
-									<PortfolioPreview project={project} />
-								</li>
-							))
-						}
-					</Grid>
-				</div>
+						<Grid variant="offset">
+							{
+								projects.map((project) => (
+									<li>
+										<PortfolioPreview project={project} />
+									</li>
+								))
+							}
+						</Grid>
+					</div>
 
-				<div class="cta">
-					<CallToAction href="/work/">
-						<span data-i18n="latest_works_cta">すべての作品を見る</span>
-						<Icon icon="arrow-right" size="1.2em" />
-					</CallToAction>
-				</div>
-			</section>
-
-			<section class="section with-background bg-variant">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3 data-i18n="links_title">Links</h3>
-					<p data-i18n="links_desc">各種プラットフォームで活動中</p>
+					<div class="cta">
+						<CallToAction href="/work/">
+							<span data-i18n="latest_works_cta"
+								>すべての作品を見る</span
+							>
+							<Icon icon="arrow-right" size="1.2em" />
+						</CallToAction>
+					</div>
 				</header>
 
-				<div class="gallery">
-					<Grid variant="small">
-						<li class="link-card">
-							<a href="https://x.com/M1RA_A_Project" target="_blank" rel="noopener noreferrer">
-								<Icon icon="x-logo" size="2em" />
-								<p>X (Twitter)</p>
-							</a>
-						</li>
-						<li class="link-card">
-							<a href="http://www.youtube.com/@M1RA_Archive_Project" target="_blank" rel="noopener noreferrer">
-								<Icon icon="youtube-logo" size="2em" />
-								<p>YouTube</p>
-							</a>
-						</li>
-						<li class="link-card">
-							<a href="https://note.com/m1ra_project" target="_blank" rel="noopener noreferrer">
-								<Icon icon="pencil-line" size="2em" />
-								<p>Note</p>
-							</a>
-						</li>
-					</Grid>
-				</div>
+				<section class="section with-background bg-variant">
+					<header class="section-header stack gap-2 lg:gap-4">
+						<h3 data-i18n="links_title">Links</h3>
+						<p data-i18n="links_desc">
+							各種プラットフォームで活動中
+						</p>
+					</header>
+
+					<div class="gallery">
+						<Grid variant="small">
+							<li class="link-card">
+								<a
+									href="https://x.com/M1RA_A_Project"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<Icon icon="x-logo" size="2em" />
+									<p>X (Twitter)</p>
+								</a>
+							</li>
+							<li class="link-card">
+								<a
+									href="http://www.youtube.com/@M1RA_Archive_Project"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<Icon icon="youtube-logo" size="2em" />
+									<p>YouTube</p>
+								</a>
+							</li>
+							<li class="link-card">
+								<a
+									href="https://note.com/m1ra_project"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<Icon icon="pencil-line" size="2em" />
+									<p>Note</p>
+								</a>
+							</li>
+						</Grid>
+					</div>
+				</section>
 			</section>
+
+			<ContactCTA />
 		</main>
-
-		<ContactCTA />
 	</div>
-</BaseLayout>
 
-<style>
-	.site-title {
-		position: fixed;
-		top: 1rem;
-		left: 1.5rem;
-		z-index: 100;
-		animation: siteTitleFadeIn 1.5s ease-out 0.5s forwards;
-		opacity: 0;
-	}
-
-	.title-main {
-		font-family: 'Impact', 'Arial Narrow', 'Helvetica Condensed', sans-serif;
-		font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-		font-weight: 900;
-		color: #ffffff;
-		margin: 0;
-		text-shadow:
-			0 0 4px rgba(255, 255, 255, 0.3),
-			2px 2px 4px rgba(0, 0, 0, 0.9);
-		letter-spacing: -0.5px;
-		text-transform: uppercase;
-		font-stretch: condensed;
-	}
-
-	.title-sub {
-		font-family: 'Arial Narrow', 'Helvetica Condensed', sans-serif;
-		font-size: clamp(0.85rem, 1.5vw, 1.1rem);
-		color: #ffffff;
-		margin: 0.25rem 0 0 0;
-		text-shadow:
-			0 0 3px rgba(255, 255, 255, 0.2),
-			2px 2px 4px rgba(0, 0, 0, 0.9);
-		letter-spacing: 0px;
-		font-weight: 600;
-	}
-
-	@keyframes siteTitleFadeIn {
-		0% {
-			opacity: 0;
-			transform: translateY(-10px);
-		}
-		100% {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	@media (max-width: 768px) {
+	<style>
 		.site-title {
-			top: 0.75rem;
-			left: 1rem;
+			position: fixed;
+			top: 1rem;
+			left: 1.5rem;
+			z-index: 100;
+			animation: siteTitleFadeIn 1.5s ease-out 0.5s forwards;
+			opacity: 0;
 		}
 
 		.title-main {
-			font-size: 1rem;
+			font-family: "Impact", "Arial Narrow", "Helvetica Condensed",
+				sans-serif;
+			font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+			font-weight: 900;
+			color: #ffffff;
+			margin: 0;
+			text-shadow:
+				0 0 4px rgba(255, 255, 255, 0.3),
+				2px 2px 4px rgba(0, 0, 0, 0.9);
+			letter-spacing: -0.5px;
+			text-transform: uppercase;
+			font-stretch: condensed;
 		}
 
 		.title-sub {
-			font-size: 0.75rem;
+			font-family: "Arial Narrow", "Helvetica Condensed", sans-serif;
+			font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+			color: #ffffff;
+			margin: 0.25rem 0 0 0;
+			text-shadow:
+				0 0 3px rgba(255, 255, 255, 0.2),
+				2px 2px 4px rgba(0, 0, 0, 0.9);
+			letter-spacing: 0px;
+			font-weight: 600;
 		}
-	}
 
-	.hero {
-		width: 118%;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 5rem;
-	}
+		@keyframes siteTitleFadeIn {
+			0% {
+				opacity: 0;
+				transform: translateY(-10px);
+			}
+			100% {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
 
-	.hero-image-container {
-		position: relative;
-		width: 100%;
-		height: auto;
-		overflow: hidden;
-	}
+		@media (max-width: 768px) {
+			.site-title {
+				top: 0.75rem;
+				left: 1rem;
+			}
 
-	.hero-image-container::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background:
-			repeating-linear-gradient(
+			.title-main {
+				font-size: 1rem;
+			}
+
+			.title-sub {
+				font-size: 0.75rem;
+			}
+		}
+
+		.hero {
+			width: 118%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 5rem;
+		}
+
+		.hero-image-container {
+			position: relative;
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+		}
+
+		.hero-image-container::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: repeating-linear-gradient(
 				90deg,
 				transparent,
 				transparent 2px,
@@ -251,591 +305,624 @@ const projects = (await getCollection('work'))
 				transparent 9px,
 				transparent 100px
 			);
-		pointer-events: none;
-		z-index: 3;
-		opacity: 0;
-		animation: digitalGlitch 4s infinite;
-	}
-
-	.hero-image {
-		width: 100%;
-		height: auto;
-		display: block;
-		object-fit: contain;
-		filter: contrast(1.1) brightness(1.05);
-		animation: imageShift 4s infinite, heroFadeIn 2.5s ease-out 3s;
-		opacity: 0;
-		animation-fill-mode: forwards;
-	}
-
-	@keyframes heroFadeIn {
-		0% {
+			pointer-events: none;
+			z-index: 3;
 			opacity: 0;
+			animation: digitalGlitch 4s infinite;
 		}
-		100% {
-			opacity: 1;
-		}
-	}
 
-	@keyframes digitalGlitch {
-		0%, 94%, 100% {
+		.hero-image {
+			width: 100%;
+			height: auto;
+			display: block;
+			object-fit: contain;
+			filter: contrast(1.1) brightness(1.05);
+			animation:
+				imageShift 4s infinite,
+				heroFadeIn 2.5s ease-out 3s;
 			opacity: 0;
+			animation-fill-mode: forwards;
 		}
-		94.5% {
-			opacity: 0.8;
-			transform: translateX(2px);
+
+		@keyframes heroFadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
 		}
-		95% {
-			opacity: 0;
+
+		@keyframes digitalGlitch {
+			0%,
+			94%,
+			100% {
+				opacity: 0;
+			}
+			94.5% {
+				opacity: 0.8;
+				transform: translateX(2px);
+			}
+			95% {
+				opacity: 0;
+			}
+			95.5% {
+				opacity: 0.6;
+				transform: translateX(-3px);
+			}
+			96% {
+				opacity: 0;
+			}
+			96.2% {
+				opacity: 0.7;
+				transform: translateX(1px);
+			}
+			96.5% {
+				opacity: 0;
+			}
 		}
-		95.5% {
-			opacity: 0.6;
-			transform: translateX(-3px);
+
+		@keyframes imageShift {
+			0%,
+			94%,
+			100% {
+				transform: translate(0, 0);
+			}
+			94.5% {
+				transform: translate(1px, -1px);
+			}
+			95.5% {
+				transform: translate(-2px, 1px);
+			}
+			96.2% {
+				transform: translate(1px, 0);
+			}
 		}
-		96% {
-			opacity: 0;
+
+		.hero-text-overlay {
+			position: absolute;
+			bottom: 5%;
+			left: 5%;
+			max-width: 90%;
 		}
-		96.2% {
-			opacity: 0.7;
-			transform: translateX(1px);
+
+		.hero-title {
+			font-size: clamp(1rem, 2.5vw, 2rem);
+			font-weight: 900;
+			color: #ffffff;
+			margin: 0 0 0.5rem 0;
+			font-family:
+				"Inter",
+				"Helvetica Neue",
+				-apple-system,
+				BlinkMacSystemFont,
+				sans-serif;
+			text-shadow:
+				0 2px 8px rgba(0, 0, 0, 0.8),
+				0 4px 16px rgba(0, 0, 0, 0.6);
+			letter-spacing: -0.02em;
 		}
-		96.5% {
-			opacity: 0;
+
+		.hero-tagline {
+			font-size: clamp(0.5rem, 1.25vw, 0.75rem);
+			color: #ffffff;
+			margin: 0 0 1rem 0;
+			font-weight: 500;
+			text-shadow:
+				0 2px 8px rgba(0, 0, 0, 0.8),
+				0 4px 12px rgba(0, 0, 0, 0.6);
+			font-family:
+				"Inter",
+				"Helvetica Neue",
+				-apple-system,
+				BlinkMacSystemFont,
+				sans-serif;
 		}
-	}
 
-	@keyframes imageShift {
-		0%, 94%, 100% {
-			transform: translate(0, 0);
+		.roles {
+			display: flex;
+			gap: 0.5rem;
+			flex-wrap: wrap;
 		}
-		94.5% {
-			transform: translate(1px, -1px);
+
+		.roles :global(.pill) {
+			font-size: clamp(0.5rem, 1.25vw, 0.75rem);
+			padding: 0.25rem 0.5rem;
 		}
-		95.5% {
-			transform: translate(-2px, 1px);
+
+		.roles :global(.pill svg) {
+			width: 0.8em;
+			height: 0.8em;
 		}
-		96.2% {
-			transform: translate(1px, 0);
-		}
-	}
 
-	.hero-text-overlay {
-		position: absolute;
-		bottom: 5%;
-		left: 5%;
-		max-width: 90%;
-	}
-
-	.hero-title {
-		font-size: clamp(1rem, 2.5vw, 2rem);
-		font-weight: 900;
-		color: #ffffff;
-		margin: 0 0 0.5rem 0;
-		font-family: 'Inter', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
-		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 16px rgba(0, 0, 0, 0.6);
-		letter-spacing: -0.02em;
-	}
-
-	.hero-tagline {
-		font-size: clamp(0.5rem, 1.25vw, 0.75rem);
-		color: #ffffff;
-		margin: 0 0 1rem 0;
-		font-weight: 500;
-		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 12px rgba(0, 0, 0, 0.6);
-		font-family: 'Inter', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
-	}
-
-	.roles {
-		display: flex;
-		gap: 0.5rem;
-		flex-wrap: wrap;
-	}
-
-	.roles :global(.pill) {
-		font-size: clamp(0.5rem, 1.25vw, 0.75rem);
-		padding: 0.25rem 0.5rem;
-	}
-
-	.roles :global(.pill svg) {
-		width: 0.8em;
-		height: 0.8em;
-	}
-
-	.intro-section {
-		margin-top: 2rem;
-		padding: 3rem;
-		background: rgba(255, 255, 255, 0.08);
-		backdrop-filter: blur(10px);
-		border-radius: 0.5rem;
-		border: 12px solid;
-		border-image: linear-gradient(
-			135deg,
-			rgba(139, 115, 85, 0.6),
-			rgba(205, 183, 158, 0.8),
-			rgba(139, 115, 85, 0.6)
-		) 1;
-		box-shadow:
-			inset 0 0 20px rgba(255, 255, 255, 0.1),
-			0 4px 20px rgba(0, 0, 0, 0.5);
-		position: relative;
-	}
-
-	.intro-section::before {
-		content: '';
-		position: absolute;
-		top: 8px;
-		left: 8px;
-		right: 8px;
-		bottom: 8px;
-		border: 1px solid rgba(139, 115, 85, 0.3);
-		pointer-events: none;
-		border-radius: 0.25rem;
-	}
-
-	.intro-layout {
-		display: flex;
-		align-items: center;
-		gap: 3rem;
-	}
-
-	.intro-content {
-		flex: 1;
-		min-width: 0;
-	}
-
-	.intro-content h2 {
-		font-size: var(--text-xl);
-		color: #ffffff;
-		margin-bottom: 1rem;
-		font-family: 'HG丸ｺﾞｼｯｸM-PRO', 'Hiragino Maru Gothic ProN', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', sans-serif;
-		font-weight: 700;
-		letter-spacing: 0.5px;
-		text-shadow:
-			0 0 10px rgba(0, 0, 0, 0.9),
-			2px 2px 4px rgba(0, 0, 0, 0.8),
-			0 0 20px rgba(0, 255, 136, 0.3);
-		background: rgba(0, 0, 0, 0.5);
-		padding: 0.75rem 1.5rem;
-		border-radius: 0.5rem;
-		border: 2px solid rgba(0, 255, 136, 0.4);
-		display: inline-block;
-	}
-
-	.intro-content p {
-		font-size: var(--text-md);
-		line-height: 1.8;
-		color: #ffffff;
-		font-family: 'HG丸ｺﾞｼｯｸM-PRO', 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN', 'メイリオ', 'Meiryo', sans-serif;
-		font-weight: 500;
-		text-shadow:
-			0 0 8px rgba(0, 0, 0, 0.9),
-			2px 2px 4px rgba(0, 0, 0, 0.8);
-		background: rgba(0, 0, 0, 0.4);
-		padding: 1rem 1.5rem;
-		border-radius: 0.5rem;
-		border: 1px solid rgba(255, 255, 255, 0.2);
-	}
-
-	.card-hand {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: relative;
-		height: 300px;
-		min-width: 400px;
-		flex-shrink: 0;
-		padding: 0 1rem;
-	}
-
-	.card {
-		position: absolute;
-		width: 200px;
-		height: 280px;
-		border-radius: 12px;
-		overflow: hidden;
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-		transition: all 0.3s ease;
-		cursor: pointer;
-		border: 3px solid rgba(255, 255, 255, 0.2);
-	}
-
-	.card img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		display: block;
-	}
-
-	.card-1 {
-		transform: rotate(-15deg) translateX(-80px);
-		z-index: 1;
-	}
-
-	.card-2 {
-		transform: rotate(0deg);
-		z-index: 2;
-	}
-
-	.card-3 {
-		transform: rotate(15deg) translateX(80px);
-		z-index: 1;
-	}
-
-	.card:hover {
-		transform: rotate(0deg) translateY(-20px) scale(1.05);
-		z-index: 10;
-		box-shadow:
-			0 12px 40px rgba(0, 0, 0, 0.8),
-			0 0 20px rgba(0, 255, 136, 0.3);
-		border-color: rgba(0, 255, 136, 0.5);
-	}
-
-	@media (max-width: 768px) {
 		.intro-section {
-			padding: 2rem 1.5rem;
-			border-width: 8px;
+			margin-top: 2rem;
+			padding: 3rem;
+			background: rgba(255, 255, 255, 0.08);
+			backdrop-filter: blur(10px);
+			border-radius: 0.5rem;
+			border: 12px solid;
+			border-image: linear-gradient(
+					135deg,
+					rgba(139, 115, 85, 0.6),
+					rgba(205, 183, 158, 0.8),
+					rgba(139, 115, 85, 0.6)
+				)
+				1;
+			box-shadow:
+				inset 0 0 20px rgba(255, 255, 255, 0.1),
+				0 4px 20px rgba(0, 0, 0, 0.5);
+			position: relative;
+		}
+
+		.intro-section::before {
+			content: "";
+			position: absolute;
+			top: 8px;
+			left: 8px;
+			right: 8px;
+			bottom: 8px;
+			border: 1px solid rgba(139, 115, 85, 0.3);
+			pointer-events: none;
+			border-radius: 0.25rem;
 		}
 
 		.intro-layout {
-			flex-direction: column;
-			gap: 2rem;
+			display: flex;
+			align-items: center;
+			gap: 3rem;
+		}
+
+		.intro-content {
+			flex: 1;
+			min-width: 0;
+		}
+
+		.intro-content h2 {
+			font-size: var(--text-xl);
+			color: #ffffff;
+			margin-bottom: 1rem;
+			font-family: "HG丸ｺﾞｼｯｸM-PRO", "Hiragino Maru Gothic ProN",
+				"メイリオ", "Meiryo", "ＭＳ Ｐゴシック", sans-serif;
+			font-weight: 700;
+			letter-spacing: 0.5px;
+			text-shadow:
+				0 0 10px rgba(0, 0, 0, 0.9),
+				2px 2px 4px rgba(0, 0, 0, 0.8),
+				0 0 20px rgba(0, 255, 136, 0.3);
+			background: rgba(0, 0, 0, 0.5);
+			padding: 0.75rem 1.5rem;
+			border-radius: 0.5rem;
+			border: 2px solid rgba(0, 255, 136, 0.4);
+			display: inline-block;
+		}
+
+		.intro-content p {
+			font-size: var(--text-md);
+			line-height: 1.8;
+			color: #ffffff;
+			font-family: "HG丸ｺﾞｼｯｸM-PRO", "Hiragino Maru Gothic ProN",
+				"ヒラギノ丸ゴ ProN", "メイリオ", "Meiryo", sans-serif;
+			font-weight: 500;
+			text-shadow:
+				0 0 8px rgba(0, 0, 0, 0.9),
+				2px 2px 4px rgba(0, 0, 0, 0.8);
+			background: rgba(0, 0, 0, 0.4);
+			padding: 1rem 1.5rem;
+			border-radius: 0.5rem;
+			border: 1px solid rgba(255, 255, 255, 0.2);
 		}
 
 		.card-hand {
-			height: 220px;
-			min-width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			height: 300px;
+			min-width: 400px;
+			flex-shrink: 0;
+			padding: 0 1rem;
 		}
 
 		.card {
-			width: 140px;
-			height: 200px;
+			position: absolute;
+			width: 200px;
+			height: 280px;
+			border-radius: 12px;
+			overflow: hidden;
+			box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+			transition: all 0.3s ease;
+			cursor: pointer;
+			border: 3px solid rgba(255, 255, 255, 0.2);
+		}
+
+		.card img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
 		}
 
 		.card-1 {
-			transform: rotate(-12deg) translateX(-50px);
+			transform: rotate(-15deg) translateX(-80px);
+			z-index: 1;
+		}
+
+		.card-2 {
+			transform: rotate(0deg);
+			z-index: 2;
 		}
 
 		.card-3 {
-			transform: rotate(12deg) translateX(50px);
+			transform: rotate(15deg) translateX(80px);
+			z-index: 1;
 		}
-	}
 
-	@media (min-width: 50em) {
-		.hero-text-overlay {
-			max-width: 50%;
+		.card:hover {
+			transform: rotate(0deg) translateY(-20px) scale(1.05);
+			z-index: 10;
+			box-shadow:
+				0 12px 40px rgba(0, 0, 0, 0.8),
+				0 0 20px rgba(0, 255, 136, 0.3);
+			border-color: rgba(0, 255, 136, 0.5);
 		}
-	}
 
-	.section {
-		display: grid;
-		gap: 2rem;
-	}
+		@media (max-width: 768px) {
+			.intro-section {
+				padding: 2rem 1.5rem;
+				border-width: 8px;
+			}
 
-	.with-background {
-		position: relative;
-	}
+			.intro-layout {
+				flex-direction: column;
+				gap: 2rem;
+			}
 
-	.with-background::before {
-		content: none;
-	}
+			.card-hand {
+				height: 220px;
+				min-width: 100%;
+			}
 
-	.with-background.bg-variant::before {
-		--hero-bg: var(--bg-image-subtle-1);
-	}
+			.card {
+				width: 140px;
+				height: 200px;
+			}
 
-	.section-header {
-		justify-self: center;
-		text-align: center;
-		max-width: 50ch;
-		font-size: var(--text-md);
-		color: #ffffff;
-	}
+			.card-1 {
+				transform: rotate(-12deg) translateX(-50px);
+			}
 
-	.section-title-wrapper {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 1rem;
-	}
-
-	.section-icon {
-		width: 120px;
-		height: 120px;
-		object-fit: contain;
-		animation: floatIcon 3s ease-in-out infinite;
-	}
-
-	@keyframes floatIcon {
-		0%, 100% {
-			transform: translateY(0px);
+			.card-3 {
+				transform: rotate(12deg) translateX(50px);
+			}
 		}
-		50% {
-			transform: translateY(-10px);
+
+		@media (min-width: 50em) {
+			.hero-text-overlay {
+				max-width: 50%;
+			}
 		}
-	}
 
-	.section-header h3 {
-		font-size: var(--text-2xl);
-		color: #ffffff;
-		font-family: 'Impact', 'Arial Narrow', 'Helvetica Condensed', sans-serif;
-		font-weight: 900;
-		letter-spacing: -0.5px;
-		text-transform: uppercase;
-		margin: 0;
-	}
-
-	.section-header p {
-		color: #ffffff;
-		font-weight: 500;
-	}
-
-	@media (min-width: 50em) {
 		.section {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-			gap: 5rem;
+			display: grid;
+			gap: 2rem;
 		}
 
-		.section.with-cta {
-			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
+		.with-background {
+			position: relative;
+		}
+
+		.with-background::before {
+			content: none;
+		}
+
+		.with-background.bg-variant::before {
+			--hero-bg: var(--bg-image-subtle-1);
 		}
 
 		.section-header {
-			grid-area: header;
-			font-size: var(--text-lg);
+			justify-self: center;
+			text-align: center;
+			max-width: 50ch;
+			font-size: var(--text-md);
+			color: #ffffff;
+		}
+
+		.section-title-wrapper {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 1rem;
+		}
+
+		.section-icon {
+			width: 120px;
+			height: 120px;
+			object-fit: contain;
+			animation: floatIcon 3s ease-in-out infinite;
+		}
+
+		@keyframes floatIcon {
+			0%,
+			100% {
+				transform: translateY(0px);
+			}
+			50% {
+				transform: translateY(-10px);
+			}
 		}
 
 		.section-header h3 {
-			font-size: var(--text-4xl);
+			font-size: var(--text-2xl);
+			color: #ffffff;
+			font-family: "Impact", "Arial Narrow", "Helvetica Condensed",
+				sans-serif;
+			font-weight: 900;
+			letter-spacing: -0.5px;
+			text-transform: uppercase;
+			margin: 0;
 		}
 
-		.with-cta .section-header {
-			justify-self: flex-start;
-			text-align: left;
+		.section-header p {
+			color: #ffffff;
+			font-weight: 500;
 		}
 
-		.gallery {
-			grid-area: gallery;
+		@media (min-width: 50em) {
+			.section {
+				grid-template-columns: repeat(4, 1fr);
+				grid-template-areas: "header header header header" "gallery gallery gallery gallery";
+				gap: 5rem;
+			}
+
+			.section.with-cta {
+				grid-template-areas: "header header header cta" "gallery gallery gallery gallery";
+			}
+
+			.section-header {
+				grid-area: header;
+				font-size: var(--text-lg);
+			}
+
+			.section-header h3 {
+				font-size: var(--text-4xl);
+			}
+
+			.with-cta .section-header {
+				justify-self: flex-start;
+				text-align: left;
+			}
+
+			.gallery {
+				grid-area: gallery;
+			}
+
+			.cta {
+				grid-area: cta;
+			}
 		}
 
-		.cta {
-			grid-area: cta;
-		}
-	}
-
-	.link-card {
-		display: flex;
-		height: 7rem;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		border: 1px solid var(--gray-800);
-		border-radius: 1.5rem;
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-sm);
-		transition: all 0.3s ease;
-	}
-
-	.link-card a {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.5rem;
-		width: 100%;
-		height: 100%;
-		justify-content: center;
-		color: var(--gray-300);
-		text-decoration: none;
-	}
-
-	.link-card:hover {
-		transform: translateY(-4px);
-		box-shadow: var(--shadow-md);
-		border-color: var(--accent-regular);
-	}
-
-	@media (min-width: 50em) {
 		.link-card {
+			display: flex;
+			height: 7rem;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			border: 1px solid var(--gray-800);
 			border-radius: 1.5rem;
-			height: 9.5rem;
+			background: var(--gradient-subtle);
+			box-shadow: var(--shadow-sm);
+			transition: all 0.3s ease;
 		}
-	}
 
-	/* GHOSTS Special Card */
-	.ghosts-special-card {
-		position: relative;
-		display: block;
-		width: 100%;
-		max-width: 1200px;
-		margin: 0 auto 4rem;
-		padding: 3rem;
-		background: linear-gradient(135deg, rgba(15, 15, 30, 0.95), rgba(30, 15, 25, 0.95));
-		border: 3px solid rgba(255, 8, 68, 0.5);
-		border-radius: 1.5rem;
-		text-decoration: none;
-		overflow: hidden;
-		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-		box-shadow:
-			0 10px 40px rgba(0, 0, 0, 0.6),
-			0 0 30px rgba(255, 8, 68, 0.3);
-	}
-
-	.ghosts-special-card::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: linear-gradient(
-			45deg,
-			transparent 0%,
-			rgba(255, 8, 68, 0.1) 50%,
-			transparent 100%
-		);
-		opacity: 0;
-		transition: opacity 0.4s ease;
-		pointer-events: none;
-	}
-
-	.ghosts-special-card:hover::before {
-		opacity: 1;
-	}
-
-	.ghosts-special-card:hover {
-		border-color: #FF0844;
-		transform: translateY(-10px);
-		box-shadow:
-			0 20px 60px rgba(0, 0, 0, 0.8),
-			0 0 50px rgba(255, 8, 68, 0.6),
-			0 0 80px rgba(39, 225, 255, 0.3);
-	}
-
-	.ghosts-card-bg {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 50%;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		opacity: 0.15;
-		pointer-events: none;
-	}
-
-	.ghosts-logo {
-		width: 80%;
-		height: auto;
-		object-fit: contain;
-		filter: drop-shadow(0 0 20px rgba(255, 8, 68, 0.8));
-		animation: ghostsLogoFloat 4s ease-in-out infinite;
-	}
-
-	@keyframes ghostsLogoFloat {
-		0%, 100% {
-			transform: translateY(0) scale(1);
+		.link-card a {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.5rem;
+			width: 100%;
+			height: 100%;
+			justify-content: center;
+			color: var(--gray-300);
+			text-decoration: none;
 		}
-		50% {
-			transform: translateY(-15px) scale(1.05);
+
+		.link-card:hover {
+			transform: translateY(-4px);
+			box-shadow: var(--shadow-md);
+			border-color: var(--accent-regular);
 		}
-	}
 
-	.ghosts-card-content {
-		position: relative;
-		z-index: 2;
-		max-width: 60%;
-	}
+		@media (min-width: 50em) {
+			.link-card {
+				border-radius: 1.5rem;
+				height: 9.5rem;
+			}
+		}
 
-	.ghosts-title {
-		font-size: clamp(2.5rem, 5vw, 4rem);
-		font-weight: 900;
-		color: #FF0844;
-		margin: 0 0 0.5rem 0;
-		font-family: 'Impact', 'Arial Narrow', 'Helvetica Condensed', sans-serif;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		text-shadow:
-			0 0 20px rgba(255, 8, 68, 0.8),
-			0 0 40px rgba(255, 8, 68, 0.5),
-			2px 2px 4px rgba(0, 0, 0, 0.9);
-		transition: all 0.3s ease;
-	}
-
-	.ghosts-special-card:hover .ghosts-title {
-		color: #27E1FF;
-		text-shadow:
-			0 0 30px rgba(39, 225, 255, 0.9),
-			0 0 50px rgba(39, 225, 255, 0.6),
-			2px 2px 4px rgba(0, 0, 0, 0.9);
-	}
-
-	.ghosts-subtitle {
-		font-size: clamp(1.5rem, 3vw, 2.5rem);
-		font-weight: 700;
-		color: #27E1FF;
-		margin: 0 0 1rem 0;
-		font-family: 'HG丸ｺﾞｼｯｸM-PRO', 'Hiragino Maru Gothic ProN', sans-serif;
-		text-shadow:
-			0 0 15px rgba(39, 225, 255, 0.7),
-			2px 2px 4px rgba(0, 0, 0, 0.8);
-	}
-
-	.ghosts-tagline {
-		font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-		color: #E0E0E0;
-		line-height: 1.8;
-		margin: 0 0 1.5rem 0;
-		font-weight: 400;
-		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
-	}
-
-	.ghosts-badge {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.75rem 1.5rem;
-		background: rgba(255, 8, 68, 0.2);
-		border: 2px solid rgba(255, 8, 68, 0.5);
-		border-radius: 0.5rem;
-		color: #FF0844;
-		font-weight: 700;
-		font-size: 0.95rem;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		box-shadow: 0 0 20px rgba(255, 8, 68, 0.3);
-		transition: all 0.3s ease;
-	}
-
-	.ghosts-special-card:hover .ghosts-badge {
-		background: rgba(39, 225, 255, 0.2);
-		border-color: #27E1FF;
-		color: #27E1FF;
-		box-shadow: 0 0 30px rgba(39, 225, 255, 0.5);
-	}
-
-	@media (max-width: 768px) {
+		/* GHOSTS Special Card */
 		.ghosts-special-card {
-			padding: 2rem 1.5rem;
-			margin-bottom: 3rem;
+			position: relative;
+			display: block;
+			width: 100%;
+			max-width: 1200px;
+			margin: 0 auto 4rem;
+			padding: 3rem;
+			background: linear-gradient(
+				135deg,
+				rgba(15, 15, 30, 0.95),
+				rgba(30, 15, 25, 0.95)
+			);
+			border: 3px solid rgba(255, 8, 68, 0.5);
+			border-radius: 1.5rem;
+			text-decoration: none;
+			overflow: hidden;
+			transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			box-shadow:
+				0 10px 40px rgba(0, 0, 0, 0.6),
+				0 0 30px rgba(255, 8, 68, 0.3);
 		}
 
-		.ghosts-card-content {
-			max-width: 100%;
+		.ghosts-special-card::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				45deg,
+				transparent 0%,
+				rgba(255, 8, 68, 0.1) 50%,
+				transparent 100%
+			);
+			opacity: 0;
+			transition: opacity 0.4s ease;
+			pointer-events: none;
+		}
+
+		.ghosts-special-card:hover::before {
+			opacity: 1;
+		}
+
+		.ghosts-special-card:hover {
+			border-color: #ff0844;
+			transform: translateY(-10px);
+			box-shadow:
+				0 20px 60px rgba(0, 0, 0, 0.8),
+				0 0 50px rgba(255, 8, 68, 0.6),
+				0 0 80px rgba(39, 225, 255, 0.3);
 		}
 
 		.ghosts-card-bg {
-			width: 100%;
-			opacity: 0.08;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 50%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0.15;
+			pointer-events: none;
 		}
 
 		.ghosts-logo {
-			width: 60%;
+			width: 80%;
+			height: auto;
+			object-fit: contain;
+			filter: drop-shadow(0 0 20px rgba(255, 8, 68, 0.8));
+			animation: ghostsLogoFloat 4s ease-in-out infinite;
+		}
+
+		@keyframes ghostsLogoFloat {
+			0%,
+			100% {
+				transform: translateY(0) scale(1);
+			}
+			50% {
+				transform: translateY(-15px) scale(1.05);
+			}
+		}
+
+		.ghosts-card-content {
+			position: relative;
+			z-index: 2;
+			max-width: 60%;
+		}
+
+		.ghosts-title {
+			font-size: clamp(2.5rem, 5vw, 4rem);
+			font-weight: 900;
+			color: #ff0844;
+			margin: 0 0 0.5rem 0;
+			font-family: "Impact", "Arial Narrow", "Helvetica Condensed",
+				sans-serif;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			text-shadow:
+				0 0 20px rgba(255, 8, 68, 0.8),
+				0 0 40px rgba(255, 8, 68, 0.5),
+				2px 2px 4px rgba(0, 0, 0, 0.9);
+			transition: all 0.3s ease;
+		}
+
+		.ghosts-special-card:hover .ghosts-title {
+			color: #27e1ff;
+			text-shadow:
+				0 0 30px rgba(39, 225, 255, 0.9),
+				0 0 50px rgba(39, 225, 255, 0.6),
+				2px 2px 4px rgba(0, 0, 0, 0.9);
+		}
+
+		.ghosts-subtitle {
+			font-size: clamp(1.5rem, 3vw, 2.5rem);
+			font-weight: 700;
+			color: #27e1ff;
+			margin: 0 0 1rem 0;
+			font-family: "HG丸ｺﾞｼｯｸM-PRO", "Hiragino Maru Gothic ProN",
+				sans-serif;
+			text-shadow:
+				0 0 15px rgba(39, 225, 255, 0.7),
+				2px 2px 4px rgba(0, 0, 0, 0.8);
+		}
+
+		.ghosts-tagline {
+			font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+			color: #e0e0e0;
+			line-height: 1.8;
+			margin: 0 0 1.5rem 0;
+			font-weight: 400;
+			text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
 		}
 
 		.ghosts-badge {
-			font-size: 0.8rem;
-			padding: 0.5rem 1rem;
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			padding: 0.75rem 1.5rem;
+			background: rgba(255, 8, 68, 0.2);
+			border: 2px solid rgba(255, 8, 68, 0.5);
+			border-radius: 0.5rem;
+			color: #ff0844;
+			font-weight: 700;
+			font-size: 0.95rem;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			box-shadow: 0 0 20px rgba(255, 8, 68, 0.3);
+			transition: all 0.3s ease;
 		}
-	}
-</style>
+
+		.ghosts-special-card:hover .ghosts-badge {
+			background: rgba(39, 225, 255, 0.2);
+			border-color: #27e1ff;
+			color: #27e1ff;
+			box-shadow: 0 0 30px rgba(39, 225, 255, 0.5);
+		}
+
+		@media (max-width: 768px) {
+			.ghosts-special-card {
+				padding: 2rem 1.5rem;
+				margin-bottom: 3rem;
+			}
+
+			.ghosts-card-content {
+				max-width: 100%;
+			}
+
+			.ghosts-card-bg {
+				width: 100%;
+				opacity: 0.08;
+			}
+
+			.ghosts-logo {
+				width: 60%;
+			}
+
+			.ghosts-badge {
+				font-size: 0.8rem;
+				padding: 0.5rem 1rem;
+			}
+		}
+	</style>
+</BaseLayout>

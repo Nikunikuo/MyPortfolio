@@ -10,7 +10,10 @@
       "Bash(npm install:*)",
       "Bash(cat:*)",
       "WebFetch(domain:x.com)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:kimetsu.com)",
+      "WebFetch(domain:theghostintheshell.jp)",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []
