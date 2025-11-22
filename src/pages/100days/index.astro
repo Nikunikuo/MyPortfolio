@@ -1,12 +1,13 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Hero from '../../components/Hero.astro';
-import Icon from '../../components/Icon.astro';
-import ContactCTA from '../../components/ContactCTA.astro';
-import { challenges100days, categoryLabels } from '../../data/100daysData';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import Icon from "../../components/Icon.astro";
+import ContactCTA from "../../components/ContactCTA.astro";
+import { challenges100days, categoryLabels } from "../../data/100daysData";
 
-const title = '#AI創作100日チャレンジ | 大鹿ニク / M1RA';
-const description = '2025年8月9日からスタートした#AI創作100日チャレンジの軌跡。生成AIを使った創作を100日間毎日継続する挑戦の記録。';
+const title = "#AI創作100日チャレンジ | 大鹿ニク / M1RA";
+const description =
+	"2025年8月9日からスタートした#AI創作100日チャレンジの軌跡。生成AIを使った創作を100日間毎日継続する挑戦の記録。";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -23,53 +24,98 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 			<!-- 検索・フィルター・ソートエリア -->
 			<section class="controls">
 				<div class="search-box">
-					<Icon icon="search" size="1.2em" />
-					<input type="text" id="searchInput" data-i18n-placeholder="100days_search" placeholder="タイトルや内容で検索..." />
+					<Icon icon="paper-plane-tilt" size="1.2em" />
+					<input
+						type="text"
+						id="searchInput"
+						data-i18n-placeholder="100days_search"
+						placeholder="タイトルや内容で検索..."
+					/>
 				</div>
 
 				<div class="filter-buttons">
-					<button class="filter-btn active" data-category="all" data-i18n="100days_filter_all">全て</button>
-					<button class="filter-btn" data-category="music" data-i18n="100days_filter_music">🎵 音楽</button>
-					<button class="filter-btn" data-category="anime" data-i18n="100days_filter_anime">🎬 アニメ</button>
-					<button class="filter-btn" data-category="tool" data-i18n="100days_filter_tool">💻 ツール</button>
-					<button class="filter-btn" data-category="manga" data-i18n="100days_filter_manga">📚 漫画</button>
-					<button class="filter-btn" data-category="other" data-i18n="100days_filter_other">✨ その他</button>
+					<button
+						class="filter-btn active"
+						data-category="all"
+						data-i18n="100days_filter_all">全て</button
+					>
+					<button
+						class="filter-btn"
+						data-category="music"
+						data-i18n="100days_filter_music">🎵 音楽</button
+					>
+					<button
+						class="filter-btn"
+						data-category="anime"
+						data-i18n="100days_filter_anime">🎬 アニメ</button
+					>
+					<button
+						class="filter-btn"
+						data-category="tool"
+						data-i18n="100days_filter_tool">💻 ツール</button
+					>
+					<button
+						class="filter-btn"
+						data-category="manga"
+						data-i18n="100days_filter_manga">📚 漫画</button
+					>
+					<button
+						class="filter-btn"
+						data-category="other"
+						data-i18n="100days_filter_other">✨ その他</button
+					>
 				</div>
 
 				<div class="sort-buttons">
-					<button class="sort-btn active" data-sort="asc" data-i18n="100days_sort_old">古い順 ↑</button>
-					<button class="sort-btn" data-sort="desc" data-i18n="100days_sort_new">新しい順 ↓</button>
+					<button
+						class="sort-btn active"
+						data-sort="asc"
+						data-i18n="100days_sort_old">古い順 ↑</button
+					>
+					<button
+						class="sort-btn"
+						data-sort="desc"
+						data-i18n="100days_sort_new">新しい順 ↓</button
+					>
 				</div>
 			</section>
 
 			<!-- カードグリッド -->
 			<section class="cards-grid" id="cardsGrid">
-				{challenges100days.map((challenge) => (
-					<div
-						class="challenge-card"
-						data-day={challenge.day}
-						data-category={challenge.category}
-						data-title={challenge.title.toLowerCase()}
-						data-summary={challenge.summary.toLowerCase()}
-					>
-						<div class="card-image">
-							<img src={challenge.imagePath} alt={challenge.title} loading="lazy" />
-							<div class="day-badge">{challenge.day}/100</div>
+				{
+					challenges100days.map((challenge) => (
+						<div
+							class="challenge-card"
+							data-day={challenge.day}
+							data-category={challenge.category}
+							data-title={challenge.title.toLowerCase()}
+							data-summary={challenge.summary.toLowerCase()}
+						>
+							<div class="card-image">
+								<img
+									src={`/images/100days/${challenge.day}.webp`}
+									alt={challenge.title}
+									loading="lazy"
+								/>
+								<div class="day-badge">{challenge.day}/100</div>
+							</div>
+							<div class="card-content">
+								<h3 class="card-title">{challenge.title}</h3>
+								<div class="card-category">
+									{categoryLabels[challenge.category]}
+								</div>
+							</div>
 						</div>
-						<div class="card-content">
-							<div class="card-date">{challenge.date}</div>
-							<h3 class="card-title">{challenge.title}</h3>
-							<p class="card-summary">{challenge.summary}</p>
-							<div class="card-category">{categoryLabels[challenge.category]}</div>
-						</div>
-					</div>
-				))}
+					))
+				}
 			</section>
 
 			<!-- 結果がない場合のメッセージ -->
 			<div id="noResults" class="no-results" style="display: none;">
-				<Icon icon="warning" size="3em" />
-				<p data-i18n="100days_no_results">該当する投稿が見つかりませんでした</p>
+				<Icon icon="paper-plane-tilt" size="3em" />
+				<p data-i18n="100days_no_results">
+					該当する投稿が見つかりませんでした
+				</p>
 			</div>
 		</main>
 		<ContactCTA />
@@ -78,15 +124,13 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 	<!-- モーダルウィンドウ -->
 	<div id="modal" class="modal">
 		<div class="modal-content">
-			<button class="modal-close" id="modalClose">
-				<Icon icon="x-logo" size="1.5em" />
-			</button>
+			<button class="modal-close" id="modalClose">✕</button>
 			<div id="modalBody"></div>
 		</div>
 	</div>
 </BaseLayout>
 
-<style>
+<style is:global>
 	.controls {
 		display: flex;
 		flex-direction: column;
@@ -118,13 +162,15 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 		color: rgba(255, 255, 255, 0.5);
 	}
 
-	.filter-buttons, .sort-buttons {
+	.filter-buttons,
+	.sort-buttons {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.75rem;
 	}
 
-	.filter-btn, .sort-btn {
+	.filter-btn,
+	.sort-btn {
 		padding: 0.75rem 1.5rem;
 		background: rgba(0, 20, 40, 0.6);
 		border: 2px solid rgba(0, 255, 136, 0.3);
@@ -136,13 +182,15 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 		transition: all 0.3s ease;
 	}
 
-	.filter-btn:hover, .sort-btn:hover {
+	.filter-btn:hover,
+	.sort-btn:hover {
 		border-color: #00ff88;
 		background: rgba(0, 255, 136, 0.1);
 		transform: translateY(-2px);
 	}
 
-	.filter-btn.active, .sort-btn.active {
+	.filter-btn.active,
+	.sort-btn.active {
 		background: rgba(0, 255, 136, 0.2);
 		border-color: #00ff88;
 		color: #00ff88;
@@ -173,15 +221,12 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 	.card-image {
 		position: relative;
 		width: 100%;
-		padding-bottom: 56.25%; /* 16:9 */
+		height: 200px;
 		overflow: hidden;
 		background: rgba(0, 0, 0, 0.5);
 	}
 
 	.card-image img {
-		position: absolute;
-		top: 0;
-		left: 0;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
@@ -210,12 +255,6 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 		padding: 1.5rem;
 	}
 
-	.card-date {
-		font-size: var(--text-sm);
-		color: #00ff88;
-		margin-bottom: 0.5rem;
-	}
-
 	.card-title {
 		font-size: var(--text-lg);
 		font-weight: 700;
@@ -223,16 +262,29 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 		margin-bottom: 0.75rem;
 	}
 
-	.card-summary {
-		font-size: var(--text-sm);
-		color: rgba(255, 255, 255, 0.8);
-		line-height: 1.6;
-		margin-bottom: 1rem;
-	}
-
 	.card-category {
 		font-size: var(--text-sm);
 		color: rgba(255, 255, 255, 0.7);
+		margin-bottom: 1rem;
+	}
+
+	.x-link-btn {
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		background: rgba(29, 155, 240, 0.1);
+		border: 2px solid rgba(29, 155, 240, 0.5);
+		border-radius: 0.5rem;
+		color: #1d9bf0;
+		text-decoration: none;
+		font-size: var(--text-sm);
+		font-weight: 600;
+		transition: all 0.3s ease;
+	}
+
+	.x-link-btn:hover {
+		background: rgba(29, 155, 240, 0.2);
+		border-color: #1d9bf0;
+		transform: translateX(4px);
 	}
 
 	.no-results {
@@ -245,7 +297,6 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 		text-align: center;
 	}
 
-	/* モーダル */
 	.modal {
 		display: none;
 		position: fixed;
@@ -261,12 +312,15 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 
 	.modal.active {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		justify-content: center;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
 	}
 
 	.modal-content {
 		position: relative;
+		margin: auto;
 		max-width: 800px;
 		width: 100%;
 		background: rgba(0, 20, 40, 0.95);
@@ -292,6 +346,7 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 		cursor: pointer;
 		transition: all 0.3s ease;
 		z-index: 10;
+		font-size: 1.5rem;
 	}
 
 	.modal-close:hover {
@@ -313,157 +368,8 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 			margin: 1rem;
 		}
 	}
-</style>
-
-<script>
-	import { challenges100days } from '../../data/100daysData';
-
-	// DOM要素
-	const searchInput = document.getElementById('searchInput') as HTMLInputElement;
-	const cardsGrid = document.getElementById('cardsGrid') as HTMLElement;
-	const noResults = document.getElementById('noResults') as HTMLElement;
-	const filterButtons = document.querySelectorAll('.filter-btn');
-	const sortButtons = document.querySelectorAll('.sort-btn');
-	const modal = document.getElementById('modal') as HTMLElement;
-	const modalClose = document.getElementById('modalClose') as HTMLElement;
-	const modalBody = document.getElementById('modalBody') as HTMLElement;
-
-	let currentCategory = 'all';
-	let currentSort = 'asc';
-
-	// フィルター・ソート・検索
-	function filterAndSort() {
-		const searchTerm = searchInput.value.toLowerCase();
-		const cards = Array.from(document.querySelectorAll('.challenge-card')) as HTMLElement[];
-
-		let visibleCount = 0;
-
-		cards.forEach(card => {
-			const category = card.dataset.category || '';
-			const title = card.dataset.title || '';
-			const summary = card.dataset.summary || '';
-			const day = parseInt(card.dataset.day || '0');
-
-			// フィルター
-			const categoryMatch = currentCategory === 'all' || category === currentCategory;
-			const searchMatch = title.includes(searchTerm) || summary.includes(searchTerm);
-
-			if (categoryMatch && searchMatch) {
-				card.style.display = 'block';
-				visibleCount++;
-			} else {
-				card.style.display = 'none';
-			}
-		});
-
-		// ソート
-		const sortedCards = cards.sort((a, b) => {
-			const dayA = parseInt(a.dataset.day || '0');
-			const dayB = parseInt(b.dataset.day || '0');
-			return currentSort === 'asc' ? dayA - dayB : dayB - dayA;
-		});
-
-		sortedCards.forEach(card => cardsGrid.appendChild(card));
-
-		// 結果なしメッセージ
-		noResults.style.display = visibleCount === 0 ? 'block' : 'none';
 	}
 
-	// フィルターボタン
-	filterButtons.forEach(btn => {
-		btn.addEventListener('click', () => {
-			filterButtons.forEach(b => b.classList.remove('active'));
-			btn.classList.add('active');
-			currentCategory = btn.dataset.category || 'all';
-			filterAndSort();
-		});
-	});
-
-	// ソートボタン
-	sortButtons.forEach(btn => {
-		btn.addEventListener('click', () => {
-			sortButtons.forEach(b => b.classList.remove('active'));
-			btn.classList.add('active');
-			currentSort = btn.dataset.sort || 'asc';
-			filterAndSort();
-		});
-	});
-
-	// 検索
-	searchInput.addEventListener('input', filterAndSort);
-
-	// カードクリックでモーダル表示
-	document.querySelectorAll('.challenge-card').forEach((card, index) => {
-		card.addEventListener('click', () => {
-			const challenge = challenges100days[index];
-			showModal(challenge);
-		});
-	});
-
-	// モーダル表示
-	function showModal(challenge: any) {
-		let embedContent = '';
-
-		// YouTube埋め込み
-		if (challenge.youtubeId) {
-			embedContent = `
-				<div class="modal-video">
-					<iframe
-						width="100%"
-						height="400"
-						src="https://www.youtube.com/embed/${challenge.youtubeId}"
-						title="${challenge.title}"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen
-					></iframe>
-				</div>
-			`;
-		} else {
-			embedContent = `<img src="${challenge.imagePath}" alt="${challenge.title}" class="modal-image" />`;
-		}
-
-		// X埋め込み（URLがある場合）
-		const xEmbed = challenge.xUrl
-			? `<a href="${challenge.xUrl}" target="_blank" rel="noopener noreferrer" class="x-link">
-					<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-						<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-					</svg>
-					元のXポストを見る
-				</a>`
-			: '';
-
-		modalBody.innerHTML = `
-			<div class="modal-header">
-				<div class="modal-day-badge">${challenge.day}/100</div>
-				<div class="modal-date">${challenge.date}</div>
-			</div>
-			<h2 class="modal-title">${challenge.title}</h2>
-			<p class="modal-summary">${challenge.summary}</p>
-			${embedContent}
-			${xEmbed}
-		`;
-
-		modal.classList.add('active');
-		document.body.style.overflow = 'hidden';
-	}
-
-	// モーダルを閉じる
-	modalClose.addEventListener('click', closeModal);
-	modal.addEventListener('click', (e) => {
-		if (e.target === modal) closeModal();
-	});
-
-	function closeModal() {
-		modal.classList.remove('active');
-		document.body.style.overflow = '';
-	}
-
-	// 初期ソート
-	filterAndSort();
-</script>
-
-<style is:global>
 	.modal-header {
 		display: flex;
 		align-items: center;
@@ -480,11 +386,6 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 		border-radius: 0.5rem;
 	}
 
-	.modal-date {
-		font-size: var(--text-sm);
-		color: #00ff88;
-	}
-
 	.modal-title {
 		font-size: var(--text-2xl);
 		color: #ffffff;
@@ -496,32 +397,26 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 		font-size: var(--text-base);
 		color: rgba(255, 255, 255, 0.9);
 		line-height: 1.8;
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
+	}
+
+	.modal-category {
+		font-size: var(--text-sm);
+		color: rgba(255, 255, 255, 0.7);
+		margin-bottom: 1.5rem;
 	}
 
 	.modal-image {
 		width: 100%;
+		max-height: 400px;
+		object-fit: contain;
 		border-radius: 0.75rem;
 		margin-bottom: 1.5rem;
+		background: rgba(0, 0, 0, 0.3);
 	}
 
-	.modal-video {
-		position: relative;
-		width: 100%;
-		margin-bottom: 1.5rem;
-		border-radius: 0.75rem;
-		overflow: hidden;
-	}
-
-	.modal-video iframe {
-		width: 100%;
-		aspect-ratio: 16 / 9;
-	}
-
-	.x-link {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
+	.modal-x-link {
+		display: inline-block;
 		padding: 0.75rem 1.5rem;
 		background: rgba(29, 155, 240, 0.1);
 		border: 2px solid rgba(29, 155, 240, 0.5);
@@ -532,9 +427,292 @@ const description = '2025年8月9日からスタートした#AI創作100日チ�
 		transition: all 0.3s ease;
 	}
 
-	.x-link:hover {
+	.modal-x-link:hover {
 		background: rgba(29, 155, 240, 0.2);
 		border-color: #1d9bf0;
-		transform: translateY(-2px);
+		transform: translateX(4px);
+	}
+
+	/* Grok吹き出しスタイル */
+	.grok-comment-section {
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+		margin: 2rem 0;
+		padding: 1.5rem;
+		background: rgba(255, 136, 0, 0.05);
+		border-left: 4px solid rgba(255, 136, 0, 0.5);
+		border-radius: 0.75rem;
+	}
+
+	.grok-avatar {
+		flex-shrink: 0;
+		width: 5.25rem;
+		height: 5.25rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		border-radius: 50%;
+		background: rgba(255, 136, 0, 0.1);
+		border: 2px solid rgba(255, 136, 0, 0.3);
+	}
+
+	.grok-avatar-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.grok-bubble {
+		flex: 1;
+		background: rgba(255, 255, 255, 0.05);
+		border-radius: 0.75rem;
+		padding: 1rem 1.5rem;
+		position: relative;
+	}
+
+	.grok-bubble::before {
+		content: "";
+		position: absolute;
+		left: -8px;
+		top: 1rem;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 8px 8px 8px 0;
+		border-color: transparent rgba(255, 255, 255, 0.05) transparent
+			transparent;
+	}
+
+	.grok-name {
+		font-size: var(--text-sm);
+		font-weight: 700;
+		color: #ff8800;
+		margin-bottom: 0.5rem;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.grok-message {
+		font-size: var(--text-base);
+		color: rgba(255, 255, 255, 0.95);
+		line-height: 1.6;
+	}
+
+	.x-embed-container {
+		display: flex;
+		justify-content: center;
+		margin-top: 2rem;
+		min-height: 300px; /* ロード中の高さ確保 */
+		width: 100% !important;
+		max-width: 300px !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		/* overflow: hidden !important; 削除 */
+	}
+
+	.x-embed-container iframe {
+		max-width: 100% !important;
+		width: 100% !important;
 	}
 </style>
+
+<script>
+	import { challenges100days } from "../../data/100daysData";
+
+	const searchInput = document.getElementById(
+		"searchInput",
+	) as HTMLInputElement;
+	const cardsGrid = document.getElementById("cardsGrid") as HTMLElement;
+	const noResults = document.getElementById("noResults") as HTMLElement;
+	const filterButtons = document.querySelectorAll(".filter-btn");
+	const sortButtons = document.querySelectorAll(".sort-btn");
+	const modal = document.getElementById("modal") as HTMLElement;
+	const modalClose = document.getElementById("modalClose") as HTMLElement;
+	const modalBody = document.getElementById("modalBody") as HTMLElement;
+
+	let currentCategory = "all";
+	let currentSort = "asc";
+
+	function filterAndSort() {
+		const searchTerm = searchInput.value.toLowerCase();
+		const cards = Array.from(
+			document.querySelectorAll(".challenge-card"),
+		) as HTMLElement[];
+		let visibleCount = 0;
+
+		cards.forEach((card) => {
+			const category = card.dataset.category || "";
+			const title = card.dataset.title || "";
+			const summary = card.dataset.summary || "";
+
+			const categoryMatch =
+				currentCategory === "all" || category === currentCategory;
+			const searchMatch =
+				title.includes(searchTerm) || summary.includes(searchTerm);
+
+			if (categoryMatch && searchMatch) {
+				card.style.display = "block";
+				visibleCount++;
+			} else {
+				card.style.display = "none";
+			}
+		});
+
+		const sortedCards = cards.sort((a, b) => {
+			const dayA = parseInt(a.dataset.day || "0");
+			const dayB = parseInt(a.dataset.day || "0");
+			return currentSort === "asc" ? dayA - dayB : dayB - dayA;
+		});
+
+		sortedCards.forEach((card) => cardsGrid.appendChild(card));
+		noResults.style.display = visibleCount === 0 ? "block" : "none";
+	}
+
+	filterButtons.forEach((btn) => {
+		btn.addEventListener("click", () => {
+			filterButtons.forEach((b) => b.classList.remove("active"));
+			btn.classList.add("active");
+			currentCategory = (btn as HTMLElement).dataset.category || "all";
+			filterAndSort();
+		});
+	});
+
+	sortButtons.forEach((btn) => {
+		btn.addEventListener("click", () => {
+			sortButtons.forEach((b) => b.classList.remove("active"));
+			btn.classList.add("active");
+			currentSort = (btn as HTMLElement).dataset.sort || "asc";
+			filterAndSort();
+		});
+	});
+
+	searchInput.addEventListener("input", filterAndSort);
+
+	document.querySelectorAll(".challenge-card").forEach((card, index) => {
+		card.addEventListener("click", () => {
+			const challenge = challenges100days[index];
+			showModal(challenge);
+		});
+	});
+
+	function showModal(challenge: any) {
+		// Grokのアバター画像を感情に応じて選択
+		const grokAvatars = {
+			huh: "/images/100days/grok/huh.webp", // ニヤリ
+			naruhodo: "/images/100days/grok/naruhodo.webp", // なるほど
+			interesting: "/images/100days/grok/interesting.webp", // 普通の顔
+			h: "/images/100days/grok/h.webp" // ムフフ
+		};
+		const grokAvatar = grokAvatars[challenge.grokEmotion as keyof typeof grokAvatars] || "/images/100days/grok/naruhodo.webp";
+		
+		// Grokコメントセクション
+		const grokSection = challenge.grokComment
+			? `<div class="grok-comment-section">
+					<div class="grok-avatar">
+						<img src="${grokAvatar}" alt="Grok" class="grok-avatar-img" />
+					</div>
+					<div class="grok-bubble">
+						<div class="grok-name">Grok</div>
+						<div class="grok-message">${challenge.grokComment}</div>
+					</div>
+				</div>`
+			: "";
+
+		modalBody.innerHTML = `
+			<div class="modal-header">
+				<div class="modal-day-badge">${challenge.day}/100</div>
+			</div>
+			<div class="x-embed-container" id="xEmbedContainer"></div>
+			<div id="xLinkContainer" style="text-align: center; margin-bottom: 1.5rem;"></div>
+			<h2 class="modal-title">${challenge.title}</h2>
+			<p class="modal-summary">${challenge.summary}</p>
+			<div class="modal-category">${challenge.category}</div>
+			${grokSection}
+		`;
+
+		modal.classList.add("active");
+		document.body.style.overflow = "hidden";
+
+		// X埋め込みのレンダリング
+		const container = document.getElementById("xEmbedContainer");
+		const linkContainer = document.getElementById("xLinkContainer");
+
+		if (container && challenge.xUrl) {
+			// URLから空白を除去してクリーンにする
+			const cleanUrl = challenge.xUrl.replace(/\s+/g, '');
+			// 15桁以上の数字を抽出（より堅牢なID抽出）
+			const tweetIdMatch = cleanUrl.match(/(\d{15,})/);
+			const tweetId = tweetIdMatch ? tweetIdMatch[1] : "";
+			
+			console.log(`Day ${challenge.day}: ID extracted = ${tweetId} from ${cleanUrl}`);
+
+			// 常にリンクを表示
+			if (linkContainer) {
+				linkContainer.innerHTML = `
+					<a href="${challenge.xUrl}" target="_blank" rel="noopener noreferrer" class="modal-x-link" style="font-size: 0.9rem; opacity: 0.8; color: #1d9bf0; text-decoration: none;">
+						Xで元のポストを見る →
+					</a>
+				`;
+			}
+
+			if (tweetId && (window as any).twttr && (window as any).twttr.widgets) {
+				container.innerHTML = ""; // クリア
+				(window as any).twttr.widgets.createTweet(
+					tweetId,
+					container,
+					{
+						theme: 'dark',
+						lang: 'ja',
+						align: 'center'
+					}
+				).then(function (el: any) {
+					if (!el) {
+						console.warn(`Day ${challenge.day}: Tweet embed failed for ID ${tweetId}`);
+						// 埋め込み失敗時（elがnullの場合）
+						container.innerHTML = `<p style="text-align:center; color:#888;">埋め込みを表示できませんでした。</p>`;
+					}
+				});
+			} else {
+				// スクリプト未ロード時やIDなし
+				container.innerHTML = "";
+			}
+		}
+	}
+
+	modalClose.addEventListener("click", () => {
+		modal.classList.remove("active");
+		document.body.style.overflow = "";
+		// モーダルを閉じたときに中身をクリア
+		const container = document.getElementById("xEmbedContainer");
+		if (container) container.innerHTML = "";
+	});
+
+	window.addEventListener("click", (e) => {
+		if (e.target === modal) {
+			modal.classList.remove("active");
+			document.body.style.overflow = "";
+			const container = document.getElementById("xEmbedContainer");
+			if (container) container.innerHTML = "";
+		}
+	});
+
+	// Twitter Widget Scriptの読み込み
+	(window as any).twttr = (function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0],
+		t = (window as any).twttr || {};
+		if (d.getElementById(id)) return t;
+		js = d.createElement(s) as HTMLScriptElement;
+		js.id = id;
+		js.src = "https://platform.twitter.com/widgets.js";
+		fjs.parentNode?.insertBefore(js, fjs);
+
+		t._e = [];
+		t.ready = function(f: any) {
+			t._e.push(f);
+		};
+
+		return t;
+	}(document, "script", "twitter-wjs"));
+</script>
