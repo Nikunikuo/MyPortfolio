@@ -62,12 +62,12 @@ const translations = {
 
 	// Latest Works
 	"latest_works_title": {
-		"jp": "Latest Works",
-		"en": "Latest Works"
+		"jp": "Featured Works",
+		"en": "Featured Works"
 	},
 	"latest_works_desc": {
-		"jp": "サンプルです。詳細は\"Work\"からご覧ください！（2025/10/29更新）",
-		"en": "Sample works. See \"Work\" for more details! (Updated 2025/10/29)"
+		"jp": "最新の制作実績。詳細は\"Work\"ページからご覧いただけます。（2025/11/23更新）",
+		"en": "Latest works. See \"Work\" page for more details! (Updated 2025/11/23)"
 	},
 	"latest_works_cta": {
 		"jp": "すべての作品を見る",
@@ -606,7 +606,7 @@ const translations = {
 };
 
 // i18nシステムを初期化
-(function() {
+(function () {
 	// 現在の言語を取得（デフォルト: jp）
 	let currentLang = localStorage.getItem('lang') || 'jp';
 

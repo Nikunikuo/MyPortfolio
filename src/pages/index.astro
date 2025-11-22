@@ -119,7 +119,7 @@ const projects = (await getCollection("work"))
 					</div>
 					<p data-i18n="latest_works_desc">
 						Featured Works -
-						最新の制作実績。詳細は"Work"ページからご覧いただけます。（2025/11/21更新）
+						最新の制作実績。詳細は"Work"ページからご覧いただけます。（2025/11/23更新）
 					</p>
 				</header>
 
@@ -141,6 +141,29 @@ const projects = (await getCollection("work"))
 							<div class="ghosts-badge">
 								<Icon icon="rocket-launch" size="1.5rem" />
 								<span>NEW PROJECT</span>
+							</div>
+						</div>
+					</a>
+
+					<a href="/100days/" class="challenge-special-card">
+						<div class="challenge-card-bg">
+							<div class="challenge-icon-wrapper">
+								<Icon icon="rocket-launch" size="4rem" />
+							</div>
+						</div>
+						<div class="challenge-card-content">
+							<h3 class="challenge-title">
+								#AI創作100日チャレンジ
+							</h3>
+							<p class="challenge-subtitle">
+								2025/8/9～ 毎日AI創作を続けた記録
+							</p>
+							<p class="challenge-tagline">
+								生成AIで音楽・アニメ・ツールなど多彩な創作に挑戦した100日間の軌跡
+							</p>
+							<div class="challenge-badge">
+								<Icon icon="strategy" size="1.5rem" />
+								<span>100 DAYS COMPLETED</span>
 							</div>
 						</div>
 					</a>
@@ -935,6 +958,182 @@ const projects = (await getCollection("work"))
 		}
 
 		.ghosts-badge {
+			font-size: 0.8rem;
+			padding: 0.5rem 1rem;
+		}
+	}
+
+	/* 100 Days Challenge Special Card */
+	.challenge-special-card {
+		position: relative;
+		display: block;
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto 4rem;
+		padding: 3rem;
+		background: linear-gradient(
+			135deg,
+			rgba(10, 25, 15, 0.95),
+			rgba(20, 35, 25, 0.95)
+		);
+		border: 3px solid rgba(0, 255, 136, 0.5);
+		border-radius: 1.5rem;
+		text-decoration: none;
+		overflow: hidden;
+		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		box-shadow:
+			0 10px 40px rgba(0, 0, 0, 0.6),
+			0 0 30px rgba(0, 255, 136, 0.3);
+	}
+
+	.challenge-special-card::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			45deg,
+			transparent 0%,
+			rgba(0, 255, 136, 0.1) 50%,
+			transparent 100%
+		);
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		pointer-events: none;
+	}
+
+	.challenge-special-card:hover::before {
+		opacity: 1;
+	}
+
+	.challenge-special-card:hover {
+		border-color: #00ff88;
+		transform: translateY(-10px);
+		box-shadow:
+			0 20px 60px rgba(0, 0, 0, 0.8),
+			0 0 50px rgba(0, 255, 136, 0.6),
+			0 0 80px rgba(255, 136, 0, 0.3);
+	}
+
+	.challenge-card-bg {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 50%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0.15;
+		pointer-events: none;
+	}
+
+	.challenge-icon-wrapper {
+		color: #00ff88;
+		filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.8));
+		animation: challengeIconFloat 4s ease-in-out infinite;
+	}
+
+	@keyframes challengeIconFloat {
+		0%,
+		100% {
+			transform: translateY(0) scale(1);
+		}
+		50% {
+			transform: translateY(-15px) scale(1.05);
+		}
+	}
+
+	.challenge-card-content {
+		position: relative;
+		z-index: 2;
+		max-width: 60%;
+	}
+
+	.challenge-title {
+		font-size: clamp(2rem, 4.5vw, 3.5rem);
+		font-weight: 900;
+		color: #00ff88;
+		margin: 0 0 0.5rem 0;
+		font-family: "Impact", "Arial Narrow", "Helvetica Condensed", sans-serif;
+		letter-spacing: 0.05em;
+		text-shadow:
+			0 0 20px rgba(0, 255, 136, 0.8),
+			0 0 40px rgba(0, 255, 136, 0.5),
+			2px 2px 4px rgba(0, 0, 0, 0.9);
+		transition: all 0.3s ease;
+	}
+
+	.challenge-special-card:hover .challenge-title {
+		color: #ff8800;
+		text-shadow:
+			0 0 30px rgba(255, 136, 0, 0.9),
+			0 0 50px rgba(255, 136, 0, 0.6),
+			2px 2px 4px rgba(0, 0, 0, 0.9);
+	}
+
+	.challenge-subtitle {
+		font-size: clamp(1.2rem, 2.5vw, 2rem);
+		font-weight: 700;
+		color: #ff8800;
+		margin: 0 0 1rem 0;
+		font-family: "HG丸ｺﾞｼｯｸM-PRO", "Hiragino Maru Gothic ProN", sans-serif;
+		text-shadow:
+			0 0 15px rgba(255, 136, 0, 0.7),
+			2px 2px 4px rgba(0, 0, 0, 0.8);
+	}
+
+	.challenge-tagline {
+		font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+		color: #e0e0e0;
+		line-height: 1.8;
+		margin: 0 0 1.5rem 0;
+		font-weight: 400;
+		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+	}
+
+	.challenge-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1.5rem;
+		background: rgba(0, 255, 136, 0.2);
+		border: 2px solid rgba(0, 255, 136, 0.5);
+		border-radius: 0.5rem;
+		color: #00ff88;
+		font-weight: 700;
+		font-size: 0.95rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+		transition: all 0.3s ease;
+	}
+
+	.challenge-special-card:hover .challenge-badge {
+		background: rgba(255, 136, 0, 0.2);
+		border-color: #ff8800;
+		color: #ff8800;
+		box-shadow: 0 0 30px rgba(255, 136, 0, 0.5);
+	}
+
+	@media (max-width: 768px) {
+		.challenge-special-card {
+			padding: 2rem 1.5rem;
+			margin-bottom: 3rem;
+		}
+
+		.challenge-card-content {
+			max-width: 100%;
+		}
+
+		.challenge-card-bg {
+			width: 100%;
+			opacity: 0.08;
+		}
+
+		.challenge-badge {
 			font-size: 0.8rem;
 			padding: 0.5rem 1rem;
 		}
