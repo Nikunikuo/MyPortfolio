@@ -1,0 +1,32 @@
+---
+import MangaViewer from "../../../../components/MangaViewer.astro";
+
+const images = Array.from(
+    { length: 11 },
+    (_, i) => `/images/GHOSTS/comics/LS2/${i + 1}.webp`,
+);
+
+const title = "GHOSTS - EP.2 灰色の花園";
+---
+
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <meta name="robots" content="noindex" />
+        <!-- ビューアページは検索インデックス不要かも -->
+    </head>
+    <body>
+        <MangaViewer images={images} title={title} backLink="/ghosts/manga/" />
+    </body>
+</html>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #0f0f1e;
+    }
+</style>

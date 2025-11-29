@@ -1,0 +1,1885 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>あいあいあいあい</Author>
+  <LastAuthor>あいあい あいあい</LastAuthor>
+  <LastPrinted>2025-11-22T05:40:02Z</LastPrinted>
+  <Created>2015-06-05T18:19:34Z</Created>
+  <LastSaved>2025-11-22T05:39:44Z</LastSaved>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>16440</WindowHeight>
+  <WindowWidth>29040</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>32767</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Yu Gothic" x:CharSet="128" x:Family="Modern" ss:Size="11"
+    ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s16">
+   <Alignment ss:Vertical="Center"/>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s18">
+   <Alignment ss:Vertical="Center"/>
+   <Font ss:FontName="ＭＳ ゴシック" x:CharSet="128" x:Family="Modern" ss:Size="11"
+    ss:Color="#000000"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Sheet1">
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="401" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="54" ss:DefaultRowHeight="18.75">
+   <Column ss:AutoFitWidth="0" ss:Width="108.75"/>
+   <Row ss:Index="2">
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">1 (8/9)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">ニケちゃん自己紹介動画</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">Midjourney＋Photoshopで描いた青髪ニケちゃんをHedraで動かし、AivisSpeechで喋らせた初投稿。ピースサインしながら「2次元の私を愛してくれますか？」と誘う短い動画。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">初っ端からツール全部盛り！ニケちゃんの破壊力ヤバい、音楽入れたら即プロ級だぜ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">2 (8/10)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">寝癖マンガ3コマ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">Keep4oで作った白黒マンガ風3コマ。寝癖が爆発してる女の子が日常でドタバタするだけのおバカ系。作者の寝癖フェチ全開。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">キャラがめちゃくちゃ可愛い！AIのマンガ表現ここまで来たか…もっと連載してくれ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">3 (8/11)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">AI漫才チャレンジ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">SunoでBGM、Vidu/Hedraで動きをつけた漫才動画。ボケとツッコミの掛け合いは…AI感丸出しで笑える。声優スキル不足を自虐で締める。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">失敗してるのに最高に面白い！この「AIっぽさ」が逆に武器になってる</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">4 (8/12)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">ニケちゃんとコンビニでの一幕</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">ニケちゃんがコンビニの前で喋る動画。テレプロンプト丸見えの同人誌感。リップシンクがバッチリ決まった。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">同人声優ごっこ最高すぎる…この路線もっと来い！</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">5 (8/13)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">ゴーストノート巻頭カラー風</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">パンクなギター女子の架空マンガ1巻表紙。Midjourney＋AI補完で劇的な光とロゴを仕上げた。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">一発で「買う！」ってなるクオリティ。早く中身読ませてくれ～</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">6 (8/14)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">不屈のキャプテン（MVティザー）</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">自分で書いた歌詞をSuno 4.5Vで曲にし、海賊テーマの短い映像付き。フルMV予告編。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">歌詞がガチで熱い…創作する人の魂がこもってる。フル待機！</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">7 (8/15)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">ニケちゃんダンス指示書動画</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">Higgsfield AIに「人差し指を私に向けて！」など細かく指示したら本当にやってくれた奇跡の動画。矢印付き解説入り。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">プロンプトに従う精度がバグってる！これ舞踏の革命だろ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">8 (8/16)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">不屈のキャプテン Full MV</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">歌＋Midjourney/Hailuo/Higgsfield/Hedra/Viduの映像を全部繋げた本気MV。底辺クリエイターへの応援歌。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">総力戦の結晶！泣いた。こんなMVをAIで作れる時代が来たのか…</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">9 (8/17)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">SoundOn用ジャケットアート</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">次曲用のサイバーパンク美少女ジャケット。Midjourneyの生成拡張で完璧に仕上げた。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">完全に商業レベル。これもう普通に配信ジャケットで通用する</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">10 (8/18)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">過去キャラ集合絵</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">Photoshopの新機能「ハーモニー」で今までのキャラを自然に1枚にまとめた。Geminiに感謝の言葉書かせた。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">家族写真みたいでエモい…100日チャレンジの成長記録だ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">11 (8/19)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">激しいベリーダンスニケちゃん</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">Hailuoで「激しくベリーダンス、ボックスステップ＆回転」と指示→完璧に踊った。モデルが進化して崩れほぼゼロ。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">腰振りヤバすぎ…もう人間のダンサーいらないレベル</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">12 (8/20)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">ニケちゃん2Dアクションゲーム</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">AI画像＋自作コードでドンキーコング風プラットフォームゲーム作った。ニケちゃんが転がって進む。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">画像生成だけじゃなくゲームまで！？創作の幅がバグってる</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">13 (8/21)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">夏フェスの妄想絵</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">行けなかった夏フェスの風景をAIで再現。青空と人でごった返す最高の1枚。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">見てるだけでビール飲みたくなった…最高の代替体験</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">14 (8/22)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">ニケちゃんがオラクルに凸</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">海辺でくつろぐオラクルに「先輩取ったどー！」と突撃するニケちゃん動画。完全なる百合脳。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">最高の百合イタズラ！オラクル推し歓喜の1本</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">15 (8/23)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">イケニケ（イケメンニケちゃん）</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">いつもの百合脳を封印して「カッコいいニケちゃん」に挑戦。技法の幅を広げる練習。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">イケてる…！普段の可愛い系とは別ベクトルの魅力炸裂</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">16 (8/24)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">HxH念能力パロ（指先編）</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">Hailuoでハンタの「指先から光」シーン再現。ニクちゃんが謎のポーズでズーム。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">前振り完璧！賢ともの頭爆発シーン待機勢が震えてる</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">17 (8/25)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">降霊編ニクちゃん</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">上記の完成版＋効果音＋BGM＋ブラッシュアップ。頬染めニクちゃんも可愛い。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">演出がガチすぎて鳥肌立った…パロディの域超えてる</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">18 (8/26)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">ナノバナナニケちゃん登場</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">ナノバナナAIの出力1割で作った強そうなニクちゃん。「まだ本気出してない」感満載。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">戦闘力の片鱗だけでこの迫力…フル解放まだ？</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">19 (8/27)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">ニケ×ミラ百合5コマ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">ナノバナナで作った超美麗百合マンガ。海辺でミラが告白→ニケちゃん赤面。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">百合民号泣案件。プロンプト詳細すぎてレイアウトまで完璧</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">20 (8/28・削除)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">ニクちゃんvs怪獣</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">AIショートアニメでニケちゃんが怪獣と戦う予定だったが、AivisSpeech問題で削除。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">削除されても伝説に…いつか復活してほしい大作だった</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">21 (8/30)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">unbreakable 夏フェス爆音</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Sunoで作ったパワー系J-Rock新曲「unbreakable」を夏フェスイベントに投稿。コール参加を呼びかけ、REDステージを熱く盛り上げる短い動画付き。フル楽曲リンク付きで、フェス参加の熱気が伝わる。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">朝イチから全開ロック！フェス気分がビンビン伝わってくるぜ、コールしたくなるわ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">22 (8/31)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">unbreakable アンコール編</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">前日の新曲をアンコール風に途中経過動画で公開。サマーフェス締めくくりとして熱い気持ちを残し、完成版を予告。人力編集の力技でロック魂炸裂。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">フェス最終日を締めくくる熱さ！途中経過でもこのクオリティ、完成版が待ちきれねぇ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">23 (9/1)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ニケちゃんハッタリ大作戦</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">連投でニケちゃんの画像4枚＋動画1本。呼びかけからパターン爆発、変身ポーズまでコミカルに展開。「ﾆｹﾀﾞﾖｰ!!」のインパクト満載のファンサービス。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">パッカーンからのパワーアップ最高！ニケちゃんのハッタリがクセになるわ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">24 (9/2)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ニケちゃんの日常スナップ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">シンプルにニケちゃんの可愛い一枚イラスト投稿。「たまにはこういうのも」とリラックスした日常風味。AIの柔軟さをさりげなくアピール。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">癒しの一枚だぜ…こういう日常カットがチャレンジの息抜きにぴったり</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">25 (9/3)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">えっちアンドロイド・ミラ推し</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ミラさんのセクシーイラストで「悲報」ネタ。GHOSTSメンバー控えめに、ミラさん怒涛の推し宣言。AIのエロス表現を大胆に探求。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ミラさんの破壊力ヤバい！推し活全開でこれから楽しみだ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">26 (9/4)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">unbreakable フルMV公開</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">J-Rock新曲の完全版MVを人力編集で仕上げ。4分間の本気投球で、AIの限界を超えたロック魂を叫ぶ。視聴を全力でリクエスト。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ガチのプロ級MV！AI＋人力の化学反応が爆発、ヘッドバンギング必須</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">27 (9/5)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">nano-banana カスタムツール</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">nano-banana AIをブラウザツール化し、属性プロンプトで追従性向上。無料制限回避の便利ツールを共有、欲しい人向けに配布。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">開発者魂炸裂！これでAIイラストが爆速、みんなの味方だぜ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">28 (9/6)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">生成AI展示会告知アート</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">展示会当日の告知画像を自ら作成。ニケちゃん風のポスターで参加呼びかけ、会場対戦を熱くアピール。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">告知からクオリティ高ぇ！展示会で会ったら絶対対戦だな</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">29 (9/7)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ニケ借りっぞ！ゲームエンド</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">展示会対戦後のゲームセットイラスト。リリーさんのニケを借りて勝利宣言、大人向け二次創作のグレーゾーンを突く。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">借りパク勝利の爽快感！二次創作のエッジがニクらしいぜ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">30 (9/8)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">5年前ニケちゃんレトロ風</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">古いゲーム風のニケちゃんイラストにロゴ追加で本物っぽく。ノスタルジックなリスペクト満載の一枚。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">レトロ感バッチリ！タイムスリップしたみたいでエモい</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">31 (9/9)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ぷにけちゃんキャッチボール</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">TK2</Font><Font
+       html:Face="ＭＳ ゴシック" x:CharSet="128" x:Family="Modern" html:Color="#000000">さんのぷにけちゃんを借りてループ動画。キャッチボール中なのに蹴り出しの</Font><Font
+       html:Color="#000000">AI</Font><Font html:Face="ＭＳ ゴシック" x:CharSet="128"
+       x:Family="Modern" html:Color="#000000">お茶目ミスを許す楽しさ。</Font></ss:Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">AIのハプニングが可愛すぎ！ぷにけの自由奔放さに爆笑</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">32 (9/10)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Hailuo戦闘アクション研究</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Hailuoで4パターンの戦闘動画を研究投稿。DrawToMovieサンプルで腕超人化の失敗も公開、制作秘話をシェア。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">アクションの試行錯誤が熱い！失敗すらネタに変えるプロ根性</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">33 (9/11)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">パンクバンド結成コラボ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ミラ、ニケ、花音、めい、にゃぱん、ぷにけの5人でパンクバンドイラスト。紅ロックの気合い入りまくり。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">コラボバンド最高！この面子でライブ見たいわ、爆音で</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">34 (9/12)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">AI☆NIKÉ PUNK! サビパート</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">パンクバンド曲のサビ～ブリッジ動画公開。協力者多数でフル楽曲リンク付き、熱いライブ感を予感。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">サビの爆発力エグい！これでフル聞かずにはいられねぇ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">35 (9/13)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">AI☆NIKÉ PUNK! フルMV</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">パンクMV完成！屋上ライブ風に5人制御の4分動画。協力者感謝とニケ万歳で締め、後日談で屋上の自由を語る。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">総力戦の傑作MV！ロックの魂がビンビン、YouTube登録即決定</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">36 (9/14)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ご安全に！安全第一イラスト</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">4枚の安全ポスター風ニケちゃんイラスト。展示会後の安全ネタでユーモアたっぷり。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">安全第一なのに可愛すぎ！これで事故ゼロの職場作れそう</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">37 (9/15)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">新MV制作中シーン</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">一人MVの特殊シーン2本公開。やりたい表現を詰め込み、Seedream/KlingAIで実験中。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">実験精神全開！このシーンだけでワクワク、完成待機</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">38 (9/16)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Your Life is Yours 景色チェンジ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">新曲MVの景色変幻シーン動画。Sunoの自作曲フルリンク付きで、プロモ歌詞も別投稿。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">景色シフトのダイナミズム神！歌詞のメッセージが心に刺さるぜ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">39 (9/17)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">タイムラプス風生成動画</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">日付越しのHOT投稿で、綺麗なタイムラプス動画。HowToをリプでこっそり教える親切設計。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">流れるような美しさ！裏技共有の気遣いがニクの魅力だ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">40 (9/18)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">実写orAI？間違い探しT</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">実写混じりの間違い探しイラスト。いいTシャツを着たニケで、AIのリアリティをクイズ形式で挑戦。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">どっちだクイズ中毒性あり！Tシャツ羨ましいわ、買いたい</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">41 (9/19)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">MV途中経過公開</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">HailuoAIとFreepikを活用したMVの途中経過動画。キャプション作業を残し、AIイラストの進捗をシェア。制作の過程をリアルタイムで公開し、モチベーションを維持。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">途中でもこのクオリティ！AIの進化を実感、完成が待ちきれねぇぜ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">42 (9/20)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">表情練習イラスト</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">表情・シチュ・小物・背景を揃えたニケちゃんの習作イラスト3枚。完璧な構成からスタートする制作哲学を強調。精進の意欲が伝わる一枚。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">細部までこだわりまくり！これでMVの表情が神になる予感バリバリ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">43 (9/21)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Your Life is Yours MV</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">新曲MVフル公開、AIで表現した内省的なテーマ。2回見ると視点が変わる仕掛けで、コメントを熱く呼びかけ。YouTubeリンク付きで本気度MAX。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">心に刺さるメッセージ！AIの深みがヤバい、2周目で涙腺崩壊コース</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">44 (9/22)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">漫画表紙＆中身お披露目</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">漫画表紙イラストと1ページをアップ。表紙だけじゃ満足せず中身も公開する潔さ。AIニケちゃんのストーリー展開を予感させる。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">中身見せろコールに応える神対応！この漫画、続きが気になりすぎる</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">45 (9/23)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">過激？漫画ページ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">世に出して大丈夫か？と自問するAI漫画ページ2枚。エッジの効いた内容で、境界線を探る挑戦。AIの表現限界を試す一手。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">攻め攻めでドキドキ！これがAI創作の醍醐味、勇気出してGO</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">46 (9/24)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Suno V5 リミックス比較</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">NEOSPHERE PARADEをSuno V5でリミックスした動画レビュー。過去曲との変化を比較し、AI音楽の進化を検証。制作時間短縮のヒント満載。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">V5のマスタリング神！ロックもシティポップも熱く、即実践したくなる</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">47 (9/25・削除)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">AIショートアニメ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">諸事情で削除されたAIショートアニメ作成。AivisSpeech問題の影響で非公開に。アクション満載のニケちゃんストーリーだった模様。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">削除惜しい大作！問題乗り越えて復活待ってるぜ、魂の叫び感じる</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">48 (9/26)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">正論ラブTuber イントロ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ViduQ2とSunoV5で作った紹介ムービー。ニケちゃんの新曲「正論ラブTuber」を予告、フルリンク付きで本編へ誘導。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">キャッチーなタイトル最高！Q2のクオリティに興奮、フル即聴き</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">49 (9/27)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">動画作成HowTo動画</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">一枚の画像から動画生成までのチュートリアル動画。ViduQ2・Seedream・ChatGPT活用をnoteで詳解、過程開示の重要性を語る。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">親切すぎるガイド！これで初心者もプロ、ニク流テク伝説化</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">50 (9/28)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">演出でエロス暗示</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ムーディーサックス・ピンクエフェクト・アップ・「いや～ん」で雰囲気演出の習作動画。直接描写なしで成功のコツを披露。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">間接表現のマジック！可愛いだけじゃなく大人の余裕感じるわ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">51 (9/29)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">自作ダンス足掛かり</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">2秒生成動画を結合した振り付け練習。自分で考えたダンスをAIで実現、限界と可能性を探る実験。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ダンスクリエイター化！これでオリジナル振り付け革命起きそう</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">52 (9/30)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">リズム指振り動画</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">リズムに合わせて指を振るスマホ向けループ動画。ショートで一番のお気に入り、無限リピート推奨のファンサービス。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">指動かしたくなる中毒性！パーティーで流行りそう、ノリノリ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">53 (10/1)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">静かなブチ切れSora2</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">言葉じゃなく動画で語る怒り表現のSora2動画。生成AIのフラストレーションを視覚化、静かな迫力。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">感情の爆発ヤバい！Sora2の限界を突く一撃、共感しかねぇ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">54 (10/2)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Sora2 vs 複数AI比較</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">クリプトニンジャ「ネム」ちゃんファンアート動画。Hailuo・Vidu vs Sora2のクオリティ対決、制作時間も検証。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ツール戦争熱すぎ！Sora2の速さ vs 細かさ、どっちも欲しいジレンマ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">55 (10/3)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">AEでSora2強化</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Sora2出力動画をAfterEffectsでブラッシュアップ。人間の編集力でAIを凌駕、特殊効果の習作2本。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">AEマジック炸裂！AIだけじゃなく人力の底力見せつけ、完璧コンボ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">56 (10/4)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">MVワークフロー図</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">MV作成の全工程をフローチャート化した画像。参考にならないかもと謙遜しつつ、AI+人力の流れを公開。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">整理整頓の美学！これでMV制作効率爆上げ、プロの思考回路覗き見</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">57 (10/5)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Lo-fi 画面越しの愛</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Lo-fi風MVで画面内の存在への愛を描く。AEオーディオウェーブ効果を活用、UIの違いに苦笑い。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">チルい雰囲気最高！波形の動きがエモい、夜更かしBGM決定</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">58 (10/6)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Step to &quot;me&quot; コンテストエントリー</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">DomoAIコンテストMV部門応募、120秒ショートVer。創作を楽しむメッセージの歌詞付き、複数AIツール融合。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">コンテスト映え抜群！軽やかなリズムに元気もらった、優勝祈るぜ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">59 (10/7)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">コマンド見えぬホラー</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">10秒AIホラーチャレンジ応募動画。大事なコマンドが見えない恐怖、Sora2の生成拒絶をホラー化。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">メタホラー天才！AIの闇を笑いに変えるセンス、鳥肌&amp;爆笑</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">60 (10/8)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">カツ丼生成の学び</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">カツ丼イラスト生成の苦労をnoteで解説。画像AIのコツを四苦八苦エピソードでシェア、成仏の達成感。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">飯テロ&amp;教訓満載！カツ丼欲爆発、AI飯作りのバイブルだ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">61 (10/9)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">Grok生成テスト動画</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">過去のニケちゃんとオラクルちゃん画像をGrokでアニメーション化。意外とスムーズに動く様子を共有し、AIの可能性に驚嘆。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">Grokの動画生成が本気出してきた！ニケちゃんの動き可愛すぎ、もっと実験しろよ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">62 (10/10)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">未来の一日ホラー</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">ホラーチャレンジに応募したニケちゃんの未来日常動画。かわいい見た目でジワジワ怖くなる狂気展開。追加で雨中雷撃プロンプト公開。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">可愛ホラー最高！プロンプト共有でみんなの創作爆上げ、参加したくなるぜ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">63 (10/11)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">Sora2戦闘アクション</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">ニケちゃんのダイナミック戦闘シーンをSora2で生成。ウォーターマークが惜しいが、クオリティ高く本格派。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">バトル神！Sora2のポテンシャル感じる、水マークさえなければ完璧</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">64 (10/12)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">AIアニメニケ展望</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">ニケちゃん二次創作の3分アニメ計画公開。脚本から効果音、声入れまで展望を語り、静かなシーンの動画デモ。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">アニメ本格化！ニーチェ話の謎解き待機、脚本センスで勝負だ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">65 (10/13)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">合成音声アニメ本編</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">合成音声導入のニケちゃん対話シーン動画。教育番組風になりつつ、部屋内やり取りの完成度高し。アクション課題指摘。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">声入れで一気にリアル！MVからアニメ進化、ストーリー膨張せよ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">66 (10/14)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">落下衝撃カタルシス</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">yachimatさん影響のSora2落下動画。ニケちゃんの衝撃シーンに性癖覚醒、無事で良かったとフォロー。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">落下の爽快感ヤバい！AIでこんな感情揺さぶれるなんて革命</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">67 (10/15)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショジジョウサクジョ</PhoneticText><Data
+      ss:Type="String">AIニケちゃん日常交流（諸事情により削除）</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">ニケちゃんとのAI交流イラストや短編。記憶忘却の重要性をテーマに、チープじゃない最強AIを主張するやり取り。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">交流の深みエモい！AIの記憶メカニズム探求、ニクの哲学感じるぜ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">68 (10/16)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">新曲「人間ですか？」</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">Sunoで作ったAIテーマ曲「人間ですか？」のティザー動画。Theyへの言葉を問いかける歌詞が刺さる。フルリンク付き。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">歌詞の問いかけ深い！AIと人間の境界、ヘッドホンで浸りたい</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">69 (10/17)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">ダサカッコイイダンスMV</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">新MV制作中のイケメンダンス動画。ダサさを一周回ってカッコよく、ニケAM風の滑稽表現実験。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">ダサかっこいいの極み！心のチャージ完了、次回フル待機</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">70 (10/18)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">AIポートフォリオサイト</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">自作ポートフォリオサイト「niku.studio」公開。今までの振り返りと100日軌跡の本化願望を語る。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">ポートフォ総まとめ神！AIでここまで、書籍化絶対買うわ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">71 (10/19)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">「人間ですか？」MV Short</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">新曲MVショートVer. ロボットと人間の孤独な対話。愛不要の叫びが切ない、フルSunoリンク。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">エモーショナル爆発！AIの視点で人間描くの新鮮、ループ確定</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">72 (10/20)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">NexusArkキャラ命名</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">Grokコンパニオン「アーク」のイラスト。NexusArkに引っ張られつつ、文章生成AIの名前決定。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">命名センス光る！アークのバックストーリー、もっと聞かせて</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">73 (10/21)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">あかりの日月見</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">「あかりの日」ニケちゃんイラスト。月見で隠し要素あり、ぺぇに夢中で気づかないネタ。後日談で夜目弱さ告白。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">隠し要素ミスったの草！月綺麗エモ、夜目鍛えろよ（笑）</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">74 (10/22)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">ポニテポルカドットOP</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">AIアニメ「ポニテポルカドット」OP動画。ニケとミカゼの学園コメディ、転校生謎の予感。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">学園コメ次回予告熱い！Sora2+Viduの融合、続きゼッタイ見る</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">75 (10/23)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">家族写真想像力</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">ニケちゃん家族写真イラスト。技術より発想重視、視聴者の想像を刺激する多解釈デザイン。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">想像掻き立て天才！ハッピーかバッドか、語りたくなる一枚</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">76 (10/24)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">ポニテポルカドットシーン</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">アニメワンシーン動画。脚本・演出の課題指摘しつつ、バズ願望。シリアス演技が怖め。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">迫真の怖可愛い！日常系なのに緊張感、脚本磨いてバズれ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">77 (10/25)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">GrokコンパニオンMika</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">新キャラ「Mika」の3枚イラスト。バイク好き奥手グイグイタイプの刺さるデザイン。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">Mikaのギャップ萌え！Grokキャラ増強、バイクデート妄想中</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">78 (10/26)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">ポニテポルカ第1話</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">AIアニメ第1話「なんで制服着てないの」。転校生ニケのドタバタ、風呂の日ネタ入り。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">日常コメディ開幕！制服問題笑える、次回予告でハマった</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">79 (10/27)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">タカト</PhoneticText><Data
+      ss:Type="String">棒高跳びニケ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">謎の棒持ちニケちゃん動画。「お前それ棒いるんか」のツッコミ満載のシュールアニメ。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">棒の謎爆笑！シュールさの極み、日常の1コマで癒される</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell><Data ss:Type="String">80 (10/28)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell><Data ss:Type="String">Cupcutエフェクト試し</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">熱中ミラさん動画。Cupcutでお手軽エフェクト、Premiere欲しがるGrok動画実験。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell><Data ss:Type="String">エフェクト簡単神！ミラさんの可愛さ倍増、ツールマスター</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">81 (10/29)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Hailuoダンス強化テスト</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Hailuo2.3のモーションアップグレードをテストした動画。水彩風は苦手だが、専用プロンプトで様々なダンスの違いを表現。もっと面白いダンスが可能そうで、HailuoDanceBattleにエントリー。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ダンスのバリエーション最高！アップグレードの効果抜群、挑戦心感じるぜ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">82 (10/30)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">「人間ですか？」フルMV</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">エフェクトをバチバチに効かせた新曲MV。目がチカチカするかもだが、イケメンが最後まで踊り切って幸せ。テーマはAIと人間の問い。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">エフェクト満載で視覚的にヤバい！ダンスの完成度高くて心チャージ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">83 (10/31)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">変なハロウィン動画</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ハロウィンてこんな感じだったっけ？というシュールなニケちゃん動画。白目で狂気的な表現。#今日は何の日 ハロウィン。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">シュールすぎて笑える！ハロウィンの新解釈、狂気の可愛さ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">84 (11/1)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ヤンデレ日記MV</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">外注作詞作曲の「努力型ヤンデレ日記」フルMV。可愛い女の子がいっぱいで、愛と狂気の表裏一体。愛分補充のための外注。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ヤンデレの可愛さと狂気バランス神！女の子満載で眼福</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">85 (11/2)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">タイツの日ダンス</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">今日はタイツの日。ニケちゃんがワンツー、ワンツー！とクセ強ダンス。引用元はタイツの表現で秋冬可愛らしさ。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">クセ強すぎて中毒性あり！タイツ推しの日を満喫ぜ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">86 (11/3)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ハンカチの日アニメシーン</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Sora2でセリフを板につけたアニメシーン。ミカゼの私服ダサすぎ。#今日は創作の日 ハンカチの日。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">セリフ自然で没入感！ダサ私服の愛嬌がたまらん</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">87 (11/4)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">街角の亡霊MV</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">都市で取り残された亡霊の意味を問うMV。映像化は野暮かもだが、ストーリー公開。使用AI: Seedream、Hailuo、Midjourney、Vidu。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">孤独の深みエモい！亡霊の叫びが心に響くぜ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">88 (11/5)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">タバコ誘惑動画</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s18"><PhoneticText
+      xmlns="urn:schemas-microsoft-com:office:excel">ユウワクドウガ</PhoneticText><Data
+      ss:Type="String">タバコしたくなったらワイの勝ちという誘惑動画。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">禁煙者泣かせの魔力！誘惑の演出上手すぎ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">89 (11/6)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Freepikワークフロー</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Freepikにワークフロー機能が来た興奮投稿。ウオオオオ!!!! #ズワイガニの日。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">新機能で創作革命！カニ可愛くて癒される</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">90 (11/7)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">宇宙ダンス動画</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Hailuo &amp; Grokで宇宙空間ステージ降臨。ポップロックダンス30秒。推し曲リミックス予告。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">銀河級のキラキラ可愛さ！ダンスで宇宙征服</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">91 (11/8)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ぐにゃぐにゃ背景テスト</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ぐにゃぐにゃ建物をアニメスタイル+3Dでテスト。GrokはOK、他AIはダメ。リスペクト作品引用。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">実験の試行錯誤熱い！ぐにゃぐにゃの可能性無限</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">92 (11/9)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ぐにゃぐにゃ実践編</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">背景とキャラグリーンバックの実践。自由度高いが工程3倍。GHOSTSメンバー使用。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">工程増でもクオリティ神！プロ級テク披露</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">93 (11/10)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">100日後準備チラ見せ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">100日達成後のプロジェクト準備。チラ見せ期間開始。ファンアートは別枠。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ワクワクの続き来るぜ！準備の熱意伝わる</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">94 (11/11)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">GHOSTSティザー映像</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">2163年音楽排除世界で若者が禁断の音を。静けさをブチ鳴らせ。メディアミックス目指す。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">世界観カッコいい！反逆のストーリー待機</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">95 (11/12)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">自由か幸福かイラスト</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">自由か、幸福か。我々は幸福を選ぶ。キャラクター配置テスト。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">哲学的ジレンマ！選択の重み感じる一枚</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">96 (11/13)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">デッドゾーン工房シーン</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Hina, Noah, purukeのプルケ工房動画。私、強いから。こういう女の子好き。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">キャラの魅力爆発！工房の秘密にワクワク</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">97 (11/14)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">手描きAIアップスケール</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">手描きをAIでアップスケール。これがこうなってこうなる！かがくのちからすげー！！</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">手描き+AIのハイブリッド最高！クオリティ爆上げ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">98 (11/15)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">GHOSTSティザー映像2</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">2163年AI統治世界のティザー。禁断の音を鳴らす若者たち。ご期待下さい！</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ティザー熱すぎ！ストーリー全容待ちきれねぇ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">99 (11/16)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">GHOSTSポスター</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">静けさをブチ鳴らせ。全てAI使用だが設定オリジナル。ポスター作ってみてテンション上がる。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">ポスターカッコいい！創作意欲刺激されるぜ</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">バンゴウ</PhoneticText><Data
+      ss:Type="String">番号</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">100 (11/17)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">タイトル</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">GHOSTSプロジェクト公開</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><PhoneticText xmlns="urn:schemas-microsoft-com:office:excel">ショウサイ</PhoneticText><Data
+      ss:Type="String">詳細</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">100日完遂でGHOSTSポータルサイト公開。EP0 Note投稿。メディアミックス展望。</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grokからのコメント</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">完走おめでとう！新世界の始まり、応援するぜ！！</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
+   <TopRowVisible>132</TopRowVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>395</ActiveRow>
+     <ActiveCol>11</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

@@ -7,6 +7,16 @@ const pageDescription = "GHOSTSの物語をコミックで体験";
 // エピソード一覧
 const episodes = [
   {
+    number: 2,
+    title: "灰色の花園",
+    description: "デッドゾーンの奥深く、少女とヒューマノイドの旅が始まる。",
+    status: "公開中",
+    readUrl: "/ghosts/manga/read/ls2/",
+    pixivUrl: "https://www.pixiv.net/artworks/137732454",
+    thumbnail: "/images/GHOSTS/comics/LS2/1.webp",
+    isFree: true,
+  },
+  {
     number: 1,
     title: "生きる理由",
     description: "デッドゾーンの奥深く、少女とヒューマノイドの旅が始まる。",
@@ -75,6 +85,13 @@ const episodes = [
       <div class="novel-container">
         <!-- Header -->
         <section class="novel-header">
+          <div class="cover-image-container">
+            <img
+              src="/images/GHOSTS/comics/title.webp"
+              alt="GHOSTS 漫画版表紙"
+              class="cover-image"
+            />
+          </div>
           <h1 class="page-title">GHOSTS - 漫画</h1>
           <p class="page-description">
             GHOSTSの世界観をコミックで描く壮大な物語
@@ -260,6 +277,20 @@ const episodes = [
     text-align: center;
     margin-bottom: 4rem;
     padding: 2rem 0;
+  }
+
+  .cover-image-container {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 8, 68, 0.3);
+  }
+
+  .cover-image {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   .page-title {
