@@ -66,8 +66,8 @@ const translations = {
 		"en": "Featured Works"
 	},
 	"latest_works_desc": {
-		"jp": "最新の制作実績。詳細は\"Work\"ページからご覧いただけます。（2025/11/23更新）",
-		"en": "Latest works. See \"Work\" page for more details! (Updated 2025/11/23)"
+		"jp": "最新の制作実績。詳細は\"Work\"ページからご覧いただけます。（2025/12/4 GHOSTSページ更新）",
+		"en": "Latest works. See \"Work\" page for more details! (Updated 2025/12/4)"
 	},
 	"latest_works_cta": {
 		"jp": "すべての作品を見る",
