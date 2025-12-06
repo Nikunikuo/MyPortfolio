@@ -161,9 +161,43 @@ const backLinkUrl = backLink;
         updateView();
     }
 
+    // Sequential Preloading
+    async function preloadImages() {
+        const container = document.getElementById("viewer-container");
+        if (!container) return;
+
+        const images = Array.from(
+            container.querySelectorAll(".manga-page img"),
+        );
+        const imageUrls = images.map((img) => (img as HTMLImageElement).src);
+
+        // Start preloading from the 3rd image (index 2), as 1st and 2nd are eager loaded
+        // Wait a bit to ensure critical resources are loaded first
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        console.log("Starting sequential preload...");
+
+        for (let i = 2; i < imageUrls.length; i++) {
+            await new Promise<void>((resolve) => {
+                const img = new Image();
+                img.src = imageUrls[i];
+                img.onload = () => resolve();
+                img.onerror = () => resolve(); // Continue even if error
+            });
+            // Small delay between requests to be gentle
+            await new Promise((resolve) => setTimeout(resolve, 100));
+        }
+
+        console.log("All images preloaded.");
+    }
+
     // Run on load and on Astro page transitions
     initViewer();
-    document.addEventListener("astro:page-load", initViewer);
+    preloadImages(); // Start preloading
+    document.addEventListener("astro:page-load", () => {
+        initViewer();
+        preloadImages();
+    });
 </script>
 
 <style>
