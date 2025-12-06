@@ -7,7 +7,11 @@ const pageDescription =
   "AI統治下の2163年。音楽が禁じられた世界で、4人の若者が音を鳴らし始めた。架空のバンド「GHOSTS」の公式ポータルサイト。";
 ---
 
-<GhostsLayout title={pageTitle} description={pageDescription}>
+<GhostsLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/GHOSTS/Arts/GHOSTS1.png"
+>
   <div class="ghosts-container" id="top">
     <!-- Terminal Boot Screen -->
     <section class="boot-screen" id="home">
@@ -118,6 +122,20 @@ const pageDescription =
         </button>
         <div class="news-scroll-wrapper" id="newsScrollWrapper">
           <div class="news-grid">
+            <a href="/ghosts/manga/" class="news-card">
+              <div class="news-thumbnail">
+                <img
+                  src="/images/GHOSTS/newssamnail/4.webp"
+                  alt="漫画第3話「鉄の魔女とスープの香り」公開のお知らせサムネイル"
+                />
+              </div>
+              <div class="news-info">
+                <time class="news-date">2025.12.07</time>
+                <span class="news-category category-story">MANGA</span>
+                <h3 class="news-title">漫画第3話「鉄の魔女とスープの香り」公開</h3>
+              </div>
+            </a>
+
             <a href="/ghosts/videos/" class="news-card">
               <div class="news-thumbnail">
                 <img

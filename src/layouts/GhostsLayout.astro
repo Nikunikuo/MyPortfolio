@@ -5,9 +5,15 @@ interface Props {
   title: string;
   description: string;
   showNav?: boolean;
+  image?: string;
 }
 
-const { title, description, showNav = true } = Astro.props;
+const {
+  title,
+  description,
+  showNav = true,
+  image = "/images/GHOSTS/poster1.webp",
+} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -43,10 +49,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="GHOSTS - niku.studio" />
-    <meta
-      property="og:image"
-      content={new URL("/images/GHOSTS/poster1.webp", Astro.site).toString()}
-    />
+    <meta property="og:image" content={new URL(image, Astro.site).toString()} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="GHOSTS - Noise in the Silence" />
@@ -58,7 +61,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
-      content={new URL("/images/GHOSTS/poster1.webp", Astro.site).toString()}
+      content={new URL(image, Astro.site).toString()}
     />
     <meta name="twitter:image:alt" content="GHOSTS - Noise in the Silence" />
     <meta name="twitter:site" content="@M1RA_A_Project" />
