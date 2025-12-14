@@ -1,13 +1,412 @@
 ---
-import Hero from '../components/Hero.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from "../components/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
 ---
 
 <BaseLayout title="Not Found" description="404 Error — this page was not found">
-	<Hero
-		title="Page Not Found"
-		tagline="お探しのページが見つかりませんでした"
-		titleI18n="404_title"
-		taglineI18n="404_tagline"
-	/>
+	<!-- Default 404 Content -->
+	<div id="default-404">
+		<Hero
+			title="Page Not Found"
+			tagline="お探しのページが見つかりませんでした"
+			titleI18n="404_title"
+			taglineI18n="404_tagline"
+		/>
+	</div>
+
+	<!-- GHOSTS 404 Content (Hidden by default) -->
+	<div id="ghosts-404" style="display: none;">
+		<div class="ghosts-error-container">
+			<div class="scan-line"></div>
+			<div class="noise-overlay"></div>
+
+			<div class="terminal-content">
+				<div class="error-code glitch" data-text="404">404</div>
+
+				<div class="alert-box">
+					<Icon icon="strategy" size="3rem" />
+					<h1 class="alert-title">SIGNAL LOST</h1>
+				</div>
+
+				<div class="error-image-container">
+					<img
+						src="/images/404.webp"
+						alt="404 - Signal Lost"
+						class="error-image"
+					/>
+				</div>
+
+				<div class="message-log">
+					<p>&gt; TARGET_URL: NOT_FOUND</p>
+					<p>
+						&gt; TRACING_GHOST_PROTOCOL... <span class="failed"
+							>FAILED</span
+						>
+					</p>
+					<p>&gt; REASON: DATA_CORRUPTED_OR_CENSORED_BY_ARCHIVE</p>
+					<p class="blink">_</p>
+				</div>
+
+				<div class="action-area">
+					<p class="instruction">通信を再確立してください</p>
+					<a href="/ghosts/" class="reconnect-btn">
+						<span class="btn-text">RECONNECT_TO_GHOSTS</span>
+						<div class="btn-glitch"></div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </BaseLayout>
+
+<script>
+	// Check URL path and switch content
+	if (
+		window.location.pathname.startsWith("/ghosts/") ||
+		window.location.pathname.startsWith("/ghosts")
+	) {
+		const defaultContainer = document.getElementById("default-404");
+		if (defaultContainer) defaultContainer.style.display = "none";
+		const ghostsContainer = document.getElementById("ghosts-404");
+		if (ghostsContainer) {
+			ghostsContainer.style.display = "block";
+			// Add ghosts specific styles to body/html to override base layout
+			document.body.classList.add("ghosts-404-body");
+		}
+	}
+</script>
+
+<style is:global>
+	/* GHOSTS 404 Global Overrides */
+	.ghosts-404-body {
+		background-color: #050505 !important;
+		overflow: hidden !important;
+	}
+
+	.ghosts-404-body .bg-video,
+	.ghosts-404-body .bg-overlay,
+	.ghosts-404-body nav,
+	.ghosts-404-body footer {
+		display: none !important;
+	}
+
+	.ghosts-404-body main {
+		padding: 0 !important;
+		min-height: 100vh !important;
+	}
+</style>
+
+<style>
+	/* GHOSTS 404 Styles */
+	.ghosts-error-container {
+		height: 100vh;
+		width: 100vw;
+		background-color: #050505;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 9999;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		font-family: "Courier New", monospace;
+		color: #e0e0e0;
+	}
+
+	/* Image Container */
+	.error-image-container {
+		margin: 1rem 0 2rem;
+		width: 100%;
+		max-width: 500px;
+		position: relative;
+		overflow: hidden;
+		border: 1px solid rgba(255, 8, 68, 0.5);
+	}
+
+	.error-image {
+		width: 100%;
+		height: auto;
+		display: block;
+		filter: grayscale(100%) contrast(1.2);
+		animation: imageGlitch 4s infinite;
+	}
+
+	@keyframes imageGlitch {
+		0% {
+			filter: grayscale(100%) contrast(1.2) opacity(0.8);
+		}
+		92% {
+			filter: grayscale(100%) contrast(1.2) opacity(0.8);
+			transform: translate(0, 0);
+		}
+		93% {
+			filter: grayscale(0%) contrast(1.5) opacity(1) hue-rotate(90deg);
+			transform: translate(-2px, 1px);
+		}
+		94% {
+			filter: invert(1);
+			opacity: 0.5;
+			transform: translate(2px, -1px);
+		}
+		95% {
+			filter: grayscale(100%) contrast(1.2) opacity(0.8);
+			transform: translate(0, 0);
+		}
+		100% {
+			filter: grayscale(100%) contrast(1.2) opacity(0.8);
+		}
+	}
+
+	/* Effects */
+	.scan-line {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 5px;
+		background: rgba(39, 225, 255, 0.3);
+		opacity: 0.4;
+		animation: scan 3s linear infinite;
+		pointer-events: none;
+		z-index: 10;
+	}
+
+	@keyframes scan {
+		0% {
+			transform: translateY(-100%);
+		}
+		100% {
+			transform: translateY(100vh);
+		}
+	}
+
+	.noise-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+		pointer-events: none;
+		z-index: 5;
+	}
+
+	/* Content */
+	.terminal-content {
+		z-index: 20;
+		text-align: center;
+		border: 1px solid rgba(255, 8, 68, 0.3);
+		padding: 3rem;
+		background: rgba(10, 10, 20, 0.8);
+		backdrop-filter: blur(5px);
+		box-shadow: 0 0 50px rgba(255, 8, 68, 0.1);
+		max-width: 90%;
+		position: relative;
+	}
+
+	.terminal-content::before {
+		content: "";
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		right: -2px;
+		bottom: -2px;
+		background: linear-gradient(45deg, #ff0844, transparent, #27e1ff);
+		z-index: -1;
+		opacity: 0.3;
+	}
+
+	.error-code {
+		font-family: "Orbitron", sans-serif, "Courier New";
+		font-size: clamp(6rem, 15vw, 10rem);
+		font-weight: 900;
+		color: #050505;
+		text-shadow:
+			-1px -1px 0 #ff0844,
+			1px 1px 0 #27e1ff;
+		position: relative;
+		letter-spacing: -0.5rem;
+		line-height: 0.8;
+		margin-bottom: 2rem;
+	}
+
+	.error-code::before {
+		content: attr(data-text);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		color: #ff0844;
+		opacity: 0.5;
+		animation: glitch-anim-1 2s infinite linear alternate-reverse;
+	}
+
+	.error-code::after {
+		content: attr(data-text);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		color: #27e1ff;
+		opacity: 0.5;
+		animation: glitch-anim-2 3s infinite linear alternate-reverse;
+	}
+
+	.alert-box {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 2rem;
+		color: #ff0844;
+	}
+
+	.alert-title {
+		font-size: 2rem;
+		letter-spacing: 0.5rem;
+		font-weight: 700;
+		margin: 0;
+	}
+
+	.message-log {
+		text-align: left;
+		margin: 0 auto 3rem;
+		max-width: 400px;
+		border-left: 2px solid #27e1ff;
+		padding-left: 1rem;
+		font-size: 0.9rem;
+		line-height: 1.8;
+	}
+
+	.message-log p {
+		margin: 0;
+		color: #b0b0b0;
+	}
+
+	.failed {
+		color: #ff0844;
+		font-weight: bold;
+	}
+
+	.blink {
+		animation: blink 1s infinite;
+	}
+
+	/* Action Area */
+	.instruction {
+		margin-bottom: 1.5rem;
+		font-size: 0.8rem;
+		letter-spacing: 0.1rem;
+		color: #666;
+	}
+
+	.reconnect-btn {
+		display: inline-block;
+		padding: 1rem 3rem;
+		background: transparent;
+		border: 1px solid #27e1ff;
+		color: #27e1ff;
+		text-decoration: none;
+		font-weight: 700;
+		letter-spacing: 0.2rem;
+		position: relative;
+		overflow: hidden;
+		transition: all 0.3s ease;
+	}
+
+	.reconnect-btn:hover {
+		background: rgba(39, 225, 255, 0.1);
+		box-shadow: 0 0 20px rgba(39, 225, 255, 0.4);
+		text-shadow: 0 0 8px rgba(39, 225, 255, 0.8);
+	}
+
+	.reconnect-btn::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(39, 225, 255, 0.4),
+			transparent
+		);
+		transition: left 0.5s ease;
+	}
+
+	.reconnect-btn:hover::before {
+		left: 100%;
+	}
+
+	/* Animations */
+	@keyframes blink {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0;
+		}
+	}
+
+	@keyframes glitch-anim-1 {
+		0% {
+			clip-path: inset(20% 0 80% 0);
+			transform: translate(-2px, 1px);
+		}
+		20% {
+			clip-path: inset(60% 0 10% 0);
+			transform: translate(2px, -1px);
+		}
+		40% {
+			clip-path: inset(40% 0 50% 0);
+			transform: translate(-2px, 2px);
+		}
+		60% {
+			clip-path: inset(80% 0 5% 0);
+			transform: translate(2px, -2px);
+		}
+		80% {
+			clip-path: inset(10% 0 70% 0);
+			transform: translate(-1px, 1px);
+		}
+		100% {
+			clip-path: inset(30% 0 20% 0);
+			transform: translate(1px, -1px);
+		}
+	}
+
+	@keyframes glitch-anim-2 {
+		0% {
+			clip-path: inset(10% 0 60% 0);
+			transform: translate(2px, -1px);
+		}
+		20% {
+			clip-path: inset(80% 0 5% 0);
+			transform: translate(-2px, 2px);
+		}
+		40% {
+			clip-path: inset(30% 0 20% 0);
+			transform: translate(2px, -2px);
+		}
+		60% {
+			clip-path: inset(15% 0 80% 0);
+			transform: translate(-1px, 1px);
+		}
+		80% {
+			clip-path: inset(55% 0 10% 0);
+			transform: translate(1px, -1px);
+		}
+		100% {
+			clip-path: inset(40% 0 30% 0);
+			transform: translate(-2px, 1px);
+		}
+	}
+</style>
