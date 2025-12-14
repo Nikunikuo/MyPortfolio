@@ -106,7 +106,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       type="application/ld+json"
       set:html={JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": "MusicGroup",
         name: "GHOSTS",
         description:
           "AI統治下の2163年、音楽が消された世界で立ち上がる架空のバンド",
@@ -170,8 +170,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   body {
     background: var(--ghosts-dark);
     color: #e0e0e0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      sans-serif;
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
     padding-top: 80px; /* ナビゲーション分の余白 */
