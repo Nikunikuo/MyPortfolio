@@ -103,146 +103,159 @@ const projects = (await getCollection("work"))
 						</div>
 					</div>
 				</div>
+				<div class="intro-videos">
+					<Grid variant="offset">
+						<li>
+							<video
+								controls
+								src="/movies/1203.mp4"
+								class="local-video"></video>
+						</li>
+						<li>
+							<video
+								controls
+								src="/movies/2025Xmas.mp4"
+								class="local-video"></video>
+						</li>
+						<li>
+							<video
+								controls
+								src="/movies/bomb.mp4"
+								class="local-video"></video>
+						</li>
+						<li>
+							<video
+								controls
+								src="/movies/niji7.mp4"
+								class="local-video"></video>
+						</li>
+					</Grid>
+				</div>
 			</section>
 		</div>
+	</div>
 
-		<main class="wrapper stack gap-10 lg:gap-20">
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<div class="section-title-wrapper">
-						<h3 data-i18n="latest_works_title">Latest Works</h3>
+	<main class="wrapper stack gap-10 lg:gap-20">
+		<section class="section with-background with-cta">
+			<header class="section-header stack gap-2 lg:gap-4">
+				<div class="section-title-wrapper">
+					<h3 data-i18n="latest_works_title">Latest Works</h3>
+					<img
+						src="/images/Lastest.png"
+						alt="Latest Worksセクションのアイコン。最新の制作実績を示す、スタイリッシュなデザインのグラフィック"
+						class="section-icon"
+					/>
+				</div>
+				<p data-i18n="latest_works_desc">
+					Featured Works -
+					最新の制作実績。詳細は"Work"ページからご覧いただけます。（2026/1/10　トップページのサンプル動画を更新。）
+				</p>
+			</header>
+
+			<div class="gallery">
+				<a href="/ghosts/" class="ghosts-special-card">
+					<div class="ghosts-card-bg">
 						<img
-							src="/images/Lastest.png"
-							alt="Latest Worksセクションのアイコン。最新の制作実績を示す、スタイリッシュなデザインのグラフィック"
-							class="section-icon"
+							src="/images/GHOSTS/logo.webp"
+							alt="GHOSTSプロジェクトのロゴ。ノイズと静寂をテーマにした、サイバーパンク調の鋭利なデザイン"
+							class="ghosts-logo"
 						/>
 					</div>
-					<p data-i18n="latest_works_desc">
-						Featured Works -
-						最新の制作実績。詳細は"Work"ページからご覧いただけます。（2025/12/27
-						GHOSTSページ更新）
-					</p>
-				</header>
-
-				<div class="gallery">
-					<a href="/ghosts/" class="ghosts-special-card">
-						<div class="ghosts-card-bg">
-							<img
-								src="/images/GHOSTS/logo.webp"
-								alt="GHOSTSプロジェクトのロゴ。ノイズと静寂をテーマにした、サイバーパンク調の鋭利なデザイン"
-								class="ghosts-logo"
-							/>
+					<div class="ghosts-card-content">
+						<h3 class="ghosts-title">GHOSTS</h3>
+						<p class="ghosts-subtitle">プロジェクト始動！</p>
+						<p class="ghosts-tagline">
+							AI統治下の2163年、音楽が消された世界で立ち上がる4人の物語
+						</p>
+						<div class="ghosts-badge">
+							<Icon icon="rocket-launch" size="1.5rem" />
+							<span>NEW PROJECT</span>
 						</div>
-						<div class="ghosts-card-content">
-							<h3 class="ghosts-title">GHOSTS</h3>
-							<p class="ghosts-subtitle">プロジェクト始動！</p>
-							<p class="ghosts-tagline">
-								AI統治下の2163年、音楽が消された世界で立ち上がる4人の物語
-							</p>
-							<div class="ghosts-badge">
-								<Icon icon="rocket-launch" size="1.5rem" />
-								<span>NEW PROJECT</span>
-							</div>
-						</div>
-					</a>
+					</div>
+				</a>
 
-					<a href="/100days/" class="challenge-special-card">
-						<div class="challenge-card-bg">
-							<div class="challenge-icon-wrapper">
-								<Icon icon="rocket-launch" size="4rem" />
-							</div>
+				<a href="/100days/" class="challenge-special-card">
+					<div class="challenge-card-bg">
+						<div class="challenge-icon-wrapper">
+							<Icon icon="rocket-launch" size="4rem" />
 						</div>
-						<div class="challenge-card-content">
-							<h3 class="challenge-title">
-								#AI創作100日チャレンジ
-							</h3>
-							<p class="challenge-subtitle">
-								2025/8/9～ 毎日AI創作を続けた記録
-							</p>
-							<p class="challenge-tagline">
-								生成AIで音楽・アニメ・ツールなど多彩な創作に挑戦した100日間の軌跡
-							</p>
-							<div class="challenge-badge">
-								<Icon icon="strategy" size="1.5rem" />
-								<span>100 DAYS COMPLETED</span>
-							</div>
+					</div>
+					<div class="challenge-card-content">
+						<h3 class="challenge-title">#AI創作100日チャレンジ</h3>
+						<p class="challenge-subtitle">
+							2025/8/9～ 毎日AI創作を続けた記録
+						</p>
+						<p class="challenge-tagline">
+							生成AIで音楽・アニメ・ツールなど多彩な創作に挑戦した100日間の軌跡
+						</p>
+						<div class="challenge-badge">
+							<Icon icon="strategy" size="1.5rem" />
+							<span>100 DAYS COMPLETED</span>
 						</div>
-					</a>
+					</div>
+				</a>
+			</div>
 
-					<Grid variant="offset">
-						{
-							projects.map((project) => (
-								<li>
-									<PortfolioPreview project={project} />
-								</li>
-							))
-						}
-					</Grid>
-				</div>
+			<div class="cta">
+				<CallToAction href="/work/">
+					<span data-i18n="latest_works_cta">すべての作品を見る</span>
+					<Icon icon="arrow-right" size="1.2em" />
+				</CallToAction>
+			</div>
+		</section>
 
-				<div class="cta">
-					<CallToAction href="/work/">
-						<span data-i18n="latest_works_cta"
-							>すべての作品を見る</span
+		<section class="section with-background bg-variant">
+			<header class="section-header stack gap-2 lg:gap-4">
+				<h3 data-i18n="links_title">Links</h3>
+				<p data-i18n="links_desc">各種プラットフォームで活動中</p>
+			</header>
+
+			<div class="gallery">
+				<Grid variant="small">
+					<li class="link-card">
+						<a
+							href="https://x.com/M1RA_A_Project"
+							target="_blank"
+							rel="noopener noreferrer"
 						>
-						<Icon icon="arrow-right" size="1.2em" />
-					</CallToAction>
-				</div>
-			</section>
-
-			<section class="section with-background bg-variant">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3 data-i18n="links_title">Links</h3>
-					<p data-i18n="links_desc">各種プラットフォームで活動中</p>
-				</header>
-
-				<div class="gallery">
-					<Grid variant="small">
-						<li class="link-card">
-							<a
-								href="https://x.com/M1RA_A_Project"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<Icon icon="x-logo" size="2em" />
-								<p>X (Twitter)</p>
-							</a>
-						</li>
-						<li class="link-card">
-							<a
-								href="https://www.pixiv.net/users/115350461"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<Icon icon="pixiv-logo" size="2em" />
-								<p>Pixiv</p>
-							</a>
-						</li>
-						<li class="link-card">
-							<a
-								href="http://www.youtube.com/@M1RA_Archive_Project"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<Icon icon="youtube-logo" size="2em" />
-								<p>YouTube</p>
-							</a>
-						</li>
-						<li class="link-card">
-							<a
-								href="https://note.com/m1ra_project"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<Icon icon="pencil-line" size="2em" />
-								<p>Note</p>
-							</a>
-						</li>
-					</Grid>
-				</div>
-			</section>
-		</main>
-	</div>
+							<Icon icon="x-logo" size="2em" />
+							<p>X (Twitter)</p>
+						</a>
+					</li>
+					<li class="link-card">
+						<a
+							href="https://www.pixiv.net/users/115350461"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Icon icon="pixiv-logo" size="2em" />
+							<p>Pixiv</p>
+						</a>
+					</li>
+					<li class="link-card">
+						<a
+							href="http://www.youtube.com/@M1RA_Archive_Project"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Icon icon="youtube-logo" size="2em" />
+							<p>YouTube</p>
+						</a>
+					</li>
+					<li class="link-card">
+						<a
+							href="https://note.com/m1ra_project"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Icon icon="pencil-line" size="2em" />
+							<p>Note</p>
+						</a>
+					</li>
+				</Grid>
+			</div>
+		</section>
+	</main>
 </BaseLayout>
 
 <ContactCTA />
@@ -514,6 +527,13 @@ const projects = (await getCollection("work"))
 		display: flex;
 		align-items: center;
 		gap: 3rem;
+		margin-bottom: 3rem;
+	}
+
+	.intro-videos {
+		margin-top: 2rem;
+		border-top: 2px solid rgba(255, 255, 255, 0.1);
+		padding-top: 2rem;
 	}
 
 	.intro-content {
@@ -1144,5 +1164,13 @@ const projects = (await getCollection("work"))
 			font-size: 0.8rem;
 			padding: 0.5rem 1rem;
 		}
+	}
+
+	.local-video {
+		width: 100%;
+		height: auto;
+		border-radius: 1rem;
+		border: 1px solid var(--gray-800);
+		box-shadow: var(--shadow-sm);
 	}
 </style>

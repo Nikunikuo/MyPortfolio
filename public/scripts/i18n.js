@@ -66,8 +66,8 @@ const translations = {
 		"en": "Featured Works"
 	},
 	"latest_works_desc": {
-		"jp": "最新の制作実績。詳細は\"Work\"ページからご覧いただけます。（2025/12/4 GHOSTSページ更新）",
-		"en": "Latest works. See \"Work\" page for more details! (Updated 2025/12/4)"
+		"jp": "最新の制作実績。詳細は\"Work\"ページからご覧いただけます。（2026/1/10　トップページのサンプル動画を更新。）",
+		"en": "Latest works. See \"Work\" page for more details! (Updated 2026/1/10)"
 	},
 	"latest_works_cta": {
 		"jp": "すべての作品を見る",
@@ -150,8 +150,12 @@ const translations = {
 		"en": "Animation works created with generative AI, from short films to experimental visual expressions."
 	},
 	"work_watch": {
-		"jp": "視聴する",
-		"en": "Watch"
+		"jp": "YouTubeで視聴する",
+		"en": "Watch on YouTube"
+	},
+	"work_video_archive": {
+		"jp": "作品倉庫（見本）",
+		"en": "Video Archive"
 	},
 	"work_100days": {
 		"jp": "🔥 #AI創作100日チャレンジ",

@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Grid from "../components/Grid.astro";
+
+const videos = [
+    {
+        title: "AI Music Video 2025年上半期クロスフェード",
+        description:
+            "2025年上半期に公開したAI Music Videoのクロスフェード映像。",
+        id: "19XJHhlEPQs",
+    },
+    {
+        title: "架空のＡＩアニメ「ポルテポルカドット」",
+        description: "生成AIで制作した架空のアニメ作品。",
+        id: "ufYzgDmrw4I",
+    },
+];
+---
+
+<BaseLayout
+    title="Video Archive (Sample) | 大鹿ニク / M1RA"
+    description="トップページに掲載していたサンプル動画のアーカイブ。"
+>
+    <div class="stack gap-20">
+        <main class="wrapper stack gap-8">
+            <Hero
+                title="動画倉庫（見本）"
+                tagline="トップページに掲載していたサンプル動画のアーカイブです。"
+                align="start"
+            />
+
+            <div class="video-grid">
+                {
+                    videos.map((video) => (
+                        <div class="video-card">
+                            <h3>{video.title}</h3>
+                            <div class="video-wrapper">
+                                <iframe
+                                    src={`https://www.youtube.com/embed/${video.id}`}
+                                    title={video.title}
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                                />
+                            </div>
+                            <p>{video.description}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </main>
+    </div>
+</BaseLayout>
+
+<style>
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+    }
+
+    .video-card {
+        background: var(--gradient-subtle);
+        border: 1px solid var(--gray-800);
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .video-card h3 {
+        font-size: var(--text-lg);
+        color: var(--gray-100);
+    }
+
+    .video-card p {
+        color: var(--gray-300);
+    }
+
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+        overflow: hidden;
+        border-radius: 1rem;
+    }
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (max-width: 50em) {
+        .video-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

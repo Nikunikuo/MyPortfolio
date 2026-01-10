@@ -1,13 +1,13 @@
 ---
-import { getCollection } from 'astro:content';
-import ContactCTA from '../components/ContactCTA.astro';
-import Grid from '../components/Grid.astro';
-import Hero from '../components/Hero.astro';
-import Icon from '../components/Icon.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from "astro:content";
+import ContactCTA from "../components/ContactCTA.astro";
+import Grid from "../components/Grid.astro";
+import Hero from "../components/Hero.astro";
+import Icon from "../components/Icon.astro";
+import PortfolioPreview from "../components/PortfolioPreview.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-const projects = (await getCollection('work')).sort(
+const projects = (await getCollection("work")).sort(
 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
 );
 ---
@@ -18,24 +18,24 @@ const projects = (await getCollection('work')).sort(
 >
 	<!-- Breadcrumb Schema -->
 	<script type="application/ld+json" slot="head">
-	{
-		"@context": "https://schema.org",
-		"@type": "BreadcrumbList",
-		"itemListElement": [
-			{
-				"@type": "ListItem",
-				"position": 1,
-				"name": "Home",
-				"item": "https://niku.studio/"
-			},
-			{
-				"@type": "ListItem",
-				"position": 2,
-				"name": "Work",
-				"item": "https://niku.studio/work/"
-			}
-		]
-	}
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Home",
+					"item": "https://niku.studio/"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Work",
+					"item": "https://niku.studio/work/"
+				}
+			]
+		}
 	</script>
 
 	<div class="stack gap-20">
@@ -48,9 +48,16 @@ const projects = (await getCollection('work')).sort(
 				taglineI18n="work_desc"
 			>
 				<div class="youtube-link">
-					<a href="http://www.youtube.com/@M1RA_Archive_Project" target="_blank" rel="noopener noreferrer" class="youtube-cta">
+					<a
+						href="http://www.youtube.com/@M1RA_Archive_Project"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="youtube-cta"
+					>
 						<Icon icon="youtube-logo" size="1.5em" />
-						<span data-i18n="work_youtube_link">YouTubeチャンネルを見る</span>
+						<span data-i18n="work_youtube_link"
+							>YouTubeチャンネルを見る</span
+						>
 					</a>
 				</div>
 			</Hero>
@@ -65,8 +72,12 @@ const projects = (await getCollection('work')).sort(
 						</div>
 						<div class="ghosts-banner-info">
 							<h2 class="ghosts-banner-title">GHOSTS</h2>
-							<p class="ghosts-banner-subtitle">Noise in the Silence</p>
-							<p class="ghosts-banner-desc">AI統治下の2163年。音楽が禁じられた世界で、4人の若者が音を鳴らし始めた。</p>
+							<p class="ghosts-banner-subtitle">
+								Noise in the Silence
+							</p>
+							<p class="ghosts-banner-desc">
+								AI統治下の2163年。音楽が禁じられた世界で、4人の若者が音を鳴らし始めた。
+							</p>
 						</div>
 						<div class="ghosts-banner-arrow">
 							<Icon icon="arrow-right" size="2.5em" />
@@ -78,7 +89,9 @@ const projects = (await getCollection('work')).sort(
 			<section class="work-category">
 				<div class="category-header">
 					<h2 data-i18n="work_discography">🎵 ディスコグラフィー</h2>
-					<p data-i18n="work_discography_desc">生成AIで制作した楽曲・MV作品</p>
+					<p data-i18n="work_discography_desc">
+						生成AIで制作した楽曲・MV作品
+					</p>
 				</div>
 				<div class="category-content">
 					<div class="category-card">
@@ -86,7 +99,9 @@ const projects = (await getCollection('work')).sort(
 							<Icon icon="youtube-logo" size="3em" />
 						</div>
 						<h3 data-i18n="work_mv">ミュージックビデオ</h3>
-						<p data-i18n="work_mv_desc">生成AIを活用して制作したミュージックビデオ作品集。映像と音楽の融合を追求しています。</p>
+						<p data-i18n="work_mv_desc">
+							生成AIを活用して制作したミュージックビデオ作品集。映像と音楽の融合を追求しています。
+						</p>
 						<a href="/work/music-videos/" class="card-link">
 							<span data-i18n="work_mv_link">作品ページへ</span>
 							<Icon icon="arrow-right" size="1em" />
@@ -97,17 +112,34 @@ const projects = (await getCollection('work')).sort(
 							<Icon icon="strategy" size="3em" />
 						</div>
 						<h3 data-i18n="work_songs">楽曲</h3>
-						<p data-i18n="work_songs_desc">AIと人間のコラボレーションで生まれた楽曲たち。ジャンルを超えた音楽制作に挑戦中。</p>
+						<p data-i18n="work_songs_desc">
+							AIと人間のコラボレーションで生まれた楽曲たち。ジャンルを超えた音楽制作に挑戦中。
+						</p>
 						<div class="card-links-group">
-							<a href="https://suno.com/@yajusika" target="_blank" rel="noopener noreferrer" class="card-link">
+							<a
+								href="https://suno.com/@yajusika"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="card-link"
+							>
 								Sunoプロフィール
 								<Icon icon="arrow-right" size="1em" />
 							</a>
-							<a href="https://open.spotify.com/intl-ja/artist/4MjpBNzO8tRzviKOgXeHoY" target="_blank" rel="noopener noreferrer" class="card-link">
+							<a
+								href="https://open.spotify.com/intl-ja/artist/4MjpBNzO8tRzviKOgXeHoY"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="card-link"
+							>
 								Spotify
 								<Icon icon="arrow-right" size="1em" />
 							</a>
-							<a href="https://music.apple.com/jp/artist/%E5%A4%A7%E9%B9%BF%E3%83%8B%E3%82%AF/1831287955" target="_blank" rel="noopener noreferrer" class="card-link">
+							<a
+								href="https://music.apple.com/jp/artist/%E5%A4%A7%E9%B9%BF%E3%83%8B%E3%82%AF/1831287955"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="card-link"
+							>
 								Apple Music
 								<Icon icon="arrow-right" size="1em" />
 							</a>
@@ -118,11 +150,28 @@ const projects = (await getCollection('work')).sort(
 							<Icon icon="rocket-launch" size="3em" />
 						</div>
 						<h3 data-i18n="work_ai_anime">AIアニメーション</h3>
-						<p data-i18n="work_ai_anime_desc">生成AIで作成したアニメーション作品。短編から実験的な映像表現まで。</p>
-						<a href="http://www.youtube.com/@M1RA_Archive_Project" target="_blank" rel="noopener noreferrer" class="card-link">
-							<span data-i18n="work_watch">視聴する</span>
-							<Icon icon="arrow-right" size="1em" />
-						</a>
+						<p data-i18n="work_ai_anime_desc">
+							生成AIで作成したアニメーション作品。短編から実験的な映像表現まで。
+						</p>
+						<div class="card-links-group">
+							<a
+								href="http://www.youtube.com/@M1RA_Archive_Project"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="card-link"
+							>
+								<span data-i18n="work_watch"
+									>YouTubeで視聴する</span
+								>
+								<Icon icon="arrow-right" size="1em" />
+							</a>
+							<a href="/video-archive/" class="card-link">
+								<span data-i18n="work_video_archive"
+									>作品倉庫（見本）</span
+								>
+								<Icon icon="arrow-right" size="1em" />
+							</a>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -131,7 +180,9 @@ const projects = (await getCollection('work')).sort(
 			<section class="work-category challenge-section">
 				<div class="category-header">
 					<h2 data-i18n="work_100days">🔥 #AI創作100日チャレンジ</h2>
-					<p data-i18n="work_100days_subtitle">2025/8/9～ 生成AIで毎日創作を続ける100日間の軌跡</p>
+					<p data-i18n="work_100days_subtitle">
+						2025/8/9～ 生成AIで毎日創作を続ける100日間の軌跡
+					</p>
 				</div>
 				<div class="challenge-card-wrapper">
 					<a href="/100days/" class="challenge-card-full">
@@ -139,8 +190,12 @@ const projects = (await getCollection('work')).sort(
 							<Icon icon="rocket-launch" size="3em" />
 						</div>
 						<div class="challenge-info">
-							<h3 data-i18n="work_100days_desc">2025/8/9～　100日チャレンジの軌跡</h3>
-							<p data-i18n="work_100days_detail">生成AIを使った創作を100日間毎日継続するチャレンジ。音楽、アニメ、ツール開発など多岐にわたる創作活動の記録を公開中。</p>
+							<h3 data-i18n="work_100days_desc">
+								2025/8/9～　100日チャレンジの軌跡
+							</h3>
+							<p data-i18n="work_100days_detail">
+								生成AIを使った創作を100日間毎日継続するチャレンジ。音楽、アニメ、ツール開発など多岐にわたる創作活動の記録を公開中。
+							</p>
 						</div>
 						<div class="challenge-arrow">
 							<Icon icon="arrow-right" size="2em" />
@@ -152,7 +207,9 @@ const projects = (await getCollection('work')).sort(
 			<section class="work-category">
 				<div class="category-header">
 					<h2 data-i18n="work_dev_projects">💻 開発プロジェクト</h2>
-					<p data-i18n="work_dev_projects_desc">AI技術を活用した個人開発アプリケーション</p>
+					<p data-i18n="work_dev_projects_desc">
+						AI技術を活用した個人開発アプリケーション
+					</p>
 				</div>
 				<div class="category-content">
 					<div class="category-card">
@@ -160,9 +217,18 @@ const projects = (await getCollection('work')).sort(
 							<Icon icon="pencil-line" size="3em" />
 						</div>
 						<h3 data-i18n="work_ai_articles">AI活用記事</h3>
-						<p data-i18n="work_ai_articles_desc">生成AIの活用方法や技術解説をNoteで公開しています。</p>
-						<a href="https://note.com/m1ra_project" target="_blank" rel="noopener noreferrer" class="card-link">
-							<span data-i18n="work_read_articles">記事を読む</span>
+						<p data-i18n="work_ai_articles_desc">
+							生成AIの活用方法や技術解説をNoteで公開しています。
+						</p>
+						<a
+							href="https://note.com/m1ra_project"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="card-link"
+						>
+							<span data-i18n="work_read_articles"
+								>記事を読む</span
+							>
 							<Icon icon="arrow-right" size="1em" />
 						</a>
 					</div>
@@ -171,9 +237,12 @@ const projects = (await getCollection('work')).sort(
 							<Icon icon="strategy" size="3em" />
 						</div>
 						<h3 data-i18n="work_aituber_mira">AITuber M1RA</h3>
-						<p data-i18n="work_aituber_desc_short">AITuber「M1RA」プロジェクト。AIと人間の新しい関係性を探求しています。</p>
+						<p data-i18n="work_aituber_desc_short">
+							AITuber「M1RA」プロジェクト。AIと人間の新しい関係性を探求しています。
+						</p>
 						<a href="/mira/" class="card-link">
-							<span data-i18n="work_view_details">詳細を見る</span>
+							<span data-i18n="work_view_details">詳細を見る</span
+							>
 							<Icon icon="arrow-right" size="1em" />
 						</a>
 					</div>
@@ -182,7 +251,9 @@ const projects = (await getCollection('work')).sort(
 							<Icon icon="rocket-launch" size="3em" />
 						</div>
 						<h3 data-i18n="work_coming_soon">Coming Soon</h3>
-						<p data-i18n="work_coming_soon_desc">新しいプロジェクトを準備中です。お楽しみに！</p>
+						<p data-i18n="work_coming_soon_desc">
+							新しいプロジェクトを準備中です。お楽しみに！
+						</p>
 						<div class="card-link disabled">
 							<span data-i18n="work_preparing">準備中</span>
 							<Icon icon="arrow-right" size="1em" />
@@ -194,17 +265,30 @@ const projects = (await getCollection('work')).sort(
 			<section class="work-category">
 				<div class="category-header">
 					<h2 data-i18n="work_others">📝 その他</h2>
-					<p data-i18n="work_others_desc">実験的な取り組みや試作品など</p>
+					<p data-i18n="work_others_desc">
+						実験的な取り組みや試作品など
+					</p>
 				</div>
 				<div class="category-content">
 					<div class="category-card">
 						<div class="card-icon">
 							<Icon icon="code" size="3em" />
 						</div>
-						<h3 data-i18n="work_booth_title">大鹿堂（Boothページ）</h3>
-						<p data-i18n="work_booth_desc">オリジナルグッズや制作物を販売しているBoothショップです。</p>
-						<a href="https://nikuoosika.booth.pm/" target="_blank" rel="noopener noreferrer" class="card-link">
-							<span data-i18n="work_booth_link">ショップを見る</span>
+						<h3 data-i18n="work_booth_title">
+							大鹿堂（Boothページ）
+						</h3>
+						<p data-i18n="work_booth_desc">
+							オリジナルグッズや制作物を販売しているBoothショップです。
+						</p>
+						<a
+							href="https://nikuoosika.booth.pm/"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="card-link"
+						>
+							<span data-i18n="work_booth_link"
+								>ショップを見る</span
+							>
 							<Icon icon="arrow-right" size="1em" />
 						</a>
 					</div>
@@ -212,10 +296,16 @@ const projects = (await getCollection('work')).sort(
 						<div class="card-icon">
 							<Icon icon="strategy" size="3em" />
 						</div>
-						<h3 data-i18n="work_experimental_title">実験的プロジェクト</h3>
-						<p data-i18n="work_experimental_desc">新しい技術やアイデアを試すための実験的な取り組みです。</p>
+						<h3 data-i18n="work_experimental_title">
+							実験的プロジェクト
+						</h3>
+						<p data-i18n="work_experimental_desc">
+							新しい技術やアイデアを試すための実験的な取り組みです。
+						</p>
 						<a href="#" class="card-link">
-							<span data-i18n="work_experimental_link">詳細を見る</span>
+							<span data-i18n="work_experimental_link"
+								>詳細を見る</span
+							>
 							<Icon icon="arrow-right" size="1em" />
 						</a>
 					</div>
@@ -223,10 +313,21 @@ const projects = (await getCollection('work')).sort(
 						<div class="card-icon">
 							<Icon icon="code" size="3em" />
 						</div>
-						<h3 data-i18n="work_opensource_title">オープンソース</h3>
-						<p data-i18n="work_opensource_desc">GitHubで公開している個人プロジェクトやライブラリです。</p>
-						<a href="https://github.com/Nikunikuo" target="_blank" rel="noopener noreferrer" class="card-link">
-							<span data-i18n="work_opensource_link">GitHubを見る</span>
+						<h3 data-i18n="work_opensource_title">
+							オープンソース
+						</h3>
+						<p data-i18n="work_opensource_desc">
+							GitHubで公開している個人プロジェクトやライブラリです。
+						</p>
+						<a
+							href="https://github.com/Nikunikuo"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="card-link"
+						>
+							<span data-i18n="work_opensource_link"
+								>GitHubを見る</span
+							>
 							<Icon icon="arrow-right" size="1em" />
 						</a>
 					</div>
@@ -442,14 +543,14 @@ const projects = (await getCollection('work')).sort(
 		position: relative;
 		overflow: hidden;
 		border-radius: 1rem;
-		border: 3px solid #FF0844;
-		background: linear-gradient(135deg, #0F0F1E 0%, #1A1A2E 100%);
+		border: 3px solid #ff0844;
+		background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
 		box-shadow: 0 0 30px rgba(255, 8, 68, 0.4);
 		transition: all 0.4s ease;
 	}
 
 	.ghosts-banner:hover {
-		border-color: #27E1FF;
+		border-color: #27e1ff;
 		box-shadow: 0 0 50px rgba(39, 225, 255, 0.6);
 		transform: translateY(-5px);
 	}
@@ -461,8 +562,18 @@ const projects = (await getCollection('work')).sort(
 		width: 100%;
 		height: 100%;
 		background:
-			linear-gradient(45deg, transparent 30%, rgba(255, 8, 68, 0.1) 50%, transparent 70%),
-			linear-gradient(-45deg, transparent 30%, rgba(39, 225, 255, 0.1) 50%, transparent 70%);
+			linear-gradient(
+				45deg,
+				transparent 30%,
+				rgba(255, 8, 68, 0.1) 50%,
+				transparent 70%
+			),
+			linear-gradient(
+				-45deg,
+				transparent 30%,
+				rgba(39, 225, 255, 0.1) 50%,
+				transparent 70%
+			);
 		background-size: 200% 200%;
 		animation: ghosts-gradient 8s ease infinite;
 		opacity: 0.5;
@@ -479,7 +590,7 @@ const projects = (await getCollection('work')).sort(
 
 	.ghosts-banner-icon {
 		flex-shrink: 0;
-		color: #FF0844;
+		color: #ff0844;
 		filter: drop-shadow(0 0 15px rgba(255, 8, 68, 0.8));
 		animation: pulse 2s ease-in-out infinite;
 	}
@@ -493,7 +604,7 @@ const projects = (await getCollection('work')).sort(
 		font-size: clamp(2rem, 4vw, 3rem);
 		font-weight: 900;
 		letter-spacing: 0.3rem;
-		color: #FF0844;
+		color: #ff0844;
 		text-shadow:
 			0 0 10px rgba(255, 8, 68, 0.8),
 			0 0 20px rgba(255, 8, 68, 0.5);
@@ -503,7 +614,7 @@ const projects = (await getCollection('work')).sort(
 
 	.ghosts-banner-subtitle {
 		font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-		color: #27E1FF;
+		color: #27e1ff;
 		text-transform: uppercase;
 		letter-spacing: 0.2rem;
 		margin: 0 0 1rem 0;
@@ -520,34 +631,57 @@ const projects = (await getCollection('work')).sort(
 
 	.ghosts-banner-arrow {
 		flex-shrink: 0;
-		color: #FF0844;
+		color: #ff0844;
 		filter: drop-shadow(0 0 10px rgba(255, 8, 68, 0.6));
 		transition: transform 0.4s ease;
 	}
 
 	.ghosts-banner:hover .ghosts-banner-arrow {
 		transform: translateX(15px);
-		color: #27E1FF;
+		color: #27e1ff;
 		filter: drop-shadow(0 0 15px rgba(39, 225, 255, 0.8));
 	}
 
 	@keyframes ghosts-gradient {
-		0% { background-position: 0% 50%; }
-		50% { background-position: 100% 50%; }
-		100% { background-position: 0% 50%; }
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
 	}
 
 	@keyframes pulse {
-		0%, 100% { transform: scale(1); }
-		50% { transform: scale(1.1); }
+		0%,
+		100% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.1);
+		}
 	}
 
 	@keyframes glitch-text {
-		0%, 90%, 100% { transform: translate(0); }
-		92% { transform: translate(-2px, 2px); }
-		94% { transform: translate(2px, -2px); }
-		96% { transform: translate(-2px, -2px); }
-		98% { transform: translate(2px, 2px); }
+		0%,
+		90%,
+		100% {
+			transform: translate(0);
+		}
+		92% {
+			transform: translate(-2px, 2px);
+		}
+		94% {
+			transform: translate(2px, -2px);
+		}
+		96% {
+			transform: translate(-2px, -2px);
+		}
+		98% {
+			transform: translate(2px, 2px);
+		}
 	}
 
 	@media (max-width: 768px) {
