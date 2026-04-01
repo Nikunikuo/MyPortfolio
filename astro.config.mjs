@@ -6,4 +6,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
 	site: 'https://niku.studio',
 	integrations: [sitemap()],
+	vite: {
+		resolve: {
+			preserveSymlinks: true,
+		},
+	},
 });
