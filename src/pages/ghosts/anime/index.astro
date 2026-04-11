@@ -23,9 +23,15 @@ const shortAnimes = [
   },
 ];
 
-// 長編アニメ一覧
 const longAnimes = [
-  // Coming Soon
+  {
+    number: 1,
+    title: "Noise in the Silence EPISODE 1",
+    description: "本編アニメーション 第1話",
+    status: "公開中",
+    url: "/ghosts/anime/ep1/",
+    isFree: true,
+  }
 ];
 ---
 
@@ -161,8 +167,8 @@ const longAnimes = [
                         {episode.url ? (
                           <a
                             href={episode.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            target={episode.url.startsWith('http') ? "_blank" : undefined}
+                            rel={episode.url.startsWith('http') ? "noopener noreferrer" : undefined}
                             class="note-link"
                           >
                             <Icon icon="youtube-logo" size="1.2rem" />
