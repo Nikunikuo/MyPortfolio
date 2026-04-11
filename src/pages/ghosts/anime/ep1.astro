@@ -78,6 +78,13 @@ const pageDescription = "GHOSTS長編アニメ エピソード１「Noise in the
               class="youtube-embed"
             ></iframe>
           </div>
+          
+          <div class="external-links">
+            <a href="https://anipops.com/video/69d8f42c996ed93fc47ff5dc" target="_blank" rel="noopener noreferrer" class="anipops-link">
+              <span class="link-text">Anipopsで視聴する</span>
+              <span class="link-arrow">→</span>
+            </a>
+          </div>
         </section>
 
         <!-- Back Link -->
@@ -137,6 +144,31 @@ const pageDescription = "GHOSTS長編アニメ エピソード１「Noise in the
     left: 0;
     width: 100%;
     height: 100%;
+  }
+
+  .external-links {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+  }
+  .anipops-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #7b2cbf, #9d4edd);
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+    transition: all 0.3s ease;
+  }
+  .anipops-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(157, 78, 221, 0.6);
   }
 
   .back-section { text-align: center; margin-top: 4rem; }
