@@ -30,6 +30,7 @@ const longAnimes = [
     description: "本編アニメーション 第1話",
     status: "公開中",
     url: "/ghosts/anime/ep1/",
+    anipops_url: "https://anipops.com/video/69d8f42c996ed93fc47ff5dc",
     thumbnail: "https://img.youtube.com/vi/6WqO4LywQ2U/maxresdefault.jpg",
     isFree: true,
   }
@@ -169,18 +170,32 @@ const longAnimes = [
                     <div class="episode-content">
                       <h3 class="episode-title">{episode.title}</h3>
                       <p class="episode-description">{episode.description}</p>
-                      <div class="episode-footer">
+                      <div class="episode-footer" style="display:flex; flex-direction:column; gap:0.8rem;">
                         {episode.url ? (
-                          <a
-                            href={episode.url}
-                            target={episode.url.startsWith('http') ? "_blank" : undefined}
-                            rel={episode.url.startsWith('http') ? "noopener noreferrer" : undefined}
-                            class="note-link"
-                          >
-                            <Icon icon="youtube-logo" size="1.2rem" />
-                            <span>視聴する</span>
-                            <span class="link-arrow">→</span>
-                          </a>
+                          <>
+                            <a
+                              href={episode.url}
+                              target={episode.url.startsWith('http') ? "_blank" : undefined}
+                              rel={episode.url.startsWith('http') ? "noopener noreferrer" : undefined}
+                              class="note-link"
+                            >
+                              <Icon icon="youtube-logo" size="1.2rem" />
+                              <span>視聴する</span>
+                              <span class="link-arrow">→</span>
+                            </a>
+                            {episode.anipops_url && (
+                              <a
+                                href={episode.anipops_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="note-link"
+                                style="background: rgba(123, 44, 191, 0.15); border-color: rgba(157, 78, 221, 0.4); color: #e0aaff;"
+                              >
+                                <span style="font-weight: bold;">Anipopsで視聴する</span>
+                                <span class="link-arrow">→</span>
+                              </a>
+                            )}
+                          </>
                         ) : (
                           <div class="coming-soon-label">
                             <Icon icon="rocket-launch" size="1.2rem" />
