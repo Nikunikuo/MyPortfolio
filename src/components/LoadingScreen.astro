@@ -125,67 +125,104 @@
 </style>
 
 <script>
-	const loadingScreen = document.getElementById('loading-screen');
-	const loadingProgress = loadingScreen?.querySelector('.loading-progress') as HTMLElement;
+	// View Transitions: 同じscriptモジュールは1回しか走らないが、
+	// トップへ戻るたび #loading-screen は新規DOMで入る。前回の hasEnded や
+	// 既に発火した load タイマーで終了処理が来ない → 真っ黒のまま固まる。
+	// そのため astro:page-load のたびに、要素があるときだけ初期化をやり直す。
 
-	let hasEnded = false;
-	let currentProgress = 0;
-	const startTime = Date.now();
-	const minDisplayTime = 1500; // 最低1.5秒は表示
+	let teardown: (() => void) | null = null;
 
-	// プログレスバーを更新する関数
-	const updateProgress = (progress: number) => {
-		if (loadingProgress) {
-			loadingProgress.style.width = `${Math.min(progress, 100)}%`;
+	function setupLoadingScreen() {
+		const el = document.getElementById('loading-screen');
+		if (!el) {
+			teardown?.();
+			teardown = null;
+			return;
 		}
-	};
 
-	// プログレスバーをじわじわ進める（疑似的）
-	const progressInterval = setInterval(() => {
-		if (currentProgress < 90) {
-			// 90%まではゆっくり進む
-			currentProgress += Math.random() * 10;
-			updateProgress(currentProgress);
+		// 前回のリスナー/インターバルを掃除（別ページ遷移や重複init対策）
+		teardown?.();
+		teardown = null;
+
+		const progressBar = el.querySelector('.loading-progress') as HTMLElement | null;
+		let hasEnded = false;
+		let currentProgress = 0;
+		const startTime = Date.now();
+		const minDisplayTime = 1500;
+
+		const updateProgress = (progress: number) => {
+			if (progressBar) {
+				progressBar.style.width = `${Math.min(progress, 100)}%`;
+			}
+		};
+
+		const progressInterval = window.setInterval(() => {
+			if (currentProgress < 90) {
+				currentProgress += Math.random() * 10;
+				updateProgress(currentProgress);
+			}
+		}, 200);
+
+		let maxTimer: ReturnType<typeof setTimeout> | null = null;
+		let ending = false;
+
+		function cleanupSession() {
+			window.clearInterval(progressInterval);
+			window.removeEventListener('load', onLoad);
+			if (maxTimer !== null) {
+				window.clearTimeout(maxTimer);
+				maxTimer = null;
+			}
 		}
-	}, 200);
 
-	// ローディングを終了する関数
-	const endLoading = () => {
-		if (hasEnded || !loadingScreen) return;
+		const onLoad = () => endLoading();
 
-		const elapsedTime = Date.now() - startTime;
-		const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
+		const endLoading = () => {
+			if (hasEnded || ending) return;
+			if (!document.body.contains(el)) {
+				cleanupSession();
+				return;
+			}
+			ending = true;
 
-		// プログレスバーを100%に
-		clearInterval(progressInterval);
-		updateProgress(100);
+			const elapsedTime = Date.now() - startTime;
+			const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
 
-		// 最低表示時間を確保してからフェードアウト
-		setTimeout(() => {
-			hasEnded = true;
-			loadingScreen.classList.add('fade-out');
+			window.clearInterval(progressInterval);
+			updateProgress(100);
+			if (maxTimer !== null) {
+				window.clearTimeout(maxTimer);
+				maxTimer = null;
+			}
 
-			// フェードアウト後にDOMから削除
-			setTimeout(() => {
-				loadingScreen.remove();
-			}, 800);
-		}, remainingTime + 300); // プログレスバーが100%になってから少し待つ
-	};
+			window.setTimeout(() => {
+				hasEnded = true;
+				el.classList.add('fade-out');
+				window.setTimeout(() => {
+					el.remove();
+					cleanupSession();
+					teardown = null;
+				}, 800);
+			}, remainingTime + 300);
+		};
 
-	// 全リソース読み込み完了を待つ（最も確実）
-	if (document.readyState === 'complete') {
-		// すでに読み込み完了している場合
-		endLoading();
-	} else {
-		// loadイベントを待つ（画像・動画・CSS全て完了）
-		window.addEventListener('load', endLoading);
+		// ソフトナビ後は既に complete のことが多い → その場で endLoading
+		if (document.readyState === 'complete') {
+			endLoading();
+		} else {
+			window.addEventListener('load', onLoad);
+		}
+
+		maxTimer = window.setTimeout(() => {
+			if (!hasEnded) {
+				console.warn('Loading timeout - forcing end');
+				endLoading();
+			}
+		}, 8000);
+
+		teardown = cleanupSession;
 	}
 
-	// 保険として最大8秒で強制終了
-	setTimeout(() => {
-		if (!hasEnded) {
-			console.warn('Loading timeout - forcing end');
-			endLoading();
-		}
-	}, 8000);
+	setupLoadingScreen();
+	document.addEventListener('astro:page-load', setupLoadingScreen);
 </script>

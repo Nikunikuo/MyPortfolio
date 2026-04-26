@@ -66,8 +66,8 @@ const translations = {
 		"en": "Featured Works"
 	},
 	"latest_works_desc": {
-		"jp": "最新の制作実績。詳細は\"Work\"ページからご覧いただけます。（2026/1/10　トップページのサンプル動画を更新。）",
-		"en": "Latest works. See \"Work\" page for more details! (Updated 2026/1/10)"
+		"jp": "最新の制作実績。詳細は\"Work\"ページからご覧いただけます。（2026/4/26　色々更新。）",
+		"en": "Latest works. See \"Work\" page for more details! (2026/4/26 — various updates.)"
 	},
 	"latest_works_cta": {
 		"jp": "すべての作品を見る",
@@ -216,6 +216,42 @@ const translations = {
 	"work_preparing": {
 		"jp": "準備中",
 		"en": "In preparation"
+	},
+	"work_x_posts": {
+		"jp": "X 記事",
+		"en": "X posts"
+	},
+	"work_x_posts_desc": {
+		"jp": "M1RA プロジェクトのX（@M1RA_A_Project）の投稿を一覧にまとめています。クリックでXの該当ポストに移動します。",
+		"en": "A list of posts from @M1RA_A_Project on X. Click through to open each post on X."
+	},
+	"work_x_posts_link": {
+		"jp": "一覧を見る",
+		"en": "View list"
+	},
+	"work_x_page_title": {
+		"jp": "X 記事",
+		"en": "X posts"
+	},
+	"work_x_page_tagline": {
+		"jp": "M1RA プロジェクトのX（@M1RA_A_Project）投稿をまとめています。カードを開くと該当ポストに移動します。",
+		"en": "Posts from @M1RA_A_Project on X. Each card opens the corresponding post."
+	},
+	"work_x_profile_link": {
+		"jp": "@M1RA_A_Project を開く",
+		"en": "Open @M1RA_A_Project"
+	},
+	"work_x_date_label": {
+		"jp": "投稿日",
+		"en": "Posted"
+	},
+	"work_x_open": {
+		"jp": "Xで開く",
+		"en": "Open in X"
+	},
+	"work_x_back_work": {
+		"jp": "Works に戻る",
+		"en": "Back to Works"
 	},
 	"work_ai_articles": {
 		"jp": "AI活用記事",

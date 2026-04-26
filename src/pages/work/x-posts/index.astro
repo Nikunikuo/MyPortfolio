@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Hero from '../../../components/Hero.astro';
+import Icon from '../../../components/Icon.astro';
+import ContactCTA from '../../../components/ContactCTA.astro';
+import { xPosts } from '../../../data/xPosts';
+
+const title = 'X 記事 | 大鹿ニク / M1RA';
+const description =
+	'M1RA プロジェクト（@M1RA_A_Project）のX（旧 Twitter）投稿一覧。更新情報・制作の裏話など。各項目から該当ポストを開けます。';
+---
+
+<BaseLayout title={title} description={description}>
+	<script type="application/ld+json" slot="head">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Home",
+					"item": "https://niku.studio/"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Work",
+					"item": "https://niku.studio/work/"
+				},
+				{
+					"@type": "ListItem",
+					"position": 3,
+					"name": "X 記事",
+					"item": "https://niku.studio/work/x-posts/"
+				}
+			]
+		}
+	</script>
+
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+				title="X 記事"
+				tagline="M1RA プロジェクトのX（@M1RA_A_Project）投稿をまとめています。カードを開くと該当ポストに移動します。"
+				align="start"
+				titleI18n="work_x_page_title"
+				taglineI18n="work_x_page_tagline"
+			>
+				<div class="profile-link">
+					<a
+						href="https://x.com/M1RA_A_Project"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="x-cta"
+					>
+						<Icon icon="x-logo" size="1.25em" />
+						<span data-i18n="work_x_profile_link">@M1RA_A_Project を開く</span>
+					</a>
+				</div>
+			</Hero>
+
+			<section class="x-list" aria-label="X 投稿一覧">
+				{
+					xPosts.map((post) => (
+						<a href={post.url} target="_blank" rel="noopener noreferrer" class="x-card">
+							<div class="x-card-icon" aria-hidden="true">
+								<Icon icon="x-logo" size="2.25em" />
+							</div>
+							<div class="x-card-body">
+								<h2 class="x-card-title">{post.title}</h2>
+								<p class="x-card-meta">
+									<span class="meta-label" data-i18n="work_x_date_label">投稿日</span>
+									<time datetime={post.publishedAtIso}>{post.publishedDate}</time>
+								</p>
+								<span class="x-card-cta">
+									<span data-i18n="work_x_open">Xで開く</span>
+									<Icon icon="arrow-right" size="1em" />
+								</span>
+							</div>
+						</a>
+					))
+				}
+			</section>
+
+			<section class="back-work">
+				<a href="/work/" class="back-link">
+					<Icon icon="arrow-left" size="1.2em" />
+					<span data-i18n="work_x_back_work">Works に戻る</span>
+				</a>
+			</section>
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.profile-link {
+		margin-top: 1.5rem;
+	}
+
+	.x-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 1rem 2rem;
+		background: var(--gradient-accent);
+		color: var(--gray-999);
+		text-decoration: none;
+		border-radius: 999rem;
+		font-weight: 600;
+		font-size: var(--text-md);
+		transition: all 0.3s ease;
+		box-shadow: var(--shadow-md);
+	}
+
+	.x-cta:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-lg);
+	}
+
+	.x-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		margin-top: 1rem;
+	}
+
+	.x-card {
+		display: flex;
+		align-items: flex-start;
+		gap: 1.25rem;
+		padding: 1.5rem 1.75rem;
+		background: rgba(0, 20, 40, 0.6);
+		border: 2px solid rgba(0, 255, 136, 0.3);
+		border-radius: 1rem;
+		text-decoration: none;
+		color: inherit;
+		transition:
+			border-color 0.3s ease,
+			box-shadow 0.3s ease,
+			transform 0.3s ease;
+	}
+
+	.x-card:hover {
+		border-color: #00ff88;
+		box-shadow: 0 0 20px rgba(0, 255, 136, 0.35);
+		transform: translateY(-3px);
+	}
+
+	.x-card-icon {
+		flex-shrink: 0;
+		color: #00ff88;
+		margin-top: 0.15rem;
+	}
+
+	.x-card-body {
+		flex: 1;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.x-card-title {
+		font-size: var(--text-xl);
+		font-weight: 700;
+		color: #ffffff;
+		margin: 0;
+		line-height: 1.45;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75);
+	}
+
+	.x-card-meta {
+		margin: 0;
+		font-size: var(--text-sm);
+		color: rgba(255, 255, 255, 0.75);
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.meta-label {
+		color: rgba(0, 255, 136, 0.85);
+		font-weight: 600;
+	}
+
+	.x-card-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: 0.35rem;
+		font-size: var(--text-base);
+		font-weight: 600;
+		color: #00ff88;
+	}
+
+	.x-card:hover .x-card-cta {
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.back-work {
+		margin-top: 1rem;
+	}
+
+	.back-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.75rem 1.5rem;
+		background: rgba(0, 255, 136, 0.1);
+		border: 2px solid rgba(0, 255, 136, 0.3);
+		border-radius: 0.5rem;
+		color: #00ff88;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: var(--text-base);
+		transition: all 0.3s ease;
+	}
+
+	.back-link:hover {
+		background: rgba(0, 255, 136, 0.2);
+		border-color: #00ff88;
+		transform: translateX(-4px);
+	}
+
+	@media (max-width: 540px) {
+		.x-card {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.x-card-icon {
+			margin-top: 0;
+		}
+	}
+</style>

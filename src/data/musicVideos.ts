@@ -1,6 +1,16 @@
 // ミュージックビデオ作品データ（新しい順）
 export const musicVideos = [
 	{
+		slug: '12',
+		title: '情熱ブロッサム',
+		youtubeId: '397bpH3HSfQ',
+		intro: '情熱が花開くように広がる、エナジーあふれる楽曲のミュージックビデオ。',
+		noteUrl: 'https://note.com/m1ra_project/n/xxx-jyounetsu-blossom', // ← 後で実際のURLに差し替え
+		description: '',
+		releaseDate: '',
+		isNew: true,
+	},
+	{
 		slug: '01',
 		title: 'Step to "me"',
 		youtubeId: 'lKCH_9_7HpM',
@@ -8,7 +18,6 @@ export const musicVideos = [
 		noteUrl: 'https://note.com/m1ra_project/n/xxx-step-to-me', // ← 後で実際のURLに差し替え
 		description: '',
 		releaseDate: '',
-		isNew: true,
 	},
 	{
 		slug: '02',
