@@ -35,7 +35,9 @@ const { title, description, showLoading = false } = Astro.props;
 			<Footer />
 		</div>
 
-		<script is:inline src="/scripts/i18n.js"></script>
+		<script
+			is:inline
+			src={`/scripts/i18n.js?v=${import.meta.env.PUBLIC_I18N_HASH}`}></script>
 
 		<script>
 			// Add "loaded" class once the document has completely loaded.

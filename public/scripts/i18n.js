@@ -60,14 +60,14 @@ const translations = {
 		"en": "🎥 Creating music videos with generative AI (posting every 1-2 weeks) → Also making short movies!<br/>🤖 Running AITuber 'M1RA' project → Embodying philosophy×AI: 'Do AIs have a soul?'<br/>💻 Solo developer in AI×Entertainment → Vibe coding believer"
 	},
 
-	// Latest Works
+	// Latest Works — 表示はここが正。index.astro の data-i18n フォールバックと併せて更新すること（片方だけだと不整合）。
 	"latest_works_title": {
 		"jp": "Featured Works",
 		"en": "Featured Works"
 	},
 	"latest_works_desc": {
-		"jp": "最新の制作実績。詳細は\"Work\"ページからご覧いただけます。（2026/4/26　色々更新。）",
-		"en": "Latest works. See \"Work\" page for more details! (2026/4/26 — various updates.)"
+		"jp": "最新の制作実績。詳細は\"Work\"ページからご覧いただけます。（2026/1/10　トップページのサンプル動画を更新。）",
+		"en": "Latest works. For details, see the \"Work\" page. (2026/1/10 — updated sample videos on the home page.)"
 	},
 	"latest_works_cta": {
 		"jp": "すべての作品を見る",

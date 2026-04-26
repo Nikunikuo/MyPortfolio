@@ -154,17 +154,22 @@ const projects = (await getCollection("work"))
 	<main class="wrapper stack gap-10 lg:gap-20">
 		<section class="section with-background with-cta">
 			<header class="section-header stack gap-2 lg:gap-4">
+				{/*
+					[DEV] Latest Works 文言: data-i18n 要素は public/scripts/i18n.js の
+					latest_works_title / latest_works_desc / latest_works_cta で上書きされる。
+					更新するなら同ファイルの jp・en 両方と、このフォールバック本文を揃えること。
+					配信キャッシュ: astro ビルドで i18n.js に ?v=ハッシュが付く。画像は Lastest.png 同上。
+				*/}
 				<div class="section-title-wrapper">
 					<h3 data-i18n="latest_works_title">Latest Works</h3>
 					<img
-						src="/images/Lastest.png"
+						src={`/images/Lastest.png?v=${import.meta.env.PUBLIC_LATEST_WORKS_ICON_HASH}`}
 						alt="Latest Worksセクションのアイコン。最新の制作実績を示す、スタイリッシュなデザインのグラフィック"
 						class="section-icon"
 					/>
 				</div>
 				<p data-i18n="latest_works_desc">
-					Featured Works -
-					最新の制作実績。詳細は"Work"ページからご覧いただけます。（2026/4/26　色々更新。）
+					最新の制作実績。詳細は"Work"ページからご覧いただけます。（2026/1/10　トップページのサンプル動画を更新。）
 				</p>
 			</header>
 
