@@ -1,0 +1,471 @@
+---
+import Icon from '../components/Icon.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const mailAddress = 'yajusika@gmail.com';
+
+const creativeImages = [
+	{
+		src: '/images/creat1.png',
+		alt: '言葉から映像へ、思いをかたちにする制作サービスの紹介ビジュアル',
+	},
+	{
+		src: '/images/creat2.png',
+		alt: 'ヒアリングから納品までの制作の流れを説明するビジュアル',
+	},
+	{
+		src: '/images/creat3.png',
+		alt: '想いを映像として届く形にすることを表現したキービジュアル',
+	},
+];
+---
+
+<BaseLayout
+	title="Creat with me | 大鹿ニク / M1RA"
+	description="AI映像制作、MV、アニメーション、プロモーション映像などの制作相談・お仕事依頼ページ。大鹿ニク / M1RA へ直接ご相談いただけます。"
+>
+	<main class="wrapper create-with-me">
+		<section class="creative-showcase" aria-label="制作依頼の紹介画像">
+			{
+				creativeImages.map((image, index) => (
+					<figure class="creative-card">
+						<span class="image-index">{String(index + 1).padStart(2, '0')}</span>
+						<img src={image.src} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} />
+					</figure>
+				))
+			}
+		</section>
+
+		<section class="contact-section" id="contact">
+			<div class="orbital-line one"></div>
+			<div class="orbital-line two"></div>
+
+			<div class="contact-wrap">
+				<div class="contact-copy">
+					<div class="contact-eyebrow">Contact</div>
+					<h2>ご相談・お見積りは<br /><span>お気軽に</span>ご連絡ください。</h2>
+					<p>
+						内容が固まっていなくても大丈夫です。ご希望の雰囲気、参考作品、目的、
+						希望納期などがあれば、分かる範囲でお知らせください。
+					</p>
+					<div class="note-box">
+						送信ボタンを押すと、入力内容を本文に入れたメール作成画面が開きます。
+						メールソフトが開かない場合は、直接メールアドレス宛にご連絡ください。
+					</div>
+				</div>
+
+				<div class="form-card">
+					<form id="work-request-form">
+						<div class="field">
+							<label for="name">お名前 / 会社名 <span class="required">必須</span></label>
+							<input
+								id="name"
+								name="name"
+								type="text"
+								placeholder="例：株式会社〇〇 / 山田太郎"
+								required
+							/>
+						</div>
+
+						<div class="field">
+							<label for="email">メールアドレス <span class="required">必須</span></label>
+							<input id="email" name="email" type="email" placeholder="example@example.com" required />
+						</div>
+
+						<div class="field">
+							<label for="projectType">ご相談内容の種類</label>
+							<input
+								id="projectType"
+								name="projectType"
+								type="text"
+								placeholder="例：MV制作 / AIアニメーション / PR映像 / 企画相談"
+							/>
+						</div>
+
+						<div class="field">
+							<label for="message">ご相談内容 <span class="required">必須</span></label>
+							<textarea
+								id="message"
+								name="message"
+								placeholder="制作したい内容、目的、参考URL、希望納期、ご予算感など。ざっくりでも問題ありません。"
+								required></textarea>
+						</div>
+
+						<div class="submit-row">
+							<p class="reply-note">送信前にメール本文を確認できます。</p>
+							<button type="submit">
+								<span>メールを作成する</span>
+								<Icon icon="arrow-right" size="1em" />
+							</button>
+						</div>
+					</form>
+
+					<div class="direct-mail">
+						フォームが利用できない場合はこちらへ：<br />
+						<a href={`mailto:${mailAddress}`}>{mailAddress}</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<script define:vars={{ mailAddress }}>
+		const form = document.getElementById('work-request-form');
+
+		form?.addEventListener('submit', (event) => {
+			event.preventDefault();
+
+			const data = new FormData(form);
+			const name = String(data.get('name') || '').trim();
+			const email = String(data.get('email') || '').trim();
+			const projectType = String(data.get('projectType') || '').trim();
+			const message = String(data.get('message') || '').trim();
+
+			const subject = encodeURIComponent(`【制作相談】${name || 'お仕事依頼'}`);
+			const body = encodeURIComponent(
+				[
+					'大鹿ニク / M1RA 宛',
+					'',
+					'ポートフォリオサイトから制作相談を送ります。',
+					'',
+					`お名前 / 会社名: ${name}`,
+					`メールアドレス: ${email}`,
+					`ご相談内容の種類: ${projectType || '未入力'}`,
+					'',
+					'ご相談内容:',
+					message,
+				].join('\n')
+			);
+
+			window.location.href = `mailto:${mailAddress}?subject=${subject}&body=${body}`;
+		});
+	</script>
+</BaseLayout>
+
+<style>
+	.create-with-me {
+		display: grid;
+		gap: clamp(3rem, 7vw, 6rem);
+		padding-block: clamp(5rem, 10vw, 7rem) clamp(4rem, 10vw, 7rem);
+	}
+
+	.contact-eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin: 0 0 1.25rem;
+		color: #00d6e6;
+		font-family: var(--font-brand);
+		font-size: var(--text-sm);
+		font-weight: 800;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+	}
+
+	.contact-eyebrow::before {
+		content: '';
+		width: 2.75rem;
+		height: 1px;
+		background: currentColor;
+	}
+
+	.creative-showcase {
+		display: grid;
+		gap: clamp(1.25rem, 4vw, 2.5rem);
+	}
+
+	.creative-card {
+		position: relative;
+		overflow: hidden;
+		margin: 0;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		border-radius: clamp(1rem, 3vw, 2rem);
+		background: rgba(255, 255, 255, 0.04);
+		box-shadow: 0 22px 60px rgba(0, 0, 0, 0.38);
+	}
+
+	.creative-card img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	.image-index {
+		position: absolute;
+		top: clamp(0.8rem, 2vw, 1.4rem);
+		left: clamp(0.8rem, 2vw, 1.4rem);
+		z-index: 1;
+		display: inline-grid;
+		place-items: center;
+		width: 3rem;
+		height: 3rem;
+		border: 1px solid rgba(0, 214, 230, 0.4);
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.88);
+		color: #087f8f;
+		font-weight: 800;
+		box-shadow: 0 12px 30px rgba(8, 127, 143, 0.16);
+	}
+
+	.contact-section {
+		position: relative;
+		overflow: hidden;
+		width: min(100%, 1120px);
+		margin-inline: auto;
+		padding: clamp(2rem, 5vw, 4rem);
+		border: 1px solid rgba(10, 156, 175, 0.18);
+		border-radius: clamp(1.5rem, 4vw, 2.5rem);
+		background:
+			radial-gradient(circle at 16% 20%, rgba(10, 156, 175, 0.12), transparent 34%),
+			radial-gradient(circle at 85% 12%, rgba(0, 255, 136, 0.08), transparent 32%),
+			linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 252, 253, 0.92));
+		box-shadow: 0 26px 80px rgba(0, 0, 0, 0.38);
+	}
+
+	.orbital-line {
+		position: absolute;
+		border: 1px solid rgba(10, 156, 175, 0.16);
+		border-radius: 999px;
+		pointer-events: none;
+	}
+
+	.orbital-line.one {
+		width: 520px;
+		height: 520px;
+		right: -180px;
+		top: -180px;
+	}
+
+	.orbital-line.two {
+		width: 680px;
+		height: 680px;
+		left: -300px;
+		bottom: -360px;
+	}
+
+	.contact-wrap {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		grid-template-columns: 0.9fr 1.1fr;
+		gap: clamp(2rem, 6vw, 4.5rem);
+		align-items: center;
+	}
+
+	.contact-copy h2 {
+		margin: 0;
+		color: #1a1f22;
+		font-size: clamp(2rem, 5vw, 4rem);
+		line-height: 1.25;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+	}
+
+	.contact-copy h2 span {
+		color: #0a9caf;
+	}
+
+	.contact-copy p {
+		margin: 1.75rem 0 0;
+		color: #49656b;
+		font-size: clamp(0.95rem, 1.7vw, 1.05rem);
+		line-height: 2;
+	}
+
+	.note-box {
+		margin-top: 2rem;
+		padding: 1.1rem 1.25rem;
+		border: 1px solid #d8eef2;
+		border-radius: 1.1rem;
+		background: rgba(255, 255, 255, 0.72);
+		color: #365157;
+		font-size: 0.9rem;
+		line-height: 1.8;
+	}
+
+	.form-card {
+		position: relative;
+		padding: clamp(1.5rem, 4vw, 2.75rem);
+		border: 1px solid rgba(10, 156, 175, 0.18);
+		border-radius: 2rem;
+		background: rgba(255, 255, 255, 0.86);
+		box-shadow: 0 24px 80px rgba(8, 127, 143, 0.12);
+		backdrop-filter: blur(16px);
+	}
+
+	.form-card::before {
+		content: '';
+		position: absolute;
+		inset: 1rem;
+		border: 1px solid rgba(10, 156, 175, 0.08);
+		border-radius: 1.5rem;
+		pointer-events: none;
+	}
+
+	form {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		gap: 1.25rem;
+	}
+
+	.field {
+		display: grid;
+		gap: 0.55rem;
+	}
+
+	label {
+		color: #24464d;
+		font-size: 0.9rem;
+		font-weight: 800;
+		letter-spacing: 0.04em;
+	}
+
+	.required {
+		margin-left: 0.5rem;
+		color: #0a9caf;
+		font-size: 0.75rem;
+	}
+
+	input,
+	textarea {
+		width: 100%;
+		border: 1px solid #d8eef2;
+		border-radius: 1rem;
+		padding: 0.95rem 1rem;
+		background: rgba(255, 255, 255, 0.92);
+		color: #1a1f22;
+		font: inherit;
+		outline: none;
+		transition:
+			border-color 0.2s ease,
+			box-shadow 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	input::placeholder,
+	textarea::placeholder {
+		color: #8ea6ac;
+	}
+
+	input:focus,
+	textarea:focus {
+		border-color: rgba(10, 156, 175, 0.72);
+		box-shadow: 0 0 0 4px rgba(10, 156, 175, 0.1);
+		transform: translateY(-1px);
+	}
+
+	textarea {
+		min-height: 170px;
+		resize: vertical;
+		line-height: 1.8;
+	}
+
+	.submit-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-top: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.reply-note {
+		margin: 0;
+		color: #6b7b80;
+		font-size: 0.82rem;
+		line-height: 1.7;
+	}
+
+	button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		appearance: none;
+		border: 0;
+		border-radius: 999px;
+		padding: 0.95rem 1.6rem;
+		min-width: 210px;
+		background: linear-gradient(135deg, #0a9caf, #087f8f);
+		color: #ffffff;
+		font: inherit;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+		cursor: pointer;
+		box-shadow: 0 16px 30px rgba(10, 156, 175, 0.28);
+		transition:
+			transform 0.2s ease,
+			box-shadow 0.2s ease,
+			filter 0.2s ease;
+	}
+
+	button:hover {
+		transform: translateY(-2px);
+		filter: brightness(1.04);
+		box-shadow: 0 20px 38px rgba(10, 156, 175, 0.32);
+	}
+
+	.direct-mail {
+		position: relative;
+		z-index: 1;
+		margin-top: 1.5rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid #d8eef2;
+		color: #6b7b80;
+		font-size: 0.82rem;
+		line-height: 1.7;
+	}
+
+	.direct-mail a {
+		color: #087f8f;
+		font-weight: 800;
+		text-decoration: none;
+	}
+
+	.direct-mail a:hover {
+		text-decoration: underline;
+	}
+
+	@media (max-width: 860px) {
+		.contact-wrap {
+			grid-template-columns: 1fr;
+		}
+
+		.contact-copy {
+			text-align: center;
+		}
+
+		.contact-eyebrow {
+			justify-content: center;
+		}
+
+		.contact-eyebrow::before {
+			width: 2rem;
+		}
+
+		.note-box {
+			text-align: left;
+		}
+
+		.submit-row {
+			align-items: stretch;
+		}
+
+		button {
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.create-with-me {
+			padding-top: 4.25rem;
+		}
+
+		.image-index {
+			width: 2.5rem;
+			height: 2.5rem;
+			font-size: 0.85rem;
+		}
+	}
+</style>

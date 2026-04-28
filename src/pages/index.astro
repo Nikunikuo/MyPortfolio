@@ -155,21 +155,20 @@ const projects = (await getCollection("work"))
 		<section class="section with-background with-cta">
 			<header class="section-header stack gap-2 lg:gap-4">
 				{/*
-					[DEV] Latest Works 文言: data-i18n 要素は public/scripts/i18n.js の
-					latest_works_title / latest_works_desc / latest_works_cta で上書きされる。
-					更新するなら同ファイルの jp・en 両方と、このフォールバック本文を揃えること。
-					配信キャッシュ: astro ビルドで i18n.js に ?v=ハッシュが付く。画像は Lastest.png 同上。
+					[DEV] Latest Works 文言は更新頻度が高いため i18n.js 管理から外している。
+					タイトル・説明・CTA を変えるときは、この index.astro だけを更新すればよい。
+					画像は Lastest.png を差し替えるとビルド時ハッシュ付き URL でキャッシュ回避される。
 				*/}
 				<div class="section-title-wrapper">
-					<h3 data-i18n="latest_works_title">Latest Works</h3>
+					<h3>Featured Works</h3>
 					<img
 						src={`/images/Lastest.png?v=${import.meta.env.PUBLIC_LATEST_WORKS_ICON_HASH}`}
 						alt="Latest Worksセクションのアイコン。最新の制作実績を示す、スタイリッシュなデザインのグラフィック"
 						class="section-icon"
 					/>
 				</div>
-				<p data-i18n="latest_works_desc">
-					最新の制作実績。詳細は"Work"ページからご覧いただけます。（2026/1/10　トップページのサンプル動画を更新。）
+				<p>
+					最新の制作実績。詳細は"Work"ページからご覧いただけます。（2026/4/28　お問合せページの作成。）
 				</p>
 			</header>
 
@@ -219,7 +218,7 @@ const projects = (await getCollection("work"))
 
 			<div class="cta">
 				<CallToAction href="/work/">
-					<span data-i18n="latest_works_cta">すべての作品を見る</span>
+					<span>すべての作品を見る</span>
 					<Icon icon="arrow-right" size="1.2em" />
 				</CallToAction>
 			</div>

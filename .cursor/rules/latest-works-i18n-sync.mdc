@@ -1,20 +1,20 @@
 ---
-description: Latest Works セクションと i18n の二重管理・キャッシュ対策
+description: Latest Works セクション更新時の注意
 globs:
   - src/pages/index.astro
-  - public/scripts/i18n.js
 alwaysApply: false
 ---
 
-# Latest Works と `i18n.js` の同期
+# Latest Works の更新
 
-トップの **Featured Works / Latest Works** 周りは、次の要素が **`data-i18n`**（`latest_works_title`, `latest_works_desc`, `latest_works_cta`）で `public/scripts/i18n.js` により **読み込み後に上書き**される。
+トップの **Featured Works / Latest Works** 周りは、更新しやすさを優先して `public/scripts/i18n.js` の管理から外している。
 
 ## やること
 
-- 文言を変えるときは **`i18n.js` の `jp` / `en` と、`index.astro` のフォールバック本文を必ず揃える**（片方だけ更新しない）。
+- タイトル・説明・CTA の文言を変えるときは **`src/pages/index.astro` の該当箇所だけ更新する**。
+- このセクションに `data-i18n="latest_works_*"` を戻さない。戻すと `i18n.js` との二重管理になり、更新漏れが起きやすい。
 - アイコン `/images/Lastest.png` を差し替えたら、**ビルド時ハッシュ**（`astro.config.mjs` → `PUBLIC_LATEST_WORKS_ICON_HASH`）が変わり、img の `?v=` でキャッシュ回避される。ファイルをコミットして再デプロイすること。
 
 ## 参照
 
-- コード内の開発者向けコメント: `index.astro` の Latest Works 直前、`i18n.js` の `latest_works_*` 直前。
+- コード内の開発者向けコメント: `index.astro` の Latest Works 直前。

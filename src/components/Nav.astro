@@ -7,6 +7,7 @@ import ThemeToggle from './ThemeToggle.astro';
 const textLinks: { label: string; href: string }[] = [
 	{ label: 'Home', href: '/' },
 	{ label: 'Work', href: '/work/' },
+	{ label: 'Creat with me', href: '/create-with-me/' },
 	{ label: 'Niku', href: '/about/' },
 	{ label: 'M1RA', href: '/mira/' },
 ];
@@ -36,6 +37,14 @@ const isCurrentPage = (href: string) => {
 		<a href="/work/" class="menu-item" aria-current={isCurrentPage('/work/') ? 'page' : null}>
 			<Icon icon="strategy" size="1.2em" />
 			<span>Work</span>
+		</a>
+		<a
+			href="/create-with-me/"
+			class="menu-item"
+			aria-current={isCurrentPage('/create-with-me/') ? 'page' : null}
+		>
+			<Icon icon="paper-plane-tilt" size="1.2em" />
+			<span>Creat with me</span>
 		</a>
 		<a href="/about/" class="menu-item" aria-current={isCurrentPage('/about/') ? 'page' : null}>
 			<Icon icon="pencil-line" size="1.2em" />

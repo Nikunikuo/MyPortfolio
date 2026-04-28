@@ -2,7 +2,12 @@
 ---
 
 <aside>
-	<p class="contact-message" data-i18n="contact_cta_text">お問合せはXのDMまでドウゾ</p>
+	<p class="contact-message">
+		<span data-i18n="contact_cta_prefix">お問合せは</span><a
+			href="/create-with-me/"
+			data-i18n="contact_cta_link">こちら</a
+		><span data-i18n="contact_cta_suffix">まで</span>
+	</p>
 </aside>
 
 <style>
@@ -16,5 +21,19 @@
 		color: rgba(255, 255, 255, 0.8);
 		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 		margin: 0;
+	}
+
+	.contact-message a {
+		margin-inline: 0.1em;
+		color: var(--accent-regular);
+		font-weight: 700;
+		text-decoration: underline;
+		text-underline-offset: 0.25em;
+		transition: color var(--theme-transition);
+	}
+
+	.contact-message a:hover,
+	.contact-message a:focus {
+		color: #ffffff;
 	}
 </style>
