@@ -16,8 +16,12 @@ const translations = {
 		"en": "Home"
 	},
 	"nav_work": {
-		"jp": "Work",
-		"en": "Work"
+		"jp": "Gallery",
+		"en": "Gallery"
+	},
+	"nav_for_work": {
+		"jp": "For Work",
+		"en": "For Work"
 	},
 	"nav_niku": {
 		"jp": "Niku",
