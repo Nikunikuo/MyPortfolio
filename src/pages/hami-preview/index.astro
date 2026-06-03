@@ -1,0 +1,1376 @@
+---
+const episodes = [
+	{
+		no: '01',
+		title: '背徳の卵かけご飯編',
+		food: '卵かけご飯',
+		image: '/images/hami/tkg-card.png',
+		copy: '深夜にだけ許される、背徳の一杯。',
+		youtubeId: 'vose8t_6i-o',
+		playlistIndex: 10,
+	},
+	{
+		no: '02',
+		title: '黄金のナポリタン編',
+		food: 'ナポリタン',
+		image: '/images/hami/napolitan-card.png',
+		copy: '喫茶店の香りに誘われた、黄金の一皿。',
+		youtubeId: 'Piyz9IQu_Zc',
+		playlistIndex: 9,
+	},
+	{
+		no: '03',
+		title: '魅惑のホットドッグ編',
+		food: 'ホットドッグ',
+		image: '/images/hami/hotdog-card.png',
+		copy: 'パンとソーセージ、その単純さに抗えない。',
+		youtubeId: 'nK4XO9wyGe8',
+		playlistIndex: 8,
+	},
+	{
+		no: '04',
+		title: '復活のからあげ編',
+		food: 'からあげ',
+		image: '/images/hami/karaage-card.png',
+		copy: '衣は鳴り、肉汁は弾け、テンションは復活する。',
+		youtubeId: '9_MwKwJKtds',
+		playlistIndex: 6,
+	},
+	{
+		no: '05',
+		title: '深夜のトースト編',
+		food: 'トースト',
+		image: '/images/hami/toast-card.png',
+		copy: '眠れない夜にだけ現れる、小さなごちそう。',
+		youtubeId: '68pRZfUvvuQ',
+		playlistIndex: 5,
+	},
+	{
+		no: '06',
+		title: '友情のふわとろオムライス編',
+		food: 'ふわとろオムライス',
+		image: '/images/hami/omurice-card.png',
+		copy: '誰かと食べると、ほんの少し特別になる。',
+		youtubeId: 'exdRnPs4628',
+		playlistIndex: 4,
+	},
+	{
+		no: '07',
+		title: '忘却のホットサンド編',
+		food: 'ホットサンド',
+		image: '/images/hami/hot-sand-eating.png',
+		copy: '熱々の一口で、ハミちゃんの記憶は白く飛ぶ。',
+		youtubeId: 'hg6qIefyr_I',
+		playlistIndex: 1,
+	},
+	{
+		no: 'SP',
+		title: 'NG集１',
+		food: 'Special',
+		image: '/images/hami/ng-card.png',
+		copy: '食べる、叫ぶ、こぼす、見切れる。',
+		youtubeId: 'ZzyEwN2o3Xw',
+		playlistIndex: 7,
+	},
+];
+
+const youtubePlaylistId = 'PLQowZoIyUibREBdE8UuNSy5B2t5l7RFOi';
+const youtubePlaylistUrl = `https://www.youtube.com/playlist?list=${youtubePlaylistId}`;
+const youtubeWatchUrl = (videoId, playlistIndex) =>
+	`https://www.youtube.com/watch?v=${videoId}&list=${youtubePlaylistId}&index=${playlistIndex}`;
+
+const galleryFrames = [
+	{
+		image: '/images/hami/material-tkg-ingredients.png',
+		tilt: -4,
+		lift: 0.2,
+		label: 'TKG prep',
+	},
+	{
+		image: '/images/hami/material-tkg-hami.png',
+		tilt: 3,
+		lift: -0.55,
+		label: 'Midnight bite',
+	},
+	{
+		image: '/images/hami/material-napolitan-face.png',
+		tilt: -2,
+		lift: 0.08,
+		label: 'Spark face',
+	},
+	{
+		image: '/images/hami/material-hotdog-theater.png',
+		tilt: 4,
+		lift: -0.45,
+		label: 'Hot dog',
+	},
+	{
+		image: '/images/hami/material-karaage-pack.png',
+		tilt: -3,
+		lift: 0.35,
+		label: 'Karaage',
+	},
+	{
+		image: '/images/hami/material-toast-cheese.png',
+		tilt: 2,
+		lift: -0.2,
+		label: 'Toast pull',
+	},
+	{
+		image: '/images/hami/material-toast-sleep.png',
+		tilt: -4,
+		lift: 0.28,
+		label: 'Sleepy',
+	},
+	{
+		image: '/images/hami/material-omurice-plate.png',
+		tilt: 3,
+		lift: -0.45,
+		label: 'Omurice',
+	},
+	{
+		image: '/images/hami/material-omurice-cafe.png',
+		tilt: -2,
+		lift: 0.12,
+		label: 'Maid cafe',
+	},
+	{
+		image: '/images/hami/material-hotsand-plate.png',
+		tilt: 4,
+		lift: -0.35,
+		label: 'Hot sand',
+	},
+	{
+		image: '/images/hami/material-hotsand-hami.png',
+		tilt: -3,
+		lift: 0.22,
+		label: 'Forgotten',
+	},
+	{
+		image: '/images/hami/material-ng-butter.png',
+		tilt: 2,
+		lift: -0.18,
+		label: 'NG cut',
+	},
+];
+
+const watermarks = [
+	'/images/hami/hot-sand-kitchen.png',
+	'/images/hami/napolitan-card.png',
+	'/images/hami/karaage-card.png',
+	'/images/hami/omurice-card.png',
+	'/images/hami/hot-sand-beauty.png',
+];
+
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/images/hami/steak-favicon.svg" />
+		<title>ハミちゃんの日常飯 | 特設サイト</title>
+		<meta
+			name="description"
+			content="『ハミちゃんの日常飯』の特設サイト。"
+		/>
+	</head>
+	<body>
+		<header class="preview-header" aria-label="Preview navigation">
+			<a href="/" class="home-link">Niku's Portfolio</a>
+			<nav class="jump-nav" aria-label="Site navigation">
+				<a href="#top">TOP</a>
+				<a href="#intro">INTRO</a>
+				<a href="#characters">CHARACTER</a>
+				<a href="#episodes">EPISODE</a>
+				<a href="#movies">MOVIE</a>
+				<a href="#materials">資料</a>
+			</nav>
+		</header>
+
+		<main>
+			<section class="proposal proposal-a" id="top" aria-labelledby="proposal-a-title">
+				<div class="hero-pattern"></div>
+				<div class="hero-watermarks" aria-hidden="true">
+					{watermarks.map((image, index) => (
+						<img
+							src={image}
+							alt=""
+							class={`watermark-card watermark-card-${index + 1}`}
+							loading="eager"
+						/>
+					))}
+				</div>
+				<img
+					src="/images/hami/hami-dynamic.png"
+					alt="ハミちゃん"
+					class="float-character hami"
+					loading="eager"
+				/>
+				<img
+					src="/images/hami/miru-dynamic.png"
+					alt="ミルちゃん"
+					class="float-character miru"
+					loading="eager"
+				/>
+				<div class="hero-copy">
+					<p class="site-label">&copy;ハミちゃんの日常飯　特設サイト</p>
+					<img src="/images/hami/logo.png" alt="ハミちゃんの日常飯" class="hero-logo" />
+					<h1 id="proposal-a-title">今日のご飯は<br />一味違う？</h1>
+					<p>
+						食べることが大好きなハミちゃんの おいしい、うれしい、ちょっとおかしい。
+						一口ごとに感情があふれる日常飯アニメ！
+					</p>
+					<div class="hero-actions">
+						<a href="#episodes">EPISODE</a>
+						<a href="#characters">CHARACTER</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="mini-section intro-a" id="intro" aria-label="Introduction">
+				<div>
+					<p class="section-kicker">INTRODUCTION</p>
+					<h2>おいしいだけで、世界は<br />ちょっと大事件。</h2>
+				</div>
+				<p>
+					卵かけご飯、ナポリタン、ホットドッグ、からあげ、トースト、オムライス、
+					ホットサンド。どれも身近な日常飯のはずなのに、ハミちゃんにかかれば毎回なぜか大事件。
+				</p>
+			</section>
+
+			<section class="character-band" id="characters" aria-label="Character">
+				<header class="character-section-header">
+					<p class="section-kicker">CHARACTER</p>
+					<h2>食べる顔が、いちばん大事。</h2>
+				</header>
+				<div class="character-showcase-grid">
+					<article class="character-card hami-card">
+						<div class="character-meal-frame">
+							<img src="/images/hami/hami-happy-meal.png" alt="ご飯を食べて幸せそうな羽村美緒" loading="lazy" />
+						</div>
+						<div class="character-profile-row">
+							<img src="/images/hami/hami-dynamic.png" alt="羽村美緒" class="character-stand" loading="lazy" />
+							<div class="character-copy">
+								<p class="section-kicker">HAMICHAN</p>
+								<h3>羽村 美緒</h3>
+								<p>
+									茶髪ボブと赤縁メガネが特徴。表情が大きく、食べ物への反応がとても素直。
+									ただの一口を、人生の名場面みたいに味わうタイプ。
+								</p>
+								<div class="food-badges" aria-label="ハミちゃんの特徴">
+									<span>幸せごはん</span>
+									<span>大きいリアクション</span>
+									<span>赤縁メガネ</span>
+								</div>
+							</div>
+						</div>
+					</article>
+					<article class="character-card miru-card">
+						<div class="character-meal-frame">
+							<img src="/images/hami/miru-manga-meat.png" alt="漫画肉にかぶりつく美沙尾ぷるむ" loading="lazy" />
+						</div>
+						<div class="character-profile-row">
+							<img src="/images/hami/miru-dynamic.png" alt="美沙尾ぷるむ" class="character-stand" loading="lazy" />
+							<div class="character-copy">
+								<p class="section-kicker">MIRUCHAN</p>
+								<h3>美沙尾 ぷるむ</h3>
+								<p>
+									黒髪ツインテールと眠そうな黄色い目が特徴。口数は少なめだが、
+									食べることになると行動が大胆になる。
+								</p>
+								<div class="food-badges" aria-label="ミルちゃんの特徴">
+									<span>無気力</span>
+									<span>大胆な食欲</span>
+									<span>黒髪ツインテール</span>
+								</div>
+							</div>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<section class="episode-strip" id="episodes" aria-label="Episode cards">
+				<header>
+					<p class="section-kicker">EPISODE</p>
+					<h2>今あるシリーズ</h2>
+				</header>
+				<div class="episode-grid">
+					{episodes.map((episode) => (
+						<a
+							class="episode-card"
+							href={youtubeWatchUrl(episode.youtubeId, episode.playlistIndex)}
+							target="_blank"
+							rel="noreferrer"
+							aria-label={`${episode.title}をYouTubeで見る`}
+						>
+							<img src={episode.image} alt={episode.title} loading="lazy" />
+							<div class="episode-info">
+								<span>{episode.no}</span>
+								<h3>{episode.title}</h3>
+								<p>{episode.copy}</p>
+								<small>{episode.food}</small>
+								<strong class="watch-label">YouTubeで見る</strong>
+							</div>
+						</a>
+					))}
+				</div>
+			</section>
+
+			<section class="movie-band" id="movies" aria-label="Movie">
+				<header>
+					<div>
+						<p class="section-kicker">MOVIE</p>
+						<h2>OP / ED</h2>
+					</div>
+					<a class="playlist-link" href={youtubePlaylistUrl} target="_blank" rel="noreferrer">
+						YouTube再生リスト
+					</a>
+				</header>
+				<div class="movie-grid">
+					<video src="/images/hami/op.mp4" controls muted playsinline preload="metadata"></video>
+					<video src="/images/hami/ed.mp4" controls muted playsinline preload="metadata"></video>
+				</div>
+			</section>
+
+			<section class="materials-board-section" id="materials" aria-labelledby="materials-title">
+				<div class="sketch-bg"></div>
+				<div class="board-copy">
+					<p class="site-label">制作資料集</p>
+					<h2 id="materials-title">日常飯の舞台裏、まとめました。</h2>
+					<p>
+						キャラクター、メニュー、料理、背景美術、小物を「番組資料」っぽく並べたページ。
+						食卓の空気まで残しておく、ハミちゃんの日常飯の記録です。
+					</p>
+				</div>
+				<div class="material-board">
+					<article class="menu-paper">
+						<p>MENU</p>
+						<ul>
+							<li>背徳の卵かけご飯</li>
+							<li>黄金のナポリタン</li>
+							<li>魅惑のホットドッグ</li>
+							<li>忘却のホットサンド</li>
+						</ul>
+					</article>
+					<img src="/images/hami/hot-sand-kitchen.png" alt="キッチンの料理カット" />
+					<img src="/images/hami/hami-dynamic.png" alt="ハミちゃん" class="board-hami" />
+					<img src="/images/hami/miru-dynamic.png" alt="ミルちゃん" class="board-miru" />
+				</div>
+			</section>
+
+			<section class="materials" aria-label="Gallery">
+				<header>
+					<p class="section-kicker">GALLERY</p>
+					<h2>飯テロカット・制作資料</h2>
+				</header>
+				<div class="photo-scatter">
+					{galleryFrames.map((frame) => (
+						<figure class="photo-card" style={`--tilt: ${frame.tilt}deg; --lift: ${frame.lift}rem`}>
+							<img src={frame.image} alt="ハミちゃんの日常飯 ギャラリー" loading="lazy" />
+							<figcaption>{frame.label}</figcaption>
+						</figure>
+					))}
+				</div>
+			</section>
+		</main>
+		<script>
+			const scrollToCurrentHash = () => {
+				if (!window.location.hash) return;
+				const target = document.querySelector(window.location.hash);
+				target?.scrollIntoView({ block: 'start', inline: 'nearest' });
+			};
+
+			window.addEventListener('load', () => requestAnimationFrame(scrollToCurrentHash));
+			window.addEventListener('hashchange', () => requestAnimationFrame(scrollToCurrentHash));
+		</script>
+	</body>
+</html>
+
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800;900&family=Yomogi&display=swap");
+
+	:root {
+		--ink: #3e2a1f;
+		--muted: #7d6657;
+		--cream: #fff7eb;
+		--paper: #fffdf7;
+		--mint: #8ac6a3;
+		--coral: #f28f77;
+		--butter: #ffd166;
+		--sky: #9ed8f7;
+		--berry: #f8a6b8;
+		--shadow: 0 18px 50px rgba(91, 61, 35, 0.18);
+		font-family:
+			"M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Yu Gothic", "Meiryo", system-ui,
+			sans-serif;
+		color: var(--ink);
+		background: var(--cream);
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		margin: 0;
+		background:
+			linear-gradient(rgba(255, 248, 236, 0.82), rgba(255, 248, 236, 0.82)),
+			url("/images/hami/cutlery-pattern.svg");
+		background-attachment: fixed;
+		cursor:
+			url("/images/hami/fork-cursor.svg") 10 10,
+			auto;
+	}
+
+	a {
+		color: inherit;
+		cursor:
+			url("/images/hami/fork-cursor.svg") 10 10,
+			pointer;
+	}
+
+	img,
+	video {
+		max-width: 100%;
+		display: block;
+	}
+
+	.preview-header {
+		position: sticky;
+		top: 0;
+		z-index: 50;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 0.75rem 1rem;
+		background: rgba(255, 253, 247, 0.88);
+		backdrop-filter: blur(16px);
+		border-bottom: 1px solid rgba(62, 42, 31, 0.12);
+	}
+
+	.home-link,
+	.jump-nav a,
+	.hero-actions a {
+		text-decoration: none;
+		font-weight: 800;
+	}
+
+	.home-link {
+		color: var(--muted);
+		font-size: 0.9rem;
+	}
+
+	.jump-nav {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+	}
+
+	.jump-nav a {
+		position: relative;
+		padding: 0.45rem 0.75rem;
+		border: 1px solid rgba(62, 42, 31, 0.16);
+		background:
+			radial-gradient(ellipse at center, rgba(255, 253, 247, 1) 0 46%, rgba(255, 241, 218, 0.9) 47% 68%, rgba(232, 195, 146, 0.42) 69% 72%, #ffffff 73%);
+		border-radius: 58% 42% 52% 48% / 48% 58% 42% 52%;
+		font-size: 0.85rem;
+		box-shadow:
+			inset 0 -3px 0 rgba(232, 195, 146, 0.22),
+			0 6px 16px rgba(91, 61, 35, 0.08);
+		transition:
+			transform 160ms ease,
+			box-shadow 160ms ease;
+	}
+
+	.jump-nav a:hover {
+		transform: rotate(-1deg) translateY(-1px);
+		box-shadow:
+			inset 0 -3px 0 rgba(232, 195, 146, 0.22),
+			0 10px 20px rgba(91, 61, 35, 0.13);
+	}
+
+	.proposal {
+		position: relative;
+		min-height: min(58rem, calc(100vh - 3.25rem));
+		overflow: hidden;
+		isolation: isolate;
+	}
+
+	.proposal-a {
+		display: grid;
+		place-items: center;
+		padding: 7rem 1.25rem 5.5rem;
+		background:
+			linear-gradient(rgba(255, 247, 235, 0.35), rgba(255, 247, 235, 0.35)),
+			url("/images/hami/cutlery-pattern.svg");
+		background-attachment: fixed;
+	}
+
+	.hero-pattern {
+		position: absolute;
+		inset: 0;
+		background:
+			linear-gradient(90deg, rgba(248, 166, 184, 0.22), transparent 32%, rgba(158, 216, 247, 0.2)),
+			radial-gradient(circle at 52% 42%, rgba(255, 209, 102, 0.38), transparent 28%);
+		z-index: -3;
+	}
+
+	.hero-watermarks {
+		position: absolute;
+		inset: 0;
+		z-index: -2;
+		pointer-events: none;
+		overflow: hidden;
+	}
+
+	.watermark-card {
+		position: absolute;
+		width: clamp(13rem, 23vw, 25rem);
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		padding: 0.45rem 0.45rem 1.55rem;
+		background: rgba(255, 255, 255, 0.64);
+		border: 1px solid rgba(255, 255, 255, 0.82);
+		border-radius: 5px;
+		box-shadow: 0 16px 38px rgba(91, 61, 35, 0.13);
+		opacity: 0.28;
+		filter: saturate(0.95) contrast(0.98);
+	}
+
+	.watermark-card-1 {
+		left: 4vw;
+		top: 14vh;
+		transform: rotate(-7deg);
+	}
+
+	.watermark-card-2 {
+		right: 7vw;
+		top: 11vh;
+		transform: rotate(5deg);
+	}
+
+	.watermark-card-3 {
+		left: 13vw;
+		bottom: 8vh;
+		transform: rotate(4deg);
+	}
+
+	.watermark-card-4 {
+		right: 15vw;
+		bottom: 10vh;
+		transform: rotate(-5deg);
+	}
+
+	.watermark-card-5 {
+		left: 50%;
+		top: 51%;
+		width: clamp(15rem, 27vw, 29rem);
+		opacity: 0.2;
+		transform: translate(-50%, -50%) rotate(2deg);
+	}
+
+	.hero-copy {
+		position: relative;
+		z-index: 6;
+		width: min(49rem, 94vw);
+		text-align: center;
+		padding: 1.25rem;
+		margin-top: -1.4rem;
+	}
+
+	.site-label,
+	.section-kicker {
+		margin: 0;
+		color: #9b5d2d;
+		font-size: 0.78rem;
+		font-weight: 900;
+		letter-spacing: 0;
+		text-transform: uppercase;
+	}
+
+	.hero-logo {
+		width: min(45rem, 64vw);
+		margin: 0.35rem auto 0.75rem;
+		filter: drop-shadow(0 10px 0 rgba(255, 255, 255, 0.9)) drop-shadow(0 18px 22px rgba(91, 61, 35, 0.16));
+	}
+
+	.hero-copy h1,
+	.board-copy h2,
+	.character-section-header h2,
+	.mini-section h2,
+	.episode-strip h2,
+	.movie-band h2,
+	.materials h2 {
+		margin: 0;
+		color: var(--ink);
+		font-size: 2.4rem;
+		line-height: 1.08;
+		font-weight: 950;
+	}
+
+	.hero-copy h1 {
+		font-family:
+			"M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+		font-size: clamp(2.7rem, 4.6vw, 4.15rem);
+		line-height: 1.05;
+		font-weight: 900;
+		text-shadow:
+			0 3px 0 rgba(255, 255, 255, 0.92),
+			0 12px 28px rgba(91, 61, 35, 0.16);
+	}
+
+	.hero-copy p:not(.site-label),
+	.board-copy p:not(.site-label),
+	.mini-section > p {
+		color: var(--muted);
+		font-size: 1rem;
+		line-height: 1.9;
+	}
+
+	.hero-copy p:not(.site-label) {
+		max-width: 39rem;
+		margin-left: auto;
+		margin-right: auto;
+		font-family:
+			"Yomogi", "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+		color: #6b4e3d;
+		font-size: 1.2rem;
+		font-weight: 700;
+		line-height: 1.75;
+		text-shadow:
+			0 1px 0 rgba(255, 255, 255, 0.9),
+			0 0 18px rgba(255, 255, 255, 0.78);
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: 0.75rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-top: 1.4rem;
+	}
+
+	.hero-actions a {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 9rem;
+		min-height: 3.15rem;
+		padding: 0.78rem 2rem 0.78rem 1.35rem;
+		background:
+			radial-gradient(circle at 1.55rem 50%, rgba(255, 255, 255, 0.18) 0 0.82rem, transparent 0.86rem),
+			linear-gradient(90deg, #4a2d1f, var(--ink));
+		color: #ffffff;
+		border: 1px solid rgba(62, 42, 31, 0.18);
+		border-radius: 2.2rem 0.75rem 0.75rem 2.2rem;
+		box-shadow: 0 12px 24px rgba(62, 42, 31, 0.18);
+		clip-path: polygon(0 50%, 0.45rem 20%, 1.7rem 4%, calc(100% - 0.8rem) 8%, 100% 50%, calc(100% - 0.8rem) 92%, 1.7rem 96%, 0.45rem 80%);
+		transition:
+			transform 160ms ease,
+			box-shadow 160ms ease;
+	}
+
+	.hero-actions a::after {
+		content: "";
+		position: absolute;
+		right: 0.72rem;
+		top: 50%;
+		width: 1.2rem;
+		height: 0.22rem;
+		background: currentColor;
+		border-radius: 0.25rem;
+		transform: translateY(-50%);
+		opacity: 0.62;
+	}
+
+	.hero-actions a:hover {
+		transform: translateY(-2px) rotate(-1deg);
+		box-shadow: 0 17px 30px rgba(62, 42, 31, 0.22);
+	}
+
+	.hero-actions a:nth-child(2) {
+		background:
+			radial-gradient(circle at 1.55rem 50%, rgba(242, 143, 119, 0.14) 0 0.82rem, transparent 0.86rem),
+			linear-gradient(90deg, #ffffff, #fff8eb);
+		color: var(--ink);
+		border: 1px solid rgba(62, 42, 31, 0.18);
+	}
+
+	.float-character {
+		position: absolute;
+		z-index: 4;
+		width: auto;
+		max-width: none;
+		max-height: 86vh;
+		object-fit: contain;
+		filter: drop-shadow(0 20px 18px rgba(88, 57, 37, 0.2));
+		animation: floaty 5s ease-in-out infinite;
+	}
+
+	.float-character.hami {
+		left: clamp(0.5rem, 1.2vw, 1.4rem);
+		bottom: 6rem;
+		width: min(40rem, 43vw);
+		max-height: 82vh;
+	}
+
+	.float-character.miru {
+		right: clamp(0.2rem, 0.8vw, 1.1rem);
+		bottom: 2.7rem;
+		width: min(43rem, 47vw);
+		max-height: 82vh;
+		animation-delay: -1.7s;
+	}
+
+	@keyframes floaty {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-18px);
+		}
+	}
+
+	.mini-section,
+	.character-band,
+	.episode-strip,
+	.movie-band,
+	.materials {
+		width: min(74rem, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: 4rem 0;
+	}
+
+	.mini-section {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.4rem;
+		align-items: start;
+		width: min(62rem, calc(100% - 2rem));
+		padding: 5.8rem 0 5.6rem;
+	}
+
+	.mini-section > div {
+		max-width: 45rem;
+	}
+
+	.mini-section > p {
+		max-width: 54rem;
+		margin: 0;
+		font-size: 1.1rem;
+	}
+
+	.character-band {
+		width: min(86rem, calc(100% - 2rem));
+	}
+
+	.character-section-header {
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-bottom: 1.2rem;
+	}
+
+	.character-showcase-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1.25rem;
+	}
+
+	.character-card {
+		position: relative;
+		display: grid;
+		gap: 1rem;
+		padding: 1rem;
+		background:
+			radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.92), transparent 18rem),
+			linear-gradient(90deg, rgba(255, 255, 255, 0.36) 1px, transparent 1px),
+			linear-gradient(0deg, rgba(255, 255, 255, 0.34) 1px, transparent 1px),
+			linear-gradient(135deg, rgba(255, 236, 211, 0.9), rgba(255, 248, 236, 0.86));
+		background-size: auto, 2rem 2rem, 2rem 2rem, auto;
+		border: 1px solid rgba(62, 42, 31, 0.12);
+		border-radius: 8px;
+		box-shadow: var(--shadow);
+		overflow: hidden;
+	}
+
+	.character-card::before {
+		content: "";
+		position: absolute;
+		right: -4.5rem;
+		bottom: -5rem;
+		width: 15rem;
+		aspect-ratio: 1;
+		border: 1.1rem solid rgba(255, 255, 255, 0.58);
+		border-radius: 50%;
+		box-shadow: inset 0 0 0 1px rgba(62, 42, 31, 0.08);
+	}
+
+	.miru-card {
+		background:
+			radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.9), transparent 18rem),
+			linear-gradient(90deg, rgba(255, 255, 255, 0.34) 1px, transparent 1px),
+			linear-gradient(0deg, rgba(255, 255, 255, 0.34) 1px, transparent 1px),
+			linear-gradient(135deg, rgba(230, 246, 239, 0.9), rgba(255, 246, 232, 0.88));
+		background-size: auto, 2rem 2rem, 2rem 2rem, auto;
+	}
+
+	.character-meal-frame {
+		position: relative;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+		border: 8px solid rgba(255, 255, 255, 0.88);
+		border-radius: 6px;
+		box-shadow: 0 16px 32px rgba(91, 61, 35, 0.16);
+		background: #fff7eb;
+	}
+
+	.character-meal-frame img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.character-profile-row {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		grid-template-columns: minmax(9.5rem, 0.42fr) minmax(0, 1fr);
+		align-items: end;
+		gap: 1rem;
+		min-height: 19rem;
+	}
+
+	.character-stand {
+		width: 100%;
+		max-height: 21rem;
+		object-fit: contain;
+		justify-self: center;
+		align-self: end;
+		filter: drop-shadow(0 16px 18px rgba(62, 42, 31, 0.16));
+	}
+
+	.character-copy {
+		align-self: center;
+		padding: 0.8rem 0.4rem 0.8rem 0;
+	}
+
+	.character-copy h3,
+	.episode-info h3 {
+		margin: 0.3rem 0;
+		font-size: 1.35rem;
+	}
+
+	.character-copy p,
+	.episode-info p {
+		color: var(--muted);
+		line-height: 1.7;
+	}
+
+	.food-badges {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.45rem;
+		margin-top: 0.8rem;
+	}
+
+	.food-badges span {
+		display: inline-flex;
+		align-items: center;
+		min-height: 2rem;
+		padding: 0.35rem 0.8rem 0.35rem 1rem;
+		border-radius: 1.3rem 0.45rem 0.45rem 1.3rem;
+		background:
+			radial-gradient(circle at 0.75rem 50%, rgba(255, 209, 102, 0.32) 0 0.38rem, transparent 0.42rem),
+			rgba(255, 255, 255, 0.72);
+		border: 1px solid rgba(62, 42, 31, 0.12);
+		color: #9b5d2d;
+		font-size: 0.8rem;
+		font-weight: 900;
+		clip-path: polygon(0 50%, 0.35rem 18%, 1.2rem 0, 100% 0, calc(100% - 0.35rem) 50%, 100% 100%, 1.2rem 100%, 0.35rem 82%);
+	}
+
+	.episode-strip header,
+	.movie-band header,
+	.materials header {
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-bottom: 1.2rem;
+	}
+
+	.episode-grid {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	.episode-card {
+		position: relative;
+		background: #ffffff;
+		border: 1px solid rgba(62, 42, 31, 0.12);
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 12px 32px rgba(91, 61, 35, 0.12);
+		color: inherit;
+		text-decoration: none;
+		transition:
+			transform 180ms ease,
+			box-shadow 180ms ease;
+	}
+
+	.episode-card:hover {
+		transform: translateY(-0.25rem);
+		box-shadow: 0 18px 42px rgba(91, 61, 35, 0.18);
+	}
+
+	.episode-card img {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		background: #f3eadc;
+	}
+
+	.episode-info {
+		padding: 0.95rem;
+	}
+
+	.episode-info span {
+		display: inline-block;
+		color: #ffffff;
+		background: var(--coral);
+		border-radius: 58% 42% 52% 48% / 48% 58% 42% 52%;
+		padding: 0.18rem 0.55rem;
+		font-size: 0.78rem;
+		font-weight: 900;
+		box-shadow: inset 0 -2px 0 rgba(139, 58, 35, 0.16);
+	}
+
+	.episode-info small {
+		display: inline-block;
+		margin-top: 0.3rem;
+		color: #9b5d2d;
+		font-weight: 900;
+	}
+
+	.watch-label {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		margin-top: 0.7rem;
+		padding: 0.36rem 0.72rem 0.36rem 1.05rem;
+		border-radius: 1.2rem 0.42rem 0.42rem 1.2rem;
+		background:
+			radial-gradient(circle at 0.67rem 50%, rgba(242, 143, 119, 0.23) 0 0.34rem, transparent 0.38rem),
+			rgba(242, 143, 119, 0.12);
+		color: #b55a3c;
+		font-size: 0.78rem;
+		font-weight: 900;
+		clip-path: polygon(0 50%, 0.3rem 20%, 1rem 0, 100% 0, calc(100% - 0.3rem) 50%, 100% 100%, 1rem 100%, 0.3rem 80%);
+	}
+
+	.movie-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	.movie-grid video {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		border-radius: 8px;
+		background: #2d241f;
+		box-shadow: var(--shadow);
+	}
+
+	.playlist-link {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 2.6rem;
+		padding: 0.65rem 1.8rem 0.65rem 1.1rem;
+		border-radius: 2rem 0.65rem 0.65rem 2rem;
+		background:
+			radial-gradient(circle at 1.25rem 50%, rgba(255, 255, 255, 0.18) 0 0.65rem, transparent 0.7rem),
+			linear-gradient(90deg, #4a2d1f, var(--ink));
+		color: #ffffff;
+		font-weight: 900;
+		text-decoration: none;
+		box-shadow: 0 12px 24px rgba(62, 42, 31, 0.18);
+		clip-path: polygon(0 50%, 0.4rem 18%, 1.45rem 4%, calc(100% - 0.75rem) 8%, 100% 50%, calc(100% - 0.75rem) 92%, 1.45rem 96%, 0.4rem 82%);
+	}
+
+	.playlist-link::after {
+		content: "";
+		position: absolute;
+		right: 0.68rem;
+		top: 50%;
+		width: 1rem;
+		height: 0.2rem;
+		background: currentColor;
+		border-radius: 0.25rem;
+		transform: translateY(-50%);
+		opacity: 0.65;
+	}
+
+	.materials-board-section {
+		position: relative;
+		display: grid;
+		grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+		gap: 1.2rem;
+		align-items: center;
+		padding: 4rem 1.25rem 5rem;
+		background:
+			linear-gradient(rgba(255, 247, 235, 0.7), rgba(255, 247, 235, 0.7)),
+			url("/images/hami/cutlery-pattern.svg");
+		background-attachment: fixed;
+		isolation: isolate;
+		overflow: hidden;
+	}
+
+	.sketch-bg {
+		position: absolute;
+		inset: 1.5rem;
+		border: 2px dashed rgba(62, 42, 31, 0.16);
+		border-radius: 8px;
+		z-index: -1;
+	}
+
+	.board-copy {
+		padding: 1rem;
+	}
+
+	.material-board {
+		position: relative;
+		min-height: 38rem;
+		background: rgba(255, 253, 247, 0.8);
+		border: 1px solid rgba(62, 42, 31, 0.16);
+		border-radius: 8px;
+		box-shadow: var(--shadow);
+		overflow: hidden;
+	}
+
+	.material-board > img:not(.board-hami):not(.board-miru) {
+		position: absolute;
+		left: 2rem;
+		right: 2rem;
+		top: 2rem;
+		width: calc(100% - 4rem);
+		height: 17rem;
+		object-fit: cover;
+		border-radius: 8px;
+		border: 8px solid #ffffff;
+		transform: rotate(-1.5deg);
+		box-shadow: 0 12px 32px rgba(91, 61, 35, 0.16);
+	}
+
+	.menu-paper {
+		position: absolute;
+		left: 2.1rem;
+		bottom: 2.1rem;
+		width: 17rem;
+		padding: 1.1rem;
+		background: #fff7d7;
+		border: 1px solid rgba(62, 42, 31, 0.18);
+		border-radius: 8px;
+		transform: rotate(2deg);
+		z-index: 4;
+		box-shadow: var(--shadow);
+	}
+
+	.menu-paper p {
+		margin: 0 0 0.6rem;
+		font-weight: 950;
+		color: #9b5d2d;
+	}
+
+	.menu-paper ul {
+		margin: 0;
+		padding-left: 1.1rem;
+		line-height: 1.75;
+		color: var(--muted);
+	}
+
+	.board-hami,
+	.board-miru {
+		position: absolute;
+		bottom: 0.5rem;
+		object-fit: contain;
+		max-height: 25rem;
+		filter: drop-shadow(0 18px 15px rgba(62, 42, 31, 0.18));
+	}
+
+	.board-hami {
+		right: min(38%, 17rem);
+		width: clamp(10rem, 22vw, 15rem);
+	}
+
+	.board-miru {
+		right: 1rem;
+		width: clamp(11rem, 24vw, 16.5rem);
+	}
+
+	.photo-scatter {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: clamp(0.8rem, 2vw, 1.3rem);
+		align-items: center;
+		padding: 0.4rem 0.2rem 1.2rem;
+	}
+
+	.photo-card {
+		position: relative;
+		margin: 0;
+		padding: 0.55rem 0.55rem 1.85rem;
+		background: #ffffff;
+		border: 1px solid rgba(62, 42, 31, 0.1);
+		border-radius: 5px;
+		box-shadow:
+			0 16px 34px rgba(91, 61, 35, 0.15),
+			0 1px 0 rgba(255, 255, 255, 0.9) inset;
+		transform: translateY(var(--lift)) rotate(var(--tilt));
+		transition:
+			transform 180ms ease,
+			box-shadow 180ms ease;
+	}
+
+	.photo-card:nth-child(2n) {
+		z-index: 2;
+	}
+
+	.photo-card:hover {
+		transform: translateY(calc(var(--lift) - 0.25rem)) rotate(0deg);
+		box-shadow: 0 22px 42px rgba(91, 61, 35, 0.2);
+	}
+
+	.photo-card img {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		border-radius: 3px;
+		background: #f3eadc;
+	}
+
+	.photo-card figcaption {
+		position: absolute;
+		left: 0.75rem;
+		bottom: 0.55rem;
+		color: #9b5d2d;
+		font-size: 0.78rem;
+		font-weight: 900;
+		text-transform: uppercase;
+	}
+
+	@media (max-width: 1100px) {
+		.float-character {
+			opacity: 0.9;
+			max-height: 72vh;
+		}
+
+		.float-character.hami {
+			width: min(31rem, 39vw);
+		}
+
+		.float-character.miru {
+			width: min(34rem, 42vw);
+		}
+
+		.materials-board-section {
+			grid-template-columns: 1fr;
+		}
+
+		.episode-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 760px) {
+		.preview-header {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 0.55rem;
+			padding: 0.6rem 0.75rem;
+		}
+
+		.jump-nav {
+			width: 100%;
+			flex-wrap: nowrap;
+			justify-content: flex-start;
+			overflow-x: auto;
+			padding-bottom: 0.15rem;
+			scrollbar-width: none;
+		}
+
+		.jump-nav::-webkit-scrollbar {
+			display: none;
+		}
+
+		.jump-nav a {
+			flex: 0 0 auto;
+			padding: 0.38rem 0.62rem;
+			font-size: 0.78rem;
+		}
+
+		.proposal-a {
+			padding-top: 5rem;
+			place-items: start center;
+		}
+
+		.watermark-card {
+			width: clamp(10rem, 44vw, 15rem);
+			opacity: 0.18;
+			padding-bottom: 1rem;
+		}
+
+		.watermark-card-1 {
+			left: -2rem;
+			top: 11rem;
+		}
+
+		.watermark-card-2 {
+			right: -2.5rem;
+			top: 7rem;
+		}
+
+		.watermark-card-3 {
+			left: 1rem;
+			bottom: 5rem;
+		}
+
+		.watermark-card-4 {
+			right: -2rem;
+			bottom: 8rem;
+		}
+
+		.watermark-card-5 {
+			display: none;
+		}
+
+		.float-character {
+			width: 13.5rem;
+			max-height: 46vh;
+			bottom: 1rem;
+		}
+
+		.float-character.hami {
+			left: 0.65rem;
+			width: min(12rem, 30vw);
+		}
+
+		.float-character.miru {
+			right: 4.6rem;
+			width: min(13rem, 33vw);
+		}
+
+		.hero-copy h1,
+		.board-copy h2,
+		.character-section-header h2,
+		.mini-section h2,
+		.episode-strip h2,
+		.movie-band h2,
+		.materials h2 {
+			font-size: 1.85rem;
+		}
+
+		.character-section-header h2 {
+			font-size: 1.55rem;
+			line-height: 1.18;
+		}
+
+		.hero-logo {
+			width: min(18.5rem, 66vw);
+		}
+
+		.hero-copy p:not(.site-label) {
+			max-width: 16.8rem;
+			margin-left: auto;
+			margin-right: auto;
+			font-size: 0.88rem;
+			line-height: 1.72;
+			overflow-wrap: anywhere;
+		}
+
+		.mini-section,
+		.character-showcase-grid,
+		.movie-grid,
+		.photo-scatter {
+			grid-template-columns: 1fr;
+		}
+
+		.character-section-header {
+			display: block;
+		}
+
+		.character-card {
+			padding: 0.75rem;
+		}
+
+		.character-profile-row {
+			grid-template-columns: minmax(7.5rem, 0.42fr) minmax(0, 1fr);
+			min-height: 14rem;
+		}
+
+		.character-stand {
+			max-height: 15rem;
+		}
+
+		.character-copy {
+			padding: 0.4rem 0.1rem;
+		}
+
+		.character-copy h3 {
+			font-size: 1.15rem;
+		}
+
+		.character-copy p {
+			font-size: 0.88rem;
+			line-height: 1.65;
+		}
+
+		.food-badges span {
+			min-height: 1.75rem;
+			padding: 0.28rem 0.55rem;
+			font-size: 0.72rem;
+		}
+
+		.episode-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.materials-board-section {
+			padding-top: 3rem;
+		}
+
+		.material-board {
+			min-height: 34rem;
+		}
+
+		.menu-paper {
+			left: 1rem;
+			width: calc(100% - 2rem);
+			bottom: 1rem;
+		}
+
+		.board-hami {
+			right: 45%;
+			width: 10.25rem;
+			max-height: 18rem;
+		}
+
+		.board-miru {
+			right: 0.5rem;
+			width: 11.75rem;
+			max-height: 18rem;
+		}
+	}
+</style>
