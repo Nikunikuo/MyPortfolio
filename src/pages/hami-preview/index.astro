@@ -162,6 +162,209 @@ const watermarks = [
 	'/images/hami/hot-sand-beauty.png',
 ];
 
+const siteUrl = Astro.site ?? new URL('https://niku.studio');
+const canonicalUrl = new URL('/hami-preview/', siteUrl).toString();
+const pageTitle = 'ハミちゃんの日常飯 | 日常系ごはんアニメ特設サイト';
+const pageDescription =
+	'ハミちゃんの日常飯は、食べることが大好きなハミちゃんと、無口だけど食欲旺盛なミルちゃんが、ごはんを通して毎回ちょっとした事件を起こす日常系ごはんアニメの特設サイトです。';
+const pageKeywords = [
+	'ハミちゃんの日常飯',
+	'ハミちゃん',
+	'羽村美緒',
+	'ミルちゃん',
+	'美沙尾ぷるむ',
+	'日常系アニメ',
+	'料理アニメ',
+	'ごはんアニメ',
+	'飯テロ',
+	'ショートアニメ',
+	'卵かけご飯',
+	'ナポリタン',
+	'ホットドッグ',
+	'からあげ',
+	'トースト',
+	'オムライス',
+	'ホットサンド',
+].join(', ');
+const ogImageUrl = new URL('/images/hami/og-image.png', siteUrl).toString();
+const logoUrl = new URL('/images/hami/logo.png', siteUrl).toString();
+const personId = new URL('/#person', siteUrl).toString();
+const seriesId = `${canonicalUrl}#series`;
+const hamiId = `${canonicalUrl}#hamichan`;
+const miruId = `${canonicalUrl}#miruchan`;
+const episodeListItems = episodes.map((episode, index) => ({
+	'@type': 'ListItem',
+	position: index + 1,
+	url: youtubeWatchUrl(episode.youtubeId, episode.playlistIndex),
+	name: episode.title,
+	item: {
+		'@type': 'TVEpisode',
+		'@id': `${canonicalUrl}#episode-${episode.no.toLowerCase()}`,
+		name: episode.title,
+		description: episode.copy,
+		position: index + 1,
+		episodeNumber: episode.no,
+		image: new URL(episode.image, siteUrl).toString(),
+		url: youtubeWatchUrl(episode.youtubeId, episode.playlistIndex),
+		partOfSeries: { '@id': seriesId },
+		inLanguage: 'ja-JP',
+		potentialAction: {
+			'@type': 'WatchAction',
+			target: youtubeWatchUrl(episode.youtubeId, episode.playlistIndex),
+		},
+	},
+}));
+const videoObjects = episodes.map((episode) => ({
+	'@type': 'VideoObject',
+	'@id': `${canonicalUrl}#video-${episode.no.toLowerCase()}`,
+	name: `${episode.title} | ハミちゃんの日常飯`,
+	description: episode.copy,
+	thumbnailUrl: [new URL(episode.image, siteUrl).toString()],
+	embedUrl: `https://www.youtube.com/embed/${episode.youtubeId}`,
+	url: youtubeWatchUrl(episode.youtubeId, episode.playlistIndex),
+	isPartOf: { '@id': seriesId },
+	inLanguage: 'ja-JP',
+	actor: [{ '@id': hamiId }, { '@id': miruId }],
+	creator: { '@id': personId },
+}));
+const hamiStructuredData = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebSite',
+			'@id': 'https://niku.studio/#website',
+			url: new URL('/', siteUrl).toString(),
+			name: 'Niku’s Portfolio',
+			inLanguage: 'ja-JP',
+			publisher: { '@id': personId },
+		},
+		{
+			'@type': 'WebPage',
+			'@id': canonicalUrl,
+			url: canonicalUrl,
+			name: pageTitle,
+			description: pageDescription,
+			inLanguage: 'ja-JP',
+			isPartOf: { '@id': 'https://niku.studio/#website' },
+			about: { '@id': seriesId },
+			mainEntity: { '@id': seriesId },
+			primaryImageOfPage: {
+				'@type': 'ImageObject',
+				url: ogImageUrl,
+				width: 1200,
+				height: 630,
+				caption: 'ハミちゃんの日常飯 特設サイトのキービジュアル',
+			},
+			breadcrumb: { '@id': `${canonicalUrl}#breadcrumb` },
+			datePublished: '2026-06-03',
+			dateModified: '2026-06-03',
+		},
+		{
+			'@type': ['TVSeries', 'CreativeWorkSeries'],
+			'@id': seriesId,
+			name: 'ハミちゃんの日常飯',
+			alternateName: ['Hamichan no Nichijomeshi', 'Hami-chan Daily Meals'],
+			description: pageDescription,
+			url: canonicalUrl,
+			image: ogImageUrl,
+			thumbnailUrl: ogImageUrl,
+			logo: logoUrl,
+			genre: ['日常系アニメ', '料理アニメ', 'ごはんアニメ', 'ショートアニメ', '飯テロ'],
+			keywords: pageKeywords,
+			numberOfEpisodes: episodes.length,
+			inLanguage: 'ja-JP',
+			creator: { '@id': personId },
+			character: [{ '@id': hamiId }, { '@id': miruId }],
+			actor: [{ '@id': hamiId }, { '@id': miruId }],
+			hasPart: videoObjects.map((video) => ({ '@id': video['@id'] })),
+			potentialAction: {
+				'@type': 'WatchAction',
+				target: youtubePlaylistUrl,
+			},
+		},
+		{
+			'@type': 'Person',
+			'@id': hamiId,
+			name: '羽村美緒',
+			alternateName: 'ハミちゃん',
+			description:
+				'茶髪ボブ、赤縁メガネ、表情が大きい女の子。食べることが大好きで、食べ物への反応が素直な「ハミちゃんの日常飯」の中心人物。',
+		},
+		{
+			'@type': 'Person',
+			'@id': miruId,
+			name: '美沙尾ぷるむ',
+			alternateName: 'ミルちゃん',
+			description:
+				'黒髪ツインテール、黄色い眠そうな目、丸い体型の女の子。無口寄りだが行動が大胆で食欲が強い、ハミちゃんの相棒。',
+		},
+		{
+			'@type': 'ItemList',
+			'@id': `${canonicalUrl}#episodes`,
+			name: 'ハミちゃんの日常飯 エピソード一覧',
+			numberOfItems: episodes.length,
+			itemListElement: episodeListItems,
+		},
+		{
+			'@type': 'CollectionPage',
+			'@id': `${canonicalUrl}#videos`,
+			name: 'ハミちゃんの日常飯 YouTube再生リスト',
+			url: youtubePlaylistUrl,
+			mainEntity: { '@id': `${canonicalUrl}#episodes` },
+			hasPart: videoObjects.map((video) => ({ '@id': video['@id'] })),
+		},
+		{
+			'@type': 'FAQPage',
+			'@id': `${canonicalUrl}#faq`,
+			mainEntity: [
+				{
+					'@type': 'Question',
+					name: 'ハミちゃんの日常飯とは何ですか？',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: 'ハミちゃんの日常飯は、ハミちゃんとミルちゃんが身近なごはんを食べながら、かわいくて少しおかしい事件を起こす日常系ごはんアニメです。',
+					},
+				},
+				{
+					'@type': 'Question',
+					name: 'ハミちゃんの日常飯の登場人物は誰ですか？',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: '中心人物は、食べることが大好きな羽村美緒ことハミちゃんと、無口寄りだが食欲旺盛な美沙尾ぷるむことミルちゃんです。',
+					},
+				},
+				{
+					'@type': 'Question',
+					name: 'ハミちゃんの日常飯はどこで見られますか？',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: `YouTube再生リストで各エピソードを視聴できます。再生リストURLは ${youtubePlaylistUrl} です。`,
+					},
+				},
+			],
+		},
+		{
+			'@type': 'BreadcrumbList',
+			'@id': `${canonicalUrl}#breadcrumb`,
+			itemListElement: [
+				{
+					'@type': 'ListItem',
+					position: 1,
+					name: 'Niku’s Portfolio',
+					item: new URL('/', siteUrl).toString(),
+				},
+				{
+					'@type': 'ListItem',
+					position: 2,
+					name: 'ハミちゃんの日常飯',
+					item: canonicalUrl,
+				},
+			],
+		},
+		...videoObjects,
+	],
+};
+
 ---
 
 <!doctype html>
@@ -169,12 +372,41 @@ const watermarks = [
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/images/hami/steak-favicon.svg" />
-		<title>ハミちゃんの日常飯 | 特設サイト</title>
+		<meta name="description" content={pageDescription} />
+		<meta name="keywords" content={pageKeywords} />
+		<meta name="author" content="大鹿ニク / M1RA" />
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta name="theme-color" content="#f28f77" />
 		<meta
-			name="description"
-			content="『ハミちゃんの日常飯』の特設サイト。"
+			name="abstract"
+			content="『ハミちゃんの日常飯』は、ハミちゃんとミルちゃんが身近な料理を食べるだけなのに毎回ちょっと事件になる、かわいい日常系ごはんアニメです。"
 		/>
+		<meta name="classification" content="日常系アニメ, 料理アニメ, ショートアニメ" />
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="alternate" hreflang="ja-JP" href={canonicalUrl} />
+		<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+		<link rel="icon" type="image/svg+xml" href="/images/hami/steak-favicon.svg" />
+		<link rel="preload" as="image" href="/images/hami/og-image.png" />
+		<link rel="preload" as="image" href="/images/hami/logo.png" />
+		<title>{pageTitle}</title>
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:site_name" content="Niku’s Portfolio" />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="ハミちゃんの日常飯。ハミちゃんとミルちゃんがごはんと一緒に描かれた特設サイトのキービジュアル。" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@M1RA_A_Project" />
+		<meta name="twitter:creator" content="@M1RA_A_Project" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={pageDescription} />
+		<meta name="twitter:image" content={ogImageUrl} />
+		<meta name="twitter:image:alt" content="ハミちゃんの日常飯 特設サイトのキービジュアル" />
+		<script type="application/ld+json" set:html={JSON.stringify(hamiStructuredData)} />
 	</head>
 	<body>
 		<header class="preview-header" aria-label="Preview navigation">
@@ -238,6 +470,35 @@ const watermarks = [
 					卵かけご飯、ナポリタン、ホットドッグ、からあげ、トースト、オムライス、
 					ホットサンド。どれも身近な日常飯のはずなのに、ハミちゃんにかかれば毎回なぜか大事件。
 				</p>
+			</section>
+
+			<section class="knowledge-panel" id="quick-facts" aria-labelledby="quick-facts-title">
+				<div class="knowledge-copy">
+					<p class="section-kicker">QUICK FACTS</p>
+					<h2 id="quick-facts-title">ハミちゃんの日常飯 早わかり</h2>
+					<p>
+						ハミちゃんの日常飯は、食べることが大好きなハミちゃんと、無口だけど食欲旺盛なミルちゃんの
+						「食べてるだけでなんか起きる」日常系ごはんアニメです。
+					</p>
+				</div>
+				<dl class="fact-list">
+					<div>
+						<dt>作品ジャンル</dt>
+						<dd>日常系アニメ、料理アニメ、飯テロ、ショートアニメ</dd>
+					</div>
+					<div>
+						<dt>登場人物</dt>
+						<dd>羽村美緒（ハミちゃん）、美沙尾ぷるむ（ミルちゃん）</dd>
+					</div>
+					<div>
+						<dt>見られる場所</dt>
+						<dd>YouTube再生リスト。各エピソードカードから直接視聴できます。</dd>
+					</div>
+					<div>
+						<dt>現在の話数</dt>
+						<dd>本編7話とNG集1本。卵かけご飯、ナポリタン、ホットドッグ、からあげ、トースト、オムライス、ホットサンド。</dd>
+					</div>
+				</dl>
 			</section>
 
 			<section class="character-band" id="characters" aria-label="Character">
@@ -738,6 +999,7 @@ const watermarks = [
 	}
 
 	.mini-section,
+	.knowledge-panel,
 	.character-band,
 	.episode-strip,
 	.movie-band,
@@ -764,6 +1026,69 @@ const watermarks = [
 		max-width: 54rem;
 		margin: 0;
 		font-size: 1.1rem;
+	}
+
+	.knowledge-panel {
+		display: grid;
+		grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+		gap: 1.2rem;
+		align-items: stretch;
+		padding-top: 0;
+	}
+
+	.knowledge-copy,
+	.fact-list {
+		position: relative;
+		margin: 0;
+		padding: 1.3rem;
+		background:
+			linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 248, 236, 0.78)),
+			url("/images/hami/cutlery-pattern.svg");
+		border: 1px solid rgba(62, 42, 31, 0.12);
+		border-radius: 8px;
+		box-shadow: 0 14px 34px rgba(91, 61, 35, 0.1);
+	}
+
+	.knowledge-copy h2 {
+		margin: 0.35rem 0 0.8rem;
+		font-size: clamp(1.8rem, 3.2vw, 2.55rem);
+		line-height: 1.1;
+	}
+
+	.knowledge-copy p {
+		margin: 0;
+		color: var(--muted);
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 1.8;
+	}
+
+	.fact-list {
+		display: grid;
+		gap: 0.72rem;
+	}
+
+	.fact-list div {
+		display: grid;
+		grid-template-columns: 8.5rem minmax(0, 1fr);
+		gap: 0.75rem;
+		align-items: start;
+		padding: 0.7rem 0.8rem;
+		background: rgba(255, 255, 255, 0.56);
+		border: 1px solid rgba(62, 42, 31, 0.08);
+		border-radius: 8px;
+	}
+
+	.fact-list dt {
+		color: #9b5d2d;
+		font-weight: 950;
+	}
+
+	.fact-list dd {
+		margin: 0;
+		color: #6b4e3d;
+		font-weight: 700;
+		line-height: 1.65;
 	}
 
 	.character-band {
@@ -1301,10 +1626,16 @@ const watermarks = [
 		}
 
 		.mini-section,
+		.knowledge-panel,
 		.character-showcase-grid,
 		.movie-grid,
 		.photo-scatter {
 			grid-template-columns: 1fr;
+		}
+
+		.fact-list div {
+			grid-template-columns: 1fr;
+			gap: 0.28rem;
 		}
 
 		.character-section-header {

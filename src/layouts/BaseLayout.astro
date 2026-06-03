@@ -18,10 +18,11 @@ interface Props {
 const { title, description, showLoading = false } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="ja">
 	<head>
 		<MainHead title={title} description={description} />
 		<ViewTransitions />
+		<slot name="head" />
 	</head>
 	<body>
 		{showLoading && <LoadingScreen />}

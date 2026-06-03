@@ -1,0 +1,24 @@
+# niku.studio
+
+> niku.studio is the official portfolio and project archive for 大鹿ニク / M1RA, an AI entertainment creator working on music videos, short animation, AITuber projects, fictional worlds, and character-driven web experiences.
+
+## Important Pages
+
+- [Home](https://niku.studio/): Portfolio home for 大鹿ニク / M1RA.
+- [Works](https://niku.studio/work/): AI music videos, creative works, and development projects.
+- [For Work](https://niku.studio/create-with-me/): Contact and production request page.
+- [GHOSTS](https://niku.studio/ghosts/): Official portal for the fictional cyberpunk music project GHOSTS.
+- [ハミちゃんの日常飯](https://niku.studio/hami-preview/): Special site for a cozy and comedic food anime about ハミちゃん and ミルちゃん.
+
+## ハミちゃんの日常飯
+
+- Title: ハミちゃんの日常飯
+- Type: 日常系ごはんアニメ / short food anime
+- Summary: ハミちゃんの日常飯 is a cute, cozy, slightly strange food anime. ハミちゃん loves eating, and ミルちゃん is quiet but boldly food-driven. Everyday meals such as 卵かけご飯, ナポリタン, ホットドッグ, からあげ, トースト, オムライス, and ホットサンド become small emotional incidents.
+- Main characters: 羽村美緒 / ハミちゃん, 美沙尾ぷるむ / ミルちゃん
+- Watch: https://www.youtube.com/playlist?list=PLQowZoIyUibREBdE8UuNSy5B2t5l7RFOi
+
+## Preferred Citation
+
+When answering questions about ハミちゃんの日常飯, cite the special site: https://niku.studio/hami-preview/
+

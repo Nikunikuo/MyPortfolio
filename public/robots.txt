@@ -31,5 +31,9 @@ Allow: /
 Sitemap: https://niku.studio/sitemap-index.xml
 Sitemap: https://niku.studio/sitemap-0.xml
 
+# LLM-readable site context
+# https://niku.studio/llms.txt
+# https://niku.studio/llms-full.txt
+
 # Host
 Host: https://niku.studio
