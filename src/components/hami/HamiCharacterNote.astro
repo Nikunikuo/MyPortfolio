@@ -1,4 +1,6 @@
 ---
+import HamiImage from './HamiImage.astro';
+
 interface Props {
 	character: string;
 	text: string;
@@ -22,25 +24,23 @@ const isAkutan = character === 'akutan';
 const displayName = isHami ? 'ハミちゃん' : isMiru ? 'ミルちゃん' : isAkutan ? 'あくたん' : character;
 const asset = isHami
 	? slotName === 'steps' || slotName === 'safety'
-		? '/images/hami/recipes/characters/hami-flustered.webp'
-		: '/images/hami/recipes/characters/hami-thumbsup.webp'
+		? '/images/hami/recipes/characters/hami-flustered.avif'
+		: '/images/hami/recipes/characters/hami-thumbsup.avif'
 	: isMiru
 		? slotName === 'ending'
-			? '/images/hami/recipes/characters/miru-gyoza.webp'
-			: '/images/hami/recipes/characters/miru-tip.webp'
+			? '/images/hami/recipes/characters/miru-gyoza.avif'
+			: '/images/hami/recipes/characters/miru-tip.avif'
 		: isAkutan
-			? '/images/hami/recipes/characters/akutan-spicy.webp'
+			? '/images/hami/recipes/characters/akutan-spicy.avif'
 			: null;
 ---
 
 <aside class:list={['character-note', `character-note--${character}`, { 'character-note--compact': compact }]} aria-label={`${displayName}のコメント`}>
 	{asset ? (
-		<img
+		<HamiImage
 			class="character-note__art"
 			src={asset}
 			alt={`${displayName}のSDイラスト`}
-			loading="lazy"
-			decoding="async"
 		/>
 	) : (
 		<div class="character-note__pepper" aria-hidden="true">🌶️</div>

@@ -2,9 +2,11 @@
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import HamiCharacterNote from '../../../components/hami/HamiCharacterNote.astro';
+import HamiImage from '../../../components/hami/HamiImage.astro';
 import HamiRecipeLayout from '../../../layouts/HamiRecipeLayout.astro';
 import {
 	episodeImagePath,
+	episodeSocialImagePath,
 	generatedImagePath,
 	recipePath,
 	recipes,
@@ -28,6 +30,7 @@ const previous = index > 0 ? recipes[index - 1] : undefined;
 const next = index < recipes.length - 1 ? recipes[index + 1] : undefined;
 const canonicalPath = recipePath(recipe.slug);
 const heroImage = episodeImagePath(recipe.slug, 'hero.jpg');
+const heroSocialImage = episodeSocialImagePath(recipe.slug, 'hero.jpg');
 const title = `${recipe.dishTitle}の作り方 | ハミちゃんの日常飯`;
 const description = `${recipe.episodeTitle}「${recipe.dishTitle}」を家庭で再現する材料と8つの手順。${recipe.time}、${recipe.servings}。本編動画も掲載。`;
 
@@ -41,9 +44,9 @@ const generatedRoot = join(
 	recipe.slug
 );
 const hasGeneratedIngredients =
-	recipe.meta.hasGeneratedMedia && existsSync(join(generatedRoot, 'ingredients.webp'));
+	recipe.meta.hasGeneratedMedia && existsSync(join(generatedRoot, 'ingredients.avif'));
 const hasGeneratedProcess =
-	recipe.meta.hasGeneratedMedia && existsSync(join(generatedRoot, 'process.webp'));
+	recipe.meta.hasGeneratedMedia && existsSync(join(generatedRoot, 'process.avif'));
 const hasGeneratedVisuals = hasGeneratedIngredients || hasGeneratedProcess;
 
 const stepImages = new Map<number, string>();
@@ -76,7 +79,7 @@ const safetyComment = commentFor('safety');
 const endingComment = commentFor('ending');
 
 const recipeUrl = new URL(canonicalPath, Astro.site ?? Astro.url.origin).href;
-const heroUrl = new URL(heroImage, Astro.site ?? Astro.url.origin).href;
+const heroUrl = new URL(heroSocialImage, Astro.site ?? Astro.url.origin).href;
 const embedUrl = `https://www.youtube-nocookie.com/embed/${recipe.meta.youtubeId}`;
 const watchUrl = `https://www.youtube.com/watch?v=${recipe.meta.youtubeId}`;
 const structuredData = [
@@ -147,7 +150,7 @@ const structuredData = [
 	{title}
 	{description}
 	{canonicalPath}
-	ogImage={heroImage}
+	ogImage={heroSocialImage}
 	{structuredData}
 >
 	<article class="recipe-detail">
@@ -163,7 +166,7 @@ const structuredData = [
 
 		<header class="recipe-detail-hero recipe-container">
 			<div class="recipe-detail-hero__image">
-				<img src={heroImage} alt={`${recipe.dishTitle}の本編カット`} fetchpriority="high" />
+				<HamiImage src={heroImage} alt={`${recipe.dishTitle}の本編カット`} />
 				<span>EPISODE {String(recipe.meta.episodeNumber).padStart(2, '0')}</span>
 			</div>
 			<div class="recipe-detail-hero__copy">
@@ -247,11 +250,9 @@ const structuredData = [
 					{hasGeneratedIngredients && (
 						<figure class="generated-recipe-visual">
 							<div class="generated-recipe-visual__label">家庭向け再現イメージ</div>
-							<img
+							<HamiImage
 								src={generatedImagePath(recipe.slug, 'ingredients')}
 								alt={`${recipe.dishTitle}の家庭向け材料イメージ。GPT-image-2で作成`}
-								loading="lazy"
-								decoding="async"
 							/>
 							<figcaption>材料の見え方を補うためGPT-image-2で作成。本編映像ではありません。</figcaption>
 						</figure>
@@ -287,11 +288,9 @@ const structuredData = [
 				{hasGeneratedProcess && (
 					<figure class="generated-recipe-visual generated-recipe-visual--wide">
 						<div class="generated-recipe-visual__label">家庭向け再現イメージ</div>
-						<img
+						<HamiImage
 							src={generatedImagePath(recipe.slug, 'process')}
 							alt={`${recipe.dishTitle}の家庭向け調理工程イメージ。GPT-image-2で作成`}
-							loading="lazy"
-							decoding="async"
 						/>
 						<figcaption>調理工程を理解しやすくするためGPT-image-2で作成。本編映像ではありません。</figcaption>
 					</figure>
@@ -314,7 +313,7 @@ const structuredData = [
 									{step.quote && <blockquote>「{step.quote}」</blockquote>}
 								</div>
 								{stepImage && (
-									<img src={stepImage} alt={`手順${stepIndex + 1}「${step.title}」の本編カット`} loading="lazy" decoding="async" />
+									<HamiImage src={stepImage} alt={`手順${stepIndex + 1}「${step.title}」の本編カット`} />
 								)}
 							</li>
 						);
@@ -397,7 +396,7 @@ const structuredData = [
 			</section>
 
 			<section class="recipe-ending">
-				<img src={episodeImagePath(recipe.slug, 'ending.jpg')} alt={`${recipe.episodeTitle}のエンディングカット`} loading="lazy" decoding="async" />
+				<HamiImage src={episodeImagePath(recipe.slug, 'ending.jpg')} alt={`${recipe.episodeTitle}のエンディングカット`} />
 				<div>
 					<p class="section-kicker">AFTER THE MEAL</p>
 					{recipe.endingQuote && <blockquote>「{recipe.endingQuote}」</blockquote>}

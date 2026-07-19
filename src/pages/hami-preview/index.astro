@@ -1,10 +1,12 @@
 ---
+import HamiImage from '../../components/hami/HamiImage.astro';
+
 const episodes = [
 	{
 		no: '01',
 		title: '背徳の卵かけご飯編',
 		food: '卵かけご飯',
-		image: '/images/hami/tkg-card.png',
+		image: '/images/hami/tkg-card.avif',
 		copy: '深夜にだけ許される、背徳の一杯。',
 		youtubeId: 'vose8t_6i-o',
 	},
@@ -12,7 +14,7 @@ const episodes = [
 		no: '02',
 		title: '黄金のナポリタン編',
 		food: 'ナポリタン',
-		image: '/images/hami/napolitan-card.png',
+		image: '/images/hami/napolitan-card.avif',
 		copy: '喫茶店の香りに誘われた、黄金の一皿。',
 		youtubeId: 'Piyz9IQu_Zc',
 	},
@@ -20,7 +22,7 @@ const episodes = [
 		no: '03',
 		title: '魅惑のホットドッグ編',
 		food: 'ホットドッグ',
-		image: '/images/hami/hotdog-card.png',
+		image: '/images/hami/hotdog-card.avif',
 		copy: 'パンとソーセージ、その単純さに抗えない。',
 		youtubeId: 'nK4XO9wyGe8',
 	},
@@ -28,7 +30,7 @@ const episodes = [
 		no: '04',
 		title: '復活のからあげ編',
 		food: 'からあげ',
-		image: '/images/hami/karaage-card.png',
+		image: '/images/hami/karaage-card.avif',
 		copy: '衣は鳴り、肉汁は弾け、テンションは復活する。',
 		youtubeId: '9_MwKwJKtds',
 	},
@@ -36,7 +38,7 @@ const episodes = [
 		no: '05',
 		title: '深夜のトースト編',
 		food: 'トースト',
-		image: '/images/hami/toast-card.png',
+		image: '/images/hami/toast-card.avif',
 		copy: '眠れない夜にだけ現れる、小さなごちそう。',
 		youtubeId: '68pRZfUvvuQ',
 	},
@@ -44,7 +46,7 @@ const episodes = [
 		no: '06',
 		title: '友情のふわとろオムライス編',
 		food: 'ふわとろオムライス',
-		image: '/images/hami/omurice-card.png',
+		image: '/images/hami/omurice-card.avif',
 		copy: '誰かと食べると、ほんの少し特別になる。',
 		youtubeId: 'exdRnPs4628',
 	},
@@ -52,7 +54,7 @@ const episodes = [
 		no: '07',
 		title: '忘却のホットサンド編',
 		food: 'ホットサンド',
-		image: '/images/hami/hot-sand-eating.png',
+		image: '/images/hami/hot-sand-eating.avif',
 		copy: '熱々の一口で、ハミちゃんの記憶は白く飛ぶ。',
 		youtubeId: 'hg6qIefyr_I',
 	},
@@ -60,7 +62,7 @@ const episodes = [
 		no: '08',
 		title: '夢幻のたいやき編',
 		food: 'たいやき',
-		image: '/images/hami/taiyaki-card.jpg',
+		image: '/images/hami/taiyaki-card.avif',
 		copy: '半分こ。その約束は、一口の前ではあまりに弱い。',
 		youtubeId: 'Xyd7OFZuNN0',
 	},
@@ -68,7 +70,7 @@ const episodes = [
 		no: '09',
 		title: 'プリンの事情編',
 		food: 'プリン',
-		image: '/images/hami/pudding-card.jpg',
+		image: '/images/hami/pudding-card.avif',
 		copy: '冷蔵庫の奥には、甘くて深い事情がある。',
 		youtubeId: 'EiPHsyd9FbU',
 	},
@@ -76,7 +78,7 @@ const episodes = [
 		no: '10',
 		title: '目玉焼き戦争編',
 		food: '目玉焼き',
-		image: '/images/hami/fried-egg-card.jpg',
+		image: '/images/hami/fried-egg-card.avif',
 		copy: 'しょうゆか、ソースか。朝食は静かに割れる。',
 		youtubeId: 'wqFMN1CoDXQ',
 	},
@@ -84,7 +86,7 @@ const episodes = [
 		no: '11',
 		title: 'チレス・エン・ノガーダ編',
 		food: 'メキシコ料理',
-		image: '/images/hami/chiles-card.jpg',
+		image: '/images/hami/chiles-card.avif',
 		copy: '知らない味ほど、食卓の向こうを広くする。',
 		youtubeId: 'ZaEJX0P4Ggg',
 	},
@@ -92,7 +94,7 @@ const episodes = [
 		no: '12',
 		title: '雨音の焼き餃子編',
 		food: '焼き餃子',
-		image: '/images/hami/gyoza-card.jpg',
+		image: '/images/hami/gyoza-card.avif',
 		copy: '雨の夜。焼ける音まで、今日はごちそう。',
 		youtubeId: 'o-uS71tairk',
 	},
@@ -100,7 +102,7 @@ const episodes = [
 		no: '13',
 		title: '激辛のラーメン編',
 		food: '激辛ラーメン',
-		image: '/images/hami/gekikara-card.png',
+		image: '/images/hami/gekikara-card.avif',
 		copy: '激辛には余裕。けれど熱さには、ちょっと弱い。',
 		youtubeId: 'qhDBoc90boE',
 		isLatest: true,
@@ -112,7 +114,7 @@ const specials = [
 		no: 'SP',
 		title: 'NG集１',
 		food: 'NG集',
-		image: '/images/hami/ng-card.png',
+		image: '/images/hami/ng-card.avif',
 		copy: '食べる、叫ぶ、こぼす、見切れる。',
 		youtubeId: 'ZzyEwN2o3Xw',
 	},
@@ -120,7 +122,7 @@ const specials = [
 		no: 'SHORT',
 		title: 'お買い物編',
 		food: 'ショート',
-		image: '/images/hami/shopping-card.jpg',
+		image: '/images/hami/shopping-card.avif',
 		copy: 'おいしい日常を、ぎゅっと短く。',
 		youtubeId: 'e6zccJDE7aI',
 	},
@@ -128,7 +130,7 @@ const specials = [
 		no: 'ALL',
 		title: '総集編',
 		food: '24分39秒',
-		image: '/images/hami/compilation-card.jpg',
+		image: '/images/hami/compilation-card.avif',
 		copy: '最初の一口から、まとめて完食。',
 		youtubeId: '45SlNDVuIko',
 	},
@@ -145,14 +147,14 @@ const watchPicks = [
 		label: 'はじめての一皿',
 		title: '黄金のナポリタン編',
 		copy: 'シリーズのかわいさと勢いを、まず一皿で。',
-		image: '/images/hami/napolitan-card.png',
+		image: '/images/hami/napolitan-card.avif',
 		youtubeId: 'Piyz9IQu_Zc',
 	},
 	{
 		label: 'ふたりを知る一皿',
 		title: '忘却のホットサンド編',
 		copy: 'ハミちゃんとミルちゃんの距離感までおいしい回。',
-		image: '/images/hami/hot-sand-eating.png',
+		image: '/images/hami/hot-sand-eating.avif',
 		youtubeId: 'hg6qIefyr_I',
 	},
 ];
@@ -163,42 +165,42 @@ const goods = [
 		kind: 'clearfile',
 		name: 'ハミちゃんの日常飯 A4クリアファイル ハミちゃん＆ミルちゃん＆あくたん',
 		shortName: '三人でいただきます',
-		image: '/images/hami/booth/clearfile-trio.jpg',
+		image: '/images/hami/booth/clearfile-trio.avif',
 		href: 'https://nikuoosika.booth.pm/items/8631242',
 	},
 	{
 		kind: 'clearfile',
 		name: 'ハミちゃんの日常飯 A4クリアファイル ハミちゃん＆ミルちゃん',
 		shortName: 'ハミちゃん＆ミルちゃん',
-		image: '/images/hami/booth/clearfile-hami-miru.jpg',
+		image: '/images/hami/booth/clearfile-hami-miru.avif',
 		href: 'https://nikuoosika.booth.pm/items/8631191',
 	},
 	{
 		kind: 'clearfile',
 		name: 'ハミちゃんの日常飯 A4クリアファイル ハミちゃん',
 		shortName: 'ハミちゃん',
-		image: '/images/hami/booth/clearfile-hami.jpg',
+		image: '/images/hami/booth/clearfile-hami.avif',
 		href: 'https://nikuoosika.booth.pm/items/8631156',
 	},
 	{
 		kind: 'acrylic',
 		name: 'ハミちゃんの日常飯 アクリルスタンド あくたん',
 		shortName: 'あくたん',
-		image: '/images/hami/booth/acrylic-akutan.jpg',
+		image: '/images/hami/booth/acrylic-akutan.avif',
 		href: 'https://nikuoosika.booth.pm/items/8631039',
 	},
 	{
 		kind: 'acrylic',
 		name: 'ハミちゃんの日常飯 アクリルスタンド ミルちゃん',
 		shortName: 'ミルちゃん',
-		image: '/images/hami/booth/acrylic-miru.jpg',
+		image: '/images/hami/booth/acrylic-miru.avif',
 		href: 'https://nikuoosika.booth.pm/items/8631035',
 	},
 	{
 		kind: 'acrylic',
 		name: 'ハミちゃんの日常飯 アクリルスタンド ハミちゃん',
 		shortName: 'ハミちゃん',
-		image: '/images/hami/booth/acrylic-hami.jpg',
+		image: '/images/hami/booth/acrylic-hami.avif',
 		href: 'https://nikuoosika.booth.pm/items/8631024',
 	},
 ];
@@ -207,73 +209,73 @@ const acrylicGoods = goods.filter((item) => item.kind === 'acrylic');
 
 const galleryFrames = [
 	{
-		image: '/images/hami/material-tkg-ingredients.png',
+		image: '/images/hami/material-tkg-ingredients.avif',
 		tilt: -4,
 		lift: 0.2,
 		label: 'TKG prep',
 	},
 	{
-		image: '/images/hami/material-tkg-hami.png',
+		image: '/images/hami/material-tkg-hami.avif',
 		tilt: 3,
 		lift: -0.55,
 		label: 'Midnight bite',
 	},
 	{
-		image: '/images/hami/material-napolitan-face.png',
+		image: '/images/hami/material-napolitan-face.avif',
 		tilt: -2,
 		lift: 0.08,
 		label: 'Spark face',
 	},
 	{
-		image: '/images/hami/material-hotdog-theater.png',
+		image: '/images/hami/material-hotdog-theater.avif',
 		tilt: 4,
 		lift: -0.45,
 		label: 'Hot dog',
 	},
 	{
-		image: '/images/hami/material-karaage-pack.png',
+		image: '/images/hami/material-karaage-pack.avif',
 		tilt: -3,
 		lift: 0.35,
 		label: 'Karaage',
 	},
 	{
-		image: '/images/hami/material-toast-cheese.png',
+		image: '/images/hami/material-toast-cheese.avif',
 		tilt: 2,
 		lift: -0.2,
 		label: 'Toast pull',
 	},
 	{
-		image: '/images/hami/material-toast-sleep.png',
+		image: '/images/hami/material-toast-sleep.avif',
 		tilt: -4,
 		lift: 0.28,
 		label: 'Sleepy',
 	},
 	{
-		image: '/images/hami/material-omurice-plate.png',
+		image: '/images/hami/material-omurice-plate.avif',
 		tilt: 3,
 		lift: -0.45,
 		label: 'Omurice',
 	},
 	{
-		image: '/images/hami/material-omurice-cafe.png',
+		image: '/images/hami/material-omurice-cafe.avif',
 		tilt: -2,
 		lift: 0.12,
 		label: 'Maid cafe',
 	},
 	{
-		image: '/images/hami/akutan-reveal.png',
+		image: '/images/hami/akutan-reveal.avif',
 		tilt: 4,
 		lift: -0.35,
 		label: 'Akutan reveal',
 	},
 	{
-		image: '/images/hami/akutan-group.png',
+		image: '/images/hami/akutan-group.avif',
 		tilt: -3,
 		lift: 0.22,
 		label: 'Spicy relay',
 	},
 	{
-		image: '/images/hami/akutan-expressions.png',
+		image: '/images/hami/akutan-expressions.avif',
 		tilt: 2,
 		lift: -0.18,
 		label: 'New face',
@@ -281,11 +283,11 @@ const galleryFrames = [
 ];
 
 const watermarks = [
-	'/images/hami/hot-sand-kitchen.png',
-	'/images/hami/napolitan-card.png',
-	'/images/hami/karaage-card.png',
-	'/images/hami/omurice-card.png',
-	'/images/hami/hot-sand-beauty.png',
+	'/images/hami/hot-sand-kitchen.avif',
+	'/images/hami/napolitan-card.avif',
+	'/images/hami/karaage-card.avif',
+	'/images/hami/omurice-card.avif',
+	'/images/hami/hot-sand-beauty.avif',
 ];
 
 const siteUrl = Astro.site ?? new URL('https://niku.studio');
@@ -575,7 +577,6 @@ const hamiStructuredData = {
 		<link rel="image_src" href={ogImageUrl} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link rel="preload" as="image" href="/images/hami/logo.png" />
 		<title>{pageTitle}</title>
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalUrl} />
@@ -624,31 +625,26 @@ const hamiStructuredData = {
 				<div class="hero-pattern"></div>
 				<div class="hero-watermarks" aria-hidden="true">
 					{watermarks.map((image, index) => (
-						<img
+						<HamiImage
 							src={image}
 							alt=""
 							class={`watermark-card watermark-card-${index + 1}`}
-							loading="eager"
 						/>
 					))}
 				</div>
-				<img
-					src="/images/hami/hami-dynamic.png"
+				<HamiImage
+					src="/images/hami/hami-dynamic.avif"
 					alt="ハミちゃん"
 					class="float-character hami"
-					loading="eager"
-					fetchpriority="high"
 				/>
-				<img
-					src="/images/hami/miru-dynamic.png"
+				<HamiImage
+					src="/images/hami/miru-dynamic.avif"
 					alt="ミルちゃん"
 					class="float-character miru"
-					loading="eager"
-					fetchpriority="high"
 				/>
 				<div class="hero-copy">
 					<p class="site-label">&copy;ハミちゃんの日常飯　特設サイト</p>
-					<img src="/images/hami/logo.png" alt="ハミちゃんの日常飯" class="hero-logo" fetchpriority="high" />
+					<HamiImage src="/images/hami/logo.avif" alt="ハミちゃんの日常飯" class="hero-logo" />
 					<h1 id="proposal-a-title">今日のご飯は<br />一味違う？</h1>
 					<p>
 						食べることが大好きなハミちゃんの おいしい、うれしい、ちょっとおかしい。
@@ -691,7 +687,7 @@ const hamiStructuredData = {
 				<div class="watch-layout">
 					<div class="inline-player" data-video-id={latestEpisode.youtubeId}>
 						<button class="video-poster" type="button" aria-label={`${latestEpisode.title}をこのページで再生`}>
-							<img src={latestEpisode.image} alt="" loading="eager" />
+							<HamiImage src={latestEpisode.image} alt="" />
 							<span class="play-disc" aria-hidden="true">▶</span>
 							<span class="poster-copy">
 								<small>最新話</small>
@@ -702,7 +698,7 @@ const hamiStructuredData = {
 					<div class="watch-picks" aria-label="おすすめエピソード">
 						{watchPicks.map((pick) => (
 							<a href={youtubeWatchUrl(pick.youtubeId)} target="_blank" rel="noreferrer">
-								<img src={pick.image} alt="" loading="lazy" />
+								<HamiImage src={pick.image} alt="" />
 								<span>
 									<small>{pick.label}</small>
 									<strong>{pick.title}</strong>
@@ -739,14 +735,14 @@ const hamiStructuredData = {
 
 					<div class="recipe-spotlight-showcase" aria-label="オムライス、焼き餃子、激辛ラーメンと、ハミちゃん、ミルちゃん、あくたん">
 						<div class="recipe-food-stack" aria-hidden="true">
-							<img class="recipe-food-photo recipe-food-photo--one" src="/images/hami/recipes/episodes/friendship-fuwatoro-omurice/hero.jpg" alt="" loading="lazy" />
-							<img class="recipe-food-photo recipe-food-photo--two" src="/images/hami/recipes/episodes/ameoto-yaki-gyoza/hero.jpg" alt="" loading="lazy" />
-							<img class="recipe-food-photo recipe-food-photo--three" src="/images/hami/recipes/episodes/home-spicy-miso-ramen/hero.jpg" alt="" loading="lazy" />
+							<HamiImage class="recipe-food-photo recipe-food-photo--one" src="/images/hami/recipes/episodes/friendship-fuwatoro-omurice/hero.avif" alt="" />
+							<HamiImage class="recipe-food-photo recipe-food-photo--two" src="/images/hami/recipes/episodes/ameoto-yaki-gyoza/hero.avif" alt="" />
+							<HamiImage class="recipe-food-photo recipe-food-photo--three" src="/images/hami/recipes/episodes/home-spicy-miso-ramen/hero.avif" alt="" />
 							<span class="recipe-open-seal">全話<br />公開中</span>
 						</div>
-						<img class="recipe-character recipe-character--hami" src="/images/hami/recipes/characters/hami-thumbsup.webp" alt="親指を立てるふくよかなハミちゃん" loading="lazy" />
-						<img class="recipe-character recipe-character--miru" src="/images/hami/recipes/characters/miru-gyoza.webp" alt="焼き餃子を持つふくよかなミルちゃん" loading="lazy" />
-						<img class="recipe-character recipe-character--akutan" src="/images/hami/recipes/characters/akutan-spicy.webp" alt="唐辛子を持つスマートなあくたん" loading="lazy" />
+						<HamiImage class="recipe-character recipe-character--hami" src="/images/hami/recipes/characters/hami-thumbsup.avif" alt="親指を立てるふくよかなハミちゃん" />
+						<HamiImage class="recipe-character recipe-character--miru" src="/images/hami/recipes/characters/miru-gyoza.avif" alt="焼き餃子を持つふくよかなミルちゃん" />
+						<HamiImage class="recipe-character recipe-character--akutan" src="/images/hami/recipes/characters/akutan-spicy.avif" alt="唐辛子を持つスマートなあくたん" />
 					</div>
 				</div>
 				<ul class="recipe-dish-ribbon" aria-label="収録レシピ">
@@ -782,7 +778,7 @@ const hamiStructuredData = {
 									rel="noreferrer"
 									aria-label={`${item.name}をBOOTHで見る`}
 								>
-									<img src={item.image} alt={item.name} loading="lazy" />
+									<HamiImage src={item.image} alt={item.name} />
 									<span><small>A4 CLEAR FILE</small><strong>{item.shortName}</strong><b aria-hidden="true">↗</b></span>
 								</a>
 							))}
@@ -791,7 +787,7 @@ const hamiStructuredData = {
 						<div class="acrylic-shelf" aria-label="アクリルスタンド">
 							{acrylicGoods.map((item) => (
 								<a href={item.href} target="_blank" rel="noreferrer" aria-label={`${item.name}をBOOTHで見る`}>
-									<img src={item.image} alt={item.name} loading="lazy" />
+									<HamiImage src={item.image} alt={item.name} />
 									<span><small>ACRYLIC STAND</small><strong>{item.shortName}</strong></span>
 								</a>
 							))}
@@ -831,7 +827,7 @@ const hamiStructuredData = {
 
 			<section class="new-face-band" aria-labelledby="new-face-title">
 				<div class="new-face-visual">
-					<img src="/images/hami/gekikara-card.png" alt="激辛ラーメンを前にしたあくたん、ハミちゃん、ミルちゃん" loading="lazy" />
+					<HamiImage src="/images/hami/gekikara-card.avif" alt="激辛ラーメンを前にしたあくたん、ハミちゃん、ミルちゃん" />
 				</div>
 				<div class="new-face-copy">
 					<p class="section-kicker">NEW FACE</p>
@@ -855,10 +851,10 @@ const hamiStructuredData = {
 				<div class="character-showcase-grid">
 					<article class="character-card hami-card">
 						<div class="character-meal-frame">
-							<img src="/images/hami/hami-happy-meal.png" alt="ご飯を食べて幸せそうな羽村美緒" loading="lazy" />
+							<HamiImage src="/images/hami/hami-happy-meal.avif" alt="ご飯を食べて幸せそうな羽村美緒" />
 						</div>
 						<div class="character-profile-row">
-							<img src="/images/hami/hami-dynamic.png" alt="羽村美緒" class="character-stand" loading="lazy" />
+							<HamiImage src="/images/hami/hami-dynamic.avif" alt="羽村美緒" class="character-stand" />
 							<div class="character-copy">
 								<p class="section-kicker">HAMICHAN</p>
 								<h3>羽村 美緒</h3>
@@ -876,10 +872,10 @@ const hamiStructuredData = {
 					</article>
 					<article class="character-card miru-card">
 						<div class="character-meal-frame">
-							<img src="/images/hami/miru-manga-meat.png" alt="漫画肉にかぶりつく美沙尾ぷるむ" loading="lazy" />
+							<HamiImage src="/images/hami/miru-manga-meat.avif" alt="漫画肉にかぶりつく美沙尾ぷるむ" />
 						</div>
 						<div class="character-profile-row">
-							<img src="/images/hami/miru-dynamic.png" alt="美沙尾ぷるむ" class="character-stand" loading="lazy" />
+							<HamiImage src="/images/hami/miru-dynamic.avif" alt="美沙尾ぷるむ" class="character-stand" />
 							<div class="character-copy">
 								<p class="section-kicker">MIRUCHAN</p>
 								<h3>美沙尾 ぷるむ</h3>
@@ -897,12 +893,12 @@ const hamiStructuredData = {
 					</article>
 					<article class="character-card akutan-card" id="akutan">
 						<div class="akutan-meal-frame">
-							<img src="/images/hami/akutan-reveal.png" alt="激辛ラーメンを持ち上げる阿久科辛子" loading="lazy" />
+							<HamiImage src="/images/hami/akutan-reveal.avif" alt="激辛ラーメンを持ち上げる阿久科辛子" />
 							<span>NEW CHARACTER</span>
 						</div>
 						<div class="akutan-profile-row">
 							<div class="akutan-expression-strip">
-								<img src="/images/hami/akutan-expressions.png" alt="あくたんの不敵な笑顔、集中、動揺、柔らかな笑顔" loading="lazy" />
+								<HamiImage src="/images/hami/akutan-expressions.avif" alt="あくたんの不敵な笑顔、集中、動揺、柔らかな笑顔" />
 							</div>
 							<div class="character-copy">
 								<p class="section-kicker">AKUTAN</p>
@@ -921,7 +917,7 @@ const hamiStructuredData = {
 					</article>
 				</div>
 				<figure class="trio-lineup">
-					<img src="/images/hami/character-lineup.png" alt="ハミちゃん、ミルちゃん、あくたんの全身と身長差" loading="lazy" />
+					<HamiImage src="/images/hami/character-lineup.avif" alt="ハミちゃん、ミルちゃん、あくたんの全身と身長差" />
 					<figcaption>小さなリアクション王、静かな大食い、赤い姉御。三人になりました。</figcaption>
 				</figure>
 			</section>
@@ -937,7 +933,7 @@ const hamiStructuredData = {
 				<div class="episode-grid">
 					{episodes.map((episode) => episode.isUpcoming ? (
 						<article class="episode-card is-upcoming" aria-label={`${episode.title}は公開準備中`}>
-							<img src={episode.image} alt={episode.title} loading="lazy" />
+							<HamiImage src={episode.image} alt={episode.title} />
 							<div class="episode-info">
 								<span>{episode.no}</span>
 								<h3>{episode.title}</h3>
@@ -954,7 +950,7 @@ const hamiStructuredData = {
 							rel="noreferrer"
 							aria-label={`${episode.title}をYouTubeで見る`}
 						>
-							<img src={episode.image} alt={episode.title} loading="lazy" />
+							<HamiImage src={episode.image} alt={episode.title} />
 							<div class="episode-info">
 								<span>{episode.no}</span>
 								<h3>{episode.title}</h3>
@@ -970,7 +966,7 @@ const hamiStructuredData = {
 					<div>
 						{specials.map((episode) => (
 							<a class="extra-card" href={youtubeWatchUrl(episode.youtubeId)} target="_blank" rel="noreferrer">
-								<img src={episode.image} alt="" loading="lazy" />
+								<HamiImage src={episode.image} alt="" />
 								<span><small>{episode.no}</small><strong>{episode.title}</strong><em>{episode.copy}</em></span>
 							</a>
 						))}
@@ -1015,14 +1011,14 @@ const hamiStructuredData = {
 							<li>激辛のラーメン</li>
 						</ul>
 					</article>
-					<img
-						src="/images/hami/character-lineup.png"
+					<HamiImage
+						src="/images/hami/character-lineup.avif"
 						alt="ハミちゃん、ミルちゃん、あくたんの全身設定"
 						class="board-lineup"
 						loading="lazy"
 					/>
-					<img
-						src="/images/hami/akutan-group.png"
+					<HamiImage
+						src="/images/hami/akutan-group.avif"
 						alt="激辛ラーメンを囲む三人の制作資料"
 						class="board-scene"
 						loading="lazy"
@@ -1038,7 +1034,7 @@ const hamiStructuredData = {
 				<div class="photo-scatter">
 					{galleryFrames.map((frame) => (
 						<figure class="photo-card" style={`--tilt: ${frame.tilt}deg; --lift: ${frame.lift}rem`}>
-							<img src={frame.image} alt="ハミちゃんの日常飯 ギャラリー" loading="lazy" />
+							<HamiImage src={frame.image} alt="ハミちゃんの日常飯 ギャラリー" />
 							<figcaption>{frame.label}</figcaption>
 						</figure>
 					))}
@@ -1208,6 +1204,10 @@ const hamiStructuredData = {
 	video {
 		max-width: 100%;
 		display: block;
+	}
+
+	img {
+		height: auto;
 	}
 
 	.preview-header {
@@ -3393,8 +3393,33 @@ const hamiStructuredData = {
 		}
 
 		.proposal-a {
-			padding-top: 5rem;
-			place-items: start center;
+			display: grid;
+			grid-template-columns: minmax(4.5rem, 0.78fr) minmax(10rem, 1.45fr) minmax(4.75rem, 0.82fr);
+			grid-template-areas:
+				"label label label"
+				"hami logo miru"
+				"title title title"
+				"lead lead lead"
+				"note note note"
+				"actions actions actions";
+			column-gap: 0.25rem;
+			row-gap: 0.8rem;
+			min-height: auto;
+			padding: 2.25rem 0.75rem 3.5rem;
+			place-items: initial;
+			align-items: center;
+		}
+
+		.hero-copy {
+			display: contents;
+		}
+
+		.site-label {
+			position: relative;
+			z-index: 6;
+			grid-area: label;
+			justify-self: center;
+			text-align: center;
 		}
 
 		.watermark-card {
@@ -3428,19 +3453,26 @@ const hamiStructuredData = {
 		}
 
 		.float-character {
-			width: 13.5rem;
-			max-height: 46vh;
-			bottom: 1rem;
+			position: relative;
+			inset: auto;
+			align-self: end;
+			max-width: 100%;
+			max-height: 14rem;
+			animation-duration: 5.8s;
 		}
 
 		.float-character.hami {
-			left: 0.65rem;
-			width: min(12rem, 30vw);
+			grid-area: hami;
+			justify-self: end;
+			width: min(9rem, 28vw);
+			margin-right: -0.45rem;
 		}
 
 		.float-character.miru {
-			right: 4.6rem;
-			width: min(13rem, 33vw);
+			grid-area: miru;
+			justify-self: start;
+			width: min(9.6rem, 30vw);
+			margin-left: -0.5rem;
 		}
 
 		.hero-copy h1,
@@ -3462,16 +3494,51 @@ const hamiStructuredData = {
 		}
 
 		.hero-logo {
-			width: min(18.5rem, 66vw);
+			position: relative;
+			z-index: 6;
+			grid-area: logo;
+			align-self: center;
+			justify-self: center;
+			width: 100%;
+			max-width: 18.5rem;
+			margin: 0;
 		}
 
-		.hero-copy p:not(.site-label) {
+		.hero-copy h1 {
+			position: relative;
+			z-index: 6;
+			grid-area: title;
+			justify-self: center;
+			text-align: center;
+		}
+
+		.hero-copy > p:not(.site-label):not(.ai-production-note) {
+			position: relative;
+			z-index: 6;
+			grid-area: lead;
 			max-width: 16.8rem;
 			margin-left: auto;
 			margin-right: auto;
 			font-size: 0.88rem;
 			line-height: 1.72;
+			text-align: center;
 			overflow-wrap: anywhere;
+		}
+
+		.hero-copy p.ai-production-note {
+			position: relative;
+			z-index: 6;
+			grid-area: note;
+			justify-self: center;
+			margin-top: 0;
+		}
+
+		.hero-actions {
+			position: relative;
+			z-index: 6;
+			grid-area: actions;
+			width: 100%;
+			margin-top: 0.35rem;
 		}
 
 		.mini-section,

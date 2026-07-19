@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import CallToAction from "../components/CallToAction.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Grid from "../components/Grid.astro";
+import HamiImage from "../components/hami/HamiImage.astro";
 import Hero from "../components/Hero.astro";
 import Icon from "../components/Icon.astro";
 import Pill from "../components/Pill.astro";
@@ -242,13 +243,13 @@ const homeStructuredData = {
 			<div class="gallery">
 				<a href="/hami-preview/" class="hami-special-card">
 					<div class="hami-card-bg" aria-hidden="true">
-						<img src="/images/hami/food-pile.jpg" alt="" class="hami-food-bg" />
-						<img src="/images/hami/hami-dynamic.png" alt="" class="hami-card-hami" />
-						<img src="/images/hami/miru-dynamic.png" alt="" class="hami-card-miru" />
+						<HamiImage src="/images/hami/food-pile.avif" alt="" class="hami-food-bg" />
+						<HamiImage src="/images/hami/hami-dynamic.avif" alt="" class="hami-card-hami" />
+						<HamiImage src="/images/hami/miru-dynamic.avif" alt="" class="hami-card-miru" />
 					</div>
 					<div class="hami-card-content">
 						<span class="hami-eyebrow">SPECIAL SITE</span>
-						<img src="/images/hami/logo.png" alt="ハミちゃんの日常飯" class="hami-card-logo" />
+						<HamiImage src="/images/hami/logo.avif" alt="ハミちゃんの日常飯" class="hami-card-logo" />
 						<p class="hami-subtitle">今日のご飯は一味違う？</p>
 						<p class="hami-tagline">
 							食べることが大好きなハミちゃんの、おいしい、うれしい、ちょっとおかしい日常飯アニメ。
@@ -368,6 +369,10 @@ const homeStructuredData = {
 <ContactCTA />
 
 <style>
+	.hami-image {
+		height: auto;
+	}
+
 	.site-title {
 		position: fixed;
 		top: 1rem;

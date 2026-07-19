@@ -1,0 +1,836 @@
+{
+  "/images/hami/akutan-expressions.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 114381,
+    "hasAlpha": false
+  },
+  "/images/hami/akutan-group.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 162059,
+    "hasAlpha": false
+  },
+  "/images/hami/akutan-reveal.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 135962,
+    "hasAlpha": false
+  },
+  "/images/hami/booth/acrylic-akutan.avif": {
+    "width": 1024,
+    "height": 1024,
+    "bytes": 20250,
+    "hasAlpha": false
+  },
+  "/images/hami/booth/acrylic-hami.avif": {
+    "width": 1024,
+    "height": 1024,
+    "bytes": 16010,
+    "hasAlpha": false
+  },
+  "/images/hami/booth/acrylic-miru.avif": {
+    "width": 1024,
+    "height": 1024,
+    "bytes": 21953,
+    "hasAlpha": false
+  },
+  "/images/hami/booth/clearfile-hami-miru.avif": {
+    "width": 1024,
+    "height": 1024,
+    "bytes": 105837,
+    "hasAlpha": false
+  },
+  "/images/hami/booth/clearfile-hami.avif": {
+    "width": 1024,
+    "height": 1024,
+    "bytes": 114135,
+    "hasAlpha": false
+  },
+  "/images/hami/booth/clearfile-trio.avif": {
+    "width": 1024,
+    "height": 1024,
+    "bytes": 126229,
+    "hasAlpha": false
+  },
+  "/images/hami/character-lineup.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 54325,
+    "hasAlpha": false
+  },
+  "/images/hami/chiles-card.avif": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 111495,
+    "hasAlpha": false
+  },
+  "/images/hami/compilation-card.avif": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 193168,
+    "hasAlpha": false
+  },
+  "/images/hami/food-pile.avif": {
+    "width": 1800,
+    "height": 1100,
+    "bytes": 116702,
+    "hasAlpha": false
+  },
+  "/images/hami/fried-egg-card.avif": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 135804,
+    "hasAlpha": false
+  },
+  "/images/hami/gekikara-card.avif": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 209715,
+    "hasAlpha": false
+  },
+  "/images/hami/gyoza-card.avif": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 144348,
+    "hasAlpha": false
+  },
+  "/images/hami/hami-cutout.avif": {
+    "width": 263,
+    "height": 838,
+    "bytes": 18604,
+    "hasAlpha": true
+  },
+  "/images/hami/hami-dynamic.avif": {
+    "width": 1024,
+    "height": 1536,
+    "bytes": 61280,
+    "hasAlpha": true
+  },
+  "/images/hami/hami-happy-meal.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 88778,
+    "hasAlpha": false
+  },
+  "/images/hami/hot-sand-beauty.avif": {
+    "width": 2048,
+    "height": 1152,
+    "bytes": 133479,
+    "hasAlpha": false
+  },
+  "/images/hami/hot-sand-eating.avif": {
+    "width": 2048,
+    "height": 1152,
+    "bytes": 160571,
+    "hasAlpha": false
+  },
+  "/images/hami/hot-sand-kitchen.avif": {
+    "width": 2048,
+    "height": 1152,
+    "bytes": 185580,
+    "hasAlpha": false
+  },
+  "/images/hami/hotdog-card.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 53012,
+    "hasAlpha": false
+  },
+  "/images/hami/karaage-card.avif": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 137692,
+    "hasAlpha": false
+  },
+  "/images/hami/logo.avif": {
+    "width": 1376,
+    "height": 768,
+    "bytes": 68054,
+    "hasAlpha": true
+  },
+  "/images/hami/material-hotdog-theater.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 53012,
+    "hasAlpha": false
+  },
+  "/images/hami/material-hotsand-hami.avif": {
+    "width": 1254,
+    "height": 720,
+    "bytes": 23950,
+    "hasAlpha": true
+  },
+  "/images/hami/material-hotsand-plate.avif": {
+    "width": 1254,
+    "height": 720,
+    "bytes": 47920,
+    "hasAlpha": true
+  },
+  "/images/hami/material-karaage-pack.avif": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 137692,
+    "hasAlpha": false
+  },
+  "/images/hami/material-napolitan-face.avif": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 24809,
+    "hasAlpha": true
+  },
+  "/images/hami/material-ng-butter.avif": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 38793,
+    "hasAlpha": true
+  },
+  "/images/hami/material-omurice-cafe.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 67463,
+    "hasAlpha": false
+  },
+  "/images/hami/material-omurice-plate.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 178271,
+    "hasAlpha": false
+  },
+  "/images/hami/material-tkg-hami.avif": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 43215,
+    "hasAlpha": true
+  },
+  "/images/hami/material-tkg-ingredients.avif": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 33285,
+    "hasAlpha": true
+  },
+  "/images/hami/material-toast-cheese.avif": {
+    "width": 720,
+    "height": 1254,
+    "bytes": 19100,
+    "hasAlpha": true
+  },
+  "/images/hami/material-toast-sleep.avif": {
+    "width": 720,
+    "height": 1254,
+    "bytes": 16388,
+    "hasAlpha": true
+  },
+  "/images/hami/miru-cutout.avif": {
+    "width": 338,
+    "height": 836,
+    "bytes": 30979,
+    "hasAlpha": true
+  },
+  "/images/hami/miru-dynamic.avif": {
+    "width": 1024,
+    "height": 1536,
+    "bytes": 110861,
+    "hasAlpha": true
+  },
+  "/images/hami/miru-manga-meat.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 118363,
+    "hasAlpha": false
+  },
+  "/images/hami/napolitan-card.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 236996,
+    "hasAlpha": false
+  },
+  "/images/hami/ng-card.avif": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 54965,
+    "hasAlpha": true
+  },
+  "/images/hami/og-card.avif": {
+    "width": 1200,
+    "height": 630,
+    "bytes": 43725,
+    "hasAlpha": false
+  },
+  "/images/hami/og-image.avif": {
+    "width": 1200,
+    "height": 630,
+    "bytes": 45884,
+    "hasAlpha": true
+  },
+  "/images/hami/omurice-card.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 178271,
+    "hasAlpha": false
+  },
+  "/images/hami/pudding-card.avif": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 76708,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/characters/akutan-spicy.avif": {
+    "width": 1024,
+    "height": 1536,
+    "bytes": 59154,
+    "hasAlpha": true
+  },
+  "/images/hami/recipes/characters/hami-flustered.avif": {
+    "width": 1024,
+    "height": 1536,
+    "bytes": 82766,
+    "hasAlpha": true
+  },
+  "/images/hami/recipes/characters/hami-thumbsup.avif": {
+    "width": 1024,
+    "height": 1536,
+    "bytes": 81491,
+    "hasAlpha": true
+  },
+  "/images/hami/recipes/characters/miru-gyoza.avif": {
+    "width": 1024,
+    "height": 1536,
+    "bytes": 95160,
+    "hasAlpha": true
+  },
+  "/images/hami/recipes/characters/miru-tip.avif": {
+    "width": 1024,
+    "height": 1536,
+    "bytes": 101927,
+    "hasAlpha": true
+  },
+  "/images/hami/recipes/episodes/ameoto-yaki-gyoza/ending.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 35345,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/ameoto-yaki-gyoza/hero.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 58448,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/ameoto-yaki-gyoza/step-01.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 31704,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/ameoto-yaki-gyoza/step-02.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 43849,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/ameoto-yaki-gyoza/step-03.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 17586,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/ameoto-yaki-gyoza/step-04.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 48313,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/ameoto-yaki-gyoza/step-05.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 47869,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/ameoto-yaki-gyoza/step-06.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 39931,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/ameoto-yaki-gyoza/step-07.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 61211,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/ameoto-yaki-gyoza/step-08.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 39549,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/ameoto-yaki-gyoza/step-09.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 58448,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/butter-rayu-tkg/ending.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 47475,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/butter-rayu-tkg/hero.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 26617,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/butter-rayu-tkg/step-01.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 34773,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/butter-rayu-tkg/step-02.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 44483,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/butter-rayu-tkg/step-03.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 31597,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/butter-rayu-tkg/step-04.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 37265,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/butter-rayu-tkg/step-05.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 43539,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/butter-rayu-tkg/step-06.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 26617,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/chiles-en-nogada-two-ways/ending.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 61354,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/chiles-en-nogada-two-ways/hero.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 59801,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/chiles-en-nogada-two-ways/step-01.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 33956,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/chiles-en-nogada-two-ways/step-02.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 44724,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/chiles-en-nogada-two-ways/step-03.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 62337,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/chiles-en-nogada-two-ways/step-04.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 80016,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/chiles-en-nogada-two-ways/step-05.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 15641,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/chiles-en-nogada-two-ways/step-06.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 30308,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/chiles-en-nogada-two-ways/step-07.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 34988,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/chiles-en-nogada-two-ways/step-08.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 41114,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/cinema-three-hotdogs/ending.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 29863,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/cinema-three-hotdogs/hero.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 45230,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/double-cheese-ham-toast/ending.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 26596,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/double-cheese-ham-toast/hero.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 31576,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/double-cheese-ham-toast/step-01.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 25333,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/double-cheese-ham-toast/step-02.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 27069,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/double-cheese-ham-toast/step-03.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 21780,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/double-cheese-ham-toast/step-04.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 16078,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/double-cheese-ham-toast/step-05.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 31576,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/dreamy-anko-taiyaki/ending.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 38911,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/dreamy-anko-taiyaki/hero.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 42814,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/fried-egg-breakfast-war/ending.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 50712,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/fried-egg-breakfast-war/hero.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 39019,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/friendship-fuwatoro-omurice/ending.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 124106,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/friendship-fuwatoro-omurice/hero.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 83923,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/hardboiled-caramel-pudding/ending.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 47868,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/hardboiled-caramel-pudding/hero.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 44953,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/home-spicy-miso-ramen/ending.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 47651,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/home-spicy-miso-ramen/hero.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 62012,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/karaage-crisp-reheat/ending.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 34117,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/karaage-crisp-reheat/hero.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 47260,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/karaage-crisp-reheat/step-01.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 40900,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/karaage-crisp-reheat/step-02.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 30614,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/karaage-crisp-reheat/step-03.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 48530,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/karaage-crisp-reheat/step-04.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 38560,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/karaage-crisp-reheat/step-05.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 47260,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/karaage-crisp-reheat/step-06.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 38119,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/kissaten-napolitan/ending.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 82051,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/kissaten-napolitan/hero.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 61667,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/kissaten-napolitan/step-01.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 76705,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/kissaten-napolitan/step-02.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 64847,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/kissaten-napolitan/step-03.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 59813,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/kissaten-napolitan/step-04.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 57729,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/kissaten-napolitan/step-05.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 53813,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/kissaten-napolitan/step-06.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 61748,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/kissaten-napolitan/step-07.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 61667,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/tuna-tomato-hot-sand/ending.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 44611,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/tuna-tomato-hot-sand/hero.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 69402,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/tuna-tomato-hot-sand/step-01.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 75241,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/tuna-tomato-hot-sand/step-02.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 127847,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/tuna-tomato-hot-sand/step-03.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 29794,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/tuna-tomato-hot-sand/step-04.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 75359,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/episodes/tuna-tomato-hot-sand/step-05.avif": {
+    "width": 1600,
+    "height": 1000,
+    "bytes": 69402,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/generated/cinema-three-hotdogs/ingredients.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 107893,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/generated/cinema-three-hotdogs/process.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 175725,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/generated/dreamy-anko-taiyaki/ingredients.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 154829,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/generated/dreamy-anko-taiyaki/process.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 168095,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/generated/fried-egg-breakfast-war/ingredients.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 133859,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/generated/fried-egg-breakfast-war/process.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 132825,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/generated/friendship-fuwatoro-omurice/ingredients.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 147402,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/generated/friendship-fuwatoro-omurice/process.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 179022,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/generated/hardboiled-caramel-pudding/ingredients.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 112926,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/generated/hardboiled-caramel-pudding/process.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 143818,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/generated/home-spicy-miso-ramen/ingredients.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 190889,
+    "hasAlpha": false
+  },
+  "/images/hami/recipes/generated/home-spicy-miso-ramen/process.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 182303,
+    "hasAlpha": false
+  },
+  "/images/hami/shopping-card.avif": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 30982,
+    "hasAlpha": false
+  },
+  "/images/hami/taiyaki-card.avif": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 172019,
+    "hasAlpha": false
+  },
+  "/images/hami/tkg-card.avif": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 33285,
+    "hasAlpha": true
+  },
+  "/images/hami/toast-card.avif": {
+    "width": 720,
+    "height": 1254,
+    "bytes": 19100,
+    "hasAlpha": true
+  }
+}

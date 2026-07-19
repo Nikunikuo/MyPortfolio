@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "images:hami-avif": "node scripts/convert-hami-images.mjs",
     "astro": "astro"
   },
   "dependencies": {

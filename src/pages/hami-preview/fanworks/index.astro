@@ -1,4 +1,6 @@
 ---
+import HamiImage from '../../../components/hami/HamiImage.astro';
+
 const canonicalPath = '/hami-preview/fanworks/';
 const siteUrl = Astro.site ?? new URL('https://niku.studio');
 const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
@@ -186,7 +188,7 @@ const structuredData = {
 					<a class="utensil-link" href="#quick-check">まず早見表を確認する</a>
 				</div>
 				<div class="fan-hero__characters" aria-hidden="true">
-					<img src="/images/hami/character-lineup.png" alt="" fetchpriority="high" />
+					<HamiImage src="/images/hami/character-lineup.avif" alt="" />
 				</div>
 			</section>
 
@@ -413,7 +415,7 @@ const structuredData = {
 	}
 
 	a { color: inherit; cursor: url("/images/hami/fork-cursor.svg") 10 10, pointer; }
-	img { display: block; max-width: 100%; }
+	img { display: block; max-width: 100%; height: auto; }
 	h1, h2, h3, p, ul { margin-top: 0; }
 	h1, h2, h3 { letter-spacing: 0; }
 	p, li { line-height: 1.85; }

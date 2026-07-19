@@ -97,6 +97,11 @@ export function recipePath(slug: string) {
 }
 
 export function episodeImagePath(slug: string, fileName: string) {
+	const avifName = fileName.replace(/\.(?:png|jpe?g|webp)$/i, '.avif');
+	return `/images/hami/recipes/episodes/${slug}/${avifName}`;
+}
+
+export function episodeSocialImagePath(slug: string, fileName: string) {
 	return `/images/hami/recipes/episodes/${slug}/${fileName}`;
 }
 
@@ -104,5 +109,5 @@ export function generatedImagePath(
 	slug: string,
 	kind: 'ingredients' | 'process'
 ) {
-	return `/images/hami/recipes/generated/${slug}/${kind}.webp`;
+	return `/images/hami/recipes/generated/${slug}/${kind}.avif`;
 }

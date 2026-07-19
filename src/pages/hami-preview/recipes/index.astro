@@ -1,8 +1,10 @@
 ---
 import HamiCharacterNote from '../../../components/hami/HamiCharacterNote.astro';
+import HamiImage from '../../../components/hami/HamiImage.astro';
 import HamiRecipeLayout from '../../../layouts/HamiRecipeLayout.astro';
 import {
 	episodeImagePath,
+	episodeSocialImagePath,
 	recipePath,
 	recipes,
 } from '../../../data/hamiRecipes';
@@ -32,7 +34,7 @@ const structuredData = {
 	{title}
 	{description}
 	{canonicalPath}
-	ogImage={episodeImagePath('ameoto-yaki-gyoza', 'hero.jpg')}
+	ogImage={episodeSocialImagePath('ameoto-yaki-gyoza', 'hero.jpg')}
 	{structuredData}
 >
 	<section class="recipe-index-hero">
@@ -50,9 +52,9 @@ const structuredData = {
 		</div>
 
 		<div class="recipe-index-hero__visual" aria-hidden="true">
-			<img class="recipe-index-hero__photo recipe-index-hero__photo--one" src={episodeImagePath('friendship-fuwatoro-omurice', 'hero.jpg')} alt="" />
-			<img class="recipe-index-hero__photo recipe-index-hero__photo--two" src={episodeImagePath('ameoto-yaki-gyoza', 'hero.jpg')} alt="" />
-			<img class="recipe-index-hero__photo recipe-index-hero__photo--three" src={episodeImagePath('hardboiled-caramel-pudding', 'hero.jpg')} alt="" />
+			<HamiImage class="recipe-index-hero__photo recipe-index-hero__photo--one" src={episodeImagePath('friendship-fuwatoro-omurice', 'hero.jpg')} alt="" />
+			<HamiImage class="recipe-index-hero__photo recipe-index-hero__photo--two" src={episodeImagePath('ameoto-yaki-gyoza', 'hero.jpg')} alt="" />
+			<HamiImage class="recipe-index-hero__photo recipe-index-hero__photo--three" src={episodeImagePath('hardboiled-caramel-pudding', 'hero.jpg')} alt="" />
 			<div class="recipe-index-hero__seal">全話<br />公開中</div>
 		</div>
 	</section>
@@ -86,14 +88,12 @@ const structuredData = {
 		</header>
 
 		<div class="recipe-card-grid">
-			{recipes.map((recipe, index) => (
+			{recipes.map((recipe) => (
 				<article class="recipe-card">
 					<a class="recipe-card__image-link" href={recipePath(recipe.slug)} aria-label={`${recipe.dishTitle}のレシピを見る`}>
-						<img
+						<HamiImage
 							src={episodeImagePath(recipe.slug, 'hero.jpg')}
 							alt={`${recipe.dishTitle}の完成イメージ`}
-							loading={index < 3 ? 'eager' : 'lazy'}
-							decoding="async"
 						/>
 						<span class="recipe-card__number">RECIPE {String(recipe.meta.episodeNumber).padStart(2, '0')}</span>
 						{recipe.meta.hasGeneratedMedia && (

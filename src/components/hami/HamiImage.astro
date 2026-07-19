@@ -1,0 +1,43 @@
+---
+import imageMetadata from '../../data/hami-image-metadata.json';
+
+interface Props {
+	src: string;
+	alt: string;
+	class?: string;
+	width?: number | string;
+	height?: number | string;
+	[key: string]: unknown;
+}
+
+const {
+	src,
+	alt,
+	class: className,
+	width,
+	height,
+	loading: _loading,
+	decoding: _decoding,
+	fetchpriority: _fetchpriority,
+	...attributes
+} = Astro.props;
+
+const metadata = imageMetadata[src as keyof typeof imageMetadata];
+const resolvedWidth = width ?? metadata?.width;
+const resolvedHeight = height ?? metadata?.height;
+
+if (!resolvedWidth || !resolvedHeight) {
+	throw new Error(`Missing width and height metadata for ${src}`);
+}
+---
+
+<img
+	{...attributes}
+	class:list={['hami-image', className]}
+	{src}
+	{alt}
+	width={resolvedWidth}
+	height={resolvedHeight}
+	loading="lazy"
+	decoding="async"
+/>
