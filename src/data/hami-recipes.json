@@ -1,0 +1,2238 @@
+{
+  "schemaVersion": 1,
+  "sourceTypeLegend": {
+    "episode_fact": "完成動画・確定台本・制作資料で確認できる内容",
+    "household_proposal": "家庭で再現しやすいように補った分量・時間・手順"
+  },
+  "recipes": [
+    {
+      "slug": "butter-rayu-tkg",
+      "episodeTitle": "背徳の卵かけご飯編",
+      "dishTitle": "背徳のバターラー油TKG",
+      "source": "TKG編/ハミちゃん１.mp4",
+      "lead": "熱いご飯にバターを沈め、卵を落として辛味をひと回し。疲れた夜にも5分でたどり着ける、ハミちゃん流の濃厚たまごかけご飯です。",
+      "servings": "1人分",
+      "yield": "丼1杯",
+      "time": "約5分",
+      "difficulty": "★☆☆☆☆",
+      "facts": [
+        "作中では、熱いご飯へバターを先にのせて溶かしている。",
+        "その上へ生卵を割り入れ、赤い辛味オイルを回しかけている。",
+        "料理はハミちゃん一人分の丼として描かれている。"
+      ],
+      "proposals": [
+        "g・小さじ表記と5分という調理時間は家庭向けの提案値。",
+        "映像の赤い調味料は、家庭で入手しやすいラー油として再現する。",
+        "しょうゆは味の調整用の任意材料として加える。"
+      ],
+      "ingredientGroups": [
+        {
+          "title": "TKG",
+          "items": [
+            {
+              "name": "温かいご飯",
+              "amount": "200g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "生食用の卵",
+              "amount": "1個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "バター",
+              "amount": "10g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ラー油",
+              "amount": "小さじ1〜2",
+              "sourceType": "household_proposal"
+            }
+          ]
+        },
+        {
+          "title": "味の調整",
+          "items": [
+            {
+              "name": "しょうゆ",
+              "amount": "小さじ1/2〜1・お好みで",
+              "sourceType": "household_proposal"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "ご飯を熱々にする",
+          "body": "丼へ炊きたて、または十分に温めたご飯を盛ります。バターが溶ける温度が目安です。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "中央を少しくぼませる",
+          "body": "卵が流れ落ちないよう、ご飯の中央をスプーンで浅くくぼませます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "バターを先にのせる",
+          "body": "熱いご飯の中央へバターをのせます。",
+          "sourceType": "episode_fact",
+          "quote": "「まずはこの罪深いバターから」"
+        },
+        {
+          "title": "少し待って溶かす",
+          "body": "20〜30秒待ち、バターの縁が溶け始めたら、ご飯へ軽くなじませます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "卵を別容器へ割る",
+          "body": "殻の混入や状態を確認するため、清潔な小鉢へ卵を割ります。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "卵を落とす",
+          "body": "バターをのせたご飯のくぼみへ卵をそっと移します。",
+          "sourceType": "episode_fact"
+        },
+        {
+          "title": "ラー油を回しかける",
+          "body": "卵の周囲へラー油を小さじ1から回しかけ、辛さを見ながら増やします。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "すぐに混ぜて食べる",
+          "body": "好みでしょうゆを足し、黄身・バター・ご飯を混ぜて、作ったらすぐにいただきます。",
+          "sourceType": "household_proposal"
+        }
+      ],
+      "tips": [
+        "バターを卵より先にのせると、ご飯の熱で均一に溶けやすくなります。",
+        "ラー油は小さじ1から。塩気のある商品なら、しょうゆは後から加えます。",
+        "冷たい卵を使う場合は、ご飯をしっかり熱くして温度差を楽しみます。"
+      ],
+      "allergens": [
+        "卵",
+        "乳",
+        "大豆"
+      ],
+      "safety": [
+        "卵は生食用で、賞味期限内の新鮮なものを使い、使用直前まで冷蔵する。",
+        "殻に触れた手と器具を洗い、割った卵は室温へ置かず、作ったらすぐ食べる。",
+        "乳幼児、高齢者、妊娠中の方、免疫機能が低下している方は卵を十分に加熱する。"
+      ],
+      "comments": [
+        {
+          "character": "hami",
+          "text": "まずは、この罪深いバターから。",
+          "slot": "hero"
+        },
+        {
+          "character": "miru",
+          "text": "ラー油は、あとから足せる。",
+          "slot": "tips"
+        }
+      ],
+      "media": {
+        "hero": 88,
+        "steps": [
+          58,
+          63,
+          68,
+          78,
+          83,
+          88
+        ],
+        "ending": 103
+      },
+      "safetyTitle": "生卵は、新鮮さと温度管理を最優先",
+      "safetyLead": "殻に触れた手を洗い、生食用の卵を割ったらすぐに食べます。体調や年齢に不安がある場合は、卵を十分に加熱してください。",
+      "endingQuote": "「まずはこの罪深いバターから」",
+      "endingText": "バターが溶けたら、疲れた夜の勝ちです。"
+    },
+    {
+      "slug": "kissaten-napolitan",
+      "episodeTitle": "黄金のナポリタン編",
+      "dishTitle": "喫茶店の昔ながらナポリタン",
+      "source": "ナポリタン編/480p.mp4",
+      "lead": "焼いたケチャップの甘い香り、ウインナーの焼き目、少しやわらかな麺。喫茶店のマスターが見せてくれた工程を、2人分へ落とし込んだ王道ナポリタンです。",
+      "servings": "2人分",
+      "yield": "2皿",
+      "time": "約25分",
+      "difficulty": "★★☆☆☆",
+      "facts": [
+        "作中で材料としてウインナー、玉ねぎ、ピーマンが示される。",
+        "ウインナーを焼き色がつくまで炒め、玉ねぎ、ピーマン、麺の順に加える。",
+        "ケチャップ、塩、こしょう、ウスターソースで味を調え、最後にバターを絡める。",
+        "仕上げに皿へ盛り、パセリを散らしている。"
+      ],
+      "proposals": [
+        "材料のg・本数・調味料の量と25分という時間は家庭向けの提案値。",
+        "昔ながらのやわらかさを再現するため、麺を表示より1分長くゆでる。",
+        "ケチャップの水分を軽く飛ばす時間を家庭向け工程として補う。"
+      ],
+      "ingredientGroups": [
+        {
+          "title": "具と麺",
+          "items": [
+            {
+              "name": "スパゲッティ",
+              "amount": "200g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ウインナー",
+              "amount": "6本",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "玉ねぎ",
+              "amount": "1/2個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ピーマン",
+              "amount": "2個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "植物油",
+              "amount": "小さじ2",
+              "sourceType": "household_proposal"
+            }
+          ]
+        },
+        {
+          "title": "味つけ",
+          "items": [
+            {
+              "name": "トマトケチャップ",
+              "amount": "大さじ6",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ウスターソース",
+              "amount": "大さじ1",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "バター",
+              "amount": "15g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "塩・黒こしょう",
+              "amount": "各少々",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "乾燥パセリ",
+              "amount": "少々",
+              "sourceType": "household_proposal"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "具材を切る",
+          "body": "ウインナーは斜め切り、玉ねぎは薄切り、ピーマンは細切りにします。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "麺を少し長めにゆでる",
+          "body": "塩を加えた湯でスパゲッティを表示時間より1分長くゆで、湯を切ります。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "ウインナーを焼く",
+          "body": "フライパンへ油を熱し、ウインナーにしっかり焼き色がつくまで炒めます。",
+          "sourceType": "episode_fact"
+        },
+        {
+          "title": "玉ねぎを炒める",
+          "body": "玉ねぎを加え、しんなりして透き通り、甘い香りが出るまで炒めます。",
+          "sourceType": "episode_fact"
+        },
+        {
+          "title": "ピーマンは軽く",
+          "body": "ピーマンを加え、色と食感が残るよう約1分だけ炒め合わせます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "麺をなじませる",
+          "body": "湯切りした麺を加え、具と油を全体へなじませます。",
+          "sourceType": "episode_fact"
+        },
+        {
+          "title": "ケチャップを焼く",
+          "body": "ケチャップ、ウスターソース、塩、こしょうを加え、中火で1〜2分、水っぽさがなくなるまで炒めます。",
+          "sourceType": "household_proposal",
+          "quote": "「ケチャップ焼いてる匂い……」"
+        },
+        {
+          "title": "バターで仕上げる",
+          "body": "火を弱めてバターを絡め、2皿へ盛ってパセリを散らします。",
+          "sourceType": "episode_fact"
+        }
+      ],
+      "tips": [
+        "ウインナーの焼き目を先につけると、香ばしさがソースへ移ります。",
+        "ピーマンは後から入れ、色とシャキッとした食感を残します。",
+        "最後のバターは火を弱めてから加えると、香りが飛びにくくなります。"
+      ],
+      "allergens": [
+        "小麦",
+        "乳",
+        "大豆",
+        "豚肉"
+      ],
+      "safety": [
+        "鍋の湯、湯切り時の蒸気、熱いフライパンによるやけどに注意する。",
+        "ウインナーは製品表示に従って中心まで十分に加熱する。",
+        "作った料理を室温へ長く置かず、温かいうちに食べる。"
+      ],
+      "comments": [
+        {
+          "character": "hami",
+          "text": "ケチャップ焼いてる匂い……！",
+          "slot": "hero"
+        },
+        {
+          "character": "miru",
+          "text": "ピーマンは、あと。",
+          "slot": "steps"
+        }
+      ],
+      "media": {
+        "hero": 135,
+        "steps": [
+          90,
+          96,
+          102,
+          108,
+          115,
+          126,
+          135
+        ],
+        "ending": 170
+      },
+      "safetyTitle": "麺の湯切りと熱いフライパンに注意",
+      "safetyLead": "ゆで湯と蒸気は顔から離して扱い、炒め終えたフライパンの柄へ不用意に触れないようにします。",
+      "endingQuote": "「ケチャップ焼いてる匂い……」",
+      "endingText": "昔ながらの味は、焼いたケチャップの香りから始まります。"
+    },
+    {
+      "slug": "cinema-three-hotdogs",
+      "episodeTitle": "魅惑のホットドッグ編",
+      "dishTitle": "映画館みたいな3種のホットドッグ",
+      "source": "3.ホットドッグ編/投稿用.mp4",
+      "lead": "プレーン、チーズ、そしてカラフルなスペシャル。映画館の暗がりでハミちゃんの期待を全部さらった3本を、家でシェアできる盛り合わせにします。",
+      "servings": "1〜2人分",
+      "yield": "3本・3種類",
+      "time": "約25分",
+      "difficulty": "★★☆☆☆",
+      "facts": [
+        "作中ではハミちゃんが映画館の売店で、コーラと3種類のホットドッグを購入する。",
+        "映像でケチャップとマスタードのプレーン、チーズ、刻んだ赤・緑・白の具をのせたスペシャルが確認できる。",
+        "作中に家庭での調理工程はない。"
+      ],
+      "proposals": [
+        "本ページは映画館の3本を家庭で再現する提案レシピ。",
+        "スペシャルの刻み具は、映像の色をトマト、ピクルス、玉ねぎで再現する。",
+        "材料量と加熱時間は家庭向けの提案値。"
+      ],
+      "ingredientGroups": [
+        {
+          "title": "共通",
+          "items": [
+            {
+              "name": "ホットドッグ用パン",
+              "amount": "3個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "フランクフルト",
+              "amount": "3本",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "バター",
+              "amount": "5g",
+              "sourceType": "household_proposal"
+            }
+          ]
+        },
+        {
+          "title": "プレーンとチーズ",
+          "items": [
+            {
+              "name": "ケチャップ",
+              "amount": "適量",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "マスタード",
+              "amount": "適量",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "チェダースライス",
+              "amount": "1枚",
+              "sourceType": "household_proposal"
+            }
+          ]
+        },
+        {
+          "title": "スペシャル",
+          "items": [
+            {
+              "name": "トマト",
+              "amount": "1/4個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "玉ねぎ",
+              "amount": "1/8個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "きゅうりのピクルス",
+              "amount": "20g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "パセリ",
+              "amount": "少々",
+              "sourceType": "household_proposal"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "スペシャルの具を刻む",
+          "body": "トマト、玉ねぎ、ピクルスを5mm角に刻みます。玉ねぎは水へ5分さらし、水気をよく拭きます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "パンを開く",
+          "body": "パンへ縦に切れ目を入れ、内側へ薄くバターを塗ります。切り離さないようにします。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "パンを温める",
+          "body": "トースターで1〜2分、表面が乾かない程度に温めます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "ソーセージを焼く",
+          "body": "フライパンで転がしながら、製品表示に従って中心まで十分に加熱します。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "3本へはさむ",
+          "body": "温めたパンへソーセージを1本ずつはさみます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "プレーンを作る",
+          "body": "1本へケチャップとマスタードを細くかけます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "チーズを作る",
+          "body": "1本へチーズをのせ、余熱かトースターで軽く溶かします。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "スペシャルを仕上げる",
+          "body": "最後の1本へ刻み野菜をたっぷりのせ、パセリを散らします。",
+          "sourceType": "household_proposal",
+          "quote": "「じゃあ、最後のスペシャルー」"
+        }
+      ],
+      "tips": [
+        "スペシャルの具は水気をよく切ると、パンがべたつきません。",
+        "パンは焼きすぎず、ソーセージと同時に温かくなるよう仕上げます。",
+        "3本を半分に切れば、2人でも全種類を食べ比べできます。"
+      ],
+      "allergens": [
+        "小麦",
+        "卵",
+        "乳",
+        "大豆",
+        "豚肉"
+      ],
+      "safety": [
+        "フランクフルトは製品表示に従い、中心まで十分に加熱する。",
+        "溶けたチーズと焼きたてのソーセージは非常に熱いため、少し休ませる。",
+        "刻んだ生野菜は清潔な器具で扱い、肉用の器具と共用しない。"
+      ],
+      "comments": [
+        {
+          "character": "hami",
+          "text": "私の期待、もう映画じゃなくなってる。",
+          "slot": "hero"
+        },
+        {
+          "character": "miru",
+          "text": "三本。全部ちがう。",
+          "slot": "ingredients"
+        }
+      ],
+      "media": {
+        "hero": 142,
+        "steps": [
+          95,
+          112,
+          142,
+          165,
+          180,
+          195
+        ],
+        "ending": 221
+      },
+      "safetyTitle": "熱いソーセージとチーズは少し休ませて",
+      "safetyLead": "加熱直後は中身が熱く、かじった瞬間に肉汁やチーズでやけどしやすいため、盛りつけてから少し待ちます。",
+      "endingQuote": "「じゃあ、最後のスペシャルー」",
+      "endingText": "映画の内容を忘れても、3本の味はちゃんと残ります。"
+    },
+    {
+      "slug": "karaage-crisp-reheat",
+      "episodeTitle": "復活のからあげ編",
+      "dishTitle": "お惣菜からあげのサクサク復活術",
+      "source": "からあげ編/投稿用.mp4",
+      "lead": "味はいい。でも、衣がしんなり。スーパーのからあげを電子レンジで中から温め、トースターで衣へもう一度命を入れる、ハミちゃんの復活手順です。",
+      "servings": "1〜2人分",
+      "yield": "6〜8個",
+      "time": "約10分",
+      "difficulty": "★☆☆☆☆",
+      "facts": [
+        "作中のからあげはスーパーで購入したお惣菜。",
+        "電子レンジで温めたあと、アルミホイルを使ってトースターへ移す。",
+        "トースター加熱は作中で『だいたい4分ぐらい』とされる。",
+        "家庭で鶏肉を揚げる工程は描かれない。"
+      ],
+      "proposals": [
+        "電子レンジのW数と秒数は、6〜8個を想定した家庭向け目安。",
+        "ホイルを軽くしわにして余分な油との接触を減らす方法を補う。",
+        "レモンは任意の添え物。"
+      ],
+      "ingredientGroups": [
+        {
+          "title": "用意するもの",
+          "items": [
+            {
+              "name": "市販のお惣菜からあげ",
+              "amount": "300g・6〜8個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "アルミホイル",
+              "amount": "トースター皿1枚分",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "レモン",
+              "amount": "1/4個・お好みで",
+              "sourceType": "household_proposal"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "表示を確認する",
+          "body": "購入品の保存方法、消費期限、電子レンジ・トースター使用可否を確認します。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "冷たいからあげを並べる",
+          "body": "電子レンジ対応皿へ重ならないよう並べます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "中から短く温める",
+          "body": "ラップをせず、600Wで40〜60秒を目安に温めます。冷たい場合は10秒ずつ追加します。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "トースターを予熱する",
+          "body": "電子レンジ加熱の間にトースターを高温で予熱します。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "ホイルへしわをつける",
+          "body": "アルミホイルを一度軽く丸めてから広げ、トースター皿へ敷きます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "間隔をあけて移す",
+          "body": "温めたからあげをホイルへ移し、互いに触れないよう並べます。",
+          "sourceType": "episode_fact"
+        },
+        {
+          "title": "衣を4分ほど焼く",
+          "body": "トースターで約4分。表面がぱちぱちしてきたら途中で一度返します。",
+          "sourceType": "household_proposal",
+          "quote": "「衣に、もう一度、命を」"
+        },
+        {
+          "title": "1分休ませる",
+          "body": "加熱後は1分ほど休ませ、表面の蒸気を逃がしてから皿へ盛ります。",
+          "sourceType": "household_proposal"
+        }
+      ],
+      "tips": [
+        "電子レンジだけで長く温めず、中はレンジ、衣はトースターと役割を分けます。",
+        "からあげ同士を離すと、蒸気がこもりにくくなります。",
+        "加熱後にすぐ重ねず、1分休ませると衣が落ち着きます。"
+      ],
+      "allergens": [
+        "小麦",
+        "卵",
+        "乳",
+        "大豆",
+        "鶏肉"
+      ],
+      "safety": [
+        "アルミホイルは電子レンジへ絶対に入れず、トースター工程だけで使う。",
+        "再加熱は中心75℃以上を目安にし、冷たい部分が残れば追加加熱する。",
+        "衣から落ちる油の発煙や発火を避けるため、トースターから目を離さない。",
+        "商品のアレルゲン表示と機器の取扱説明書を必ず確認する。"
+      ],
+      "comments": [
+        {
+          "character": "hami",
+          "text": "衣に、もう一度、命を！",
+          "slot": "hero"
+        },
+        {
+          "character": "miru",
+          "text": "ホイルはレンジに入れない。",
+          "slot": "safety"
+        }
+      ],
+      "media": {
+        "hero": 132,
+        "steps": [
+          15,
+          100,
+          115,
+          125,
+          132,
+          140
+        ],
+        "ending": 150
+      },
+      "safetyTitle": "アルミホイルは電子レンジ禁止",
+      "safetyLead": "電子レンジでは対応皿だけを使い、ホイルはトースターへ移してから。再加熱は中心までしっかり行います。",
+      "endingQuote": "「衣に、もう一度、命を」",
+      "endingText": "買ってきたからあげにも、二度目の揚げたては作れます。"
+    },
+    {
+      "slug": "double-cheese-ham-toast",
+      "episodeTitle": "深夜のトースト編",
+      "dishTitle": "朝から罪のダブルチーズハムトースト",
+      "source": "トースト編/スケール後.mp4",
+      "lead": "食パン、ハム、チーズ。ちゃんと作る元気がない朝でも、重ねて焼けば勝ちになる。チーズは一枚だと不安だから、もちろん二枚です。",
+      "servings": "1人分",
+      "yield": "トースト1枚",
+      "time": "約10分",
+      "difficulty": "★☆☆☆☆",
+      "facts": [
+        "作中で食パン、ハム、チーズ、マヨネーズを使う。",
+        "チーズは1枚ではなく2枚重ねる。",
+        "具を重ねてトースターで焼き、表面にこんがり焼き色をつける。"
+      ],
+      "proposals": [
+        "パンの厚さ、ハムの枚数、マヨネーズ量、焼き時間は家庭向けの提案値。",
+        "黒こしょうは映像の仕上がりを再現する任意材料。"
+      ],
+      "ingredientGroups": [
+        {
+          "title": "1枚分",
+          "items": [
+            {
+              "name": "食パン",
+              "amount": "6枚切り 1枚",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ロースハム",
+              "amount": "2枚",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "スライスチーズ",
+              "amount": "2枚",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "マヨネーズ",
+              "amount": "大さじ1と1/2",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "黒こしょう",
+              "amount": "少々",
+              "sourceType": "household_proposal"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "トースターを予熱する",
+          "body": "トースターを高温で1〜2分予熱します。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "食パンを置く",
+          "body": "トースター対応の受け皿へ食パンを置きます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "ハムを重ねる",
+          "body": "食パンから大きくはみ出さないよう、ハムを2枚重ねます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "チーズを1枚",
+          "body": "ハムの上へスライスチーズを1枚のせます。",
+          "sourceType": "episode_fact"
+        },
+        {
+          "title": "もう1枚重ねる",
+          "body": "隙間を埋めるように2枚目のチーズを重ねます。",
+          "sourceType": "episode_fact",
+          "quote": "「チーズは、1枚だと不安だから、2枚」"
+        },
+        {
+          "title": "マヨネーズを絞る",
+          "body": "チーズの上へマヨネーズを細く往復させ、黒こしょうを振ります。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "こんがり焼く",
+          "body": "トースターで4〜5分、チーズが溶けてマヨネーズへ焼き色がつくまで焼きます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "少し休ませる",
+          "body": "皿へ移して1分待ち、熱いチーズが落ち着いてからいただきます。",
+          "sourceType": "household_proposal"
+        }
+      ],
+      "tips": [
+        "チーズをずらして重ねると、パンの四隅まで覆いやすくなります。",
+        "マヨネーズは細く絞ると焼き色がつきやすく、重くなりすぎません。",
+        "焦げやすいので、最後の1分はトースターの前で色を確認します。"
+      ],
+      "allergens": [
+        "小麦",
+        "卵",
+        "乳",
+        "大豆",
+        "豚肉"
+      ],
+      "safety": [
+        "トースターの受け皿とヒーターへチーズやマヨネーズを直接落とさない。",
+        "溶けたチーズとマヨネーズは非常に熱いため、焼き上がりを少し休ませる。",
+        "使用するパン、ハム、チーズ、マヨネーズのアレルゲン表示を確認する。"
+      ],
+      "comments": [
+        {
+          "character": "hami",
+          "text": "これは、もう勝ちでは？",
+          "slot": "hero"
+        },
+        {
+          "character": "miru",
+          "text": "二枚。安心。",
+          "slot": "ingredients"
+        }
+      ],
+      "media": {
+        "hero": 66,
+        "steps": [
+          15,
+          30,
+          45,
+          60,
+          66
+        ],
+        "ending": 90
+      },
+      "safetyTitle": "焼きたてチーズは見た目以上に熱い",
+      "safetyLead": "表面が冷めても内側は高温です。焼き上がりは1分ほど待ち、トースターから取り出すときはミトンを使います。",
+      "endingQuote": "「チーズは、1枚だと不安だから、2枚」",
+      "endingText": "元気がない朝にも、重ねた分だけ幸福は伸びます。"
+    },
+    {
+      "slug": "friendship-fuwatoro-omurice",
+      "episodeTitle": "友情のふわとろオムライス編",
+      "dishTitle": "友情のふわとろオムライス",
+      "source": "友情のふわとろオムライス編/スケール後.mp4",
+      "lead": "メイドカフェで出会った、ふわふわ卵をまとったケチャップライス。作中ではお店の一皿だから、家庭では一人ずつ卵を焼く再現版にします。",
+      "servings": "2人分",
+      "yield": "2皿",
+      "time": "約30分",
+      "difficulty": "★★★☆☆",
+      "facts": [
+        "作中ではメイドカフェで『ふわとろオムライス』を注文する。",
+        "完成品はケチャップライスの上に、厚くやわらかな卵をのせた形。",
+        "ケチャップをかける演出はあるが、厨房での調理工程は描かれない。"
+      ],
+      "proposals": [
+        "家庭向けのチキンライスと半熟オムレツとして再現する。",
+        "材料量、火加減、加熱時間は2人分の提案値。",
+        "半熟を避けたい場合は、弱火で中心まで十分に加熱する。"
+      ],
+      "ingredientGroups": [
+        {
+          "title": "ケチャップライス",
+          "items": [
+            {
+              "name": "温かいご飯",
+              "amount": "400g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "鶏もも肉",
+              "amount": "120g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "玉ねぎ",
+              "amount": "1/2個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "グリーンピース",
+              "amount": "大さじ2・お好みで",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ケチャップ",
+              "amount": "大さじ6",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "バター",
+              "amount": "10g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "塩・こしょう",
+              "amount": "各少々",
+              "sourceType": "household_proposal"
+            }
+          ]
+        },
+        {
+          "title": "ふわとろ卵",
+          "items": [
+            {
+              "name": "卵",
+              "amount": "6個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "牛乳",
+              "amount": "大さじ2",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "バター",
+              "amount": "20g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ケチャップ",
+              "amount": "仕上げ用 適量",
+              "sourceType": "household_proposal"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "具材を小さく切る",
+          "body": "鶏肉は1.5cm角、玉ねぎは粗いみじん切りにします。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "鶏肉を十分に焼く",
+          "body": "フライパンへバター10gを溶かし、鶏肉を中心まで火が通るよう炒めます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "玉ねぎを加える",
+          "body": "玉ねぎを加え、透き通るまで炒めます。グリーンピースも加えます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "ケチャップライスを作る",
+          "body": "ケチャップを加えて水分を少し飛ばし、ご飯を加えてほぐし、塩・こしょうで調えます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "皿へ丸く盛る",
+          "body": "2皿へ半量ずつ、卵をのせやすい楕円形に盛ります。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "卵液を1人分ずつ作る",
+          "body": "卵3個、牛乳大さじ1、塩少々を、泡立てないよう混ぜます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "半熟オムレツを焼く",
+          "body": "小さめのフライパンへバター10gを熱し、卵液を入れて大きく混ぜ、表面が半熟のうちに形を整えます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "ご飯へのせる",
+          "body": "オムレツをご飯へ滑らせ、同様にもう1皿を作り、ケチャップをかけます。",
+          "sourceType": "household_proposal",
+          "quote": "「うん！ オムライス！ 美味しかったよ！」"
+        }
+      ],
+      "tips": [
+        "ケチャップはご飯より先に炒めると、水っぽくなりにくくなります。",
+        "卵は1人分ずつ焼くと、火の通りを調整しやすくなります。",
+        "卵液を入れる前にフライパンを温め、入れた後は弱めの中火へ落とします。"
+      ],
+      "allergens": [
+        "卵",
+        "乳",
+        "鶏肉"
+      ],
+      "safety": [
+        "鶏肉を触った手、包丁、まな板を洗い、サラダや盛りつけ用器具へ使い回さない。",
+        "鶏肉は中心75℃で1分以上を目安に十分加熱する。",
+        "半熟卵を避ける必要がある人は、卵の中心まで十分に加熱する。"
+      ],
+      "comments": [
+        {
+          "character": "hami",
+          "text": "ふわとろ、きた……！",
+          "slot": "hero"
+        },
+        {
+          "character": "miru",
+          "text": "卵は、一皿ずつ。",
+          "slot": "steps"
+        }
+      ],
+      "media": {
+        "hero": 102,
+        "steps": [
+          99,
+          102,
+          108,
+          111,
+          114
+        ],
+        "ending": 174
+      },
+      "safetyTitle": "鶏肉は中心まで、卵は食べる人に合わせて",
+      "safetyLead": "鶏肉は生食材との交差汚染を防ぎ、中心まで十分に加熱します。卵の半熟具合は、体調と年齢に合わせて調整してください。",
+      "endingQuote": "「うん！ オムライス！ 美味しかったよ！」",
+      "endingText": "おいしい一皿が、ふたりの最初の会話になりました。"
+    },
+    {
+      "slug": "tuna-tomato-hot-sand",
+      "episodeTitle": "忘却のホットサンド編",
+      "dishTitle": "ツナマヨ・レタス・トマトのホットサンド",
+      "source": "ホットサンド編/スケール後投稿.mp4",
+      "lead": "手に入れたばかりのホットサンドメーカーへ、冷蔵庫のツナ、レタス、トマトをたっぷり。焼き目のついたパンを割ると、ふたり分の断面が現れます。",
+      "servings": "2人分",
+      "yield": "2組",
+      "time": "約20分",
+      "difficulty": "★★☆☆☆",
+      "facts": [
+        "作中で食パン、ツナ缶、マヨネーズ、レタス、トマトを使う。",
+        "トマトを切り、ツナとマヨネーズを混ぜ、具を食パンへ重ねる。",
+        "ホットサンドメーカーで挟んで焼き、半分に切って食べる。"
+      ],
+      "proposals": [
+        "2組分のg・枚数・焼き時間は家庭向けの提案値。",
+        "水気対策としてツナとトマトをよく切る手順を補う。",
+        "機器ごとの加熱時間は取扱説明書を優先する。"
+      ],
+      "ingredientGroups": [
+        {
+          "title": "2組分",
+          "items": [
+            {
+              "name": "食パン",
+              "amount": "8枚切り 4枚",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ツナ缶",
+              "amount": "2缶・正味140g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "マヨネーズ",
+              "amount": "大さじ4",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "レタス",
+              "amount": "4枚",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "トマト",
+              "amount": "1個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "塩・黒こしょう",
+              "amount": "各少々",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "バターまたは油",
+              "amount": "型へ薄く塗る分",
+              "sourceType": "household_proposal"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "ツナの油を切る",
+          "body": "ツナをざるへ上げ、スプーンで軽く押して油や水分をしっかり切ります。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "ツナマヨを作る",
+          "body": "ツナ、マヨネーズ、塩、黒こしょうを混ぜます。",
+          "sourceType": "episode_fact"
+        },
+        {
+          "title": "トマトを切る",
+          "body": "トマトを5mm厚さに切り、キッチンペーパーで表面の水気を拭きます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "レタスを乾かす",
+          "body": "レタスを洗い、サラダスピナーか布で水気を十分に取ります。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "メーカーを予熱する",
+          "body": "取扱説明書に従って予熱し、必要なら型へバターか油を薄く塗ります。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "具を重ねる",
+          "body": "パン、レタス、ツナマヨ、トマト、レタス、パンの順に2組を重ねます。端から具を1cm空けます。",
+          "sourceType": "household_proposal",
+          "quote": "「いっぱい入れて」"
+        },
+        {
+          "title": "挟んで焼く",
+          "body": "ふたをゆっくり閉じ、3〜5分を目安に両面へ焼き色がつくまで焼きます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "休ませて切る",
+          "body": "取り出して1分休ませ、対角線に切って盛りつけます。",
+          "sourceType": "household_proposal"
+        }
+      ],
+      "tips": [
+        "ツナ、トマト、レタスの水気を取ることが、パンをサクッと仕上げる一番の近道です。",
+        "具は端から1cm空けると、閉じたときにはみ出しにくくなります。",
+        "焼き上がりを1分休ませると、切ったときに具が流れにくくなります。"
+      ],
+      "allergens": [
+        "小麦",
+        "卵",
+        "乳",
+        "大豆"
+      ],
+      "safety": [
+        "ホットサンドメーカーの本体、留め具、蒸気口は高温になるため素手で触れない。",
+        "電気式は水気のある場所から離し、使用後は電源を切ってプラグを抜く。",
+        "ツナマヨと切った野菜は室温へ長く置かず、作ったらすぐ食べる。"
+      ],
+      "comments": [
+        {
+          "character": "miru",
+          "text": "いっぱい入れて。",
+          "slot": "hero"
+        },
+        {
+          "character": "hami",
+          "text": "水気を切れば、ちゃんとサクサク！",
+          "slot": "tips"
+        }
+      ],
+      "media": {
+        "hero": 198,
+        "steps": [
+          145,
+          160,
+          175,
+          190,
+          198
+        ],
+        "ending": 230
+      },
+      "safetyTitle": "閉じた直後の本体と蒸気に注意",
+      "safetyLead": "ふたを開けると熱い蒸気が上がります。顔を離し、耐熱ミトンと木製または耐熱樹脂の道具を使います。",
+      "endingQuote": "「いっぱい入れて」",
+      "endingText": "ふたり分に切っても、ミルちゃんにはまだ足りないかもしれません。"
+    },
+    {
+      "slug": "dreamy-anko-taiyaki",
+      "episodeTitle": "夢幻のたいやき編",
+      "dishTitle": "夢幻のつぶあんたい焼き",
+      "source": "夢幻のたいやき編/投稿用(1).mp4",
+      "lead": "頭から食べるか、しっぽから食べるか。その前に、外は香ばしく、中はあんこたっぷりの一匹を焼き上げます。作中の屋台たい焼きを家庭用の型で再現します。",
+      "servings": "2人分",
+      "yield": "4匹",
+      "time": "約30分",
+      "difficulty": "★★★☆☆",
+      "facts": [
+        "作中のたい焼きは屋台で購入したもので、家庭での調理工程はない。",
+        "表面は濃いきつね色で、ハミちゃんは頭から、ミルちゃんはしっぽから食べる。",
+        "中身はあんことして会話で扱われる。"
+      ],
+      "proposals": [
+        "家庭用たい焼き器とホットケーキミックスを使う再現レシピ。",
+        "4匹分の材料量と焼き時間は家庭向けの提案値。",
+        "しっぽまであんこが届くよう、あんを細長く整える。"
+      ],
+      "ingredientGroups": [
+        {
+          "title": "4匹分",
+          "items": [
+            {
+              "name": "ホットケーキミックス",
+              "amount": "150g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "卵",
+              "amount": "1個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "牛乳",
+              "amount": "120ml",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "つぶあん",
+              "amount": "160g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "植物油",
+              "amount": "型へ薄く塗る分",
+              "sourceType": "household_proposal"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "あんこを4等分する",
+          "body": "つぶあんを40gずつに分け、頭からしっぽへ届く細長い形に整えます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "生地を混ぜる",
+          "body": "ボウルで卵と牛乳を混ぜ、ホットケーキミックスを加えて粉気が消えるまで混ぜます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "生地を5分休ませる",
+          "body": "生地を5分置き、粉へ水分をなじませます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "型を予熱する",
+          "body": "たい焼き器を中火または機器指定温度で予熱し、油を薄く塗ります。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "生地を半分入れる",
+          "body": "型の6分目まで生地を流し、しっぽ側へも薄く広げます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "あんこを置く",
+          "body": "中央へあんこを置き、型の縁から1cm空けます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "生地で覆って焼く",
+          "body": "あんこが隠れるまで生地を足し、型を閉じて片面2〜3分ずつ焼きます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "網で少し冷ます",
+          "body": "濃いきつね色になったら取り出し、網で2分休ませます。頭かしっぽかを決めていただきます。",
+          "sourceType": "household_proposal",
+          "quote": "「夢は覚める前に食べないと！」"
+        }
+      ],
+      "tips": [
+        "あんこを細長くすると、しっぽまで当たりの一匹になります。",
+        "生地を入れすぎると閉じたときにあふれるため、最初は6分目までにします。",
+        "焼き上がりを網へ置くと、底に蒸気がこもりにくくなります。"
+      ],
+      "allergens": [
+        "小麦",
+        "卵",
+        "乳"
+      ],
+      "safety": [
+        "たい焼き器の型と取っ手付近は高温になるため、耐熱ミトンを使う。",
+        "焼きたてのあんこは皮より高温になりやすく、必ず少し冷ましてから食べる。",
+        "電気式の機器は取扱説明書に従い、水気のある場所で使わない。"
+      ],
+      "comments": [
+        {
+          "character": "hami",
+          "text": "私は物語を最初から読む派なの！",
+          "slot": "hero"
+        },
+        {
+          "character": "miru",
+          "text": "しっぽ。あんこの量を先に確認。",
+          "slot": "ending"
+        }
+      ],
+      "media": {
+        "hero": 50,
+        "steps": [
+          20,
+          50,
+          90,
+          120,
+          145
+        ],
+        "ending": 145
+      },
+      "safetyTitle": "焼きたてのあんこは、とても熱い",
+      "safetyLead": "表面が持てる温度でも中のあんこは高温です。網で少し冷まし、小さく割って温度を確かめます。",
+      "endingQuote": "「夢は覚める前に食べないと！」",
+      "endingText": "頭からでも、しっぽからでも、最後は同じ甘い夢です。"
+    },
+    {
+      "slug": "fried-egg-breakfast-war",
+      "episodeTitle": "目玉焼き戦争編",
+      "dishTitle": "黄身とろり・目玉焼き朝食プレート",
+      "source": "目玉焼き戦争編/目玉焼き編.mp4",
+      "lead": "しょうゆ軍か、ソース軍か。戦う前に、白身はきちんと固まり、黄身はとろりと流れる目玉焼きを二つ。キャベツとベーコンを添えた朝食です。",
+      "servings": "2人分",
+      "yield": "目玉焼き2個",
+      "time": "約15分",
+      "difficulty": "★★☆☆☆",
+      "facts": [
+        "作中ではハミちゃんが目玉焼きを食卓へ運ぶ。",
+        "食卓にご飯、トースト、千切りキャベツ、ベーコンがあり、目玉焼きの黄身は半熟。",
+        "ハミちゃんはしょうゆ、ミルちゃんはソースを選び、ケチャップと塩も登場する。",
+        "目玉焼きを焼く工程自体は描かれない。"
+      ],
+      "proposals": [
+        "家庭で半熟の目玉焼きを安定して焼くため、水と蓋を使う。",
+        "卵2個、ベーコン、キャベツの量と加熱時間は2人分の提案値。",
+        "しょうゆ、ソース、ケチャップ、塩を食べ比べ用に少量ずつ添える。"
+      ],
+      "ingredientGroups": [
+        {
+          "title": "朝食プレート",
+          "items": [
+            {
+              "name": "卵",
+              "amount": "2個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "植物油",
+              "amount": "小さじ1",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "水",
+              "amount": "大さじ2",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ベーコン",
+              "amount": "4枚",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "千切りキャベツ",
+              "amount": "120g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "トーストまたはご飯",
+              "amount": "2人分",
+              "sourceType": "household_proposal"
+            }
+          ]
+        },
+        {
+          "title": "それぞれの軍",
+          "items": [
+            {
+              "name": "しょうゆ",
+              "amount": "適量",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ウスターソース",
+              "amount": "適量",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ケチャップ",
+              "amount": "適量",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "塩",
+              "amount": "少々",
+              "sourceType": "household_proposal"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "付け合わせを用意する",
+          "body": "キャベツを皿へ盛り、トーストかご飯を用意します。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "ベーコンを焼く",
+          "body": "フライパンでベーコンを両面焼き、皿へ取り出します。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "卵を小鉢へ割る",
+          "body": "卵を1個ずつ小鉢へ割り、殻や状態を確認します。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "油を低めの温度で熱する",
+          "body": "フライパンを弱めの中火へかけ、油を薄く広げます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "卵をそっと入れる",
+          "body": "卵を低い位置から入れ、白身が広がりすぎないよう整えます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "水を縁へ加える",
+          "body": "白身の縁が固まり始めたら、卵へ直接かけず、フライパンの空いた場所へ水を入れます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "蓋をして火を通す",
+          "body": "蓋をして弱火で2〜3分。白身が固まり、黄身が好みの状態になったら火を止めます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "好きな味でいただく",
+          "body": "皿へ移し、ベーコンとキャベツを添えます。しょうゆ、ソース、ケチャップ、塩から選びます。",
+          "sourceType": "household_proposal",
+          "quote": "「……ソースじゃないの？」"
+        }
+      ],
+      "tips": [
+        "卵を小鉢から低い位置で入れると、黄身が割れにくくなります。",
+        "水を卵へ直接かけないと、黄身の鮮やかな色を保ちやすくなります。",
+        "調味料は最初からかけすぎず、白身の一角ずつで食べ比べます。"
+      ],
+      "allergens": [
+        "卵",
+        "小麦",
+        "大豆",
+        "豚肉"
+      ],
+      "safety": [
+        "卵を触った手と器具を洗い、殻を調理済み食品へ触れさせない。",
+        "ベーコンは製品表示に従って十分に加熱する。",
+        "半熟卵を避ける必要がある人は、黄身まで十分に加熱する。"
+      ],
+      "comments": [
+        {
+          "character": "hami",
+          "text": "よかろう、ならば戦争だ。",
+          "slot": "hero"
+        },
+        {
+          "character": "miru",
+          "text": "……ソースじゃないの？",
+          "slot": "ending"
+        }
+      ],
+      "media": {
+        "hero": 5,
+        "steps": [
+          5,
+          15,
+          25,
+          165,
+          195
+        ],
+        "ending": 200
+      },
+      "safetyTitle": "半熟は、食べる人に合わせて",
+      "safetyLead": "卵の加熱具合は年齢、体調、妊娠の有無などに合わせます。不安がある場合は黄身まで十分に火を通してください。",
+      "endingQuote": "「……で、かったのは？」 「うんまぁ〜い！」",
+      "endingText": "勝者を決めなくても、朝ごはんは全部なくなります。"
+    },
+    {
+      "slug": "hardboiled-caramel-pudding",
+      "episodeTitle": "プリンの事情編",
+      "dishTitle": "ほろ苦カラメルの固めプリン",
+      "source": "プリンの事情編/topview_outputs/SNS用.mp4",
+      "lead": "作中で選ばれるのは市販のカッププリン。ここでは、その黄色い甘さと底のほろ苦さを、家庭で焼ける少し固めのプリンとして再現します。",
+      "servings": "4人分",
+      "yield": "120mlカップ4個",
+      "time": "約50分＋冷やす時間3時間",
+      "difficulty": "★★★☆☆",
+      "facts": [
+        "作中の主人公はスーパーで販売されているカッププリン。",
+        "ハミちゃんが購入し、冷蔵庫で冷やしたものを食べる。",
+        "底にカラメルがあり、甘さのあとに苦みが現れる。",
+        "作中にプリンを手作りする工程はない。"
+      ],
+      "proposals": [
+        "卵、牛乳、砂糖で作る固めの焼きプリンとして家庭向けに再現する。",
+        "4個分の材料量、150℃、30〜35分という焼成条件は提案値。",
+        "カラメルは作中の『少し苦い真実』に合わせて濃いめに仕上げる。"
+      ],
+      "ingredientGroups": [
+        {
+          "title": "プリン液",
+          "items": [
+            {
+              "name": "卵",
+              "amount": "3個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "牛乳",
+              "amount": "400ml",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "砂糖",
+              "amount": "60g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "バニラエッセンス",
+              "amount": "3滴・お好みで",
+              "sourceType": "household_proposal"
+            }
+          ]
+        },
+        {
+          "title": "カラメル",
+          "items": [
+            {
+              "name": "砂糖",
+              "amount": "60g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "水",
+              "amount": "大さじ1",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "熱湯",
+              "amount": "大さじ2",
+              "sourceType": "household_proposal"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "オーブンと湯を用意する",
+          "body": "オーブンを150℃に予熱し、湯せん焼き用の湯を沸かします。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "カラメルを作る",
+          "body": "小鍋へ砂糖60gと水を入れ、中火で濃い茶色になるまで加熱します。火を止め、顔を離して熱湯を加えます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "カップへ分ける",
+          "body": "カラメルが熱いうちに耐熱カップ4個へ均等に流します。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "牛乳を温める",
+          "body": "牛乳と砂糖の半量を鍋へ入れ、沸騰させず、砂糖が溶けるまで温めます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "卵を静かに混ぜる",
+          "body": "ボウルで卵と残りの砂糖を、泡立てないように混ぜます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "合わせてこす",
+          "body": "温めた牛乳を少しずつ加え、バニラを混ぜ、細かいざるで2回こします。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "湯せん焼きする",
+          "body": "カップへ注ぎ、天板へ約60℃の湯を高さ2cmまで入れ、150℃で30〜35分焼きます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "冷やして完成",
+          "body": "粗熱を取り、冷蔵庫で3時間以上冷やします。底のカラメルまで一緒にすくいます。",
+          "sourceType": "household_proposal",
+          "quote": "「よかった。俺は、甘かったんだ。」"
+        }
+      ],
+      "tips": [
+        "卵を泡立てず、プリン液を2回こすとなめらかになります。",
+        "中心が少し揺れる程度で止めると、冷えたあとに固めでもすが入りにくくなります。",
+        "カラメルを少し濃い茶色まで待つと、甘さを締める苦みが出ます。"
+      ],
+      "allergens": [
+        "卵",
+        "乳"
+      ],
+      "safety": [
+        "カラメルへ熱湯を加えると激しく蒸気が上がるため、顔と手を離し、長袖とミトンを使う。",
+        "湯せん天板を運ぶときは熱湯をこぼさないよう両手で支える。",
+        "焼成後は室温へ長く置かず、粗熱が取れたら冷蔵し、2日以内を目安に食べる。"
+      ],
+      "comments": [
+        {
+          "character": "hami",
+          "text": "うんまぁ〜い……。",
+          "slot": "hero"
+        },
+        {
+          "character": "miru",
+          "text": "カラメルは、少し苦いくらい。",
+          "slot": "tips"
+        }
+      ],
+      "media": {
+        "hero": 120,
+        "steps": [
+          35,
+          75,
+          120,
+          155,
+          180
+        ],
+        "ending": 205
+      },
+      "safetyTitle": "カラメルの蒸気と湯せんの熱湯に注意",
+      "safetyLead": "カラメルは160℃を超える高温になります。熱湯を加える瞬間は特に危険なので、鍋へ顔を近づけません。",
+      "endingQuote": "「よかった。俺は、甘かったんだ。」",
+      "endingText": "甘さも苦みも、最後の一口まで持っていけます。"
+    },
+    {
+      "slug": "chiles-en-nogada-two-ways",
+      "episodeTitle": "チレス・エン・ノガーダ編",
+      "dishTitle": "チレス・エン・ノガーダ 2つの仕立て",
+      "source": "チレス・エン・ノガーダ編/チレスエンノガタ編.mp4",
+      "lead": "肉と果物のピカディージョをポブラノへ詰め、白いクルミのノガーダ、赤いザクロ、緑のパセリを重ねます。衣ありと衣なしを一つずつ作る、作中どおりの二皿です。",
+      "servings": "2人分",
+      "yield": "2個・衣あり1個／衣なし1個",
+      "time": "約90分",
+      "difficulty": "★★★★☆",
+      "facts": [
+        "ポブラノを焼いて蒸らし、薄い焦げ皮だけをむき、茎を残して種と白い筋を除く。",
+        "牛・豚ひき肉、玉ねぎ、にんにく、トマトのベースへ、梨、りんご、桃、アーモンド、レーズン、少量のシナモンとクローブを加える。",
+        "ピカディージョを完全に冷ましてから、破らないようポブラノへ詰める。",
+        "ノガーダは薄皮を除いたクルミ、牛乳、フレッシュチーズ、少量の砂糖と塩で作る。",
+        "一つはsin capear、一つは小麦粉と泡立て卵のcapeadoにし、ザクロと平葉パセリで仕上げる。",
+        "環境保護の観点からアシトロンは使用しない。"
+      ],
+      "proposals": [
+        "2個分のg・ml・加熱時間は家庭向けの提案値。",
+        "ポブラノが入手困難な場合の代用品はページ本文では断定せず、専門店・輸入店での入手を案内する。",
+        "クルミの薄皮処理は前日に行ってもよい。"
+      ],
+      "ingredientGroups": [
+        {
+          "title": "ポブラノとピカディージョ",
+          "items": [
+            {
+              "name": "ポブラノチレ",
+              "amount": "大2個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "牛ひき肉",
+              "amount": "100g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "豚ひき肉",
+              "amount": "100g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "玉ねぎ",
+              "amount": "1/4個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "にんにく",
+              "amount": "1片",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "トマト",
+              "amount": "1個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "梨・りんご・桃",
+              "amount": "各1/4個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "アーモンド",
+              "amount": "15g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "レーズン",
+              "amount": "15g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "シナモン",
+              "amount": "小さじ1/4",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "クローブ",
+              "amount": "ひとつまみ",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "塩・植物油",
+              "amount": "各適量",
+              "sourceType": "household_proposal"
+            }
+          ]
+        },
+        {
+          "title": "ノガーダ",
+          "items": [
+            {
+              "name": "薄皮を除いたクルミ",
+              "amount": "80g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "牛乳",
+              "amount": "100ml",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "フレッシュチーズ",
+              "amount": "80g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "砂糖",
+              "amount": "小さじ1",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "塩",
+              "amount": "ひとつまみ",
+              "sourceType": "household_proposal"
+            }
+          ]
+        },
+        {
+          "title": "capeadoと仕上げ",
+          "items": [
+            {
+              "name": "薄力粉",
+              "amount": "大さじ1",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "卵",
+              "amount": "1個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "揚げ油",
+              "amount": "適量",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ザクロの粒",
+              "amount": "1/4カップ",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "平葉パセリ",
+              "amount": "適量",
+              "sourceType": "household_proposal"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "ポブラノを焼いて蒸らす",
+          "body": "洗って完全に乾かしたポブラノを直火かグリルで回し、薄皮を黒く焼きます。耐熱ボウルへ入れて布をかけ、10分蒸らします。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "皮と種を除く",
+          "body": "手で扱える温度になったら薄い焦げ皮をむき、縦に一本切れ目を入れ、茎を残して種と白い筋を除きます。",
+          "sourceType": "episode_fact",
+          "quote": "「まっくろなのに、きれいなみどり。」"
+        },
+        {
+          "title": "肉のベースを炒める",
+          "body": "油で玉ねぎとにんにくを炒め、牛・豚ひき肉を加えてほぐし、トマトを加えて水分を飛ばします。",
+          "sourceType": "episode_fact"
+        },
+        {
+          "title": "果物を加える",
+          "body": "5mm角の梨、りんご、桃、刻んだアーモンド、レーズン、シナモン、クローブを加え、水分がほぼなくなるまで煮ます。",
+          "sourceType": "household_proposal",
+          "quote": "「お肉に、くだもの……？」"
+        },
+        {
+          "title": "冷まして詰める",
+          "body": "ピカディージョを室温まで完全に冷まし、2個へ半量ずつ詰め、切れ目をやさしく閉じます。",
+          "sourceType": "episode_fact"
+        },
+        {
+          "title": "ノガーダを作る",
+          "body": "クルミ、牛乳、フレッシュチーズ、砂糖、塩をミキサーで、ゆっくり流れる濃度まで攪拌します。",
+          "sourceType": "episode_fact"
+        },
+        {
+          "title": "一つだけcapeadoにする",
+          "body": "一個へ薄力粉を薄くまぶします。泡立てた卵白へ卵黄を混ぜてまとわせ、170℃の油で両面を淡い黄金色に揚げます。もう一個は揚げません。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "三色に仕上げる",
+          "body": "二皿へ一個ずつ置き、ノガーダをかけ、ザクロの粒と平葉パセリを散らします。",
+          "sourceType": "episode_fact",
+          "quote": "「メキシコの色だ……。」"
+        }
+      ],
+      "tips": [
+        "ポブラノは洗ったあと完全に乾かし、果肉まで焼き崩さず薄皮だけを焦がします。",
+        "温かいピカディージョを詰めると果肉が裂けやすいため、必ず冷まします。",
+        "ノガーダはマヨネーズ状に固くせず、ゆっくり流れる濃度にします。",
+        "アシトロンは使わず、家庭ごとのcapeado／sin capearの違いを尊重します。"
+      ],
+      "allergens": [
+        "卵",
+        "乳",
+        "小麦",
+        "くるみ",
+        "アーモンド",
+        "牛肉",
+        "豚肉",
+        "りんご",
+        "もも"
+      ],
+      "safety": [
+        "ポブラノの直火焼きは換気し、乾いたトングを使い、衣をつける前も表面の水分を除く。",
+        "ひき肉は中心75℃で1分以上を目安に十分加熱し、生肉用器具を分ける。",
+        "揚げるポブラノは水分をよく拭き、油へ静かに入れて飛び散りを防ぐ。",
+        "クルミ、アーモンド、乳、卵などアレルゲンが多いため、提供前に必ず確認する。"
+      ],
+      "comments": [
+        {
+          "character": "hami",
+          "text": "メキシコの色だ……！",
+          "slot": "hero"
+        },
+        {
+          "character": "miru",
+          "text": "この家は、両方。",
+          "slot": "ending"
+        }
+      ],
+      "media": {
+        "hero": 169,
+        "steps": [
+          35,
+          55,
+          75,
+          95,
+          115,
+          135,
+          150,
+          166
+        ],
+        "ending": 175
+      },
+      "safetyTitle": "直火、ひき肉、揚げ油を別々に確認",
+      "safetyLead": "換気しながらポブラノを焼き、肉は中心まで加熱。capeadoは表面の水分を除いてから静かに油へ入れます。",
+      "endingQuote": "「この家は、両方。」",
+      "endingText": "衣ありも、衣なしも、一つの正解に決めない二皿です。"
+    },
+    {
+      "slug": "ameoto-yaki-gyoza",
+      "episodeTitle": "雨音の焼き餃子編",
+      "dishTitle": "雨音の手作り焼き餃子",
+      "source": "雨音と焼き餃子編/雨音の焼き餃子編.mp4",
+      "lead": "雨の音を聞きながら、豚肉とキャベツとニラを包む。蒸し音が乾いた音に変わったら、ごま油で底をカリッと。形が違っても、同じ皿でおいしくなる12個です。",
+      "servings": "2人分",
+      "yield": "12個",
+      "time": "約35分",
+      "difficulty": "★★☆☆☆",
+      "facts": [
+        "作中で豚ひき肉、キャベツ、ニラ、しょうが、にんにく、餃子の皮、塩、しょうゆ、酒、ごま油を使う。",
+        "キャベツを塩もみして水気を絞り、餡を粘りが出るまで混ぜる。",
+        "ハミちゃんとミルちゃんが合計12個を包み、フライパンへ円形に並べる。",
+        "水を加えて蒸し焼きにし、音が乾いたぱちぱちへ変わったらごま油で仕上げる。",
+        "つけだれはしょうゆ、米酢、少量のラー油。"
+      ],
+      "proposals": [
+        "g・ml・加熱時間・火加減・たれの比率は承認済みテストページの家庭向け提案値。",
+        "24cmのフライパンで12個を一度に焼く想定。",
+        "包む餡は1個12〜13gを目安にする。"
+      ],
+      "ingredientGroups": [
+        {
+          "title": "餃子の餡",
+          "items": [
+            {
+              "name": "餃子の皮",
+              "amount": "12枚",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "豚ひき肉",
+              "amount": "80g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "キャベツ",
+              "amount": "80g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ニラ",
+              "amount": "20g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "しょうが",
+              "amount": "すりおろし 小さじ1・約5g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "にんにく",
+              "amount": "すりおろし 1/2片分・約2g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "塩",
+              "amount": "小さじ1/4・塩もみ用",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "しょうゆ",
+              "amount": "小さじ1",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "酒",
+              "amount": "小さじ1",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ごま油",
+              "amount": "小さじ1",
+              "sourceType": "household_proposal"
+            }
+          ]
+        },
+        {
+          "title": "焼くとき",
+          "items": [
+            {
+              "name": "米油またはサラダ油",
+              "amount": "小さじ1",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "水",
+              "amount": "60ml",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ごま油",
+              "amount": "小さじ1・仕上げ用",
+              "sourceType": "household_proposal"
+            }
+          ]
+        },
+        {
+          "title": "つけだれ",
+          "items": [
+            {
+              "name": "しょうゆ",
+              "amount": "大さじ1",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "米酢",
+              "amount": "大さじ1",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ラー油",
+              "amount": "数滴〜お好みで",
+              "sourceType": "household_proposal"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "野菜を刻む",
+          "body": "キャベツとニラを洗い、水気を切って細かく刻みます。餃子の皮には清潔な濡れ布巾をかけます。",
+          "sourceType": "episode_fact"
+        },
+        {
+          "title": "キャベツを塩もみする",
+          "body": "キャベツに塩をまぶしてやさしく揉み、8分置きます。清潔な布か厚手のキッチンペーパーで包み、しっかり水気を絞ります。",
+          "sourceType": "household_proposal",
+          "quote": "「こんなに、でるんだ……。」"
+        },
+        {
+          "title": "粘りが出るまで混ぜる",
+          "body": "ボウルに豚ひき肉、野菜、しょうが、にんにく、しょうゆ、酒、ごま油を入れ、同じ方向へ2〜3分、粘りが出るまで混ぜます。",
+          "sourceType": "household_proposal",
+          "quote": "「ねばるまで。」"
+        },
+        {
+          "title": "12個に包む",
+          "body": "皮の中央へ餡を約12〜13gずつ置き、上半分の縁へ薄く水を塗ります。半月に折り、4〜5個のひだを寄せます。",
+          "sourceType": "household_proposal",
+          "quote": "「あ、でる、でる……。」"
+        },
+        {
+          "title": "フライパンへ並べる",
+          "body": "24cm程度のフライパンに植物油を薄く広げます。安全のため、火をつける前に12個を円形に並べ、中火で約1分加熱します。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "水を入れて蒸し焼き",
+          "body": "フライパンの縁から水60mlを加え、すぐ蓋をします。中火で5〜6分、中心までしっかり蒸し焼きにします。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "音が変わったら仕上げ",
+          "body": "水分がほぼなくなり、蒸し音が乾いたぱちぱちへ変わったら蓋を外します。鍋肌からごま油を回し入れ、1〜2分焼きます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "盛りつけて、いただきます",
+          "body": "火を止め、へらで白い丸皿へ移します。しょうゆと米酢を1対1で合わせ、ラー油を加えたたれを添えます。",
+          "sourceType": "household_proposal"
+        }
+      ],
+      "tips": [
+        "キャベツの水気をしっかり絞ると、餡が水っぽくならず皮も破れにくくなります。",
+        "餡を入れすぎず、皮の縁には付けないのが包みやすさのコツです。",
+        "皮と包み終えた餃子は濡れ布巾で覆い、乾燥させません。",
+        "形を揃えるより、閉じ目とフライパンへ接する底面を整えれば十分です。"
+      ],
+      "allergens": [
+        "小麦",
+        "大豆",
+        "ごま",
+        "豚肉"
+      ],
+      "safety": [
+        "生肉に触れた手、箸、スプーンを、焼けた餃子や食器へ使い回さない。",
+        "包み終えたら石けんで手を洗い、餡を室温へ長く置かない。",
+        "中心75℃で1分以上を目安に十分加熱する。",
+        "蓋を外す際の蒸気、皿返し、焼きたての肉汁によるやけどに注意する。"
+      ],
+      "comments": [
+        {
+          "character": "hami",
+          "text": "12個なら、ふたりでちょうどいい！",
+          "slot": "hero"
+        },
+        {
+          "character": "hami",
+          "text": "あ、でる、でる……。",
+          "slot": "steps"
+        },
+        {
+          "character": "miru",
+          "text": "音が変わったら、仕上げ。",
+          "slot": "tips"
+        },
+        {
+          "character": "miru",
+          "text": "はんぶん。",
+          "slot": "ending"
+        }
+      ],
+      "media": {
+        "hero": 218,
+        "steps": [
+          55,
+          75,
+          95,
+          115,
+          135,
+          155,
+          175,
+          195,
+          218
+        ],
+        "ending": 260
+      },
+      "safetyTitle": "豚ひき肉は中心までしっかり加熱",
+      "safetyLead": "生肉用と盛りつけ用の器具を分け、中心部を75℃で1分以上加熱するのが目安です。",
+      "endingQuote": "「はんぶん。」 「うん。」",
+      "endingText": "形が違っても、同じ皿でおいしくなります。"
+    },
+    {
+      "slug": "home-spicy-miso-ramen",
+      "episodeTitle": "激辛のラーメン編",
+      "dishTitle": "紅蓮の辛味噌ラーメン おうち再現",
+      "source": "激辛ラーメン編/0718本編修正後.mp4",
+      "lead": "赤い油、肉そぼろ、もやし、ねぎ、煮卵、海苔。作中の超激辛チャレンジを、家庭では無理をせず、辛さを少しずつ足せる辛味噌ラーメンとして再現します。",
+      "servings": "2人分",
+      "yield": "丼2杯",
+      "time": "約30分",
+      "difficulty": "★★★☆☆",
+      "facts": [
+        "作中の超激辛ラーメンは飲食店のチャレンジメニューで、家庭での調理工程はない。",
+        "完成品は深い赤色の味噌系スープで、麺、肉そぼろ、もやし、青ねぎ、煮卵、海苔、糸唐辛子が見える。",
+        "あくたんは辛さには強いが猫舌で、小皿へ麺を分けて冷ます。",
+        "完成動画の実音声は『辛さは余裕だぜ』『猫舌……なんだ』。"
+      ],
+      "proposals": [
+        "家庭向けに辛さを段階調整できる辛味噌スープとして再構成する。",
+        "材料量、辛味調味料、30分という時間は提案値。",
+        "チャレンジや早食いを再現せず、熱さと辛さを確認しながら食べる。"
+      ],
+      "ingredientGroups": [
+        {
+          "title": "麺と具",
+          "items": [
+            {
+              "name": "中華生麺",
+              "amount": "2玉",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "豚ひき肉",
+              "amount": "150g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "もやし",
+              "amount": "150g",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "味つけ卵",
+              "amount": "1個",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "青ねぎ",
+              "amount": "2本",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "焼き海苔",
+              "amount": "2枚",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "糸唐辛子",
+              "amount": "少々",
+              "sourceType": "household_proposal"
+            }
+          ]
+        },
+        {
+          "title": "辛味噌スープ",
+          "items": [
+            {
+              "name": "ごま油",
+              "amount": "小さじ2",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "にんにく・しょうが",
+              "amount": "各1片",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "みそ",
+              "amount": "大さじ3",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "豆板醤",
+              "amount": "小さじ1〜2",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "一味唐辛子",
+              "amount": "小さじ1/4から",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "鶏がらスープ",
+              "amount": "800ml",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "しょうゆ",
+              "amount": "大さじ1",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "砂糖",
+              "amount": "小さじ1",
+              "sourceType": "household_proposal"
+            },
+            {
+              "name": "ラー油",
+              "amount": "仕上げに少量から",
+              "sourceType": "household_proposal"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "具を準備する",
+          "body": "味つけ卵を半分に切り、青ねぎを小口切りにします。もやしは洗って水気を切ります。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "肉そぼろを炒める",
+          "body": "鍋へごま油を熱し、にんにく、しょうが、豚ひき肉を入れ、肉の色が完全に変わるまで炒めます。半量は具として取り出します。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "味噌と豆板醤を炒める",
+          "body": "残した肉へみそと豆板醤を加え、弱火で30秒、焦がさないよう香りを出します。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "スープを作る",
+          "body": "鶏がらスープ、しょうゆ、砂糖を加え、沸騰後に弱火で5分煮ます。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "辛さを少しずつ足す",
+          "body": "一味唐辛子を小さじ1/4から加え、味見して増やします。最初から最大量を入れません。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "麺を別鍋でゆでる",
+          "body": "中華麺を表示時間どおりにゆで、湯をよく切ります。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "丼へ組み立てる",
+          "body": "温めた丼へスープ、麺を入れ、もやし、肉そぼろ、味つけ卵、ねぎ、海苔、糸唐辛子を盛ります。",
+          "sourceType": "household_proposal"
+        },
+        {
+          "title": "ラー油は最後に",
+          "body": "ラー油を少量ずつ加え、小皿も用意します。熱ければ麺を分けて冷まして食べます。",
+          "sourceType": "household_proposal",
+          "quote": "「辛さは余裕だぜ」 「猫舌……なんだ」"
+        }
+      ],
+      "tips": [
+        "一味とラー油は最後まで足せるので、最初は控えめにします。",
+        "味噌と豆板醤を短く炒めると、スープへ香ばしさが出ます。",
+        "熱い麺は小皿へ少量ずつ取り、無理にすすらず温度を確認します。"
+      ],
+      "allergens": [
+        "小麦",
+        "卵",
+        "大豆",
+        "ごま",
+        "豚肉",
+        "鶏肉"
+      ],
+      "safety": [
+        "辛味調味料を触った手で目や顔をこすらず、調理後に石けんで手を洗う。",
+        "豚ひき肉は中心75℃で1分以上を目安に十分加熱する。",
+        "極端な辛さ、早食い、熱いままの一気食いを避け、体調が悪ければ中止する。",
+        "子どもや辛さに弱い人の分は、辛味を入れる前に取り分ける。"
+      ],
+      "comments": [
+        {
+          "character": "akutan",
+          "text": "辛さは余裕だぜ。",
+          "slot": "hero"
+        },
+        {
+          "character": "miru",
+          "text": "いや、あれは熱いんだ。",
+          "slot": "safety"
+        },
+        {
+          "character": "hami",
+          "text": "小皿なら、早く冷める！",
+          "slot": "tips"
+        }
+      ],
+      "media": {
+        "hero": 130,
+        "steps": [
+          90,
+          110,
+          130,
+          150,
+          170,
+          190
+        ],
+        "ending": 289
+      },
+      "safetyTitle": "激辛も熱さも、チャレンジにしない",
+      "safetyLead": "辛さは少量ずつ足し、熱い麺は小皿へ。のどや胃に強い刺激を感じたら無理せず食べるのをやめます。",
+      "endingQuote": "「辛さは余裕だぜ」 「猫舌……なんだ」",
+      "endingText": "強さは、無理をすることではなく、ちゃんと助けを借りること。"
+    }
+  ]
+}

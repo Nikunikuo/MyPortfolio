@@ -7,7 +7,6 @@ const episodes = [
 		image: '/images/hami/tkg-card.png',
 		copy: '深夜にだけ許される、背徳の一杯。',
 		youtubeId: 'vose8t_6i-o',
-		playlistIndex: 10,
 	},
 	{
 		no: '02',
@@ -16,7 +15,6 @@ const episodes = [
 		image: '/images/hami/napolitan-card.png',
 		copy: '喫茶店の香りに誘われた、黄金の一皿。',
 		youtubeId: 'Piyz9IQu_Zc',
-		playlistIndex: 9,
 	},
 	{
 		no: '03',
@@ -25,7 +23,6 @@ const episodes = [
 		image: '/images/hami/hotdog-card.png',
 		copy: 'パンとソーセージ、その単純さに抗えない。',
 		youtubeId: 'nK4XO9wyGe8',
-		playlistIndex: 8,
 	},
 	{
 		no: '04',
@@ -34,7 +31,6 @@ const episodes = [
 		image: '/images/hami/karaage-card.png',
 		copy: '衣は鳴り、肉汁は弾け、テンションは復活する。',
 		youtubeId: '9_MwKwJKtds',
-		playlistIndex: 6,
 	},
 	{
 		no: '05',
@@ -43,7 +39,6 @@ const episodes = [
 		image: '/images/hami/toast-card.png',
 		copy: '眠れない夜にだけ現れる、小さなごちそう。',
 		youtubeId: '68pRZfUvvuQ',
-		playlistIndex: 5,
 	},
 	{
 		no: '06',
@@ -52,7 +47,6 @@ const episodes = [
 		image: '/images/hami/omurice-card.png',
 		copy: '誰かと食べると、ほんの少し特別になる。',
 		youtubeId: 'exdRnPs4628',
-		playlistIndex: 4,
 	},
 	{
 		no: '07',
@@ -61,23 +55,107 @@ const episodes = [
 		image: '/images/hami/hot-sand-eating.png',
 		copy: '熱々の一口で、ハミちゃんの記憶は白く飛ぶ。',
 		youtubeId: 'hg6qIefyr_I',
-		playlistIndex: 1,
 	},
+	{
+		no: '08',
+		title: '夢幻のたいやき編',
+		food: 'たいやき',
+		image: '/images/hami/taiyaki-card.jpg',
+		copy: '半分こ。その約束は、一口の前ではあまりに弱い。',
+		youtubeId: 'Xyd7OFZuNN0',
+	},
+	{
+		no: '09',
+		title: 'プリンの事情編',
+		food: 'プリン',
+		image: '/images/hami/pudding-card.jpg',
+		copy: '冷蔵庫の奥には、甘くて深い事情がある。',
+		youtubeId: 'EiPHsyd9FbU',
+	},
+	{
+		no: '10',
+		title: '目玉焼き戦争編',
+		food: '目玉焼き',
+		image: '/images/hami/fried-egg-card.jpg',
+		copy: 'しょうゆか、ソースか。朝食は静かに割れる。',
+		youtubeId: 'wqFMN1CoDXQ',
+	},
+	{
+		no: '11',
+		title: 'チレス・エン・ノガーダ編',
+		food: 'メキシコ料理',
+		image: '/images/hami/chiles-card.jpg',
+		copy: '知らない味ほど、食卓の向こうを広くする。',
+		youtubeId: 'ZaEJX0P4Ggg',
+	},
+	{
+		no: '12',
+		title: '雨音の焼き餃子編',
+		food: '焼き餃子',
+		image: '/images/hami/gyoza-card.jpg',
+		copy: '雨の夜。焼ける音まで、今日はごちそう。',
+		youtubeId: 'o-uS71tairk',
+	},
+	{
+		no: '13',
+		title: '激辛のラーメン編',
+		food: '激辛ラーメン',
+		image: '/images/hami/gekikara-card.png',
+		copy: '激辛には余裕。けれど熱さには、ちょっと弱い。',
+		youtubeId: 'qhDBoc90boE',
+		isLatest: true,
+	},
+];
+
+const specials = [
 	{
 		no: 'SP',
 		title: 'NG集１',
-		food: 'Special',
+		food: 'NG集',
 		image: '/images/hami/ng-card.png',
 		copy: '食べる、叫ぶ、こぼす、見切れる。',
 		youtubeId: 'ZzyEwN2o3Xw',
-		playlistIndex: 7,
+	},
+	{
+		no: 'SHORT',
+		title: 'お買い物編',
+		food: 'ショート',
+		image: '/images/hami/shopping-card.jpg',
+		copy: 'おいしい日常を、ぎゅっと短く。',
+		youtubeId: 'e6zccJDE7aI',
+	},
+	{
+		no: 'ALL',
+		title: '総集編',
+		food: '24分39秒',
+		image: '/images/hami/compilation-card.jpg',
+		copy: '最初の一口から、まとめて完食。',
+		youtubeId: '45SlNDVuIko',
 	},
 ];
 
 const youtubePlaylistId = 'PLQowZoIyUibREBdE8UuNSy5B2t5l7RFOi';
 const youtubePlaylistUrl = `https://www.youtube.com/playlist?list=${youtubePlaylistId}`;
-const youtubeWatchUrl = (videoId, playlistIndex) =>
-	`https://www.youtube.com/watch?v=${videoId}&list=${youtubePlaylistId}&index=${playlistIndex}`;
+const youtubeWatchUrl = (videoId) => `https://www.youtube.com/watch?v=${videoId}`;
+const publishedEpisodes = episodes.filter((episode) => !episode.isUpcoming);
+const publishedVideos = [...publishedEpisodes, ...specials];
+const latestEpisode = episodes.find((episode) => episode.isLatest) ?? publishedEpisodes.at(-1);
+const watchPicks = [
+	{
+		label: 'はじめての一皿',
+		title: '黄金のナポリタン編',
+		copy: 'シリーズのかわいさと勢いを、まず一皿で。',
+		image: '/images/hami/napolitan-card.png',
+		youtubeId: 'Piyz9IQu_Zc',
+	},
+	{
+		label: 'ふたりを知る一皿',
+		title: '忘却のホットサンド編',
+		copy: 'ハミちゃんとミルちゃんの距離感までおいしい回。',
+		image: '/images/hami/hot-sand-eating.png',
+		youtubeId: 'hg6qIefyr_I',
+	},
+];
 
 const galleryFrames = [
 	{
@@ -135,22 +213,22 @@ const galleryFrames = [
 		label: 'Maid cafe',
 	},
 	{
-		image: '/images/hami/material-hotsand-plate.png',
+		image: '/images/hami/akutan-reveal.png',
 		tilt: 4,
 		lift: -0.35,
-		label: 'Hot sand',
+		label: 'Akutan reveal',
 	},
 	{
-		image: '/images/hami/material-hotsand-hami.png',
+		image: '/images/hami/akutan-group.png',
 		tilt: -3,
 		lift: 0.22,
-		label: 'Forgotten',
+		label: 'Spicy relay',
 	},
 	{
-		image: '/images/hami/material-ng-butter.png',
+		image: '/images/hami/akutan-expressions.png',
 		tilt: 2,
 		lift: -0.18,
-		label: 'NG cut',
+		label: 'New face',
 	},
 ];
 
@@ -166,13 +244,15 @@ const siteUrl = Astro.site ?? new URL('https://niku.studio');
 const canonicalUrl = new URL('/hami-preview/', siteUrl).toString();
 const pageTitle = 'ハミちゃんの日常飯 | 日常系ごはんアニメ特設サイト';
 const pageDescription =
-	'ハミちゃんの日常飯は、食べることが大好きなハミちゃんと、無口だけど食欲旺盛なミルちゃんが、ごはんを通して毎回ちょっとした事件を起こす日常系ごはんアニメの特設サイトです。';
+	'ハミちゃんの日常飯は、食べることが大好きなハミちゃん、無口で食欲旺盛なミルちゃん、激辛に強く猫舌なあくたんが、ごはんを通して毎回ちょっとした事件を起こす全13話の日常系ごはんアニメです。全話の家庭向けレシピも公開しています。';
 const pageKeywords = [
 	'ハミちゃんの日常飯',
 	'ハミちゃん',
 	'羽村美緒',
 	'ミルちゃん',
 	'美沙尾ぷるむ',
+	'あくたん',
+	'阿久科芥子',
 	'日常系アニメ',
 	'料理アニメ',
 	'ごはんアニメ',
@@ -185,17 +265,22 @@ const pageKeywords = [
 	'トースト',
 	'オムライス',
 	'ホットサンド',
+	'たいやき',
+	'プリン',
+	'焼き餃子',
+	'激辛ラーメン',
 ].join(', ');
-const ogImageUrl = new URL('/images/hami/og-card.jpg', siteUrl).toString();
+const ogImageUrl = new URL('/images/hami/gekikara-card.png', siteUrl).toString();
 const logoUrl = new URL('/images/hami/logo.png', siteUrl).toString();
 const personId = new URL('/#person', siteUrl).toString();
 const seriesId = `${canonicalUrl}#series`;
 const hamiId = `${canonicalUrl}#hamichan`;
 const miruId = `${canonicalUrl}#miruchan`;
-const episodeListItems = episodes.map((episode, index) => ({
+const akutanId = `${canonicalUrl}#akutan`;
+const episodeListItems = publishedEpisodes.map((episode, index) => ({
 	'@type': 'ListItem',
 	position: index + 1,
-	url: youtubeWatchUrl(episode.youtubeId, episode.playlistIndex),
+	url: youtubeWatchUrl(episode.youtubeId),
 	name: episode.title,
 	item: {
 		'@type': 'TVEpisode',
@@ -205,23 +290,23 @@ const episodeListItems = episodes.map((episode, index) => ({
 		position: index + 1,
 		episodeNumber: episode.no,
 		image: new URL(episode.image, siteUrl).toString(),
-		url: youtubeWatchUrl(episode.youtubeId, episode.playlistIndex),
+		url: youtubeWatchUrl(episode.youtubeId),
 		partOfSeries: { '@id': seriesId },
 		inLanguage: 'ja-JP',
 		potentialAction: {
 			'@type': 'WatchAction',
-			target: youtubeWatchUrl(episode.youtubeId, episode.playlistIndex),
+			target: youtubeWatchUrl(episode.youtubeId),
 		},
 	},
 }));
-const videoObjects = episodes.map((episode) => ({
+const videoObjects = publishedVideos.map((episode) => ({
 	'@type': 'VideoObject',
 	'@id': `${canonicalUrl}#video-${episode.no.toLowerCase()}`,
 	name: `${episode.title} | ハミちゃんの日常飯`,
 	description: episode.copy,
 	thumbnailUrl: [new URL(episode.image, siteUrl).toString()],
 	embedUrl: `https://www.youtube.com/embed/${episode.youtubeId}`,
-	url: youtubeWatchUrl(episode.youtubeId, episode.playlistIndex),
+	url: youtubeWatchUrl(episode.youtubeId),
 	isPartOf: { '@id': seriesId },
 	inLanguage: 'ja-JP',
 	actor: [{ '@id': hamiId }, { '@id': miruId }],
@@ -251,13 +336,14 @@ const hamiStructuredData = {
 			primaryImageOfPage: {
 				'@type': 'ImageObject',
 				url: ogImageUrl,
-				width: 1200,
-				height: 630,
-				caption: 'ハミちゃんの日常飯 特設サイトのキービジュアル',
+				width: 1280,
+				height: 720,
+				caption: 'ハミちゃん、ミルちゃん、あくたんが描かれた「ハミちゃんの日常飯」のキービジュアル',
 			},
 			breadcrumb: { '@id': `${canonicalUrl}#breadcrumb` },
 			datePublished: '2026-06-03',
-			dateModified: '2026-06-03',
+			dateModified: '2026-07-19',
+			relatedLink: new URL('/hami-preview/recipes/', siteUrl).toString(),
 		},
 		{
 			'@type': ['TVSeries', 'CreativeWorkSeries'],
@@ -271,11 +357,11 @@ const hamiStructuredData = {
 			logo: logoUrl,
 			genre: ['日常系アニメ', '料理アニメ', 'ごはんアニメ', 'ショートアニメ', '飯テロ'],
 			keywords: pageKeywords,
-			numberOfEpisodes: episodes.length,
+			numberOfEpisodes: publishedEpisodes.length,
 			inLanguage: 'ja-JP',
 			creator: { '@id': personId },
-			character: [{ '@id': hamiId }, { '@id': miruId }],
-			actor: [{ '@id': hamiId }, { '@id': miruId }],
+			character: [{ '@id': hamiId }, { '@id': miruId }, { '@id': akutanId }],
+			actor: [{ '@id': hamiId }, { '@id': miruId }, { '@id': akutanId }],
 			hasPart: videoObjects.map((video) => ({ '@id': video['@id'] })),
 			potentialAction: {
 				'@type': 'WatchAction',
@@ -299,10 +385,18 @@ const hamiStructuredData = {
 				'黒髪ツインテール、黄色い眠そうな目、丸い体型の女の子。無口寄りだが行動が大胆で食欲が強い、ハミちゃんの相棒。',
 		},
 		{
+			'@type': 'Person',
+			'@id': akutanId,
+			name: '阿久科芥子',
+			alternateName: 'あくたん',
+			description:
+				'赤と黒のロングウルフ、赤い目、黒いライダースが特徴の姉御肌。激辛には強いが熱さには弱い猫舌で、ミルちゃんから「あくたん」と命名された。',
+		},
+		{
 			'@type': 'ItemList',
 			'@id': `${canonicalUrl}#episodes`,
 			name: 'ハミちゃんの日常飯 エピソード一覧',
-			numberOfItems: episodes.length,
+			numberOfItems: publishedEpisodes.length,
 			itemListElement: episodeListItems,
 		},
 		{
@@ -322,7 +416,7 @@ const hamiStructuredData = {
 					name: 'ハミちゃんの日常飯とは何ですか？',
 					acceptedAnswer: {
 						'@type': 'Answer',
-						text: 'ハミちゃんの日常飯は、ハミちゃんとミルちゃんが身近なごはんを食べながら、かわいくて少しおかしい事件を起こす日常系ごはんアニメです。',
+						text: 'ハミちゃんの日常飯は、ハミちゃん、ミルちゃん、あくたんが身近なごはんを食べながら、かわいくて少しおかしい事件を起こす日常系ごはんアニメです。',
 					},
 				},
 				{
@@ -330,7 +424,7 @@ const hamiStructuredData = {
 					name: 'ハミちゃんの日常飯の登場人物は誰ですか？',
 					acceptedAnswer: {
 						'@type': 'Answer',
-						text: '中心人物は、食べることが大好きな羽村美緒ことハミちゃんと、無口寄りだが食欲旺盛な美沙尾ぷるむことミルちゃんです。',
+						text: '登場人物は、食べることが大好きな羽村美緒ことハミちゃん、無口寄りで食欲旺盛な美沙尾ぷるむことミルちゃん、激辛に強く猫舌な阿久科芥子ことあくたんです。',
 					},
 				},
 				{
@@ -379,7 +473,7 @@ const hamiStructuredData = {
 		<meta name="theme-color" content="#f28f77" />
 		<meta
 			name="abstract"
-			content="『ハミちゃんの日常飯』は、ハミちゃんとミルちゃんが身近な料理を食べるだけなのに毎回ちょっと事件になる、かわいい日常系ごはんアニメです。"
+			content="『ハミちゃんの日常飯』は、ハミちゃん、ミルちゃん、あくたんが身近な料理を食べるだけなのに毎回ちょっと事件になる、かわいい日常系ごはんアニメです。"
 		/>
 		<meta name="classification" content="日常系アニメ, 料理アニメ, ショートアニメ" />
 		<link rel="canonical" href={canonicalUrl} />
@@ -387,7 +481,8 @@ const hamiStructuredData = {
 		<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 		<link rel="icon" type="image/svg+xml" href="/images/hami/steak-favicon.svg" />
 		<link rel="image_src" href={ogImageUrl} />
-		<link rel="preload" as="image" href="/images/hami/og-card.jpg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link rel="preload" as="image" href="/images/hami/logo.png" />
 		<title>{pageTitle}</title>
 		<meta property="og:type" content="website" />
@@ -397,12 +492,12 @@ const hamiStructuredData = {
 		<meta property="og:site_name" content="Niku’s Portfolio" />
 		<meta property="og:image" content={ogImageUrl} />
 		<meta property="og:image:secure_url" content={ogImageUrl} />
-		<meta property="og:image:type" content="image/jpeg" />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content="ハミちゃんの日常飯。ハミちゃんとミルちゃんがごはんと一緒に描かれた特設サイトのキービジュアル。" />
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="1280" />
+		<meta property="og:image:height" content="720" />
+		<meta property="og:image:alt" content="ハミちゃんの日常飯。ハミちゃん、ミルちゃん、あくたんと激辛ラーメンが描かれたキービジュアル。" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:updated_time" content="2026-06-03T18:05:00+09:00" />
+		<meta property="og:updated_time" content="2026-07-19T23:00:00+09:00" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="@M1RA_A_Project" />
 		<meta name="twitter:creator" content="@M1RA_A_Project" />
@@ -410,24 +505,27 @@ const hamiStructuredData = {
 		<meta name="twitter:title" content={pageTitle} />
 		<meta name="twitter:description" content={pageDescription} />
 		<meta name="twitter:image" content={ogImageUrl} />
-		<meta name="twitter:image:alt" content="ハミちゃんの日常飯 特設サイトのキービジュアル" />
+		<meta name="twitter:image:alt" content="ハミちゃん、ミルちゃん、あくたんが描かれたハミちゃんの日常飯のキービジュアル" />
 		<meta name="thumbnail" content={ogImageUrl} />
 		<script type="application/ld+json" set:html={JSON.stringify(hamiStructuredData)} />
 	</head>
 	<body>
+		<a class="skip-link" href="#main-content">本文へ移動</a>
 		<header class="preview-header" aria-label="Preview navigation">
 			<a href="/" class="home-link">Niku's Portfolio</a>
 			<nav class="jump-nav" aria-label="Site navigation">
 				<a href="#top">TOP</a>
 				<a href="#intro">INTRO</a>
+				<a href="#watch">WATCH</a>
 				<a href="#characters">CHARACTER</a>
 				<a href="#episodes">EPISODE</a>
+				<a href="#recipes">RECIPE</a>
 				<a href="#movies">MOVIE</a>
 				<a href="#materials">資料</a>
 			</nav>
 		</header>
 
-		<main>
+		<main id="main-content">
 			<section class="proposal proposal-a" id="top" aria-labelledby="proposal-a-title">
 				<div class="hero-pattern"></div>
 				<div class="hero-watermarks" aria-hidden="true">
@@ -445,24 +543,27 @@ const hamiStructuredData = {
 					alt="ハミちゃん"
 					class="float-character hami"
 					loading="eager"
+					fetchpriority="high"
 				/>
 				<img
 					src="/images/hami/miru-dynamic.png"
 					alt="ミルちゃん"
 					class="float-character miru"
 					loading="eager"
+					fetchpriority="high"
 				/>
 				<div class="hero-copy">
 					<p class="site-label">&copy;ハミちゃんの日常飯　特設サイト</p>
-					<img src="/images/hami/logo.png" alt="ハミちゃんの日常飯" class="hero-logo" />
+					<img src="/images/hami/logo.png" alt="ハミちゃんの日常飯" class="hero-logo" fetchpriority="high" />
 					<h1 id="proposal-a-title">今日のご飯は<br />一味違う？</h1>
 					<p>
 						食べることが大好きなハミちゃんの おいしい、うれしい、ちょっとおかしい。
 						一口ごとに感情があふれる日常飯アニメ！
 					</p>
 					<div class="hero-actions">
-						<a href="#episodes">EPISODE</a>
-						<a href="#characters">CHARACTER</a>
+						<a href="#watch">最新話をみる</a>
+						<a href="#episodes">全話から選ぶ</a>
+						<a href="/hami-preview/recipes/">レシピを作る</a>
 					</div>
 				</div>
 			</section>
@@ -473,9 +574,46 @@ const hamiStructuredData = {
 					<h2>おいしいだけで、世界は<br />ちょっと大事件。</h2>
 				</div>
 				<p>
-					卵かけご飯、ナポリタン、ホットドッグ、からあげ、トースト、オムライス、
-					ホットサンド。どれも身近な日常飯のはずなのに、ハミちゃんにかかれば毎回なぜか大事件。
+					卵かけご飯、ナポリタン、からあげ、プリン、焼き餃子。どれも身近な日常飯のはずなのに、
+					ハミちゃんたちにかかれば毎回なぜか大事件。食べる顔と、三人の距離が、今日もちょっとだけ変わります。
 				</p>
+			</section>
+
+			<section class="watch-band" id="watch" aria-labelledby="watch-title">
+				<header class="watch-header">
+					<div>
+						<p class="section-kicker">WATCH NOW</p>
+						<h2 id="watch-title">今日見るなら、この一皿。</h2>
+						<p>最新話をここで再生。初めての人向けと、ふたりを知る回も選びました。</p>
+					</div>
+					<a class="playlist-link" href={youtubePlaylistUrl} target="_blank" rel="noreferrer">
+						全話をまとめて見る
+					</a>
+				</header>
+				<div class="watch-layout">
+					<div class="inline-player" data-video-id={latestEpisode.youtubeId}>
+						<button class="video-poster" type="button" aria-label={`${latestEpisode.title}をこのページで再生`}>
+							<img src={latestEpisode.image} alt="" loading="eager" />
+							<span class="play-disc" aria-hidden="true">▶</span>
+							<span class="poster-copy">
+								<small>最新話</small>
+								<strong>{latestEpisode.title}</strong>
+							</span>
+						</button>
+					</div>
+					<div class="watch-picks" aria-label="おすすめエピソード">
+						{watchPicks.map((pick) => (
+							<a href={youtubeWatchUrl(pick.youtubeId)} target="_blank" rel="noreferrer">
+								<img src={pick.image} alt="" loading="lazy" />
+								<span>
+									<small>{pick.label}</small>
+									<strong>{pick.title}</strong>
+									<em>{pick.copy}</em>
+								</span>
+							</a>
+						))}
+					</div>
+				</div>
 			</section>
 
 			<section class="knowledge-panel" id="quick-facts" aria-labelledby="quick-facts-title">
@@ -483,7 +621,7 @@ const hamiStructuredData = {
 					<p class="section-kicker">QUICK FACTS</p>
 					<h2 id="quick-facts-title">ハミちゃんの日常飯 早わかり</h2>
 					<p>
-						ハミちゃんの日常飯は、食べることが大好きなハミちゃんと、無口だけど食欲旺盛なミルちゃんの
+						食べることが大好きなハミちゃん、無口で食欲旺盛なミルちゃん、激辛に強くて猫舌なあくたん。
 						「食べてるだけでなんか起きる」日常系ごはんアニメです。
 					</p>
 				</div>
@@ -494,7 +632,7 @@ const hamiStructuredData = {
 					</div>
 					<div>
 						<dt>登場人物</dt>
-						<dd>羽村美緒（ハミちゃん）、美沙尾ぷるむ（ミルちゃん）</dd>
+						<dd>羽村美緒（ハミちゃん）、美沙尾ぷるむ（ミルちゃん）、阿久科芥子（あくたん）</dd>
 					</div>
 					<div>
 						<dt>見られる場所</dt>
@@ -502,9 +640,27 @@ const hamiStructuredData = {
 					</div>
 					<div>
 						<dt>現在の話数</dt>
-						<dd>本編7話とNG集1本。卵かけご飯、ナポリタン、ホットドッグ、からあげ、トースト、オムライス、ホットサンド。</dd>
+						<dd>公開本編13話。ショート、総集編、NG集に加えて、全話の家庭向けレシピも公開中です。</dd>
 					</div>
 				</dl>
+			</section>
+
+			<section class="new-face-band" aria-labelledby="new-face-title">
+				<div class="new-face-visual">
+					<img src="/images/hami/gekikara-card.png" alt="激辛ラーメンを前にしたあくたん、ハミちゃん、ミルちゃん" loading="lazy" />
+				</div>
+				<div class="new-face-copy">
+					<p class="section-kicker">NEW FACE</p>
+					<h2 id="new-face-title">赤くて辛くて、名前はかわいい。</h2>
+					<p>
+						強そうな姉御が、激辛チャレンジに参戦。辛さには余裕なのに、湯気の前では箸が止まる。
+						ミルちゃんがつけた呼び名は「あくたん」。本人だけが、まだ慣れていません。
+					</p>
+					<div class="new-face-actions">
+						<span>第13話・公開中</span>
+						<a href="#akutan">あくたんを知る</a>
+					</div>
+				</div>
 			</section>
 
 			<section class="character-band" id="characters" aria-label="Character">
@@ -555,19 +711,61 @@ const hamiStructuredData = {
 							</div>
 						</div>
 					</article>
+					<article class="character-card akutan-card" id="akutan">
+						<div class="akutan-meal-frame">
+							<img src="/images/hami/akutan-reveal.png" alt="激辛ラーメンを持ち上げる阿久科芥子" loading="lazy" />
+							<span>NEW CHARACTER</span>
+						</div>
+						<div class="akutan-profile-row">
+							<div class="akutan-expression-strip">
+								<img src="/images/hami/akutan-expressions.png" alt="あくたんの不敵な笑顔、集中、動揺、柔らかな笑顔" loading="lazy" />
+							</div>
+							<div class="character-copy">
+								<p class="section-kicker">AKUTAN</p>
+								<h3>阿久科 芥子</h3>
+								<p>
+									赤と黒のロングウルフ、赤い目、黒いライダース。低く少しハスキーな声の姉御肌。
+									激辛には強いのに熱さには弱い猫舌で、ぶっきらぼうな優しさを行動で見せる。
+								</p>
+								<div class="food-badges" aria-label="あくたんの特徴">
+									<span>激辛は余裕</span>
+									<span>猫舌</span>
+									<span>姉御肌</span>
+								</div>
+							</div>
+						</div>
+					</article>
 				</div>
+				<figure class="trio-lineup">
+					<img src="/images/hami/character-lineup.png" alt="ハミちゃん、ミルちゃん、あくたんの全身と身長差" loading="lazy" />
+					<figcaption>小さなリアクション王、静かな大食い、赤い姉御。三人になりました。</figcaption>
+				</figure>
 			</section>
 
 			<section class="episode-strip" id="episodes" aria-label="Episode cards">
 				<header>
-					<p class="section-kicker">EPISODE</p>
-					<h2>今あるシリーズ</h2>
+					<div>
+						<p class="section-kicker">EPISODE</p>
+						<h2>今あるシリーズ</h2>
+					</div>
+					<a class="playlist-link" href={youtubePlaylistUrl} target="_blank" rel="noreferrer">再生リスト</a>
 				</header>
 				<div class="episode-grid">
-					{episodes.map((episode) => (
+					{episodes.map((episode) => episode.isUpcoming ? (
+						<article class="episode-card is-upcoming" aria-label={`${episode.title}は公開準備中`}>
+							<img src={episode.image} alt={episode.title} loading="lazy" />
+							<div class="episode-info">
+								<span>{episode.no}</span>
+								<h3>{episode.title}</h3>
+								<p>{episode.copy}</p>
+								<small>{episode.food}</small>
+								<strong class="watch-label">公開準備中</strong>
+							</div>
+						</article>
+					) : (
 						<a
-							class="episode-card"
-							href={youtubeWatchUrl(episode.youtubeId, episode.playlistIndex)}
+							class:list={['episode-card', { 'is-latest': episode.isLatest }]}
+							href={youtubeWatchUrl(episode.youtubeId)}
 							target="_blank"
 							rel="noreferrer"
 							aria-label={`${episode.title}をYouTubeで見る`}
@@ -578,11 +776,53 @@ const hamiStructuredData = {
 								<h3>{episode.title}</h3>
 								<p>{episode.copy}</p>
 								<small>{episode.food}</small>
-								<strong class="watch-label">YouTubeで見る</strong>
+								<strong class="watch-label">{episode.isLatest ? '最新話を見る' : 'YouTubeで見る'}</strong>
 							</div>
 						</a>
 					))}
 				</div>
+				<div class="episode-extras">
+					<p class="section-kicker">EXTRA DISH</p>
+					<div>
+						{specials.map((episode) => (
+							<a class="extra-card" href={youtubeWatchUrl(episode.youtubeId)} target="_blank" rel="noreferrer">
+								<img src={episode.image} alt="" loading="lazy" />
+								<span><small>{episode.no}</small><strong>{episode.title}</strong><em>{episode.copy}</em></span>
+							</a>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="recipe-band" id="recipes" aria-labelledby="recipes-title">
+				<div class="recipe-band-visual">
+					<img
+						src="/images/hami/recipes/generated/cinema-three-hotdogs/process.webp"
+						alt="3種のホットドッグを家庭で再現する4コマ調理工程"
+						loading="lazy"
+					/>
+					<span>全13品</span>
+				</div>
+				<div class="recipe-band-copy">
+					<p class="section-kicker">RECIPE BOOK</p>
+					<h2 id="recipes-title">あの一皿を、<br />おうちでも。</h2>
+					<p>
+						本編と制作資料から、材料・分量・調理工程を家庭向けに再構成しました。
+						調理映像がない回は、GPT-image-2の再現イメージで手順を補っています。
+					</p>
+					<ul>
+						<li>公開本編13話、全13品</li>
+						<li>各ページで本編YouTubeも視聴可能</li>
+						<li>ハミちゃんたちの吹き出しコメントつき</li>
+					</ul>
+					<a class="recipe-link" href="/hami-preview/recipes/">レシピ一覧を見る</a>
+				</div>
+				<img
+					class="recipe-band-character"
+					src="/images/hami/recipes/characters/hami-thumbsup.webp"
+					alt="親指を立てるハミちゃん"
+					loading="lazy"
+				/>
 			</section>
 
 			<section class="movie-band" id="movies" aria-label="Movie">
@@ -618,12 +858,22 @@ const hamiStructuredData = {
 							<li>背徳の卵かけご飯</li>
 							<li>黄金のナポリタン</li>
 							<li>魅惑のホットドッグ</li>
-							<li>忘却のホットサンド</li>
+							<li>雨音の焼き餃子</li>
+							<li>激辛のラーメン</li>
 						</ul>
 					</article>
-					<img src="/images/hami/hot-sand-kitchen.png" alt="キッチンの料理カット" />
-					<img src="/images/hami/hami-dynamic.png" alt="ハミちゃん" class="board-hami" />
-					<img src="/images/hami/miru-dynamic.png" alt="ミルちゃん" class="board-miru" />
+					<img
+						src="/images/hami/character-lineup.png"
+						alt="ハミちゃん、ミルちゃん、あくたんの全身設定"
+						class="board-lineup"
+						loading="lazy"
+					/>
+					<img
+						src="/images/hami/akutan-group.png"
+						alt="激辛ラーメンを囲む三人の制作資料"
+						class="board-scene"
+						loading="lazy"
+					/>
 				</div>
 			</section>
 
@@ -642,6 +892,19 @@ const hamiStructuredData = {
 				</div>
 			</section>
 		</main>
+		<footer class="site-footer">
+			<div>
+				<strong>ハミちゃんの日常飯</strong>
+				<p>おいしい、うれしい、ちょっとおかしい。</p>
+			</div>
+			<nav aria-label="Footer navigation">
+				<a href="#top">ページ上部へ</a>
+				<a href="/hami-preview/recipes/">全13品のレシピ</a>
+				<a href={youtubePlaylistUrl} target="_blank" rel="noreferrer">YouTube再生リスト</a>
+				<a href="/">Niku's Portfolio</a>
+			</nav>
+			<small>&copy;ハミちゃんの日常飯</small>
+		</footer>
 		<script>
 			const scrollToCurrentHash = () => {
 				if (!window.location.hash) return;
@@ -651,6 +914,49 @@ const hamiStructuredData = {
 
 			window.addEventListener('load', () => requestAnimationFrame(scrollToCurrentHash));
 			window.addEventListener('hashchange', () => requestAnimationFrame(scrollToCurrentHash));
+
+			document.querySelectorAll('.inline-player[data-video-id]').forEach((player) => {
+				if (!(player instanceof HTMLElement)) return;
+				const button = player.querySelector('button');
+				if (!(button instanceof HTMLButtonElement)) return;
+
+				button.addEventListener('click', () => {
+					const videoId = player.dataset.videoId;
+					if (!videoId) return;
+
+					const iframe = document.createElement('iframe');
+					iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+					iframe.title = button.getAttribute('aria-label') ?? 'ハミちゃんの日常飯を再生';
+					iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+					iframe.allowFullscreen = true;
+					iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+					player.replaceChildren(iframe);
+				});
+			});
+
+			const navLinks = [...document.querySelectorAll('.jump-nav a[href^="#"]')];
+			const navTargets = navLinks
+				.map((link) => document.querySelector(link.getAttribute('href') ?? ''))
+				.filter((target) => target instanceof HTMLElement);
+
+			if ('IntersectionObserver' in window) {
+				const observer = new IntersectionObserver((entries) => {
+					const visible = entries
+						.filter((entry) => entry.isIntersecting)
+						.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+					if (!visible?.target.id) return;
+
+					navLinks.forEach((link) => {
+						if (link.getAttribute('href') === `#${visible.target.id}`) {
+							link.setAttribute('aria-current', 'location');
+						} else {
+							link.removeAttribute('aria-current');
+						}
+					});
+				}, { rootMargin: '-20% 0px -68%', threshold: [0, 0.2, 0.6] });
+
+				navTargets.forEach((target) => observer.observe(target));
+			}
 		</script>
 	</body>
 </html>
@@ -668,6 +974,10 @@ const hamiStructuredData = {
 		--butter: #ffd166;
 		--sky: #9ed8f7;
 		--berry: #f8a6b8;
+		--chili: #b62e39;
+		--chili-dark: #5e1c24;
+		--charcoal: #282326;
+		--leaf: #5c8f70;
 		--shadow: 0 18px 50px rgba(91, 61, 35, 0.18);
 		font-family:
 			"M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Yu Gothic", "Meiryo", system-ui,
@@ -680,8 +990,15 @@ const hamiStructuredData = {
 		box-sizing: border-box;
 	}
 
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: 5rem;
+	}
+
 	body {
 		margin: 0;
+		min-width: 320px;
+		overflow-x: hidden;
 		background:
 			linear-gradient(rgba(255, 248, 236, 0.82), rgba(255, 248, 236, 0.82)),
 			url("/images/hami/cutlery-pattern.svg");
@@ -696,6 +1013,40 @@ const hamiStructuredData = {
 		cursor:
 			url("/images/hami/fork-cursor.svg") 10 10,
 			pointer;
+	}
+
+	button {
+		font: inherit;
+		cursor:
+			url("/images/hami/fork-cursor.svg") 10 10,
+			pointer;
+	}
+
+	.skip-link {
+		position: fixed;
+		left: 0.75rem;
+		top: 0.75rem;
+		z-index: 100;
+		padding: 0.65rem 0.9rem;
+		background: var(--charcoal);
+		color: #ffffff;
+		transform: translateY(-180%);
+		transition: transform 160ms ease;
+	}
+
+	.skip-link:focus {
+		transform: translateY(0);
+	}
+
+	a:focus-visible,
+	button:focus-visible,
+	video:focus-visible {
+		outline: 4px solid var(--sky);
+		outline-offset: 4px;
+	}
+
+	main section[id] {
+		scroll-margin-top: 5rem;
 	}
 
 	img,
@@ -760,6 +1111,14 @@ const hamiStructuredData = {
 			0 10px 20px rgba(91, 61, 35, 0.13);
 	}
 
+	.jump-nav a[aria-current="location"] {
+		border-color: rgba(182, 46, 57, 0.5);
+		color: var(--chili-dark);
+		box-shadow:
+			inset 0 -3px 0 rgba(182, 46, 57, 0.16),
+			0 8px 18px rgba(91, 61, 35, 0.12);
+	}
+
 	.proposal {
 		position: relative;
 		min-height: min(58rem, calc(100vh - 3.25rem));
@@ -782,7 +1141,7 @@ const hamiStructuredData = {
 		inset: 0;
 		background:
 			linear-gradient(90deg, rgba(248, 166, 184, 0.22), transparent 32%, rgba(158, 216, 247, 0.2)),
-			radial-gradient(circle at 52% 42%, rgba(255, 209, 102, 0.38), transparent 28%);
+			repeating-linear-gradient(135deg, rgba(255, 209, 102, 0.09) 0 1px, transparent 1px 2.3rem);
 		z-index: -3;
 	}
 
@@ -870,6 +1229,7 @@ const hamiStructuredData = {
 	.character-section-header h2,
 	.mini-section h2,
 	.episode-strip h2,
+	.recipe-band h2,
 	.movie-band h2,
 	.materials h2 {
 		margin: 0;
@@ -1013,6 +1373,267 @@ const hamiStructuredData = {
 		width: min(74rem, calc(100% - 2rem));
 		margin: 0 auto;
 		padding: 4rem 0;
+	}
+
+	.watch-band {
+		width: min(86rem, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: 4.5rem 0;
+		border-top: 2px solid rgba(62, 42, 31, 0.1);
+		border-bottom: 2px solid rgba(62, 42, 31, 0.1);
+	}
+
+	.watch-header {
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		gap: 1.5rem;
+		margin-bottom: 1.4rem;
+	}
+
+	.watch-header h2,
+	.new-face-copy h2 {
+		margin: 0.32rem 0 0.55rem;
+		font-size: clamp(2rem, 4vw, 3.35rem);
+		line-height: 1.08;
+	}
+
+	.watch-header p:not(.section-kicker) {
+		margin: 0;
+		color: var(--muted);
+		font-weight: 700;
+	}
+
+	.watch-layout {
+		display: grid;
+		grid-template-columns: minmax(0, 1.55fr) minmax(18rem, 0.65fr);
+		gap: 1rem;
+		align-items: stretch;
+	}
+
+	.inline-player {
+		position: relative;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+		background: var(--charcoal);
+		border: 8px solid #ffffff;
+		border-radius: 8px;
+		box-shadow: var(--shadow);
+	}
+
+	.inline-player iframe,
+	.video-poster {
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+
+	.video-poster {
+		position: relative;
+		display: block;
+		padding: 0;
+		background: var(--charcoal);
+		overflow: hidden;
+	}
+
+	.video-poster::after {
+		content: "";
+		position: absolute;
+		inset: 40% 0 0;
+		background: linear-gradient(transparent, rgba(20, 15, 14, 0.86));
+		pointer-events: none;
+	}
+
+	.video-poster > img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 220ms ease;
+	}
+
+	.video-poster:hover > img {
+		transform: scale(1.025);
+	}
+
+	.play-disc {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		z-index: 2;
+		display: grid;
+		place-items: center;
+		width: 4.8rem;
+		aspect-ratio: 1;
+		padding-left: 0.22rem;
+		border: 0.55rem solid rgba(255, 255, 255, 0.92);
+		border-radius: 50%;
+		background: var(--coral);
+		color: #ffffff;
+		font-size: 1.5rem;
+		box-shadow: 0 14px 34px rgba(20, 15, 14, 0.32);
+		transform: translate(-50%, -50%);
+	}
+
+	.poster-copy {
+		position: absolute;
+		left: clamp(1rem, 3vw, 2rem);
+		right: 1rem;
+		bottom: clamp(1rem, 3vw, 1.8rem);
+		z-index: 2;
+		display: grid;
+		gap: 0.15rem;
+		color: #ffffff;
+		text-align: left;
+	}
+
+	.poster-copy small,
+	.watch-picks small,
+	.extra-card small {
+		font-size: 0.74rem;
+		font-weight: 900;
+		text-transform: uppercase;
+	}
+
+	.poster-copy strong {
+		font-size: clamp(1.2rem, 2.6vw, 2rem);
+	}
+
+	.watch-picks {
+		display: grid;
+		grid-template-rows: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	.watch-picks a {
+		display: grid;
+		grid-template-columns: minmax(8rem, 0.78fr) minmax(0, 1fr);
+		min-height: 0;
+		background: #ffffff;
+		border: 1px solid rgba(62, 42, 31, 0.12);
+		border-radius: 8px;
+		overflow: hidden;
+		color: inherit;
+		text-decoration: none;
+		box-shadow: 0 12px 30px rgba(91, 61, 35, 0.1);
+		transition: transform 180ms ease, box-shadow 180ms ease;
+	}
+
+	.watch-picks a:hover {
+		transform: translateY(-0.2rem) rotate(-0.35deg);
+		box-shadow: 0 18px 36px rgba(91, 61, 35, 0.16);
+	}
+
+	.watch-picks img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.watch-picks span {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-width: 0;
+		padding: 0.9rem;
+	}
+
+	.watch-picks small {
+		color: var(--chili);
+	}
+
+	.watch-picks strong {
+		margin-top: 0.2rem;
+		font-size: 1rem;
+	}
+
+	.watch-picks em,
+	.extra-card em {
+		margin-top: 0.35rem;
+		color: var(--muted);
+		font-size: 0.8rem;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 1.5;
+	}
+
+	.new-face-band {
+		display: grid;
+		grid-template-columns: minmax(0, 1.12fr) minmax(24rem, 0.88fr);
+		width: 100%;
+		margin: 1rem 0 2.5rem;
+		background: var(--charcoal);
+		color: #ffffff;
+	}
+
+	.new-face-visual {
+		min-height: 30rem;
+		overflow: hidden;
+	}
+
+	.new-face-visual img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.new-face-copy {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: clamp(2rem, 5vw, 5rem);
+		border-left: 0.65rem solid var(--chili);
+	}
+
+	.new-face-copy .section-kicker {
+		color: #ffbe73;
+	}
+
+	.new-face-copy h2 {
+		color: #ffffff;
+	}
+
+	.new-face-copy > p:not(.section-kicker) {
+		margin: 0;
+		color: rgba(255, 255, 255, 0.76);
+		font-weight: 700;
+		line-height: 1.85;
+	}
+
+	.new-face-actions {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+		flex-wrap: wrap;
+		margin-top: 1.4rem;
+	}
+
+	.new-face-actions span {
+		color: #ffbe73;
+		font-size: 0.84rem;
+		font-weight: 900;
+	}
+
+	.new-face-actions a {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		min-height: 2.75rem;
+		padding: 0.58rem 1.8rem 0.58rem 1rem;
+		background: #ffffff;
+		color: var(--chili-dark);
+		font-weight: 900;
+		text-decoration: none;
+		clip-path: polygon(0 50%, 0.35rem 18%, 1.2rem 0, 100% 0, calc(100% - 0.35rem) 50%, 100% 100%, 1.2rem 100%, 0.35rem 82%);
+	}
+
+	.new-face-actions a::after {
+		content: "";
+		position: absolute;
+		right: 0.62rem;
+		width: 0.85rem;
+		height: 0.18rem;
+		background: currentColor;
 	}
 
 	.mini-section {
@@ -1228,6 +1849,200 @@ const hamiStructuredData = {
 		clip-path: polygon(0 50%, 0.35rem 18%, 1.2rem 0, 100% 0, calc(100% - 0.35rem) 50%, 100% 100%, 1.2rem 100%, 0.35rem 82%);
 	}
 
+	.akutan-card {
+		grid-column: 1 / -1;
+		grid-template-columns: minmax(0, 1.08fr) minmax(24rem, 0.92fr);
+		align-items: stretch;
+		background:
+			linear-gradient(90deg, rgba(255, 255, 255, 0.28) 1px, transparent 1px),
+			linear-gradient(0deg, rgba(255, 255, 255, 0.25) 1px, transparent 1px),
+			linear-gradient(135deg, rgba(255, 224, 214, 0.94), rgba(222, 242, 246, 0.9) 62%, rgba(255, 248, 236, 0.9));
+		background-size: 2rem 2rem, 2rem 2rem, auto;
+	}
+
+	.akutan-card::before {
+		border-color: rgba(182, 46, 57, 0.13);
+	}
+
+	.akutan-meal-frame {
+		position: relative;
+		min-height: 30rem;
+		overflow: hidden;
+		border: 8px solid rgba(255, 255, 255, 0.9);
+		border-radius: 6px;
+		background: var(--charcoal);
+		box-shadow: 0 16px 32px rgba(91, 61, 35, 0.16);
+	}
+
+	.akutan-meal-frame img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.akutan-meal-frame > span {
+		position: absolute;
+		left: 0;
+		bottom: 1.2rem;
+		padding: 0.52rem 1.2rem 0.52rem 1.8rem;
+		background: var(--chili);
+		color: #ffffff;
+		font-size: 0.78rem;
+		font-weight: 900;
+		clip-path: polygon(0 0, 100% 0, calc(100% - 0.5rem) 50%, 100% 100%, 0 100%);
+	}
+
+	.akutan-profile-row {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		grid-template-rows: minmax(11rem, 0.78fr) minmax(0, 1fr);
+		gap: 0.8rem;
+		min-width: 0;
+	}
+
+	.akutan-expression-strip {
+		overflow: hidden;
+		border: 7px solid rgba(255, 255, 255, 0.88);
+		border-radius: 6px;
+		background: #ffffff;
+		box-shadow: 0 12px 26px rgba(91, 61, 35, 0.12);
+	}
+
+	.akutan-expression-strip img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.akutan-profile-row .character-copy {
+		align-self: start;
+		padding: 0.8rem 0.8rem 0.5rem;
+	}
+
+	.trio-lineup {
+		display: grid;
+		grid-template-columns: minmax(0, 1.55fr) minmax(15rem, 0.45fr);
+		align-items: center;
+		gap: 1.5rem;
+		margin: 2.2rem 0 0;
+		padding: 1.2rem 0;
+		border-top: 2px solid rgba(62, 42, 31, 0.1);
+		border-bottom: 2px solid rgba(62, 42, 31, 0.1);
+	}
+
+	.trio-lineup img {
+		width: 100%;
+		max-height: 34rem;
+		object-fit: contain;
+	}
+
+	.trio-lineup figcaption {
+		color: var(--muted);
+		font-family: "Yomogi", "M PLUS Rounded 1c", sans-serif;
+		font-size: 1.2rem;
+		font-weight: 700;
+		line-height: 1.8;
+	}
+
+	.recipe-band {
+		position: relative;
+		display: grid;
+		grid-template-columns: minmax(0, 1.08fr) minmax(22rem, 0.92fr);
+		width: min(74rem, calc(100% - 2rem));
+		margin: 1rem auto 4rem;
+		overflow: hidden;
+		background:
+			radial-gradient(circle at 88% 16%, rgba(255, 209, 102, 0.48), transparent 25%),
+			linear-gradient(135deg, #fff8ec, #ffe7d8 58%, #dff4ef);
+		border: 2px solid rgba(242, 143, 119, 0.38);
+		border-radius: 1.6rem;
+		box-shadow: 0 22px 54px rgba(91, 61, 35, 0.16);
+	}
+
+	.recipe-band-visual {
+		position: relative;
+		min-height: 31rem;
+		background: #2d241f;
+	}
+
+	.recipe-band-visual img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.recipe-band-visual span {
+		position: absolute;
+		left: 1.2rem;
+		top: 1.2rem;
+		padding: 0.5rem 1rem;
+		background: var(--chili);
+		color: #ffffff;
+		border: 3px solid rgba(255, 255, 255, 0.9);
+		border-radius: 999px;
+		box-shadow: 0 10px 20px rgba(62, 42, 31, 0.2);
+		font-size: 0.9rem;
+		font-weight: 950;
+	}
+
+	.recipe-band-copy {
+		position: relative;
+		z-index: 2;
+		align-self: center;
+		padding: 3.3rem 6.2rem 3.3rem 2.5rem;
+	}
+
+	.recipe-band-copy > p:not(.section-kicker) {
+		margin: 1.15rem 0;
+		color: var(--muted);
+		font-weight: 700;
+		line-height: 1.85;
+	}
+
+	.recipe-band-copy ul {
+		display: grid;
+		gap: 0.5rem;
+		margin: 0 0 1.5rem;
+		padding-left: 1.25rem;
+		color: #6b4e3d;
+		font-size: 0.9rem;
+		font-weight: 800;
+		line-height: 1.6;
+	}
+
+	.recipe-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 3.2rem;
+		padding: 0.8rem 1.5rem;
+		background: var(--ink);
+		color: #ffffff;
+		border-radius: 999px;
+		box-shadow: 0 12px 24px rgba(62, 42, 31, 0.2);
+		font-weight: 900;
+		text-decoration: none;
+		transition: transform 160ms ease, box-shadow 160ms ease;
+	}
+
+	.recipe-link:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 17px 30px rgba(62, 42, 31, 0.25);
+	}
+
+	.recipe-band-character {
+		position: absolute;
+		right: -2.2rem;
+		bottom: -1.5rem;
+		z-index: 1;
+		width: 10rem;
+		max-height: 17rem;
+		object-fit: contain;
+		filter: drop-shadow(0 14px 14px rgba(91, 61, 35, 0.2));
+		transform: rotate(-4deg);
+	}
+
 	.episode-strip header,
 	.movie-band header,
 	.materials header {
@@ -1240,7 +2055,7 @@ const hamiStructuredData = {
 
 	.episode-grid {
 		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 1rem;
 	}
 
@@ -1261,6 +2076,62 @@ const hamiStructuredData = {
 	.episode-card:hover {
 		transform: translateY(-0.25rem);
 		box-shadow: 0 18px 42px rgba(91, 61, 35, 0.18);
+	}
+
+	.episode-card.is-latest {
+		border-color: rgba(182, 46, 57, 0.52);
+		box-shadow:
+			0 0 0 3px rgba(182, 46, 57, 0.1),
+			0 16px 36px rgba(91, 61, 35, 0.14);
+	}
+
+	.episode-card.is-latest::after {
+		content: "LATEST";
+		position: absolute;
+		top: 0.72rem;
+		right: 0;
+		padding: 0.38rem 0.8rem 0.38rem 1rem;
+		background: var(--chili);
+		color: #ffffff;
+		font-size: 0.7rem;
+		font-weight: 900;
+		clip-path: polygon(0.42rem 50%, 0 0, 100% 0, 100% 100%, 0 100%);
+	}
+
+	.episode-card.is-upcoming {
+		background: #f4efea;
+		border-style: dashed;
+		border-color: rgba(182, 46, 57, 0.35);
+	}
+
+	.episode-card.is-upcoming img {
+		filter: saturate(0.78);
+	}
+
+	.episode-card.is-upcoming .watch-label {
+		color: var(--chili-dark);
+		background: rgba(182, 46, 57, 0.1);
+	}
+
+	@media (min-width: 761px) {
+		.episode-card.is-upcoming {
+			grid-column: 1 / -1;
+			display: grid;
+			grid-template-columns: minmax(20rem, 0.7fr) minmax(0, 1.3fr);
+		}
+
+		.episode-card.is-upcoming img {
+			height: 100%;
+			aspect-ratio: 16 / 9;
+		}
+
+		.episode-card.is-upcoming .episode-info {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			padding: clamp(1.25rem, 3vw, 2.5rem);
+		}
 	}
 
 	.episode-card img {
@@ -1308,6 +2179,60 @@ const hamiStructuredData = {
 		clip-path: polygon(0 50%, 0.3rem 20%, 1rem 0, 100% 0, calc(100% - 0.3rem) 50%, 100% 100%, 1rem 100%, 0.3rem 80%);
 	}
 
+	.episode-extras {
+		margin-top: 2.5rem;
+		padding-top: 1.5rem;
+		border-top: 2px dashed rgba(62, 42, 31, 0.14);
+	}
+
+	.episode-extras > div {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		margin-top: 0.75rem;
+	}
+
+	.extra-card {
+		display: grid;
+		grid-template-columns: minmax(7.5rem, 0.88fr) minmax(0, 1.12fr);
+		min-height: 8.5rem;
+		background: #ffffff;
+		border: 1px solid rgba(62, 42, 31, 0.12);
+		border-radius: 8px;
+		overflow: hidden;
+		color: inherit;
+		text-decoration: none;
+		box-shadow: 0 10px 28px rgba(91, 61, 35, 0.1);
+		transition: transform 180ms ease, box-shadow 180ms ease;
+	}
+
+	.extra-card:hover {
+		transform: translateY(-0.2rem);
+		box-shadow: 0 16px 34px rgba(91, 61, 35, 0.16);
+	}
+
+	.extra-card img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.extra-card > span {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-width: 0;
+		padding: 0.8rem;
+	}
+
+	.extra-card small {
+		color: var(--leaf);
+	}
+
+	.extra-card strong {
+		margin-top: 0.12rem;
+	}
+
 	.movie-grid {
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1337,6 +2262,7 @@ const hamiStructuredData = {
 		color: #ffffff;
 		font-weight: 900;
 		text-decoration: none;
+		white-space: nowrap;
 		box-shadow: 0 12px 24px rgba(62, 42, 31, 0.18);
 		clip-path: polygon(0 50%, 0.4rem 18%, 1.45rem 4%, calc(100% - 0.75rem) 8%, 100% 50%, calc(100% - 0.75rem) 92%, 1.45rem 96%, 0.4rem 82%);
 	}
@@ -1383,7 +2309,7 @@ const hamiStructuredData = {
 
 	.material-board {
 		position: relative;
-		min-height: 38rem;
+		min-height: 43rem;
 		background: rgba(255, 253, 247, 0.8);
 		border: 1px solid rgba(62, 42, 31, 0.16);
 		border-radius: 8px;
@@ -1391,18 +2317,34 @@ const hamiStructuredData = {
 		overflow: hidden;
 	}
 
-	.material-board > img:not(.board-hami):not(.board-miru) {
+	.board-lineup {
 		position: absolute;
 		left: 2rem;
 		right: 2rem;
 		top: 2rem;
 		width: calc(100% - 4rem);
-		height: 17rem;
-		object-fit: cover;
+		height: 25rem;
+		object-fit: contain;
+		background: #ffffff;
 		border-radius: 8px;
 		border: 8px solid #ffffff;
 		transform: rotate(-1.5deg);
 		box-shadow: 0 12px 32px rgba(91, 61, 35, 0.16);
+	}
+
+	.board-scene {
+		position: absolute;
+		right: 1.6rem;
+		bottom: 1.6rem;
+		z-index: 3;
+		width: min(53%, 23rem);
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		background: #ffffff;
+		border: 8px solid #ffffff;
+		border-radius: 6px;
+		box-shadow: 0 14px 32px rgba(91, 61, 35, 0.18);
+		transform: rotate(-2.4deg);
 	}
 
 	.menu-paper {
@@ -1415,7 +2357,7 @@ const hamiStructuredData = {
 		border: 1px solid rgba(62, 42, 31, 0.18);
 		border-radius: 8px;
 		transform: rotate(2deg);
-		z-index: 4;
+		z-index: 5;
 		box-shadow: var(--shadow);
 	}
 
@@ -1430,25 +2372,6 @@ const hamiStructuredData = {
 		padding-left: 1.1rem;
 		line-height: 1.75;
 		color: var(--muted);
-	}
-
-	.board-hami,
-	.board-miru {
-		position: absolute;
-		bottom: 0.5rem;
-		object-fit: contain;
-		max-height: 25rem;
-		filter: drop-shadow(0 18px 15px rgba(62, 42, 31, 0.18));
-	}
-
-	.board-hami {
-		right: min(38%, 17rem);
-		width: clamp(10rem, 22vw, 15rem);
-	}
-
-	.board-miru {
-		right: 1rem;
-		width: clamp(11rem, 24vw, 16.5rem);
 	}
 
 	.photo-scatter {
@@ -1502,6 +2425,46 @@ const hamiStructuredData = {
 		text-transform: uppercase;
 	}
 
+	.site-footer {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto auto;
+		align-items: center;
+		gap: 2rem;
+		padding: 2.2rem max(1rem, calc((100% - 74rem) / 2));
+		background: var(--charcoal);
+		color: #ffffff;
+	}
+
+	.site-footer strong {
+		font-size: 1.15rem;
+	}
+
+	.site-footer p {
+		margin: 0.25rem 0 0;
+		color: rgba(255, 255, 255, 0.68);
+		font-family: "Yomogi", "M PLUS Rounded 1c", sans-serif;
+		font-weight: 700;
+	}
+
+	.site-footer nav {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.site-footer a {
+		color: rgba(255, 255, 255, 0.84);
+		font-size: 0.84rem;
+		font-weight: 800;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 0.25rem;
+	}
+
+	.site-footer small {
+		color: rgba(255, 255, 255, 0.56);
+		white-space: nowrap;
+	}
+
 	@media (max-width: 1100px) {
 		.float-character {
 			opacity: 0.9;
@@ -1518,6 +2481,21 @@ const hamiStructuredData = {
 
 		.materials-board-section {
 			grid-template-columns: 1fr;
+		}
+
+		.watch-layout,
+		.akutan-card {
+			grid-template-columns: 1fr;
+		}
+
+		.watch-picks {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-template-rows: none;
+		}
+
+		.akutan-profile-row {
+			grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1fr);
+			grid-template-rows: none;
 		}
 
 		.episode-grid {
@@ -1607,7 +2585,10 @@ const hamiStructuredData = {
 		.board-copy h2,
 		.character-section-header h2,
 		.mini-section h2,
+		.watch-header h2,
+		.new-face-copy h2,
 		.episode-strip h2,
+		.recipe-band h2,
 		.movie-band h2,
 		.materials h2 {
 			font-size: 1.85rem;
@@ -1637,6 +2618,45 @@ const hamiStructuredData = {
 		.movie-grid,
 		.photo-scatter {
 			grid-template-columns: 1fr;
+		}
+
+		.watch-band {
+			padding: 3.4rem 0;
+		}
+
+		.watch-header {
+			align-items: flex-start;
+			flex-direction: column;
+		}
+
+		.watch-picks {
+			grid-template-columns: 1fr;
+		}
+
+		.watch-picks a {
+			grid-template-columns: minmax(7rem, 0.72fr) minmax(0, 1fr);
+			min-height: 8.5rem;
+		}
+
+		.play-disc {
+			width: 3.8rem;
+			border-width: 0.42rem;
+			font-size: 1.15rem;
+		}
+
+		.new-face-band {
+			grid-template-columns: 1fr;
+		}
+
+		.new-face-visual {
+			min-height: auto;
+			aspect-ratio: 16 / 9;
+		}
+
+		.new-face-copy {
+			padding: 2.2rem 1.2rem 2.5rem;
+			border-left: 0;
+			border-top: 0.5rem solid var(--chili);
 		}
 
 		.fact-list div {
@@ -1674,6 +2694,34 @@ const hamiStructuredData = {
 			line-height: 1.65;
 		}
 
+		.akutan-card {
+			grid-template-columns: 1fr;
+		}
+
+		.akutan-meal-frame {
+			min-height: auto;
+			aspect-ratio: 16 / 9;
+		}
+
+		.akutan-profile-row {
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto;
+		}
+
+		.akutan-expression-strip {
+			aspect-ratio: 16 / 9;
+		}
+
+		.trio-lineup {
+			grid-template-columns: 1fr;
+			gap: 0.7rem;
+		}
+
+		.trio-lineup figcaption {
+			padding: 0 0.5rem 0.5rem;
+			font-size: 1rem;
+		}
+
 		.food-badges span {
 			min-height: 1.75rem;
 			padding: 0.28rem 0.55rem;
@@ -1684,12 +2732,63 @@ const hamiStructuredData = {
 			grid-template-columns: 1fr;
 		}
 
+		.recipe-band {
+			grid-template-columns: 1fr;
+			margin-top: 0;
+		}
+
+		.recipe-band-visual {
+			min-height: 0;
+			aspect-ratio: 16 / 10;
+		}
+
+		.recipe-band-copy {
+			padding: 2.2rem 5.2rem 2.5rem 1.4rem;
+		}
+
+		.recipe-band-character {
+			right: -2.5rem;
+			bottom: -0.7rem;
+			width: 8rem;
+			max-height: 13rem;
+		}
+
+		.episode-strip header {
+			align-items: center;
+		}
+
+		.episode-strip header h2 {
+			font-size: 1.7rem;
+			white-space: nowrap;
+		}
+
+		.episode-extras > div {
+			grid-template-columns: 1fr;
+		}
+
 		.materials-board-section {
 			padding-top: 3rem;
 		}
 
 		.material-board {
-			min-height: 34rem;
+			min-height: 44rem;
+		}
+
+		.board-lineup {
+			left: 1rem;
+			right: 1rem;
+			top: 1rem;
+			width: calc(100% - 2rem);
+			height: 17rem;
+		}
+
+		.board-scene {
+			left: 1rem;
+			right: 1rem;
+			bottom: auto;
+			top: 19.2rem;
+			width: calc(100% - 2rem);
+			height: 10.5rem;
 		}
 
 		.menu-paper {
@@ -1698,16 +2797,29 @@ const hamiStructuredData = {
 			bottom: 1rem;
 		}
 
-		.board-hami {
-			right: 45%;
-			width: 10.25rem;
-			max-height: 18rem;
+		.site-footer {
+			grid-template-columns: 1fr;
+			gap: 1.25rem;
+			padding: 2rem 1rem;
 		}
 
-		.board-miru {
-			right: 0.5rem;
-			width: 11.75rem;
-			max-height: 18rem;
+		.site-footer nav {
+			flex-direction: column;
+			gap: 0.65rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
 		}
 	}
 </style>

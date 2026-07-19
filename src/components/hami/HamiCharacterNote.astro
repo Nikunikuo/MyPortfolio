@@ -1,0 +1,52 @@
+---
+interface Props {
+	character: string;
+	text: string;
+	slotName?: string;
+	compact?: boolean;
+	quoted?: boolean;
+	label?: string;
+}
+
+const {
+	character,
+	text,
+	slotName = '',
+	compact = false,
+	quoted = true,
+	label,
+} = Astro.props;
+const isHami = character === 'hami';
+const isMiru = character === 'miru';
+const isAkutan = character === 'akutan';
+const displayName = isHami ? 'ハミちゃん' : isMiru ? 'ミルちゃん' : isAkutan ? 'あくたん' : character;
+const asset = isHami
+	? slotName === 'steps' || slotName === 'safety'
+		? '/images/hami/recipes/characters/hami-flustered.webp'
+		: '/images/hami/recipes/characters/hami-thumbsup.webp'
+	: isMiru
+		? slotName === 'ending'
+			? '/images/hami/recipes/characters/miru-gyoza.webp'
+			: '/images/hami/recipes/characters/miru-tip.webp'
+		: isAkutan
+			? '/images/hami/recipes/characters/akutan-spicy.webp'
+			: null;
+---
+
+<aside class:list={['character-note', `character-note--${character}`, { 'character-note--compact': compact }]} aria-label={`${displayName}のコメント`}>
+	{asset ? (
+		<img
+			class="character-note__art"
+			src={asset}
+			alt={`${displayName}のSDイラスト`}
+			loading="lazy"
+			decoding="async"
+		/>
+	) : (
+		<div class="character-note__pepper" aria-hidden="true">🌶️</div>
+	)}
+	<div class="character-note__bubble">
+		<span class="character-note__name">{label ?? displayName}</span>
+		<p>{quoted ? `「${text}」` : text}</p>
+	</div>
+</aside>

@@ -1,0 +1,129 @@
+---
+import HamiCharacterNote from '../../../components/hami/HamiCharacterNote.astro';
+import HamiRecipeLayout from '../../../layouts/HamiRecipeLayout.astro';
+import {
+	episodeImagePath,
+	recipePath,
+	recipes,
+} from '../../../data/hamiRecipes';
+
+const canonicalPath = '/hami-preview/recipes/';
+const title = 'ハミちゃんのおうち再現レシピ | ハミちゃんの日常飯';
+const description = '「ハミちゃんの日常飯」全13話の料理を、家庭で再現しやすい分量と手順にまとめたレシピ集。動画といっしょに楽しめます。';
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'CollectionPage',
+	name: 'ハミちゃんのおうち再現レシピ',
+	description,
+	url: new URL(canonicalPath, Astro.site ?? Astro.url.origin).href,
+	mainEntity: {
+		'@type': 'ItemList',
+		itemListElement: recipes.map((recipe, index) => ({
+			'@type': 'ListItem',
+			position: index + 1,
+			name: recipe.dishTitle,
+			url: new URL(recipePath(recipe.slug), Astro.site ?? Astro.url.origin).href,
+		})),
+	},
+};
+---
+
+<HamiRecipeLayout
+	{title}
+	{description}
+	{canonicalPath}
+	ogImage={episodeImagePath('ameoto-yaki-gyoza', 'hero.jpg')}
+	{structuredData}
+>
+	<section class="recipe-index-hero">
+		<div class="recipe-index-hero__copy">
+			<p class="eyebrow">HAMI'S HOME COOKING</p>
+			<h1>物語のあの味を、<br /><em>おうちの台所</em>へ。</h1>
+			<p class="recipe-index-hero__lead">
+				完成動画と制作資料から読み取れることを大切にしながら、家庭で作れる分量と手順に整えた全13話のレシピ集です。
+			</p>
+			<div class="recipe-index-hero__stats" aria-label="レシピ集の概要">
+				<span><strong>13</strong> RECIPES</span>
+				<span><strong>8</strong> STEPS EACH</span>
+				<span><strong>13</strong> EPISODES</span>
+			</div>
+		</div>
+
+		<div class="recipe-index-hero__visual" aria-hidden="true">
+			<img class="recipe-index-hero__photo recipe-index-hero__photo--one" src={episodeImagePath('friendship-fuwatoro-omurice', 'hero.jpg')} alt="" />
+			<img class="recipe-index-hero__photo recipe-index-hero__photo--two" src={episodeImagePath('ameoto-yaki-gyoza', 'hero.jpg')} alt="" />
+			<img class="recipe-index-hero__photo recipe-index-hero__photo--three" src={episodeImagePath('hardboiled-caramel-pudding', 'hero.jpg')} alt="" />
+			<div class="recipe-index-hero__seal">全話<br />公開中</div>
+		</div>
+	</section>
+
+	<div class="recipe-container recipe-container--intro">
+		<section class="source-disclosure source-disclosure--index" aria-labelledby="source-policy-title">
+			<div>
+				<p class="section-kicker">OUR RECIPE POLICY</p>
+				<h2 id="source-policy-title">本編の事実と、家庭向けの提案を分けています。</h2>
+			</div>
+			<div class="source-disclosure__labels">
+				<p><span class="source-chip source-chip--fact">本編で確認</span> 完成映像や確定資料で確認できる材料・動き・仕上がり</p>
+				<p><span class="source-chip source-chip--proposal">家庭向け提案</span> 再現しやすいよう補った分量・時間・温度・手順</p>
+			</div>
+		</section>
+
+		<HamiCharacterNote
+			character="hami"
+			text="今日はどれにしようかな……全部でもいい？"
+			slotName="hero"
+		/>
+	</div>
+
+	<section class="recipe-collection recipe-container" aria-labelledby="recipe-collection-title">
+		<header class="recipe-section-heading">
+			<div>
+				<p class="section-kicker">ALL EPISODE RECIPES</p>
+				<h2 id="recipe-collection-title">全13話のレシピ</h2>
+			</div>
+			<p>気分で選んで、動画を観ながら作れます。</p>
+		</header>
+
+		<div class="recipe-card-grid">
+			{recipes.map((recipe, index) => (
+				<article class="recipe-card">
+					<a class="recipe-card__image-link" href={recipePath(recipe.slug)} aria-label={`${recipe.dishTitle}のレシピを見る`}>
+						<img
+							src={episodeImagePath(recipe.slug, 'hero.jpg')}
+							alt={`${recipe.dishTitle}の完成イメージ`}
+							loading={index < 3 ? 'eager' : 'lazy'}
+							decoding="async"
+						/>
+						<span class="recipe-card__number">RECIPE {String(recipe.meta.episodeNumber).padStart(2, '0')}</span>
+						{recipe.meta.hasGeneratedMedia && (
+							<span class="recipe-card__generated">再現イメージ付き</span>
+						)}
+					</a>
+					<div class="recipe-card__body">
+						<p class="recipe-card__episode">第{String(recipe.meta.episodeNumber).padStart(2, '0')}話 · {recipe.episodeTitle}</p>
+						<h3><a href={recipePath(recipe.slug)}>{recipe.dishTitle}</a></h3>
+						<p>{recipe.lead}</p>
+						<div class="recipe-card__meta">
+							<span>⏱ {recipe.time}</span>
+							<span>{recipe.servings}</span>
+							<span aria-label={`難易度 ${recipe.difficulty}`}>{recipe.difficulty}</span>
+						</div>
+						<a class="text-link" href={recipePath(recipe.slug)}>作り方を見る <span aria-hidden="true">→</span></a>
+					</div>
+				</article>
+			))}
+		</div>
+	</section>
+
+	<section class="recipe-index-video-band">
+		<div class="recipe-container recipe-index-video-band__inner">
+			<div>
+				<p class="section-kicker">WATCH THE STORY</p>
+				<h2>料理の前に、物語を。</h2>
+				<p>各レシピページには、その料理が登場するYouTube本編を掲載しています。台所の音やキャラクターの表情も、味の一部です。</p>
+			</div>
+			<a class="pill-button pill-button--cream" href="/hami-preview/">シリーズ特設サイトへ</a>
+		</div>
+	</section>
+</HamiRecipeLayout>
