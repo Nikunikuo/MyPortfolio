@@ -1,0 +1,428 @@
+---
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import HamiCharacterNote from '../../../components/hami/HamiCharacterNote.astro';
+import HamiRecipeLayout from '../../../layouts/HamiRecipeLayout.astro';
+import {
+	episodeImagePath,
+	generatedImagePath,
+	recipePath,
+	recipes,
+	type HamiRecipe,
+} from '../../../data/hamiRecipes';
+
+export function getStaticPaths() {
+	return recipes.map((recipe, index) => ({
+		params: { slug: recipe.slug },
+		props: { recipe, index },
+	}));
+}
+
+interface Props {
+	recipe: HamiRecipe;
+	index: number;
+}
+
+const { recipe, index } = Astro.props;
+const previous = index > 0 ? recipes[index - 1] : undefined;
+const next = index < recipes.length - 1 ? recipes[index + 1] : undefined;
+const canonicalPath = recipePath(recipe.slug);
+const heroImage = episodeImagePath(recipe.slug, 'hero.jpg');
+const title = `${recipe.dishTitle}の作り方 | ハミちゃんの日常飯`;
+const description = `${recipe.episodeTitle}「${recipe.dishTitle}」を家庭で再現する材料と8つの手順。${recipe.time}、${recipe.servings}。本編動画も掲載。`;
+
+const generatedRoot = join(
+	process.cwd(),
+	'public',
+	'images',
+	'hami',
+	'recipes',
+	'generated',
+	recipe.slug
+);
+const hasGeneratedIngredients =
+	recipe.meta.hasGeneratedMedia && existsSync(join(generatedRoot, 'ingredients.webp'));
+const hasGeneratedProcess =
+	recipe.meta.hasGeneratedMedia && existsSync(join(generatedRoot, 'process.webp'));
+const hasGeneratedVisuals = hasGeneratedIngredients || hasGeneratedProcess;
+
+const stepImages = new Map<number, string>();
+if (!recipe.meta.hasGeneratedMedia) {
+	const count = recipe.media.steps.length;
+	recipe.media.steps.forEach((_, mediaIndex) => {
+		const ideal =
+			Math.round(((mediaIndex + 1) * (recipe.steps.length + 1)) / (count + 1)) - 1;
+		let stepIndex = Math.max(0, Math.min(recipe.steps.length - 1, ideal));
+		while (stepImages.has(stepIndex) && stepIndex < recipe.steps.length - 1) {
+			stepIndex += 1;
+		}
+		stepImages.set(
+			stepIndex,
+			episodeImagePath(
+				recipe.slug,
+				`step-${String(mediaIndex + 1).padStart(2, '0')}.jpg`
+			)
+		);
+	});
+}
+
+const commentFor = (slotName: string) =>
+	recipe.comments.find((comment) => comment.slot === slotName);
+const heroComment = commentFor('hero');
+const ingredientsComment = commentFor('ingredients');
+const stepsComment = commentFor('steps');
+const tipsComment = commentFor('tips');
+const safetyComment = commentFor('safety');
+const endingComment = commentFor('ending');
+
+const recipeUrl = new URL(canonicalPath, Astro.site ?? Astro.url.origin).href;
+const heroUrl = new URL(heroImage, Astro.site ?? Astro.url.origin).href;
+const embedUrl = `https://www.youtube-nocookie.com/embed/${recipe.meta.youtubeId}`;
+const watchUrl = `https://www.youtube.com/watch?v=${recipe.meta.youtubeId}`;
+const structuredData = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Recipe',
+		name: recipe.dishTitle,
+		description: recipe.lead,
+		url: recipeUrl,
+		image: [heroUrl],
+		author: {
+			'@type': 'Organization',
+			name: 'NIKU STUDIO',
+			url: new URL('/', Astro.site ?? Astro.url.origin).href,
+		},
+		recipeYield: `${recipe.servings}・${recipe.yield}`,
+		recipeIngredient: recipe.ingredientGroups.flatMap((group) =>
+			group.items.map((item) => `${item.amount} ${item.name}`)
+		),
+		recipeInstructions: recipe.steps.map((step, stepIndex) => ({
+			'@type': 'HowToStep',
+			position: stepIndex + 1,
+			name: step.title,
+			text: step.body,
+			url: `${recipeUrl}#step-${stepIndex + 1}`,
+		})),
+		video: {
+			'@type': 'VideoObject',
+			name: `ハミちゃんの日常飯 ${recipe.episodeTitle}`,
+			description: recipe.lead,
+			thumbnailUrl: `https://i.ytimg.com/vi/${recipe.meta.youtubeId}/maxresdefault.jpg`,
+			embedUrl,
+		},
+		isPartOf: {
+			'@type': 'CreativeWorkSeries',
+			name: 'ハミちゃんの日常飯',
+			url: new URL('/hami-preview/', Astro.site ?? Astro.url.origin).href,
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{
+				'@type': 'ListItem',
+				position: 1,
+				name: 'ハミちゃんの日常飯',
+				item: new URL('/hami-preview/', Astro.site ?? Astro.url.origin).href,
+			},
+			{
+				'@type': 'ListItem',
+				position: 2,
+				name: 'おうち再現レシピ',
+				item: new URL('/hami-preview/recipes/', Astro.site ?? Astro.url.origin).href,
+			},
+			{
+				'@type': 'ListItem',
+				position: 3,
+				name: recipe.dishTitle,
+				item: recipeUrl,
+			},
+		],
+	},
+];
+---
+
+<HamiRecipeLayout
+	{title}
+	{description}
+	{canonicalPath}
+	ogImage={heroImage}
+	{structuredData}
+>
+	<article class="recipe-detail">
+		<div class="recipe-container">
+			<nav class="recipe-breadcrumb" aria-label="パンくずリスト">
+				<a href="/hami-preview/">特設トップ</a>
+				<span aria-hidden="true">/</span>
+				<a href="/hami-preview/recipes/">レシピ</a>
+				<span aria-hidden="true">/</span>
+				<span aria-current="page">{recipe.episodeTitle}</span>
+			</nav>
+		</div>
+
+		<header class="recipe-detail-hero recipe-container">
+			<div class="recipe-detail-hero__image">
+				<img src={heroImage} alt={`${recipe.dishTitle}の本編カット`} fetchpriority="high" />
+				<span>EPISODE {String(recipe.meta.episodeNumber).padStart(2, '0')}</span>
+			</div>
+			<div class="recipe-detail-hero__copy">
+				<p class="eyebrow">HAMI'S HOME RECIPE</p>
+				<p class="recipe-detail-hero__episode">第{String(recipe.meta.episodeNumber).padStart(2, '0')}話 · {recipe.episodeTitle}</p>
+				<h1>{recipe.dishTitle}</h1>
+				<p class="recipe-detail-hero__lead">{recipe.lead}</p>
+				<div class="recipe-facts" aria-label="レシピの概要">
+					<div><span>人数</span><strong>{recipe.servings}</strong></div>
+					<div><span>できあがり</span><strong>{recipe.yield}</strong></div>
+					<div><span>時間</span><strong>{recipe.time}</strong></div>
+					<div><span>難易度</span><strong>{recipe.difficulty}</strong></div>
+				</div>
+				{heroComment && (
+					<HamiCharacterNote
+						character={heroComment.character}
+						text={heroComment.text}
+						slotName="hero"
+						compact
+					/>
+				)}
+			</div>
+		</header>
+
+		<div class="recipe-container recipe-detail__body">
+			<section class="source-disclosure" aria-labelledby="source-disclosure-title">
+				<div>
+					<p class="section-kicker">CANON &amp; HOME ARRANGEMENT</p>
+					<h2 id="source-disclosure-title">このページの読み方</h2>
+					<p>本編の描写を尊重しつつ、分量・時間・温度などは家庭で作りやすい提案として補っています。</p>
+				</div>
+				<div class="source-disclosure__labels">
+					<p><span class="source-chip source-chip--fact">本編で確認</span> 動画・確定資料で確認できる内容</p>
+					<p><span class="source-chip source-chip--proposal">家庭向け提案</span> 再現のために補った内容</p>
+				</div>
+			</section>
+
+			<section class="recipe-story-grid" aria-label="本編で確認できることと再現の方針">
+				<div class="recipe-story-card recipe-story-card--fact">
+					<p class="section-kicker">IN THE EPISODE</p>
+					<h2>本編で確認できること</h2>
+					<ul>{recipe.facts.map((fact) => <li>{fact}</li>)}</ul>
+				</div>
+				<div class="recipe-story-card recipe-story-card--proposal">
+					<p class="section-kicker">FOR YOUR KITCHEN</p>
+					<h2>家庭で再現するための提案</h2>
+					<ul>{recipe.proposals.map((proposal) => <li>{proposal}</li>)}</ul>
+				</div>
+			</section>
+
+			{hasGeneratedVisuals && (
+				<aside class="generated-media-disclosure">
+					<span>家庭向け再現イメージ</span>
+					<p>本編に材料や調理工程の映像が少ない回のため、下の補助ビジュアルは家庭向けレシピをもとに<strong>GPT-image-2で作成</strong>しています。本編カットではありません。</p>
+				</aside>
+			)}
+
+			<section class="recipe-section recipe-ingredients" aria-labelledby="ingredients-title">
+				<header class="recipe-section-heading recipe-section-heading--numbered">
+					<span>01</span>
+					<div>
+						<p class="section-kicker">INGREDIENTS</p>
+						<h2 id="ingredients-title">材料</h2>
+					</div>
+				</header>
+
+				<div class:list={['recipe-ingredients__grid', { 'recipe-ingredients__grid--with-image': hasGeneratedIngredients }]}>
+					<div class="ingredient-groups">
+						{recipe.ingredientGroups.map((group) => (
+							<section class="ingredient-group">
+								<h3>{group.title}</h3>
+								<ul>
+									{group.items.map((item) => (
+										<li><span>{item.name}</span><strong>{item.amount}</strong></li>
+									))}
+								</ul>
+							</section>
+						))}
+					</div>
+
+					{hasGeneratedIngredients && (
+						<figure class="generated-recipe-visual">
+							<div class="generated-recipe-visual__label">家庭向け再現イメージ</div>
+							<img
+								src={generatedImagePath(recipe.slug, 'ingredients')}
+								alt={`${recipe.dishTitle}の家庭向け材料イメージ。GPT-image-2で作成`}
+								loading="lazy"
+								decoding="async"
+							/>
+							<figcaption>材料の見え方を補うためGPT-image-2で作成。本編映像ではありません。</figcaption>
+						</figure>
+					)}
+				</div>
+
+				{ingredientsComment ? (
+					<HamiCharacterNote
+						character={ingredientsComment.character}
+						text={ingredientsComment.text}
+						slotName="ingredients"
+					/>
+				) : (
+					<HamiCharacterNote
+						character="hami"
+						text={recipe.proposals[0]}
+						slotName="ingredients"
+						quoted={false}
+						label="ハミちゃんの再現メモ"
+					/>
+				)}
+			</section>
+
+			<section class="recipe-section recipe-method" aria-labelledby="method-title">
+				<header class="recipe-section-heading recipe-section-heading--numbered">
+					<span>02</span>
+					<div>
+						<p class="section-kicker">METHOD</p>
+						<h2 id="method-title">作り方</h2>
+					</div>
+				</header>
+
+				{hasGeneratedProcess && (
+					<figure class="generated-recipe-visual generated-recipe-visual--wide">
+						<div class="generated-recipe-visual__label">家庭向け再現イメージ</div>
+						<img
+							src={generatedImagePath(recipe.slug, 'process')}
+							alt={`${recipe.dishTitle}の家庭向け調理工程イメージ。GPT-image-2で作成`}
+							loading="lazy"
+							decoding="async"
+						/>
+						<figcaption>調理工程を理解しやすくするためGPT-image-2で作成。本編映像ではありません。</figcaption>
+					</figure>
+				)}
+
+				<ol class="recipe-steps">
+					{recipe.steps.map((step, stepIndex) => {
+						const stepImage = stepImages.get(stepIndex);
+						return (
+							<li id={`step-${stepIndex + 1}`} class:list={['recipe-step', { 'recipe-step--with-image': stepImage }]}>
+								<div class="recipe-step__number">{String(stepIndex + 1).padStart(2, '0')}</div>
+								<div class="recipe-step__content">
+									<div class="recipe-step__heading">
+										<h3>{step.title}</h3>
+										<span class:list={['source-mini', `source-mini--${step.sourceType}`]}>
+											{step.sourceType === 'episode_fact' ? '本編で確認' : '家庭向け提案'}
+										</span>
+									</div>
+									<p>{step.body}</p>
+									{step.quote && <blockquote>「{step.quote}」</blockquote>}
+								</div>
+								{stepImage && (
+									<img src={stepImage} alt={`手順${stepIndex + 1}「${step.title}」の本編カット`} loading="lazy" decoding="async" />
+								)}
+							</li>
+						);
+					})}
+				</ol>
+
+				{stepsComment ? (
+					<HamiCharacterNote character={stepsComment.character} text={stepsComment.text} slotName="steps" />
+				) : (
+					<HamiCharacterNote
+						character="miru"
+						text={recipe.tips[0]}
+						slotName="steps"
+						quoted={false}
+						label="ミルちゃんの仕上がりメモ"
+					/>
+				)}
+			</section>
+
+			<section class="recipe-section recipe-tips" aria-labelledby="tips-title">
+				<header class="recipe-section-heading recipe-section-heading--numbered">
+					<span>03</span>
+					<div>
+						<p class="section-kicker">TIPS &amp; SAFETY</p>
+						<h2 id="tips-title">おいしく作るコツと安全メモ</h2>
+					</div>
+				</header>
+
+				<div class="recipe-tips__grid">
+					<section class="tip-panel tip-panel--tips">
+						<h3>おいしく作るコツ</h3>
+						<ul>{recipe.tips.map((tip) => <li>{tip}</li>)}</ul>
+					</section>
+					<section class="tip-panel tip-panel--safety">
+						<h3>{recipe.safetyTitle}</h3>
+						<p>{recipe.safetyLead}</p>
+						<ul>{recipe.safety.map((note) => <li>{note}</li>)}</ul>
+					</section>
+					<section class="tip-panel tip-panel--allergens">
+						<h3>アレルゲン確認</h3>
+						<p class="allergen-list">{recipe.allergens.join('・')}</p>
+						<p>製品によって原材料が異なるため、使用する商品の表示を必ず確認してください。</p>
+					</section>
+				</div>
+
+				{tipsComment ? (
+					<HamiCharacterNote character={tipsComment.character} text={tipsComment.text} slotName="tips" />
+				) : safetyComment ? (
+					<HamiCharacterNote character={safetyComment.character} text={safetyComment.text} slotName="safety" />
+				) : (
+					<HamiCharacterNote
+						character="miru"
+						text={recipe.safety[0]}
+						slotName="safety"
+						quoted={false}
+						label="ミルちゃんの安全メモ"
+					/>
+				)}
+			</section>
+
+			<section class="recipe-section recipe-video" aria-labelledby="episode-video-title">
+				<div class="recipe-video__copy">
+					<div>
+						<p class="section-kicker">WATCH THE EPISODE</p>
+						<h2 id="episode-video-title">この料理が登場する本編</h2>
+					</div>
+					<p>料理ができあがるまでの空気も、ハミちゃんたちのやりとりも、動画でどうぞ。</p>
+				</div>
+				<div class="recipe-video__frame">
+					<iframe
+						src={`${embedUrl}?rel=0`}
+						title={`YouTube動画「ハミちゃんの日常飯 ${recipe.episodeTitle}」`}
+						loading="lazy"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin"
+						allowfullscreen
+					></iframe>
+				</div>
+				<p class="recipe-video__fallback"><a href={watchUrl} target="_blank" rel="noopener noreferrer">YouTubeで本編を開く</a></p>
+			</section>
+
+			<section class="recipe-ending">
+				<img src={episodeImagePath(recipe.slug, 'ending.jpg')} alt={`${recipe.episodeTitle}のエンディングカット`} loading="lazy" decoding="async" />
+				<div>
+					<p class="section-kicker">AFTER THE MEAL</p>
+					{recipe.endingQuote && <blockquote>「{recipe.endingQuote}」</blockquote>}
+					<p>{recipe.endingText}</p>
+					{endingComment && (
+						<HamiCharacterNote character={endingComment.character} text={endingComment.text} slotName="ending" compact />
+					)}
+				</div>
+			</section>
+		</div>
+
+		<nav class="recipe-pagination recipe-container" aria-label="前後のレシピ">
+			{previous ? (
+				<a class="recipe-pagination__item recipe-pagination__item--previous" href={recipePath(previous.slug)}>
+					<span>← 前のレシピ</span>
+					<strong>{previous.dishTitle}</strong>
+				</a>
+			) : <span></span>}
+			<a class="recipe-pagination__all" href="/hami-preview/recipes/">全13レシピ</a>
+			{next ? (
+				<a class="recipe-pagination__item recipe-pagination__item--next" href={recipePath(next.slug)}>
+					<span>次のレシピ →</span>
+					<strong>{next.dishTitle}</strong>
+				</a>
+			) : <span></span>}
+		</nav>
+	</article>
+</HamiRecipeLayout>

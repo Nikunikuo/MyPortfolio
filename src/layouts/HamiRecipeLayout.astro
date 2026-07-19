@@ -1,0 +1,86 @@
+---
+import '../styles/hami-recipes.css';
+
+interface Props {
+	title: string;
+	description: string;
+	canonicalPath: string;
+	ogImage: string;
+	structuredData?: object | object[];
+}
+
+const {
+	title,
+	description,
+	canonicalPath,
+	ogImage,
+	structuredData,
+} = Astro.props;
+
+const canonical = new URL(canonicalPath, Astro.site ?? Astro.url.origin);
+const absoluteOgImage = new URL(ogImage, Astro.site ?? Astro.url.origin);
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#f07862" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonical} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="ハミちゃんの日常飯" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={absoluteOgImage} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={absoluteOgImage} />
+		<title>{title}</title>
+		{structuredData && (
+			<script
+				type="application/ld+json"
+				set:html={JSON.stringify(structuredData)}
+			/>
+		)}
+	</head>
+	<body>
+		<a class="skip-link" href="#main-content">本文へ移動</a>
+		<header class="recipe-site-header">
+			<div class="recipe-site-header__inner">
+				<a class="recipe-site-brand" href="/hami-preview/" aria-label="ハミちゃんの日常飯 特設サイトへ">
+					<span class="recipe-site-brand__stamp" aria-hidden="true">飯</span>
+					<span>
+						<strong>ハミちゃんの日常飯</strong>
+						<small>おうち再現レシピ</small>
+					</span>
+				</a>
+				<nav class="recipe-site-nav" aria-label="レシピサイト">
+					<a href="/hami-preview/recipes/">レシピ一覧</a>
+					<a href="/hami-preview/">特設トップ</a>
+				</nav>
+			</div>
+		</header>
+
+		<main id="main-content">
+			<slot />
+		</main>
+
+		<footer class="recipe-site-footer">
+			<div>
+				<strong>ハミちゃんの日常飯</strong>
+				<p>物語の余韻を、今夜のひと皿へ。</p>
+			</div>
+			<div class="recipe-site-footer__links">
+				<a href="/hami-preview/recipes/">全レシピ</a>
+				<a href="/hami-preview/">シリーズ特設サイト</a>
+				<a href="/">NIKU STUDIO</a>
+			</div>
+		</footer>
+	</body>
+</html>
