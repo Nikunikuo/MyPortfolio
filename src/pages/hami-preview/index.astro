@@ -424,6 +424,14 @@ const hamiStructuredData = {
 				},
 				{
 					'@type': 'Question',
+					name: 'ハミちゃんの日常飯はAIを使用して制作されていますか？',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: 'はい。ハミちゃんの日常飯は、ほとんどの制作工程でAIを使用して作られています。',
+					},
+				},
+				{
+					'@type': 'Question',
 					name: 'ハミちゃんの日常飯の登場人物は誰ですか？',
 					acceptedAnswer: {
 						'@type': 'Answer',
@@ -563,6 +571,10 @@ const hamiStructuredData = {
 					<p>
 						食べることが大好きなハミちゃんの おいしい、うれしい、ちょっとおかしい。
 						一口ごとに感情があふれる日常飯アニメ！
+					</p>
+					<p class="ai-production-note">
+						<span class="ai-production-badge" aria-hidden="true">AI</span>
+						<span class="ai-production-copy">この作品は、<wbr />ほとんどの制作工程で<wbr />AIを使用して<wbr />作られています。</span>
 					</p>
 					<div class="hero-actions">
 						<a href="#watch">最新話をみる</a>
@@ -1310,6 +1322,45 @@ const hamiStructuredData = {
 			0 0 18px rgba(255, 255, 255, 0.78);
 	}
 
+	.hero-copy p.ai-production-note {
+		display: flex;
+		align-items: center;
+		gap: 0.55rem;
+		width: fit-content;
+		max-width: 100%;
+		margin: 0.7rem auto 0;
+		padding: 0.38rem 0.7rem;
+		border-top: 1px solid rgba(91, 61, 35, 0.28);
+		border-bottom: 1px solid rgba(91, 61, 35, 0.28);
+		background: rgba(255, 253, 247, 0.72);
+		font-family: "M PLUS Rounded 1c", "Yu Gothic", "Meiryo", sans-serif;
+		font-size: 0.78rem;
+		font-weight: 800;
+		line-height: 1.5;
+		text-align: left;
+		text-shadow: none;
+	}
+
+	.ai-production-badge {
+		display: grid;
+		place-items: center;
+		flex: 0 0 auto;
+		width: 1.8rem;
+		aspect-ratio: 1;
+		border: 1px solid rgba(91, 61, 35, 0.28);
+		border-radius: 4px;
+		background: var(--butter);
+		color: var(--ink);
+		font-size: 0.66rem;
+		line-height: 1;
+	}
+
+	.ai-production-copy {
+		min-width: 0;
+		word-break: keep-all;
+		overflow-wrap: normal;
+	}
+
 	.hero-actions {
 		display: flex;
 		gap: 0.75rem;
@@ -1403,14 +1454,14 @@ const hamiStructuredData = {
 
 	.float-character.hami {
 		left: clamp(0.5rem, 1.2vw, 1.4rem);
-		bottom: 6rem;
+		bottom: 2.2rem;
 		width: min(40rem, 43vw);
 		max-height: 82vh;
 	}
 
 	.float-character.miru {
 		right: clamp(0.2rem, 0.8vw, 1.1rem);
-		bottom: 2.7rem;
+		bottom: 1rem;
 		width: min(43rem, 47vw);
 		max-height: 82vh;
 		animation-delay: -1.7s;
