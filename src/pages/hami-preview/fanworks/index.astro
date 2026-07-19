@@ -1,0 +1,775 @@
+---
+const canonicalPath = '/hami-preview/fanworks/';
+const siteUrl = Astro.site ?? new URL('https://niku.studio');
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const pageTitle = '二次創作ガイドライン | ハミちゃんの日常飯';
+const pageDescription =
+	'「ハミちゃんの日常飯」のファンアート、漫画、小説、動画、配信、同人頒布、AI生成作品などに関する二次創作ガイドラインです。';
+const ogImageUrl = new URL('/images/hami/gekikara-card.png', siteUrl).toString();
+
+const quickGuide = [
+	{
+		tone: 'ok',
+		label: 'OK',
+		title: 'そのまま楽しめます',
+		items: [
+			'個人によるファンアート、漫画、小説、動画、配信、ゲーム、音楽、コスプレ',
+			'投稿先の規約を守った動画広告収益や配信収益',
+			'個人が趣味の範囲で行う、少部数・小規模な同人頒布',
+			'AI生成・AI補助であることを明記したファン作品',
+		],
+	},
+	{
+		tone: 'ask',
+		label: 'ASK',
+		title: '公開前にご相談ください',
+		items: [
+			'法人・団体による利用、企業案件、スポンサー付き企画',
+			'継続的な商品展開、大量生産、店舗流通、クラウドファンディング',
+			'公式コラボや公式商品と受け取られる可能性がある企画',
+			'このページを読んでも判断に迷う利用',
+		],
+	},
+	{
+		tone: 'ng',
+		label: 'NG',
+		title: '行わないでください',
+		items: [
+			'公式作品・公式商品・公式発表と誤認させる表示や販売',
+			'本編、公式画像、ロゴ、音声、設定資料の転載・再配布・販売',
+			'第三者の権利やプライバシーを侵害する利用',
+			'差別、ヘイト、勧誘、攻撃的主張などへの利用',
+		],
+	},
+];
+
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebPage',
+			'@id': canonicalUrl,
+			url: canonicalUrl,
+			name: pageTitle,
+			description: pageDescription,
+			inLanguage: 'ja-JP',
+			isPartOf: {
+				'@type': 'WebSite',
+				'@id': 'https://niku.studio/#website',
+				url: new URL('/', siteUrl).toString(),
+				name: 'Niku’s Portfolio',
+			},
+			about: {
+				'@type': 'TVSeries',
+				name: 'ハミちゃんの日常飯',
+				url: new URL('/hami-preview/', siteUrl).toString(),
+			},
+			datePublished: '2026-07-19',
+			dateModified: '2026-07-19',
+		},
+		{
+			'@type': 'FAQPage',
+			mainEntity: [
+				{
+					'@type': 'Question',
+					name: 'ハミちゃんの日常飯の二次創作をしてもよいですか？',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: '個人によるファンアート、漫画、小説、動画、配信、ゲーム、音楽、コスプレなどを歓迎しています。公式作品と誤認されないよう、二次創作であることを明記してください。',
+					},
+				},
+				{
+					'@type': 'Question',
+					name: 'AIを使った二次創作はできますか？',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: '画像・動画・文章・音楽などのAI生成またはAI補助による二次創作を認めています。公開時には、可能な範囲でAI生成またはAI補助であることを明記してください。',
+					},
+				},
+				{
+					'@type': 'Question',
+					name: '二次創作を収益化できますか？',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: '動画や配信の広告収益、個人による少部数・小規模な同人頒布は可能です。法人利用、継続的な商品展開、大量生産、店舗流通などは事前にご相談ください。',
+					},
+				},
+			],
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{
+					'@type': 'ListItem',
+					position: 1,
+					name: 'Niku’s Portfolio',
+					item: new URL('/', siteUrl).toString(),
+				},
+				{
+					'@type': 'ListItem',
+					position: 2,
+					name: 'ハミちゃんの日常飯',
+					item: new URL('/hami-preview/', siteUrl).toString(),
+				},
+				{
+					'@type': 'ListItem',
+					position: 3,
+					name: '二次創作ガイドライン',
+					item: canonicalUrl,
+				},
+			],
+		},
+	],
+};
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={pageDescription} />
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+		<meta name="theme-color" content="#ef765f" />
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="icon" type="image/svg+xml" href="/images/hami/steak-favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800;900&family=Yomogi&display=swap"
+			rel="stylesheet"
+		/>
+		<title>{pageTitle}</title>
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="ハミちゃんの日常飯" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:width" content="1280" />
+		<meta property="og:image:height" content="720" />
+		<meta property="og:image:alt" content="ハミちゃん、ミルちゃん、あくたんが激辛ラーメンを囲むハミちゃんの日常飯のキービジュアル" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={pageDescription} />
+		<meta name="twitter:image" content={ogImageUrl} />
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	</head>
+	<body>
+		<a class="skip-link" href="#main-content">本文へ移動</a>
+		<header class="fan-header">
+			<div class="fan-header__inner">
+				<a class="fan-brand" href="/hami-preview/" aria-label="ハミちゃんの日常飯 特設サイトへ">
+					<span class="fan-brand__stamp" aria-hidden="true">創</span>
+					<span><strong>ハミちゃんの日常飯</strong><small>FANWORK GUIDELINES</small></span>
+				</a>
+				<nav class="fan-nav" aria-label="二次創作ガイドライン">
+					<a href="#quick-check">早見表</a>
+					<a href="#ai">AI生成</a>
+					<a href="#monetization">収益化</a>
+					<a href="#prohibited">禁止事項</a>
+					<a href="/hami-preview/">特設トップ</a>
+				</nav>
+			</div>
+		</header>
+
+		<main id="main-content">
+			<section class="fan-hero" aria-labelledby="fanwork-title">
+				<div class="fan-hero__copy">
+					<p class="eyebrow">FANWORK GUIDELINES</p>
+					<h1 id="fanwork-title">二次創作、<br />おかわり大歓迎です。</h1>
+					<p>
+						ハミちゃん、ミルちゃん、あくたんを好きになってくれた気持ちから生まれる、
+						イラスト、漫画、小説、動画、配信、<span class="phrase-keep">AI作品などを歓迎します。</span>
+					</p>
+					<a class="utensil-link" href="#quick-check">まず早見表を確認する</a>
+				</div>
+				<div class="fan-hero__characters" aria-hidden="true">
+					<img src="/images/hami/character-lineup.png" alt="" fetchpriority="high" />
+				</div>
+			</section>
+
+			<section class="policy-intro content-shell" aria-labelledby="policy-intro-title">
+				<div>
+					<p class="section-kicker">WELCOME TO THE TABLE</p>
+					<h2 id="policy-intro-title">好きの気持ちを、安心して作品に。</h2>
+				</div>
+				<div class="policy-intro__copy">
+					<p>
+						このページは、「ハミちゃんの日常飯」の二次創作を気持ちよく楽しんでもらうためのガイドラインです。
+						個人・同人による創作を基本的に歓迎しています。
+					</p>
+					<p>
+						ガイドラインは作品や公式運用に合わせて更新される場合があります。公開・頒布するときは、
+						その時点の内容をご確認ください。法人利用や判断に迷う企画は、公開前に公式へご相談ください。
+					</p>
+				</div>
+			</section>
+
+			<section class="quick-check content-shell" id="quick-check" aria-labelledby="quick-check-title">
+				<header class="section-heading">
+					<div>
+						<p class="section-kicker">QUICK CHECK</p>
+						<h2 id="quick-check-title">迷ったら、まずここ。</h2>
+					</div>
+					<p>個人のファン活動か、公式に見える事業利用かが大きな境目です。</p>
+				</header>
+				<div class="quick-grid">
+					{quickGuide.map((group) => (
+						<article class:list={['quick-card', `quick-card--${group.tone}`]}>
+							<div class="quick-card__mark" aria-hidden="true">{group.label}</div>
+							<h3>{group.title}</h3>
+							<ul>
+								{group.items.map((item) => <li>{item}</li>)}
+							</ul>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<div class="guideline-stack">
+				<section class="guideline-band" id="basics" aria-labelledby="basics-title">
+					<div class="guideline-band__inner">
+						<header class="guideline-title">
+							<span aria-hidden="true">01</span>
+							<p>BASIC POLICY</p>
+							<h2 id="basics-title">基本方針</h2>
+						</header>
+						<div class="guideline-copy">
+							<ul>
+								<li>個人・同人による二次創作を歓迎します。媒体や制作方法は問いません。</li>
+								<li>作品に描かれていない部分は、公式設定として断定せず「二次創作上の解釈」としてお楽しみください。</li>
+								<li>投稿や頒布の際は、公式作品ではなく二次創作であることが分かるようにしてください。</li>
+								<li>投稿先、イベント、販売サービスの規約や年齢区分もあわせて守ってください。</li>
+							</ul>
+							<p class="note-strip">キャラクターへの敬意と、「おいしい、うれしい、ちょっとおかしい」空気を大切にしてもらえたらうれしいです。</p>
+						</div>
+					</div>
+				</section>
+
+				<section class="guideline-band guideline-band--mint" id="formats" aria-labelledby="formats-title">
+					<div class="guideline-band__inner">
+						<header class="guideline-title">
+							<span aria-hidden="true">02</span>
+							<p>WELCOME FANWORKS</p>
+							<h2 id="formats-title">歓迎する創作</h2>
+						</header>
+						<div class="guideline-copy">
+							<p>たとえば、次のような作品を歓迎しています。</p>
+							<div class="format-list" aria-label="歓迎する二次創作の例">
+								<span>イラスト</span><span>漫画</span><span>小説</span><span>動画</span>
+								<span>配信</span><span>ゲーム</span><span>音楽</span><span>コスプレ</span>
+								<span>料理再現</span><span>AI生成作品</span>
+							</div>
+							<p>
+								実在する飲食店、食品メーカー、イベントとの公式タイアップであるように見せる表現は避けてください。
+								ファンによる架空メニューや料理再現であることが分かれば問題ありません。
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section class="guideline-band guideline-band--sky" id="ai" aria-labelledby="ai-title">
+					<div class="guideline-band__inner">
+						<header class="guideline-title">
+							<span aria-hidden="true">03</span>
+							<p>AI-ASSISTED WORKS</p>
+							<h2 id="ai-title">AI生成について</h2>
+						</header>
+						<div class="guideline-copy">
+							<ul>
+								<li>画像、動画、文章、音楽など、AI生成・AI補助による二次創作を認めています。</li>
+								<li>公開時は、可能な範囲で「AI生成」「AI補助」など、制作方法が分かる表記を添えてください。</li>
+								<li>AIを使った場合も、公開した作品の内容や権利処理については投稿者が責任を持ってください。</li>
+								<li>権利を持たない第三者作品や、再利用を認めていない素材を無断で利用しないでください。</li>
+								<li>公式画像・音声・設定資料をまとめた学習用データ、素材集、モデルなどの配布・販売は認めていません。</li>
+							</ul>
+							<p class="note-strip">生成方法にかかわらず、公式作品と誤認される表示や、キャラクターの信用を大きく損なう利用は同じく対象外です。</p>
+						</div>
+					</div>
+				</section>
+
+				<section class="guideline-band guideline-band--yellow" id="monetization" aria-labelledby="monetization-title">
+					<div class="guideline-band__inner">
+						<header class="guideline-title">
+							<span aria-hidden="true">04</span>
+							<p>MONETIZATION</p>
+							<h2 id="monetization-title">収益化・頒布</h2>
+						</header>
+						<div class="guideline-copy">
+							<ul>
+								<li>YouTube、配信サイト、SNSなどで、再生数や閲覧数に応じて発生する広告収益は問題ありません。</li>
+								<li>個人が趣味の範囲で行う、同人イベントや通販での少部数・小規模な頒布を認めています。</li>
+								<li>販売物は、ご自身で制作した表現を中心にしてください。公式画像、ロゴ、動画の切り抜きを主体にした商品化はできません。</li>
+								<li>法人・団体での利用、企業案件、継続販売、大量生産、店舗流通、広告利用は事前にご相談ください。</li>
+							</ul>
+							<div class="consult-box">
+								<strong>事前相談が必要な例</strong>
+								<p>企業コラボ、食品や店舗とのタイアップ、クラウドファンディング、公式商品と並ぶ規模の販売、ライセンス利用。</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="guideline-band guideline-band--coral" id="prohibited" aria-labelledby="prohibited-title">
+					<div class="guideline-band__inner">
+						<header class="guideline-title">
+							<span aria-hidden="true">05</span>
+							<p>PLEASE DO NOT</p>
+							<h2 id="prohibited-title">禁止事項</h2>
+						</header>
+						<div class="guideline-copy">
+							<ul>
+								<li>公式作品、公式発表、公式商品、公式コラボであると誤認させること。</li>
+								<li>本編動画の再投稿、長時間の無断転載、公式画像・ロゴ・音声・設定資料の再配布や販売。</li>
+								<li>第三者の著作権、商標権、肖像権、名誉、プライバシーなどを侵害すること。</li>
+								<li>差別、ヘイト、嫌がらせ、過度な暴力、現実の政治・宗教団体の宣伝、勧誘、攻撃的主張への利用。</li>
+								<li>公開場所の年齢区分を守らない露骨な性的表現や、年齢を誤認させる性的表現。</li>
+								<li>ハミちゃんの日常飯、登場人物、制作関係者の信用を大きく損なう利用。</li>
+							</ul>
+							<p class="note-strip">感想・レビュー・紹介に必要な範囲の引用は、引用部分とご自身の表現を明確に分け、各サービスの規約と法律に従ってください。</p>
+						</div>
+					</div>
+				</section>
+
+				<section class="guideline-band guideline-band--paper" id="credit" aria-labelledby="credit-title">
+					<div class="guideline-band__inner">
+						<header class="guideline-title">
+							<span aria-hidden="true">06</span>
+							<p>CREDIT & HASHTAG</p>
+							<h2 id="credit-title">表記について</h2>
+						</header>
+						<div class="guideline-copy">
+							<ul>
+								<li>作品名や投稿文に「ハミちゃんの日常飯の二次創作」「ファン作品」などの表記を添えてください。</li>
+								<li>特設サイトやYouTube再生リストへのリンクは任意ですが、作品を知る入口として歓迎します。</li>
+								<li>ハッシュタグを付ける場合は、下記の推奨タグをご利用ください。</li>
+							</ul>
+							<div class="hashtag-plate">
+								<small>RECOMMENDED HASHTAG</small>
+								<strong>#ハミちゃんの日常飯</strong>
+								<p>ファン作品を見つけに行きやすくなります。</p>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<section class="closing-band">
+				<div>
+					<p class="section-kicker">THANK YOU FOR CREATING</p>
+					<h2>あなたの一皿も、<br class="mobile-only-break" />楽しみにしています。</h2>
+					<p>描く、書く、作る、演じる。いろいろな形の「好き」が、三人の日常をもっと広げてくれます。</p>
+				</div>
+				<nav aria-label="関連ページ">
+					<a class="utensil-link utensil-link--light" href="/hami-preview/">特設サイトへ戻る</a>
+					<a class="utensil-link utensil-link--light" href="/hami-preview/recipes/">全13品のレシピ</a>
+				</nav>
+			</section>
+		</main>
+
+		<footer class="fan-footer">
+			<div><strong>ハミちゃんの日常飯</strong><p>おいしい、うれしい、ちょっとおかしい。</p></div>
+			<nav aria-label="Footer navigation">
+				<a href="/hami-preview/">特設トップ</a>
+				<a href="/hami-preview/recipes/">レシピ</a>
+				<a href="/">Niku's Portfolio</a>
+			</nav>
+			<small>&copy;ハミちゃんの日常飯</small>
+		</footer>
+	</body>
+</html>
+
+<style>
+	:root {
+		--ink: #402e28;
+		--muted: #77655d;
+		--cream: #fff8ec;
+		--paper: #fffdf8;
+		--coral: #ef765f;
+		--coral-dark: #b84334;
+		--yellow: #f8c85a;
+		--mint: #9bcdbf;
+		--sky: #9ed8f7;
+		--chocolate: #5d3527;
+		--charcoal: #282326;
+		--line: #eadbc9;
+		font-family: "M PLUS Rounded 1c", "Yu Gothic", "Meiryo", sans-serif;
+		color: var(--ink);
+		background: var(--cream);
+	}
+
+	* { box-sizing: border-box; }
+	html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+	body {
+		margin: 0;
+		min-width: 320px;
+		background:
+			linear-gradient(rgba(255, 248, 236, 0.9), rgba(255, 248, 236, 0.9)),
+			url("/images/hami/cutlery-pattern.svg");
+		background-attachment: fixed;
+		cursor: url("/images/hami/fork-cursor.svg") 10 10, auto;
+	}
+
+	a { color: inherit; cursor: url("/images/hami/fork-cursor.svg") 10 10, pointer; }
+	img { display: block; max-width: 100%; }
+	h1, h2, h3, p, ul { margin-top: 0; }
+	h1, h2, h3 { letter-spacing: 0; }
+	p, li { line-height: 1.85; }
+	:focus-visible { outline: 4px solid #0f6f7a; outline-offset: 4px; }
+	section[id] { scroll-margin-top: 5.5rem; }
+
+	.skip-link {
+		position: fixed;
+		left: 0.75rem;
+		top: 0.75rem;
+		z-index: 200;
+		padding: 0.65rem 0.9rem;
+		background: var(--charcoal);
+		color: #fff;
+		transform: translateY(-180%);
+		transition: transform 160ms ease;
+	}
+	.skip-link:focus { transform: none; }
+
+	.fan-header {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		border-bottom: 1px solid rgba(64, 46, 40, 0.12);
+		background: rgba(255, 253, 248, 0.93);
+		backdrop-filter: blur(18px);
+	}
+	.fan-header__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: min(78rem, calc(100% - 2rem));
+		min-height: 4.75rem;
+		margin: 0 auto;
+		gap: 1.5rem;
+	}
+	.fan-brand {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		text-decoration: none;
+	}
+	.fan-brand__stamp {
+		display: grid;
+		place-items: center;
+		width: 2.8rem;
+		aspect-ratio: 1;
+		border: 2px solid var(--chocolate);
+		border-radius: 8px;
+		background: var(--coral);
+		color: #fff;
+		font-size: 1.25rem;
+		font-weight: 900;
+		box-shadow: 3px 3px 0 var(--yellow);
+		transform: rotate(-3deg);
+	}
+	.fan-brand strong, .fan-brand small { display: block; }
+	.fan-brand strong { font-size: 0.98rem; line-height: 1.25; }
+	.fan-brand small { margin-top: 0.12rem; color: var(--muted); font-size: 0.62rem; font-weight: 800; }
+	.fan-nav { display: flex; align-items: center; gap: 0.35rem; }
+	.fan-nav a {
+		padding: 0.48rem 0.68rem;
+		border-bottom: 3px solid transparent;
+		font-size: 0.8rem;
+		font-weight: 800;
+		text-decoration: none;
+	}
+	.fan-nav a:hover { border-color: var(--coral); color: var(--coral-dark); }
+
+	.fan-hero {
+		display: grid;
+		grid-template-rows: auto minmax(0, 1fr);
+		min-height: clamp(39rem, 86svh, 46rem);
+		background-color: #fff7eb;
+		background-image: url("/images/hami/cutlery-pattern.svg");
+		background-size: 10rem auto;
+		overflow: hidden;
+	}
+	.fan-hero__copy {
+		position: relative;
+		z-index: 2;
+		width: min(50rem, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: clamp(2rem, 5vh, 3.5rem) 0 1rem;
+		text-align: center;
+	}
+	.eyebrow, .section-kicker {
+		margin-bottom: 0.5rem;
+		color: var(--coral-dark);
+		font-size: 0.72rem;
+		font-weight: 900;
+		letter-spacing: 0;
+	}
+	.fan-hero h1 {
+		margin-bottom: 0.75rem;
+		font-size: clamp(2.55rem, 6vw, 5.2rem);
+		line-height: 1.05;
+		font-weight: 900;
+		text-shadow: 0 4px 0 #fff, 0 12px 28px rgba(93, 53, 39, 0.15);
+	}
+	.fan-hero__copy > p:not(.eyebrow) {
+		max-width: 42rem;
+		margin: 0 auto 1.1rem;
+		color: #674d42;
+		font-family: "Yomogi", "M PLUS Rounded 1c", sans-serif;
+		font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+		font-weight: 700;
+	}
+	.phrase-keep { white-space: nowrap; }
+	.fan-hero__characters {
+		display: flex;
+		align-items: end;
+		justify-content: center;
+		min-height: 0;
+	}
+	.fan-hero__characters img {
+		width: min(72rem, 96vw);
+		height: 100%;
+		max-height: 31rem;
+		object-fit: contain;
+		object-position: center bottom;
+		filter: drop-shadow(0 18px 18px rgba(93, 53, 39, 0.14));
+	}
+
+	.utensil-link {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 2.9rem;
+		padding: 0.68rem 2rem 0.68rem 1.15rem;
+		background: var(--chocolate);
+		color: #fff;
+		font-size: 0.86rem;
+		font-weight: 900;
+		text-decoration: none;
+		clip-path: polygon(0 50%, 0.4rem 18%, 1.4rem 3%, calc(100% - 0.65rem) 7%, 100% 50%, calc(100% - 0.65rem) 93%, 1.4rem 97%, 0.4rem 82%);
+	}
+	.utensil-link::after {
+		content: "";
+		position: absolute;
+		right: 0.7rem;
+		width: 1rem;
+		height: 0.2rem;
+		border-radius: 0.2rem;
+		background: currentColor;
+		opacity: 0.7;
+	}
+	.utensil-link--light { background: #fff; color: var(--chocolate); }
+
+	.content-shell { width: min(74rem, calc(100% - 2rem)); margin: 0 auto; }
+	.policy-intro {
+		display: grid;
+		grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
+		gap: clamp(2rem, 6vw, 5rem);
+		padding: clamp(4rem, 8vw, 6.5rem) 0;
+		border-bottom: 2px solid rgba(64, 46, 40, 0.1);
+	}
+	.policy-intro h2, .section-heading h2, .closing-band h2 {
+		margin-bottom: 0;
+		font-size: clamp(2rem, 4vw, 3.2rem);
+		line-height: 1.18;
+	}
+	.policy-intro__copy p { margin-bottom: 1rem; color: var(--muted); font-weight: 700; }
+	.policy-intro__copy p:last-child { margin-bottom: 0; }
+
+	.quick-check { padding: clamp(4rem, 8vw, 6.5rem) 0; }
+	.section-heading {
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		gap: 2rem;
+		margin-bottom: 1.5rem;
+	}
+	.section-heading > p { max-width: 28rem; margin-bottom: 0; color: var(--muted); font-weight: 700; }
+	.quick-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+	.quick-card {
+		position: relative;
+		padding: 1.35rem;
+		border: 1px solid var(--line);
+		border-top: 0.55rem solid var(--mint);
+		border-radius: 8px;
+		background: rgba(255, 253, 248, 0.92);
+		box-shadow: 0 14px 34px rgba(87, 48, 32, 0.1);
+	}
+	.quick-card--ask { border-top-color: var(--yellow); }
+	.quick-card--ng { border-top-color: var(--coral); }
+	.quick-card__mark {
+		display: grid;
+		place-items: center;
+		width: 3.4rem;
+		aspect-ratio: 1;
+		margin-bottom: 0.8rem;
+		border: 0.38rem double rgba(64, 46, 40, 0.18);
+		border-radius: 50%;
+		background: #fff;
+		color: #39735e;
+		font-size: 0.72rem;
+		font-weight: 900;
+	}
+	.quick-card--ask .quick-card__mark { color: #9b6815; }
+	.quick-card--ng .quick-card__mark { color: var(--coral-dark); }
+	.quick-card h3 { margin-bottom: 0.75rem; font-size: 1.2rem; }
+	.quick-card ul { margin-bottom: 0; padding-left: 1.2rem; }
+	.quick-card li { margin-bottom: 0.48rem; color: var(--muted); font-size: 0.88rem; font-weight: 700; }
+	.quick-card li:last-child { margin-bottom: 0; }
+
+	.guideline-stack { border-top: 1px solid var(--line); }
+	.guideline-band { background: rgba(255, 253, 248, 0.84); border-bottom: 1px solid var(--line); }
+	.guideline-band--mint { background: rgba(229, 245, 237, 0.82); }
+	.guideline-band--sky { background: rgba(229, 244, 252, 0.84); }
+	.guideline-band--yellow { background: rgba(255, 246, 207, 0.8); }
+	.guideline-band--coral { background: rgba(255, 230, 222, 0.82); }
+	.guideline-band--paper { background: rgba(255, 253, 248, 0.9); }
+	.guideline-band__inner {
+		display: grid;
+		grid-template-columns: minmax(13rem, 0.55fr) minmax(0, 1.45fr);
+		gap: clamp(2rem, 7vw, 6rem);
+		width: min(74rem, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: clamp(3.7rem, 7vw, 6rem) 0;
+	}
+	.guideline-title span {
+		display: grid;
+		place-items: center;
+		width: 4.2rem;
+		aspect-ratio: 1;
+		margin-bottom: 1rem;
+		border: 0.55rem double rgba(64, 46, 40, 0.18);
+		border-radius: 50%;
+		background: #fff;
+		color: var(--coral-dark);
+		font-size: 1rem;
+		font-weight: 900;
+		box-shadow: 0 9px 18px rgba(87, 48, 32, 0.09);
+	}
+	.guideline-title p { margin-bottom: 0.25rem; color: var(--coral-dark); font-size: 0.68rem; font-weight: 900; }
+	.guideline-title h2 { margin-bottom: 0; font-size: clamp(1.85rem, 3.4vw, 2.8rem); }
+	.guideline-copy > p { color: var(--muted); font-weight: 700; }
+	.guideline-copy ul { margin-bottom: 1.2rem; padding-left: 1.25rem; }
+	.guideline-copy li { margin-bottom: 0.68rem; color: #5f4b42; font-weight: 700; }
+	.guideline-copy li::marker { color: var(--coral); }
+	.note-strip {
+		margin-bottom: 0;
+		padding: 0.9rem 1rem;
+		border-left: 0.45rem solid var(--coral);
+		background: rgba(255, 255, 255, 0.6);
+		color: #674d42 !important;
+	}
+	.format-list { display: flex; flex-wrap: wrap; gap: 0.48rem; margin: 0 0 1.2rem; }
+	.format-list span {
+		padding: 0.42rem 0.7rem;
+		border: 1px solid rgba(64, 46, 40, 0.14);
+		border-radius: 58% 42% 52% 48% / 48% 58% 42% 52%;
+		background: #fff;
+		color: var(--chocolate);
+		font-size: 0.78rem;
+		font-weight: 900;
+	}
+	.consult-box {
+		display: grid;
+		grid-template-columns: minmax(9rem, 0.4fr) minmax(0, 1fr);
+		gap: 1rem;
+		align-items: start;
+		padding: 1rem;
+		border: 2px dashed rgba(93, 53, 39, 0.25);
+		background: rgba(255, 255, 255, 0.52);
+	}
+	.consult-box strong { color: var(--coral-dark); }
+	.consult-box p { margin-bottom: 0; color: var(--muted); font-weight: 700; }
+
+	.hashtag-plate {
+		position: relative;
+		margin-top: 1.3rem;
+		padding: 1.5rem;
+		border: 0.7rem double rgba(64, 46, 40, 0.16);
+		border-radius: 50% / 18%;
+		background: #fff;
+		text-align: center;
+		box-shadow: 0 14px 30px rgba(87, 48, 32, 0.1);
+	}
+	.hashtag-plate small { display: block; color: var(--coral-dark); font-size: 0.68rem; font-weight: 900; }
+	.hashtag-plate strong { display: block; margin-top: 0.2rem; font-size: clamp(1.6rem, 4vw, 2.7rem); overflow-wrap: anywhere; }
+	.hashtag-plate p { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.84rem; font-weight: 700; }
+
+	.closing-band {
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		gap: 2rem;
+		padding: clamp(4rem, 8vw, 6.5rem) max(1rem, calc((100% - 74rem) / 2));
+		background: var(--charcoal);
+		color: #fff;
+	}
+	.closing-band > div { max-width: 42rem; }
+	.closing-band .section-kicker { color: #ffbe73; }
+	.closing-band h2 { color: #fff; }
+	.mobile-only-break { display: none; }
+	.closing-band p:not(.section-kicker) { margin: 0.8rem 0 0; color: rgba(255, 255, 255, 0.72); font-weight: 700; }
+	.closing-band nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.65rem; }
+
+	.fan-footer {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto auto;
+		align-items: center;
+		gap: 2rem;
+		padding: 2rem max(1rem, calc((100% - 74rem) / 2));
+		background: #1f1b1d;
+		color: #fff;
+	}
+	.fan-footer strong { font-size: 1.05rem; }
+	.fan-footer p { margin: 0.2rem 0 0; color: rgba(255, 255, 255, 0.6); font-family: "Yomogi", sans-serif; }
+	.fan-footer nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+	.fan-footer a { color: rgba(255, 255, 255, 0.82); font-size: 0.8rem; font-weight: 800; text-underline-offset: 0.25rem; }
+	.fan-footer small { color: rgba(255, 255, 255, 0.48); white-space: nowrap; }
+
+	@media (max-width: 900px) {
+		.fan-header__inner { align-items: flex-start; flex-direction: column; gap: 0.45rem; padding: 0.6rem 0; }
+		.fan-nav { width: 100%; overflow-x: auto; scrollbar-width: none; }
+		.fan-nav::-webkit-scrollbar { display: none; }
+		.fan-nav a { flex: 0 0 auto; }
+		.quick-grid { grid-template-columns: 1fr; }
+		.guideline-band__inner { grid-template-columns: minmax(11rem, 0.48fr) minmax(0, 1.52fr); }
+		.closing-band { align-items: flex-start; flex-direction: column; }
+		.closing-band nav { justify-content: flex-start; }
+	}
+
+	@media (max-width: 640px) {
+		html { scroll-padding-top: 7rem; }
+		section[id] { scroll-margin-top: 7rem; }
+		.fan-nav { justify-content: space-between; gap: 0.1rem; overflow-x: visible; }
+		.fan-nav a { padding: 0.4rem 0.24rem; font-size: 0.7rem; }
+		.fan-brand__stamp { width: 2.45rem; }
+		.fan-brand strong { font-size: 0.9rem; }
+		.fan-hero { min-height: 46rem; }
+		.fan-hero__copy { padding-top: 2rem; }
+		.fan-hero h1 { font-size: 2.05rem; }
+		.fan-hero__copy > p:not(.eyebrow) { font-size: 0.88rem; }
+		.fan-hero__characters img { width: 100%; max-height: 24rem; }
+		.policy-intro { grid-template-columns: 1fr; gap: 1.5rem; }
+		.section-heading { align-items: flex-start; flex-direction: column; gap: 0.8rem; }
+		.guideline-band__inner { grid-template-columns: 1fr; gap: 1.4rem; }
+		.guideline-title { display: grid; grid-template-columns: 3.6rem 1fr; align-items: center; column-gap: 0.8rem; }
+		.guideline-title span { grid-row: 1 / 3; width: 3.6rem; margin-bottom: 0; }
+		.guideline-title p { align-self: end; margin-bottom: 0; }
+		.guideline-title h2 { align-self: start; font-size: 1.7rem; }
+		.consult-box { grid-template-columns: 1fr; }
+		.hashtag-plate { padding: 1.2rem 0.6rem; border-width: 0.5rem; }
+		.closing-band h2 { font-size: 1.75rem; }
+		.mobile-only-break { display: block; }
+		.fan-footer { grid-template-columns: 1fr; gap: 1rem; }
+		.fan-footer nav { flex-direction: column; gap: 0.45rem; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html { scroll-behavior: auto; }
+		*, *::before, *::after { transition-duration: 0.01ms !important; }
+	}
+</style>
