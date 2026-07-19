@@ -252,7 +252,7 @@ const pageKeywords = [
 	'ミルちゃん',
 	'美沙尾ぷるむ',
 	'あくたん',
-	'阿久科芥子',
+	'阿久科辛子',
 	'日常系アニメ',
 	'料理アニメ',
 	'ごはんアニメ',
@@ -387,7 +387,7 @@ const hamiStructuredData = {
 		{
 			'@type': 'Person',
 			'@id': akutanId,
-			name: '阿久科芥子',
+			name: '阿久科辛子',
 			alternateName: 'あくたん',
 			description:
 				'赤と黒のロングウルフ、赤い目、黒いライダースが特徴の姉御肌。激辛には強いが熱さには弱い猫舌で、ミルちゃんから「あくたん」と命名された。',
@@ -424,7 +424,7 @@ const hamiStructuredData = {
 					name: 'ハミちゃんの日常飯の登場人物は誰ですか？',
 					acceptedAnswer: {
 						'@type': 'Answer',
-						text: '登場人物は、食べることが大好きな羽村美緒ことハミちゃん、無口寄りで食欲旺盛な美沙尾ぷるむことミルちゃん、激辛に強く猫舌な阿久科芥子ことあくたんです。',
+						text: '登場人物は、食べることが大好きな羽村美緒ことハミちゃん、無口寄りで食欲旺盛な美沙尾ぷるむことミルちゃん、激辛に強く猫舌な阿久科辛子ことあくたんです。',
 					},
 				},
 				{
@@ -519,7 +519,7 @@ const hamiStructuredData = {
 				<a href="#watch">WATCH</a>
 				<a href="#characters">CHARACTER</a>
 				<a href="#episodes">EPISODE</a>
-				<a href="#recipes">RECIPE</a>
+				<a href="#recipes" class="nav-recipe"><span>13</span>RECIPE</a>
 				<a href="#movies">MOVIE</a>
 				<a href="#materials">資料</a>
 			</nav>
@@ -563,7 +563,7 @@ const hamiStructuredData = {
 					<div class="hero-actions">
 						<a href="#watch">最新話をみる</a>
 						<a href="#episodes">全話から選ぶ</a>
-						<a href="/hami-preview/recipes/">レシピを作る</a>
+						<a class="hero-recipe-action" href="/hami-preview/recipes/"><span>NEW</span><strong>全13品のレシピ</strong></a>
 					</div>
 				</div>
 			</section>
@@ -616,6 +616,48 @@ const hamiStructuredData = {
 				</div>
 			</section>
 
+			<section class="recipe-spotlight" id="recipes" aria-labelledby="recipes-title">
+				<p class="recipe-spotlight-watermark" aria-hidden="true">RECIPE BOOK</p>
+				<div class="recipe-spotlight-inner">
+					<div class="recipe-spotlight-copy">
+						<div class="recipe-launch-badge"><span>NEW</span><strong>全13話ぶん、ぜんぶ公開。</strong></div>
+						<p class="section-kicker">HAMICHAN RECIPE COLLECTION</p>
+						<h2 id="recipes-title">アニメを観たら、<br /><em>次はつくろう。</em></h2>
+						<p class="recipe-spotlight-lead">
+							本編に登場した「あの一皿」を、おうちの台所で再現できるレシピにしました。
+							材料も工程も、動画も、ハミちゃんたちのひとことも。全話ぶん、まるごと一冊です。
+						</p>
+						<div class="recipe-spotlight-stats" aria-label="レシピコレクションの概要">
+							<div><strong>13</strong><span>RECIPES</span><small>全13品</small></div>
+							<div><strong>13</strong><span>EPISODES</span><small>全13話</small></div>
+							<div><strong>ALL</strong><span>WITH MOVIE</span><small>本編つき</small></div>
+						</div>
+						<a class="recipe-spotlight-cta" href="/hami-preview/recipes/">
+							<span><small>HAMICHAN RECIPE BOOK</small><strong>全13品のレシピ本をひらく</strong></span>
+							<b aria-hidden="true">→</b>
+						</a>
+						<p class="recipe-spotlight-note">作中でわかることと、家庭向けに補った分量・手順を分けて掲載しています。</p>
+					</div>
+
+					<div class="recipe-spotlight-showcase" aria-label="オムライス、焼き餃子、激辛ラーメンと、ハミちゃん、ミルちゃん、あくたん">
+						<div class="recipe-food-stack" aria-hidden="true">
+							<img class="recipe-food-photo recipe-food-photo--one" src="/images/hami/recipes/episodes/friendship-fuwatoro-omurice/hero.jpg" alt="" loading="lazy" />
+							<img class="recipe-food-photo recipe-food-photo--two" src="/images/hami/recipes/episodes/ameoto-yaki-gyoza/hero.jpg" alt="" loading="lazy" />
+							<img class="recipe-food-photo recipe-food-photo--three" src="/images/hami/recipes/episodes/home-spicy-miso-ramen/hero.jpg" alt="" loading="lazy" />
+							<span class="recipe-open-seal">全話<br />公開中</span>
+						</div>
+						<img class="recipe-character recipe-character--hami" src="/images/hami/recipes/characters/hami-thumbsup.webp" alt="親指を立てるふくよかなハミちゃん" loading="lazy" />
+						<img class="recipe-character recipe-character--miru" src="/images/hami/recipes/characters/miru-gyoza.webp" alt="焼き餃子を持つふくよかなミルちゃん" loading="lazy" />
+						<img class="recipe-character recipe-character--akutan" src="/images/hami/recipes/characters/akutan-spicy.webp" alt="唐辛子を持つふくよかなあくたん" loading="lazy" />
+					</div>
+				</div>
+				<ul class="recipe-dish-ribbon" aria-label="収録レシピ">
+					<li>卵かけご飯</li><li>ナポリタン</li><li>ホットドッグ</li><li>からあげ</li><li>トースト</li>
+					<li>オムライス</li><li>ホットサンド</li><li>たいやき</li><li>プリン</li><li>目玉焼き</li>
+					<li>チレス・エン・ノガーダ</li><li>焼き餃子</li><li>激辛ラーメン</li>
+				</ul>
+			</section>
+
 			<section class="knowledge-panel" id="quick-facts" aria-labelledby="quick-facts-title">
 				<div class="knowledge-copy">
 					<p class="section-kicker">QUICK FACTS</p>
@@ -632,7 +674,7 @@ const hamiStructuredData = {
 					</div>
 					<div>
 						<dt>登場人物</dt>
-						<dd>羽村美緒（ハミちゃん）、美沙尾ぷるむ（ミルちゃん）、阿久科芥子（あくたん）</dd>
+						<dd>羽村美緒（ハミちゃん）、美沙尾ぷるむ（ミルちゃん）、阿久科辛子（あくたん）</dd>
 					</div>
 					<div>
 						<dt>見られる場所</dt>
@@ -713,7 +755,7 @@ const hamiStructuredData = {
 					</article>
 					<article class="character-card akutan-card" id="akutan">
 						<div class="akutan-meal-frame">
-							<img src="/images/hami/akutan-reveal.png" alt="激辛ラーメンを持ち上げる阿久科芥子" loading="lazy" />
+							<img src="/images/hami/akutan-reveal.png" alt="激辛ラーメンを持ち上げる阿久科辛子" loading="lazy" />
 							<span>NEW CHARACTER</span>
 						</div>
 						<div class="akutan-profile-row">
@@ -722,7 +764,7 @@ const hamiStructuredData = {
 							</div>
 							<div class="character-copy">
 								<p class="section-kicker">AKUTAN</p>
-								<h3>阿久科 芥子</h3>
+								<h3>阿久科 辛子</h3>
 								<p>
 									赤と黒のロングウルフ、赤い目、黒いライダース。低く少しハスキーな声の姉御肌。
 									激辛には強いのに熱さには弱い猫舌で、ぶっきらぼうな優しさを行動で見せる。
@@ -792,37 +834,6 @@ const hamiStructuredData = {
 						))}
 					</div>
 				</div>
-			</section>
-
-			<section class="recipe-band" id="recipes" aria-labelledby="recipes-title">
-				<div class="recipe-band-visual">
-					<img
-						src="/images/hami/recipes/generated/cinema-three-hotdogs/process.webp"
-						alt="3種のホットドッグを家庭で再現する4コマ調理工程"
-						loading="lazy"
-					/>
-					<span>全13品</span>
-				</div>
-				<div class="recipe-band-copy">
-					<p class="section-kicker">RECIPE BOOK</p>
-					<h2 id="recipes-title">あの一皿を、<br />おうちでも。</h2>
-					<p>
-						本編と制作資料から、材料・分量・調理工程を家庭向けに再構成しました。
-						調理映像がない回は、GPT-image-2の再現イメージで手順を補っています。
-					</p>
-					<ul>
-						<li>公開本編13話、全13品</li>
-						<li>各ページで本編YouTubeも視聴可能</li>
-						<li>ハミちゃんたちの吹き出しコメントつき</li>
-					</ul>
-					<a class="recipe-link" href="/hami-preview/recipes/">レシピ一覧を見る</a>
-				</div>
-				<img
-					class="recipe-band-character"
-					src="/images/hami/recipes/characters/hami-thumbsup.webp"
-					alt="親指を立てるハミちゃん"
-					loading="lazy"
-				/>
 			</section>
 
 			<section class="movie-band" id="movies" aria-label="Movie">
@@ -1111,6 +1122,27 @@ const hamiStructuredData = {
 			0 10px 20px rgba(91, 61, 35, 0.13);
 	}
 
+	.jump-nav .nav-recipe {
+		gap: 0.35rem;
+		padding-right: 0.9rem;
+		background: linear-gradient(135deg, #fff1a8, var(--butter));
+		color: var(--chili-dark);
+		border: 2px solid rgba(182, 46, 57, 0.48);
+		box-shadow: 0 8px 20px rgba(182, 46, 57, 0.2);
+	}
+
+	.jump-nav .nav-recipe span {
+		display: inline-grid;
+		place-items: center;
+		width: 1.45rem;
+		aspect-ratio: 1;
+		background: var(--chili);
+		color: #ffffff;
+		border-radius: 50%;
+		font-size: 0.68rem;
+		line-height: 1;
+	}
+
 	.jump-nav a[aria-current="location"] {
 		border-color: rgba(182, 46, 57, 0.5);
 		color: var(--chili-dark);
@@ -1229,7 +1261,7 @@ const hamiStructuredData = {
 	.character-section-header h2,
 	.mini-section h2,
 	.episode-strip h2,
-	.recipe-band h2,
+	.recipe-spotlight h2,
 	.movie-band h2,
 	.materials h2 {
 		margin: 0;
@@ -1326,6 +1358,31 @@ const hamiStructuredData = {
 			linear-gradient(90deg, #ffffff, #fff8eb);
 		color: var(--ink);
 		border: 1px solid rgba(62, 42, 31, 0.18);
+	}
+
+	.hero-actions a.hero-recipe-action {
+		flex-direction: column;
+		gap: 0.1rem;
+		padding-top: 0.55rem;
+		padding-bottom: 0.55rem;
+		background:
+			radial-gradient(circle at 1.55rem 50%, rgba(255, 255, 255, 0.2) 0 0.82rem, transparent 0.86rem),
+			linear-gradient(90deg, var(--chili), #e85e4f);
+		border-color: rgba(94, 28, 36, 0.5);
+		box-shadow: 0 14px 28px rgba(182, 46, 57, 0.3);
+	}
+
+	.hero-recipe-action span {
+		color: var(--butter);
+		font-size: 0.58rem;
+		font-weight: 950;
+		letter-spacing: 0.14em;
+		line-height: 1;
+	}
+
+	.hero-recipe-action strong {
+		font-size: 0.88rem;
+		line-height: 1.1;
 	}
 
 	.float-character {
@@ -1945,102 +2002,376 @@ const hamiStructuredData = {
 		line-height: 1.8;
 	}
 
-	.recipe-band {
+	.recipe-spotlight {
 		position: relative;
-		display: grid;
-		grid-template-columns: minmax(0, 1.08fr) minmax(22rem, 0.92fr);
-		width: min(74rem, calc(100% - 2rem));
-		margin: 1rem auto 4rem;
+		isolation: isolate;
+		width: 100%;
+		min-height: 48rem;
+		margin: 1.5rem 0 4rem;
 		overflow: hidden;
 		background:
-			radial-gradient(circle at 88% 16%, rgba(255, 209, 102, 0.48), transparent 25%),
-			linear-gradient(135deg, #fff8ec, #ffe7d8 58%, #dff4ef);
-		border: 2px solid rgba(242, 143, 119, 0.38);
-		border-radius: 1.6rem;
-		box-shadow: 0 22px 54px rgba(91, 61, 35, 0.16);
-	}
-
-	.recipe-band-visual {
-		position: relative;
-		min-height: 31rem;
-		background: #2d241f;
-	}
-
-	.recipe-band-visual img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	.recipe-band-visual span {
-		position: absolute;
-		left: 1.2rem;
-		top: 1.2rem;
-		padding: 0.5rem 1rem;
-		background: var(--chili);
+			linear-gradient(90deg, rgba(94, 28, 36, 0.97), rgba(182, 46, 57, 0.94) 48%, rgba(232, 94, 79, 0.9)),
+			url("/images/hami/cutlery-pattern.svg");
 		color: #ffffff;
-		border: 3px solid rgba(255, 255, 255, 0.9);
-		border-radius: 999px;
-		box-shadow: 0 10px 20px rgba(62, 42, 31, 0.2);
-		font-size: 0.9rem;
+		box-shadow: 0 26px 70px rgba(94, 28, 36, 0.26);
+	}
+
+	.recipe-spotlight::before,
+	.recipe-spotlight::after {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		border-radius: 50%;
+		pointer-events: none;
+	}
+
+	.recipe-spotlight::before {
+		right: -10rem;
+		top: -15rem;
+		width: 42rem;
+		aspect-ratio: 1;
+		background: rgba(255, 209, 102, 0.34);
+	}
+
+	.recipe-spotlight::after {
+		left: 35%;
+		bottom: -25rem;
+		width: 54rem;
+		aspect-ratio: 1;
+		background: rgba(255, 255, 255, 0.08);
+	}
+
+	.recipe-spotlight-watermark {
+		position: absolute;
+		left: 50%;
+		top: 0.2rem;
+		z-index: -1;
+		margin: 0;
+		color: rgba(255, 255, 255, 0.075);
+		font-size: clamp(6rem, 15vw, 14rem);
 		font-weight: 950;
+		letter-spacing: -0.08em;
+		line-height: 0.85;
+		white-space: nowrap;
+		transform: translateX(-50%);
 	}
 
-	.recipe-band-copy {
+	.recipe-spotlight-inner {
+		display: grid;
+		grid-template-columns: minmax(28rem, 0.88fr) minmax(36rem, 1.12fr);
+		align-items: center;
+		gap: clamp(1.5rem, 4vw, 5rem);
+		width: min(88rem, calc(100% - 3rem));
+		min-height: 44rem;
+		margin: 0 auto;
+		padding: 4.8rem 0 5.5rem;
+	}
+
+	.recipe-spotlight-copy {
 		position: relative;
-		z-index: 2;
-		align-self: center;
-		padding: 3.3rem 6.2rem 3.3rem 2.5rem;
+		z-index: 9;
 	}
 
-	.recipe-band-copy > p:not(.section-kicker) {
-		margin: 1.15rem 0;
-		color: var(--muted);
+	.recipe-launch-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.65rem;
+		margin-bottom: 1rem;
+		padding: 0.4rem 0.8rem 0.4rem 0.4rem;
+		background: rgba(255, 255, 255, 0.13);
+		border: 1px solid rgba(255, 255, 255, 0.28);
+		border-radius: 999px;
+		box-shadow: 0 8px 22px rgba(62, 18, 24, 0.16);
+		font-size: 0.78rem;
+		letter-spacing: 0.02em;
+	}
+
+	.recipe-launch-badge span {
+		padding: 0.28rem 0.65rem;
+		background: var(--butter);
+		color: var(--chili-dark);
+		border-radius: 999px;
+		font-size: 0.7rem;
+		font-weight: 950;
+		letter-spacing: 0.1em;
+	}
+
+	.recipe-launch-badge strong {
+		font-weight: 900;
+	}
+
+	.recipe-spotlight .section-kicker {
+		color: #ffdca0;
+		letter-spacing: 0.12em;
+	}
+
+	.recipe-spotlight h2 {
+		margin: 0.55rem 0 1.25rem;
+		color: #ffffff;
+		font-size: clamp(3.1rem, 5.7vw, 6rem);
+		line-height: 0.98;
+		letter-spacing: -0.055em;
+		text-shadow: 0 10px 32px rgba(62, 18, 24, 0.22);
+	}
+
+	.recipe-spotlight h2 em {
+		position: relative;
+		display: inline-block;
+		color: var(--butter);
+		font-style: normal;
+	}
+
+	.recipe-spotlight h2 em::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -0.4rem;
+		height: 0.24rem;
+		background: #ffffff;
+		border-radius: 999px;
+		transform: rotate(-1.5deg);
+	}
+
+	.recipe-spotlight-lead {
+		max-width: 36rem;
+		margin: 0;
+		color: rgba(255, 255, 255, 0.86);
+		font-size: 1rem;
 		font-weight: 700;
 		line-height: 1.85;
 	}
 
-	.recipe-band-copy ul {
+	.recipe-spotlight-stats {
 		display: grid;
-		gap: 0.5rem;
-		margin: 0 0 1.5rem;
-		padding-left: 1.25rem;
-		color: #6b4e3d;
-		font-size: 0.9rem;
-		font-weight: 800;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0.65rem;
+		margin: 1.6rem 0;
+	}
+
+	.recipe-spotlight-stats div {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		align-items: end;
+		column-gap: 0.45rem;
+		padding: 0.85rem;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		border-radius: 0.9rem;
+		box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
+	}
+
+	.recipe-spotlight-stats strong {
+		grid-row: 1 / 3;
+		color: var(--butter);
+		font-size: clamp(1.8rem, 3vw, 2.8rem);
+		font-weight: 950;
+		line-height: 0.95;
+	}
+
+	.recipe-spotlight-stats span,
+	.recipe-spotlight-stats small {
+		font-weight: 900;
+		line-height: 1.15;
+	}
+
+	.recipe-spotlight-stats span {
+		font-size: 0.64rem;
+		letter-spacing: 0.08em;
+	}
+
+	.recipe-spotlight-stats small {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 0.7rem;
+	}
+
+	.recipe-spotlight-cta {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		width: min(100%, 35rem);
+		min-height: 5.25rem;
+		padding: 0.85rem 1.1rem 0.85rem 1.35rem;
+		background: linear-gradient(135deg, #ffffff, #fff4cc);
+		color: var(--chili-dark);
+		border: 4px solid rgba(255, 255, 255, 0.75);
+		border-radius: 1.2rem;
+		box-shadow: 0 18px 0 rgba(81, 18, 28, 0.24), 0 26px 48px rgba(62, 18, 24, 0.26);
+		text-decoration: none;
+		transform: rotate(-0.7deg);
+		transition: transform 180ms ease, box-shadow 180ms ease;
+	}
+
+	.recipe-spotlight-cta span {
+		display: grid;
+		gap: 0.12rem;
+	}
+
+	.recipe-spotlight-cta small {
+		color: #9b5d2d;
+		font-size: 0.63rem;
+		font-weight: 950;
+		letter-spacing: 0.12em;
+	}
+
+	.recipe-spotlight-cta strong {
+		font-size: clamp(1.05rem, 2vw, 1.35rem);
+		font-weight: 950;
+	}
+
+	.recipe-spotlight-cta b {
+		display: grid;
+		place-items: center;
+		flex: 0 0 auto;
+		width: 3rem;
+		aspect-ratio: 1;
+		background: var(--chili);
+		color: #ffffff;
+		border-radius: 50%;
+		font-size: 1.6rem;
+	}
+
+	.recipe-spotlight-cta:hover {
+		box-shadow: 0 12px 0 rgba(81, 18, 28, 0.24), 0 22px 44px rgba(62, 18, 24, 0.3);
+		transform: translateY(6px) rotate(0deg) scale(1.015);
+	}
+
+	.recipe-spotlight-note {
+		max-width: 34rem;
+		margin: 1.35rem 0 0;
+		color: rgba(255, 255, 255, 0.66);
+		font-size: 0.74rem;
+		font-weight: 700;
 		line-height: 1.6;
 	}
 
-	.recipe-link {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		min-height: 3.2rem;
-		padding: 0.8rem 1.5rem;
-		background: var(--ink);
-		color: #ffffff;
-		border-radius: 999px;
-		box-shadow: 0 12px 24px rgba(62, 42, 31, 0.2);
-		font-weight: 900;
-		text-decoration: none;
-		transition: transform 160ms ease, box-shadow 160ms ease;
+	.recipe-spotlight-showcase {
+		position: relative;
+		align-self: stretch;
+		min-height: 40rem;
 	}
 
-	.recipe-link:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 17px 30px rgba(62, 42, 31, 0.25);
-	}
-
-	.recipe-band-character {
+	.recipe-food-stack {
 		position: absolute;
-		right: -2.2rem;
-		bottom: -1.5rem;
-		z-index: 1;
-		width: 10rem;
-		max-height: 17rem;
+		inset: 0 0 11rem 0;
+	}
+
+	.recipe-food-photo {
+		position: absolute;
+		width: 51%;
+		aspect-ratio: 8 / 5;
+		border: 0.65rem solid #ffffff;
+		border-radius: 1.35rem;
+		object-fit: cover;
+		box-shadow: 0 26px 52px rgba(62, 18, 24, 0.3);
+	}
+
+	.recipe-food-photo--one {
+		left: 2%;
+		top: 1.4rem;
+		transform: rotate(-6deg);
+	}
+
+	.recipe-food-photo--two {
+		right: 0;
+		top: 6.4rem;
+		z-index: 2;
+		transform: rotate(5deg);
+	}
+
+	.recipe-food-photo--three {
+		left: 20%;
+		top: 15.5rem;
+		z-index: 3;
+		width: 47%;
+		transform: rotate(1.5deg);
+	}
+
+	.recipe-open-seal {
+		position: absolute;
+		right: 4%;
+		top: 0;
+		z-index: 6;
+		display: grid;
+		place-items: center;
+		width: 7.3rem;
+		aspect-ratio: 1;
+		background: var(--butter);
+		color: var(--chili-dark);
+		border: 0.35rem double var(--chili-dark);
+		border-radius: 50%;
+		box-shadow: 0 14px 28px rgba(62, 18, 24, 0.28);
+		font-family: "Yomogi", "M PLUS Rounded 1c", sans-serif;
+		font-size: 1.15rem;
+		font-weight: 950;
+		line-height: 1.15;
+		text-align: center;
+		transform: rotate(9deg);
+	}
+
+	.recipe-character {
+		position: absolute;
+		bottom: -5rem;
+		z-index: 7;
+		width: 16rem;
+		max-height: 30rem;
 		object-fit: contain;
-		filter: drop-shadow(0 14px 14px rgba(91, 61, 35, 0.2));
+		object-position: top center;
+		filter: drop-shadow(0 22px 18px rgba(62, 18, 24, 0.32));
+		pointer-events: none;
+	}
+
+	.recipe-character--hami {
+		left: -1.8rem;
+		z-index: 9;
+		width: 17.5rem;
 		transform: rotate(-4deg);
+	}
+
+	.recipe-character--miru {
+		left: 31%;
+		z-index: 8;
+		width: 18.5rem;
+		transform: translateX(-18%) rotate(1deg);
+	}
+
+	.recipe-character--akutan {
+		right: -1.8rem;
+		width: 17.5rem;
+		transform: rotate(4deg);
+	}
+
+	.recipe-dish-ribbon {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 12;
+		display: flex;
+		gap: 0;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background: var(--butter);
+		color: var(--chili-dark);
+		border-top: 4px solid rgba(255, 255, 255, 0.85);
+		list-style: none;
+		white-space: nowrap;
+	}
+
+	.recipe-dish-ribbon li {
+		flex: 1 0 auto;
+		padding: 0.8rem 1.05rem;
+		font-size: 0.75rem;
+		font-weight: 950;
+	}
+
+	.recipe-dish-ribbon li::before {
+		content: "●";
+		margin-right: 0.55rem;
+		color: var(--chili);
+		font-size: 0.58rem;
 	}
 
 	.episode-strip header,
@@ -2501,6 +2832,28 @@ const hamiStructuredData = {
 		.episode-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
+
+		.recipe-spotlight-inner {
+			grid-template-columns: minmax(20rem, 0.92fr) minmax(0, 1.08fr);
+			gap: 1.4rem;
+		}
+
+		.recipe-spotlight h2 {
+			font-size: clamp(3rem, 5.5vw, 4.5rem);
+		}
+
+		.recipe-character--hami {
+			width: 14rem;
+		}
+
+		.recipe-character--miru {
+			left: 29%;
+			width: 15rem;
+		}
+
+		.recipe-character--akutan {
+			width: 14rem;
+		}
 	}
 
 	@media (max-width: 760px) {
@@ -2588,7 +2941,7 @@ const hamiStructuredData = {
 		.watch-header h2,
 		.new-face-copy h2,
 		.episode-strip h2,
-		.recipe-band h2,
+		.recipe-spotlight h2,
 		.movie-band h2,
 		.materials h2 {
 			font-size: 1.85rem;
@@ -2732,25 +3085,147 @@ const hamiStructuredData = {
 			grid-template-columns: 1fr;
 		}
 
-		.recipe-band {
-			grid-template-columns: 1fr;
-			margin-top: 0;
-		}
-
-		.recipe-band-visual {
+		.recipe-spotlight {
 			min-height: 0;
-			aspect-ratio: 16 / 10;
+			margin: 1rem 0 3rem;
 		}
 
-		.recipe-band-copy {
-			padding: 2.2rem 5.2rem 2.5rem 1.4rem;
+		.recipe-spotlight-watermark {
+			top: 1.2rem;
+			font-size: 5.8rem;
 		}
 
-		.recipe-band-character {
-			right: -2.5rem;
-			bottom: -0.7rem;
-			width: 8rem;
-			max-height: 13rem;
+		.recipe-spotlight-inner {
+			grid-template-columns: 1fr;
+			gap: 0.5rem;
+			width: calc(100% - 1.25rem);
+			min-height: 0;
+			padding: 3rem 0 4rem;
+		}
+
+		.recipe-spotlight-copy {
+			padding: 0 0.35rem;
+		}
+
+		.recipe-launch-badge {
+			font-size: 0.7rem;
+		}
+
+		.recipe-spotlight h2 {
+			font-size: clamp(2.65rem, 12vw, 4rem);
+			line-height: 1;
+		}
+
+		.recipe-spotlight-lead {
+			font-size: 0.9rem;
+			line-height: 1.75;
+		}
+
+		.recipe-spotlight-stats {
+			gap: 0.35rem;
+			margin: 1.25rem 0;
+		}
+
+		.recipe-spotlight-stats div {
+			display: flex;
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 0.12rem;
+			padding: 0.65rem 0.5rem;
+		}
+
+		.recipe-spotlight-stats strong {
+			font-size: 1.75rem;
+		}
+
+		.recipe-spotlight-stats span {
+			font-size: 0.52rem;
+		}
+
+		.recipe-spotlight-stats small {
+			font-size: 0.62rem;
+		}
+
+		.recipe-spotlight-cta {
+			min-height: 4.75rem;
+			padding-left: 1rem;
+			border-width: 3px;
+			box-shadow: 0 12px 0 rgba(81, 18, 28, 0.24), 0 20px 36px rgba(62, 18, 24, 0.24);
+		}
+
+		.recipe-spotlight-cta b {
+			width: 2.6rem;
+		}
+
+		.recipe-spotlight-note {
+			font-size: 0.68rem;
+		}
+
+		.recipe-spotlight-showcase {
+			min-height: 30rem;
+			margin-top: 1rem;
+		}
+
+		.recipe-food-stack {
+			inset: 0 0 9rem 0;
+		}
+
+		.recipe-food-photo {
+			width: 60%;
+			border-width: 0.38rem;
+			border-radius: 0.9rem;
+		}
+
+		.recipe-food-photo--one {
+			left: 0;
+			top: 1rem;
+		}
+
+		.recipe-food-photo--two {
+			right: 0;
+			top: 5.2rem;
+		}
+
+		.recipe-food-photo--three {
+			display: none;
+		}
+
+		.recipe-open-seal {
+			right: 1%;
+			top: -0.4rem;
+			width: 5.3rem;
+			border-width: 0.25rem;
+			font-size: 0.84rem;
+		}
+
+		.recipe-character {
+			bottom: -4.2rem;
+			max-height: 19rem;
+		}
+
+		.recipe-character--hami {
+			left: -1rem;
+			width: 10.5rem;
+		}
+
+		.recipe-character--miru {
+			left: 50%;
+			width: 11.5rem;
+			transform: translateX(-50%) rotate(1deg);
+		}
+
+		.recipe-character--akutan {
+			right: -1.2rem;
+			width: 10.5rem;
+		}
+
+		.recipe-dish-ribbon {
+			overflow-x: auto;
+			scrollbar-width: none;
+		}
+
+		.recipe-dish-ribbon::-webkit-scrollbar {
+			display: none;
 		}
 
 		.episode-strip header {
