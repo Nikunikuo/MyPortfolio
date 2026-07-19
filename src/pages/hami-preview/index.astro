@@ -343,7 +343,10 @@ const hamiStructuredData = {
 			breadcrumb: { '@id': `${canonicalUrl}#breadcrumb` },
 			datePublished: '2026-06-03',
 			dateModified: '2026-07-19',
-			relatedLink: new URL('/hami-preview/recipes/', siteUrl).toString(),
+			relatedLink: [
+				new URL('/hami-preview/recipes/', siteUrl).toString(),
+				new URL('/hami-preview/fanworks/', siteUrl).toString(),
+			],
 		},
 		{
 			'@type': ['TVSeries', 'CreativeWorkSeries'],
@@ -520,6 +523,7 @@ const hamiStructuredData = {
 				<a href="#characters">CHARACTER</a>
 				<a href="#episodes">EPISODE</a>
 				<a href="#recipes" class="nav-recipe"><span>13</span>RECIPE</a>
+				<a href="/hami-preview/fanworks/">FANWORKS</a>
 				<a href="#movies">MOVIE</a>
 				<a href="#materials">資料</a>
 			</nav>
@@ -911,6 +915,7 @@ const hamiStructuredData = {
 			<nav aria-label="Footer navigation">
 				<a href="#top">ページ上部へ</a>
 				<a href="/hami-preview/recipes/">全13品のレシピ</a>
+				<a href="/hami-preview/fanworks/">二次創作ガイドライン</a>
 				<a href={youtubePlaylistUrl} target="_blank" rel="noreferrer">YouTube再生リスト</a>
 				<a href="/">Niku's Portfolio</a>
 			</nav>
