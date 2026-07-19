@@ -157,6 +157,54 @@ const watchPicks = [
 	},
 ];
 
+const boothShopUrl = 'https://nikuoosika.booth.pm/';
+const goods = [
+	{
+		kind: 'clearfile',
+		name: 'ハミちゃんの日常飯 A4クリアファイル ハミちゃん＆ミルちゃん＆あくたん',
+		shortName: '三人でいただきます',
+		image: '/images/hami/booth/clearfile-trio.jpg',
+		href: 'https://nikuoosika.booth.pm/items/8631242',
+	},
+	{
+		kind: 'clearfile',
+		name: 'ハミちゃんの日常飯 A4クリアファイル ハミちゃん＆ミルちゃん',
+		shortName: 'ハミちゃん＆ミルちゃん',
+		image: '/images/hami/booth/clearfile-hami-miru.jpg',
+		href: 'https://nikuoosika.booth.pm/items/8631191',
+	},
+	{
+		kind: 'clearfile',
+		name: 'ハミちゃんの日常飯 A4クリアファイル ハミちゃん',
+		shortName: 'ハミちゃん',
+		image: '/images/hami/booth/clearfile-hami.jpg',
+		href: 'https://nikuoosika.booth.pm/items/8631156',
+	},
+	{
+		kind: 'acrylic',
+		name: 'ハミちゃんの日常飯 アクリルスタンド あくたん',
+		shortName: 'あくたん',
+		image: '/images/hami/booth/acrylic-akutan.jpg',
+		href: 'https://nikuoosika.booth.pm/items/8631039',
+	},
+	{
+		kind: 'acrylic',
+		name: 'ハミちゃんの日常飯 アクリルスタンド ミルちゃん',
+		shortName: 'ミルちゃん',
+		image: '/images/hami/booth/acrylic-miru.jpg',
+		href: 'https://nikuoosika.booth.pm/items/8631035',
+	},
+	{
+		kind: 'acrylic',
+		name: 'ハミちゃんの日常飯 アクリルスタンド ハミちゃん',
+		shortName: 'ハミちゃん',
+		image: '/images/hami/booth/acrylic-hami.jpg',
+		href: 'https://nikuoosika.booth.pm/items/8631024',
+	},
+];
+const clearFileGoods = goods.filter((item) => item.kind === 'clearfile');
+const acrylicGoods = goods.filter((item) => item.kind === 'acrylic');
+
 const galleryFrames = [
 	{
 		image: '/images/hami/material-tkg-ingredients.png',
@@ -277,6 +325,22 @@ const seriesId = `${canonicalUrl}#series`;
 const hamiId = `${canonicalUrl}#hamichan`;
 const miruId = `${canonicalUrl}#miruchan`;
 const akutanId = `${canonicalUrl}#akutan`;
+const goodsListItems = goods.map((item, index) => ({
+	'@type': 'ListItem',
+	position: index + 1,
+	url: item.href,
+	item: {
+		'@type': 'Product',
+		name: item.name,
+		category: item.kind === 'clearfile' ? 'A4クリアファイル' : 'アクリルスタンド',
+		image: new URL(item.image, siteUrl).toString(),
+		url: item.href,
+		brand: {
+			'@type': 'Brand',
+			name: 'ハミちゃんの日常飯',
+		},
+	},
+}));
 const episodeListItems = publishedEpisodes.map((episode, index) => ({
 	'@type': 'ListItem',
 	position: index + 1,
@@ -346,6 +410,7 @@ const hamiStructuredData = {
 			relatedLink: [
 				new URL('/hami-preview/recipes/', siteUrl).toString(),
 				new URL('/hami-preview/fanworks/', siteUrl).toString(),
+				boothShopUrl,
 			],
 		},
 		{
@@ -403,6 +468,14 @@ const hamiStructuredData = {
 			itemListElement: episodeListItems,
 		},
 		{
+			'@type': 'ItemList',
+			'@id': `${canonicalUrl}#goods`,
+			name: 'ハミちゃんの日常飯 公式グッズ',
+			url: boothShopUrl,
+			numberOfItems: goods.length,
+			itemListElement: goodsListItems,
+		},
+		{
 			'@type': 'CollectionPage',
 			'@id': `${canonicalUrl}#videos`,
 			name: 'ハミちゃんの日常飯 YouTube再生リスト',
@@ -444,6 +517,14 @@ const hamiStructuredData = {
 					acceptedAnswer: {
 						'@type': 'Answer',
 						text: `YouTube再生リストで各エピソードを視聴できます。再生リストURLは ${youtubePlaylistUrl} です。`,
+					},
+				},
+				{
+					'@type': 'Question',
+					name: 'ハミちゃんの日常飯の公式グッズはどこで買えますか？',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: `公式BOOTHショップ「大鹿堂」で、クリアファイルやアクリルスタンドを購入できます。ショップURLは ${boothShopUrl} です。`,
 					},
 				},
 			],
@@ -531,6 +612,7 @@ const hamiStructuredData = {
 				<a href="#characters">CHARACTER</a>
 				<a href="#episodes">EPISODE</a>
 				<a href="#recipes" class="nav-recipe"><span>13</span>RECIPE</a>
+				<a href="#goods">GOODS</a>
 				<a href="/hami-preview/fanworks/">FANWORKS</a>
 				<a href="#movies">MOVIE</a>
 				<a href="#materials">資料</a>
@@ -672,6 +754,50 @@ const hamiStructuredData = {
 					<li>オムライス</li><li>ホットサンド</li><li>たいやき</li><li>プリン</li><li>目玉焼き</li>
 					<li>チレス・エン・ノガーダ</li><li>焼き餃子</li><li>激辛ラーメン</li>
 				</ul>
+			</section>
+
+			<section class="goods-band" id="goods" aria-labelledby="goods-title">
+				<div class="goods-band__inner">
+					<div class="goods-copy">
+						<p class="section-kicker">OFFICIAL GOODS / 大鹿堂</p>
+						<h2 id="goods-title">日常飯を、<br />つれて帰ろう。</h2>
+						<p>
+							三人とごはんを詰め込んだクリアファイルと、机の上で待ってくれるアクリルスタンド。
+							公式BOOTHショップ「大鹿堂」で販売中です。
+						</p>
+						<a class="goods-shop-link" href={boothShopUrl} target="_blank" rel="noreferrer">
+							<span><small>OFFICIAL BOOTH SHOP</small><strong>大鹿堂で全商品を見る</strong></span>
+							<b aria-hidden="true">↗</b>
+						</a>
+						<small class="goods-external-note">外部サイト「BOOTH」へ移動します。</small>
+					</div>
+
+					<div class="goods-display" aria-label="ハミちゃんの日常飯 公式グッズ">
+						<div class="clearfile-stack" aria-label="A4クリアファイル">
+							{clearFileGoods.map((item, index) => (
+								<a
+									class:list={['clearfile-item', `clearfile-item--${index + 1}`]}
+									href={item.href}
+									target="_blank"
+									rel="noreferrer"
+									aria-label={`${item.name}をBOOTHで見る`}
+								>
+									<img src={item.image} alt={item.name} loading="lazy" />
+									<span><small>A4 CLEAR FILE</small><strong>{item.shortName}</strong><b aria-hidden="true">↗</b></span>
+								</a>
+							))}
+						</div>
+
+						<div class="acrylic-shelf" aria-label="アクリルスタンド">
+							{acrylicGoods.map((item) => (
+								<a href={item.href} target="_blank" rel="noreferrer" aria-label={`${item.name}をBOOTHで見る`}>
+									<img src={item.image} alt={item.name} loading="lazy" />
+									<span><small>ACRYLIC STAND</small><strong>{item.shortName}</strong></span>
+								</a>
+							))}
+						</div>
+					</div>
+				</div>
 			</section>
 
 			<section class="knowledge-panel" id="quick-facts" aria-labelledby="quick-facts-title">
@@ -928,6 +1054,7 @@ const hamiStructuredData = {
 				<a href="#top">ページ上部へ</a>
 				<a href="/hami-preview/recipes/">全13品のレシピ</a>
 				<a href="/hami-preview/fanworks/">二次創作ガイドライン</a>
+				<a href={boothShopUrl} target="_blank" rel="noreferrer">公式BOOTHショップ</a>
 				<a href={youtubePlaylistUrl} target="_blank" rel="noreferrer">YouTube再生リスト</a>
 				<a href="/">Niku's Portfolio</a>
 			</nav>
@@ -2430,6 +2557,319 @@ const hamiStructuredData = {
 		font-size: 0.58rem;
 	}
 
+	.goods-band {
+		position: relative;
+		isolation: isolate;
+		width: 100%;
+		margin: 0 0 4rem;
+		padding: clamp(4.5rem, 7vw, 7rem) 0;
+		overflow: hidden;
+		border-top: 1px solid rgba(62, 42, 31, 0.12);
+		border-bottom: 1px solid rgba(62, 42, 31, 0.12);
+		background: #e9f6f0;
+		box-shadow: inset 0 1.2rem 0 #f28373;
+	}
+
+	.goods-band::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: -2;
+		background: url("/images/hami/cutlery-pattern.svg") center / 11rem auto;
+		opacity: 0.18;
+		pointer-events: none;
+	}
+
+	.goods-band::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		z-index: -1;
+		height: 1.2rem;
+		background: repeating-linear-gradient(90deg, #f28373 0 3rem, #ffd166 3rem 6rem, #8fcfbd 6rem 9rem);
+	}
+
+	.goods-band__inner {
+		display: grid;
+		grid-template-columns: minmax(28rem, 0.85fr) minmax(0, 1.15fr);
+		align-items: center;
+		gap: clamp(2rem, 4vw, 5rem);
+		width: min(88rem, calc(100% - 3rem));
+		margin: 0 auto;
+	}
+
+	.goods-copy {
+		position: relative;
+		z-index: 10;
+	}
+
+	.goods-copy .section-kicker {
+		color: #9c3d32;
+	}
+
+	.goods-copy h2 {
+		margin: 0.6rem 0 1.25rem;
+		color: var(--ink);
+		font-size: clamp(3.4rem, 4.3vw, 4.75rem);
+		line-height: 0.98;
+		font-weight: 950;
+		white-space: nowrap;
+		text-shadow: 0 5px 0 rgba(255, 255, 255, 0.86);
+	}
+
+	.goods-copy > p:not(.section-kicker) {
+		max-width: 31rem;
+		margin: 0;
+		color: #5d514a;
+		font-weight: 700;
+		line-height: 1.9;
+	}
+
+	.goods-shop-link {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		width: min(100%, 29rem);
+		min-height: 5.2rem;
+		margin-top: 1.7rem;
+		padding: 0.8rem 1.1rem 0.8rem 1.45rem;
+		background: var(--ink);
+		color: #ffffff;
+		clip-path: polygon(0 50%, 0.5rem 18%, 1.8rem 3%, calc(100% - 0.9rem) 7%, 100% 50%, calc(100% - 0.9rem) 93%, 1.8rem 97%, 0.5rem 82%);
+		box-shadow: 0 16px 32px rgba(62, 42, 31, 0.22);
+		text-decoration: none;
+		transition: transform 180ms ease, box-shadow 180ms ease;
+	}
+
+	.goods-shop-link:hover {
+		transform: translateY(-4px) rotate(-0.5deg);
+		box-shadow: 0 22px 38px rgba(62, 42, 31, 0.28);
+	}
+
+	.goods-shop-link > span {
+		display: grid;
+		gap: 0.15rem;
+	}
+
+	.goods-shop-link small {
+		color: var(--butter);
+		font-size: 0.64rem;
+		font-weight: 950;
+		letter-spacing: 0.1em;
+	}
+
+	.goods-shop-link strong {
+		font-size: 1.05rem;
+		font-weight: 950;
+	}
+
+	.goods-shop-link b {
+		display: grid;
+		place-items: center;
+		flex: 0 0 auto;
+		width: 2.9rem;
+		aspect-ratio: 1;
+		border: 2px solid rgba(255, 255, 255, 0.58);
+		border-radius: 50%;
+		font-size: 1.25rem;
+	}
+
+	.goods-external-note {
+		display: block;
+		margin: 0.75rem 0 0 0.4rem;
+		color: var(--muted);
+		font-size: 0.7rem;
+		font-weight: 700;
+	}
+
+	.goods-display {
+		position: relative;
+		min-height: 42rem;
+	}
+
+	.clearfile-stack {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 76%;
+		height: 34rem;
+	}
+
+	.clearfile-item {
+		position: absolute;
+		top: 2.8rem;
+		width: 18rem;
+		aspect-ratio: 0.72;
+		overflow: hidden;
+		border: 0.55rem solid rgba(255, 255, 255, 0.92);
+		border-radius: 6px;
+		background: rgba(255, 255, 255, 0.76);
+		box-shadow: 0 24px 46px rgba(62, 42, 31, 0.22), inset 0 0 0 1px rgba(62, 42, 31, 0.12);
+		text-decoration: none;
+		transition: transform 190ms ease, box-shadow 190ms ease;
+	}
+
+	.clearfile-item::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: 2;
+		background: linear-gradient(112deg, rgba(255, 255, 255, 0.42), transparent 24% 68%, rgba(255, 255, 255, 0.28));
+		pointer-events: none;
+	}
+
+	.clearfile-item img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.clearfile-item > span {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 3;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		padding: 0.7rem 0.8rem;
+		background: rgba(42, 34, 30, 0.9);
+		color: #ffffff;
+	}
+
+	.clearfile-item small {
+		grid-column: 1 / -1;
+		color: var(--butter);
+		font-size: 0.56rem;
+		font-weight: 950;
+		letter-spacing: 0.1em;
+	}
+
+	.clearfile-item strong {
+		min-width: 0;
+		overflow: hidden;
+		font-size: 0.8rem;
+		font-weight: 900;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.clearfile-item b {
+		font-size: 1rem;
+	}
+
+	.clearfile-item--1 {
+		left: 0;
+		z-index: 1;
+		transform: rotate(-7deg);
+	}
+
+	.clearfile-item--2 {
+		left: 50%;
+		top: 0;
+		z-index: 3;
+		transform: translateX(-50%) rotate(-0.5deg);
+	}
+
+	.clearfile-item--3 {
+		right: 0;
+		z-index: 2;
+		transform: rotate(7deg);
+	}
+
+	.clearfile-item--1:hover {
+		z-index: 6;
+		transform: translateY(-0.8rem) rotate(-5deg);
+	}
+
+	.clearfile-item--2:hover {
+		z-index: 6;
+		transform: translateX(-50%) translateY(-0.8rem) rotate(0deg);
+	}
+
+	.clearfile-item--3:hover {
+		z-index: 6;
+		transform: translateY(-0.8rem) rotate(5deg);
+	}
+
+	.acrylic-shelf {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		z-index: 8;
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0.65rem;
+		width: 64%;
+		padding: 0 0.8rem 1rem;
+	}
+
+	.acrylic-shelf::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 1rem;
+		border: 1px solid rgba(62, 42, 31, 0.16);
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.82);
+		box-shadow: 0 12px 24px rgba(62, 42, 31, 0.18);
+	}
+
+	.acrylic-shelf a {
+		position: relative;
+		z-index: 2;
+		display: grid;
+		grid-template-rows: 1fr auto;
+		min-width: 0;
+		padding: 0.4rem;
+		border: 1px solid rgba(62, 42, 31, 0.13);
+		border-radius: 8px;
+		background: rgba(255, 255, 255, 0.92);
+		box-shadow: 0 14px 28px rgba(62, 42, 31, 0.16);
+		text-decoration: none;
+		transition: transform 180ms ease, box-shadow 180ms ease;
+	}
+
+	.acrylic-shelf a:nth-child(1) { transform: rotate(-2deg); }
+	.acrylic-shelf a:nth-child(2) { transform: translateY(-0.6rem); }
+	.acrylic-shelf a:nth-child(3) { transform: rotate(2deg); }
+
+	.acrylic-shelf a:hover {
+		transform: translateY(-0.9rem) rotate(0deg);
+		box-shadow: 0 22px 36px rgba(62, 42, 31, 0.22);
+	}
+
+	.acrylic-shelf img {
+		width: 100%;
+		aspect-ratio: 1;
+		object-fit: cover;
+	}
+
+	.acrylic-shelf span {
+		display: grid;
+		gap: 0.05rem;
+		padding: 0.45rem 0.35rem 0.3rem;
+		text-align: center;
+	}
+
+	.acrylic-shelf small {
+		color: #9c3d32;
+		font-size: 0.5rem;
+		font-weight: 950;
+		letter-spacing: 0.06em;
+	}
+
+	.acrylic-shelf strong {
+		font-size: 0.72rem;
+		font-weight: 900;
+		white-space: nowrap;
+	}
+
 	.episode-strip header,
 	.movie-band header,
 	.materials header {
@@ -2853,6 +3293,19 @@ const hamiStructuredData = {
 	}
 
 	@media (max-width: 1100px) {
+		.goods-band__inner {
+			grid-template-columns: 1fr;
+		}
+
+		.goods-copy {
+			max-width: 46rem;
+		}
+
+		.goods-display {
+			width: min(56rem, 100%);
+			margin: 0 auto;
+		}
+
 		.float-character {
 			opacity: 0.9;
 			max-height: 72vh;
@@ -3273,6 +3726,90 @@ const hamiStructuredData = {
 		.recipe-character--akutan {
 			right: -1.2rem;
 			width: 10.5rem;
+		}
+
+		.goods-band {
+			margin-bottom: 3rem;
+			padding: 3.8rem 0 3rem;
+		}
+
+		.goods-band__inner {
+			width: calc(100% - 2rem);
+			gap: 2rem;
+		}
+
+		.goods-copy h2 {
+			font-size: clamp(2.2rem, 11vw, 2.65rem);
+			line-height: 1.02;
+		}
+
+		.goods-copy > p:not(.section-kicker) {
+			font-size: 0.9rem;
+		}
+
+		.goods-shop-link {
+			min-height: 4.8rem;
+		}
+
+		.goods-display {
+			min-height: 40rem;
+		}
+
+		.clearfile-stack {
+			width: 100%;
+			height: 25rem;
+		}
+
+		.clearfile-item {
+			top: 2.5rem;
+			width: min(13.5rem, 58vw);
+			border-width: 0.42rem;
+		}
+
+		.clearfile-item--1 {
+			left: 0;
+		}
+
+		.clearfile-item--2 {
+			left: 50%;
+			top: 0;
+		}
+
+		.clearfile-item--3 {
+			right: 0;
+		}
+
+		.clearfile-item > span {
+			padding: 0.55rem 0.6rem;
+		}
+
+		.clearfile-item small {
+			font-size: 0.5rem;
+		}
+
+		.clearfile-item strong {
+			font-size: 0.68rem;
+		}
+
+		.acrylic-shelf {
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			gap: 0.4rem;
+			padding-inline: 0.35rem;
+		}
+
+		.acrylic-shelf a {
+			padding: 0.25rem;
+		}
+
+		.acrylic-shelf small {
+			display: none;
+		}
+
+		.acrylic-shelf strong {
+			font-size: 0.64rem;
 		}
 
 		.recipe-dish-ribbon {
