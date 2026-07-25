@@ -105,6 +105,14 @@ const episodes = [
 		image: '/images/hami/gekikara-card.avif',
 		copy: '激辛には余裕。けれど熱さには、ちょっと弱い。',
 		youtubeId: 'qhDBoc90boE',
+	},
+	{
+		no: '14',
+		title: '郷愁のルンダン編',
+		food: 'ビーフルンダン',
+		image: '/images/hami/recipes/episodes/nostalgic-rendang/hero.avif',
+		copy: 'スパイスの香りが連れてくる、遠い故郷の記憶。',
+		youtubeId: 'vyYJYYfK98A',
 		isLatest: true,
 	},
 ];
@@ -294,7 +302,7 @@ const siteUrl = Astro.site ?? new URL('https://niku.studio');
 const canonicalUrl = new URL('/hami-preview/', siteUrl).toString();
 const pageTitle = 'ハミちゃんの日常飯 | 日常系ごはんアニメ特設サイト';
 const pageDescription =
-	'ハミちゃんの日常飯は、食べることが大好きなハミちゃん、無口で食欲旺盛なミルちゃん、激辛に強く猫舌なあくたんが、ごはんを通して毎回ちょっとした事件を起こす全13話の日常系ごはんアニメです。全話の家庭向けレシピも公開しています。';
+	'ハミちゃんの日常飯は、食べることが大好きなハミちゃん、無口で食欲旺盛なミルちゃん、激辛に強く猫舌なあくたんが、ごはんを通して毎回ちょっとした事件を起こす全14話の日常系ごはんアニメです。全話の家庭向けレシピも公開しています。';
 const pageKeywords = [
 	'ハミちゃんの日常飯',
 	'ハミちゃん',
@@ -612,7 +620,7 @@ const hamiStructuredData = {
 				<a href="#watch">WATCH</a>
 				<a href="#characters">CHARACTER</a>
 				<a href="#episodes">EPISODE</a>
-				<a href="#recipes" class="nav-recipe"><span>13</span>RECIPE</a>
+				<a href="#recipes" class="nav-recipe"><span>14</span>RECIPE</a>
 				<a href="#goods">GOODS</a>
 				<a href="/hami-preview/fanworks/">FANWORKS</a>
 				<a href="#movies">MOVIE</a>
@@ -657,7 +665,7 @@ const hamiStructuredData = {
 					<div class="hero-actions">
 						<a href="#watch">最新話をみる</a>
 						<a href="#episodes">全話から選ぶ</a>
-						<a class="hero-recipe-action" href="/hami-preview/recipes/"><span>NEW</span><strong>全13品のレシピ</strong></a>
+						<a class="hero-recipe-action" href="/hami-preview/recipes/"><span>NEW</span><strong>全14品のレシピ</strong></a>
 					</div>
 				</div>
 			</section>
@@ -714,7 +722,7 @@ const hamiStructuredData = {
 				<p class="recipe-spotlight-watermark" aria-hidden="true">RECIPE BOOK</p>
 				<div class="recipe-spotlight-inner">
 					<div class="recipe-spotlight-copy">
-						<div class="recipe-launch-badge"><span>NEW</span><strong>全13話ぶん、ぜんぶ公開。</strong></div>
+						<div class="recipe-launch-badge"><span>NEW</span><strong>全14話ぶん、ぜんぶ公開。</strong></div>
 						<p class="section-kicker">HAMICHAN RECIPE COLLECTION</p>
 						<h2 id="recipes-title">アニメを観たら、<br /><em>次はつくろう。</em></h2>
 						<p class="recipe-spotlight-lead">
@@ -722,12 +730,12 @@ const hamiStructuredData = {
 							材料も工程も、動画も、ハミちゃんたちのひとことも。全話ぶん、まるごと一冊です。
 						</p>
 						<div class="recipe-spotlight-stats" aria-label="レシピコレクションの概要">
-							<div><strong>13</strong><span>RECIPES</span><small>全13品</small></div>
-							<div><strong>13</strong><span>EPISODES</span><small>全13話</small></div>
+							<div><strong>14</strong><span>RECIPES</span><small>全14品</small></div>
+							<div><strong>14</strong><span>EPISODES</span><small>全14話</small></div>
 							<div><strong>ALL</strong><span>WITH MOVIE</span><small>本編つき</small></div>
 						</div>
 						<a class="recipe-spotlight-cta" href="/hami-preview/recipes/">
-							<span><small>HAMICHAN RECIPE BOOK</small><strong>全13品のレシピ本をひらく</strong></span>
+							<span><small>HAMICHAN RECIPE BOOK</small><strong>全14品のレシピ本をひらく</strong></span>
 							<b aria-hidden="true">→</b>
 						</a>
 						<p class="recipe-spotlight-note">作中でわかることと、家庭向けに補った分量・手順を分けて掲載しています。</p>
@@ -820,7 +828,7 @@ const hamiStructuredData = {
 					</div>
 					<div>
 						<dt>現在の話数</dt>
-						<dd>公開本編13話。ショート、総集編、NG集に加えて、全話の家庭向けレシピも公開中です。</dd>
+						<dd>公開本編14話。ショート、総集編、NG集に加えて、全話の家庭向けレシピも公開中です。</dd>
 					</div>
 				</dl>
 			</section>
@@ -837,7 +845,7 @@ const hamiStructuredData = {
 						ミルちゃんがつけた呼び名は「あくたん」。本人だけが、まだ慣れていません。
 					</p>
 					<div class="new-face-actions">
-						<span>第13話・公開中</span>
+						<span>第14話・公開中</span>
 						<a href="#akutan">あくたんを知る</a>
 					</div>
 				</div>
@@ -1048,7 +1056,7 @@ const hamiStructuredData = {
 			</div>
 			<nav aria-label="Footer navigation">
 				<a href="#top">ページ上部へ</a>
-				<a href="/hami-preview/recipes/">全13品のレシピ</a>
+				<a href="/hami-preview/recipes/">全14品のレシピ</a>
 				<a href="/hami-preview/fanworks/">二次創作ガイドライン</a>
 				<a href={boothShopUrl} target="_blank" rel="noreferrer">公式BOOTHショップ</a>
 				<a href={youtubePlaylistUrl} target="_blank" rel="noreferrer">YouTube再生リスト</a>
