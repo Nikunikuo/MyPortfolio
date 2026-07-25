@@ -32,7 +32,9 @@ const canonicalPath = recipePath(recipe.slug);
 const heroImage = episodeImagePath(recipe.slug, 'hero.jpg');
 const heroSocialImage = episodeSocialImagePath(recipe.slug, 'hero.jpg');
 const title = `${recipe.dishTitle}の作り方 | ハミちゃんの日常飯`;
-const description = `${recipe.episodeTitle}「${recipe.dishTitle}」を家庭で再現する材料と8つの手順。${recipe.time}、${recipe.servings}。本編動画も掲載。`;
+const youtubeId = recipe.meta.youtubeId;
+const releaseLabel = recipe.meta.releaseLabel ?? 'YouTube公開準備中';
+const description = `${recipe.episodeTitle}「${recipe.dishTitle}」を家庭で再現する材料と8つの手順。${recipe.time}、${recipe.servings}。${youtubeId ? '本編動画も掲載。' : `本編は${releaseLabel}。`}`;
 
 const generatedRoot = join(
 	process.cwd(),
@@ -80,8 +82,8 @@ const endingComment = commentFor('ending');
 
 const recipeUrl = new URL(canonicalPath, Astro.site ?? Astro.url.origin).href;
 const heroUrl = new URL(heroSocialImage, Astro.site ?? Astro.url.origin).href;
-const embedUrl = `https://www.youtube-nocookie.com/embed/${recipe.meta.youtubeId}`;
-const watchUrl = `https://www.youtube.com/watch?v=${recipe.meta.youtubeId}`;
+const embedUrl = youtubeId ? `https://www.youtube-nocookie.com/embed/${youtubeId}` : undefined;
+const watchUrl = youtubeId ? `https://www.youtube.com/watch?v=${youtubeId}` : undefined;
 const structuredData = [
 	{
 		'@context': 'https://schema.org',
@@ -106,13 +108,15 @@ const structuredData = [
 			text: step.body,
 			url: `${recipeUrl}#step-${stepIndex + 1}`,
 		})),
-		video: {
-			'@type': 'VideoObject',
-			name: `ハミちゃんの日常飯 ${recipe.episodeTitle}`,
-			description: recipe.lead,
-			thumbnailUrl: `https://i.ytimg.com/vi/${recipe.meta.youtubeId}/maxresdefault.jpg`,
-			embedUrl,
-		},
+		...(youtubeId && embedUrl ? {
+			video: {
+				'@type': 'VideoObject',
+				name: `ハミちゃんの日常飯 ${recipe.episodeTitle}`,
+				description: recipe.lead,
+				thumbnailUrl: `https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg`,
+				embedUrl,
+			},
+		} : {}),
 		isPartOf: {
 			'@type': 'CreativeWorkSeries',
 			name: 'ハミちゃんの日常飯',
@@ -380,19 +384,29 @@ const structuredData = [
 						<p class="section-kicker">WATCH THE EPISODE</p>
 						<h2 id="episode-video-title">この料理が登場する本編</h2>
 					</div>
-					<p>料理ができあがるまでの空気も、ハミちゃんたちのやりとりも、動画でどうぞ。</p>
+					<p>{youtubeId ? '料理ができあがるまでの空気も、ハミちゃんたちのやりとりも、動画でどうぞ。' : `新作本編は${releaseLabel}。公開後、ここへYouTube本編を掲載します。`}</p>
 				</div>
-				<div class="recipe-video__frame">
-					<iframe
-						src={`${embedUrl}?rel=0`}
-						title={`YouTube動画「ハミちゃんの日常飯 ${recipe.episodeTitle}」`}
-						loading="lazy"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-						referrerpolicy="strict-origin-when-cross-origin"
-						allowfullscreen
-					></iframe>
-				</div>
-				<p class="recipe-video__fallback"><a href={watchUrl} target="_blank" rel="noopener noreferrer">YouTubeで本編を開く</a></p>
+				{youtubeId && embedUrl && watchUrl ? (
+					<>
+						<div class="recipe-video__frame">
+							<iframe
+								src={`${embedUrl}?rel=0`}
+								title={`YouTube動画「ハミちゃんの日常飯 ${recipe.episodeTitle}」`}
+								loading="lazy"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								referrerpolicy="strict-origin-when-cross-origin"
+								allowfullscreen
+							></iframe>
+						</div>
+						<p class="recipe-video__fallback"><a href={watchUrl} target="_blank" rel="noopener noreferrer">YouTubeで本編を開く</a></p>
+					</>
+				) : (
+					<div class="recipe-video__coming-soon" role="status">
+						<span>NEW EPISODE · EPISODE {String(recipe.meta.episodeNumber).padStart(2, '0')}</span>
+						<strong>{releaseLabel}</strong>
+						<p>YouTube公開前のため、いまはレシピをひと足先にお楽しみください。</p>
+					</div>
+				)}
 			</section>
 
 			<section class="recipe-ending">
@@ -415,7 +429,7 @@ const structuredData = [
 					<strong>{previous.dishTitle}</strong>
 				</a>
 			) : <span></span>}
-			<a class="recipe-pagination__all" href="/hami-preview/recipes/">全13レシピ</a>
+			<a class="recipe-pagination__all" href="/hami-preview/recipes/">全{recipes.length}レシピ</a>
 			{next ? (
 				<a class="recipe-pagination__item recipe-pagination__item--next" href={recipePath(next.slug)}>
 					<span>次のレシピ →</span>

@@ -4,11 +4,12 @@ export type SourceType = 'episode_fact' | 'household_proposal' | 'safety_guidanc
 
 type RecipeMeta = {
 	episodeNumber: number;
-	youtubeId: string;
+	youtubeId?: string;
+	releaseLabel?: string;
 	hasGeneratedMedia: boolean;
 };
 
-const recipeMetaBySlug = {
+const recipeMetaBySlug: Record<string, RecipeMeta> = {
 	'butter-rayu-tkg': {
 		episodeNumber: 1,
 		youtubeId: 'vose8t_6i-o',
@@ -74,11 +75,16 @@ const recipeMetaBySlug = {
 		youtubeId: 'qhDBoc90boE',
 		hasGeneratedMedia: true,
 	},
-} satisfies Record<string, RecipeMeta>;
+	'nostalgic-rendang': {
+		episodeNumber: 14,
+		youtubeId: 'vyYJYYfK98A',
+		hasGeneratedMedia: false,
+	},
+};
 
 export const recipes = recipeCollection.recipes
 	.map((recipe) => {
-		const meta = recipeMetaBySlug[recipe.slug as keyof typeof recipeMetaBySlug];
+		const meta = recipeMetaBySlug[recipe.slug];
 
 		if (!meta) {
 			throw new Error(`Missing Hami recipe metadata for ${recipe.slug}`);
