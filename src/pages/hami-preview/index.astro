@@ -302,7 +302,7 @@ const siteUrl = Astro.site ?? new URL('https://niku.studio');
 const canonicalUrl = new URL('/hami-preview/', siteUrl).toString();
 const pageTitle = 'ハミちゃんの日常飯 | 日常系ごはんアニメ特設サイト';
 const pageDescription =
-	'ハミちゃんの日常飯は、食べることが大好きなハミちゃん、無口で食欲旺盛なミルちゃん、激辛に強く猫舌なあくたんが、ごはんを通して毎回ちょっとした事件を起こす全14話の日常系ごはんアニメです。全話の家庭向けレシピも公開しています。';
+	'ハミちゃんの日常飯は、食べることが大好きなハミちゃん、無口で食欲旺盛なミルちゃん、激辛に強く猫舌なあくたんが、ごはんを通して毎回ちょっとした事件を起こす全14話の日常系ごはんアニメです。全話の家庭向けレシピと、広島旅行特別編の食べもの案内を公開しています。';
 const pageKeywords = [
 	'ハミちゃんの日常飯',
 	'ハミちゃん',
@@ -327,6 +327,11 @@ const pageKeywords = [
 	'プリン',
 	'焼き餃子',
 	'激辛ラーメン',
+	'広島旅行',
+	'もみじ饅頭',
+	'広島お好み焼き',
+	'焼き牡蠣',
+	'あなごめし',
 ].join(', ');
 const ogImageUrl = new URL('/images/hami/gekikara-card.png', siteUrl).toString();
 const logoUrl = new URL('/images/hami/logo.png', siteUrl).toString();
@@ -416,9 +421,11 @@ const hamiStructuredData = {
 			},
 			breadcrumb: { '@id': `${canonicalUrl}#breadcrumb` },
 			datePublished: '2026-06-03',
-			dateModified: '2026-07-19',
+			dateModified: '2026-08-15',
 			relatedLink: [
 				new URL('/hami-preview/recipes/', siteUrl).toString(),
+				new URL('/hami-preview/recipes/hiroshima-gourmet/', siteUrl).toString(),
+				new URL('/hami-preview/hiroshima/', siteUrl).toString(),
 				new URL('/hami-preview/fanworks/', siteUrl).toString(),
 				boothShopUrl,
 			],
@@ -598,7 +605,7 @@ const hamiStructuredData = {
 		<meta property="og:image:height" content="720" />
 		<meta property="og:image:alt" content="ハミちゃんの日常飯。ハミちゃん、ミルちゃん、あくたんと激辛ラーメンが描かれたキービジュアル。" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:updated_time" content="2026-07-19T23:00:00+09:00" />
+		<meta property="og:updated_time" content="2026-08-15T22:39:00+09:00" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="@M1RA_A_Project" />
 		<meta name="twitter:creator" content="@M1RA_A_Project" />
@@ -621,6 +628,7 @@ const hamiStructuredData = {
 				<a href="#characters">CHARACTER</a>
 				<a href="#episodes">EPISODE</a>
 				<a href="#recipes" class="nav-recipe"><span>14</span>RECIPE</a>
+				<a href="/hami-preview/hiroshima/" class="nav-hiroshima"><span>SP</span>広島</a>
 				<a href="#goods">GOODS</a>
 				<a href="/hami-preview/fanworks/">FANWORKS</a>
 				<a href="#movies">MOVIE</a>
@@ -666,6 +674,7 @@ const hamiStructuredData = {
 						<a href="#watch">最新話をみる</a>
 						<a href="#episodes">全話から選ぶ</a>
 						<a class="hero-recipe-action" href="/hami-preview/recipes/"><span>NEW</span><strong>全14品のレシピ</strong></a>
+						<a class="hero-hiroshima-action" href="/hami-preview/hiroshima/"><span>SP</span><strong>広島旅行特別編</strong></a>
 					</div>
 				</div>
 			</section>
@@ -715,6 +724,32 @@ const hamiStructuredData = {
 							</a>
 						))}
 					</div>
+				</div>
+			</section>
+
+			<section class="hiroshima-spotlight" aria-labelledby="hiroshima-spotlight-title">
+				<div class="hiroshima-spotlight-inner">
+					<div class="hiroshima-spotlight-copy">
+						<div class="hiroshima-launch-badge"><span>SPECIAL</span><strong>広島旅行、公開中。</strong></div>
+						<p class="section-kicker">HIROSHIMA TRIP / SPECIAL EPISODE</p>
+						<h2 id="hiroshima-spotlight-title">三人で食べて、<br /><em>また来ようね。</em></h2>
+						<p>
+							もみじ饅頭、広島お好み焼き、焼き牡蠣、あなごめし。
+							広島の二日間を歩く、ハミちゃんたちの特別編です。
+						</p>
+						<div class="hiroshima-spotlight-actions">
+							<a href="/hami-preview/hiroshima/">特別編のページへ <span aria-hidden="true">→</span></a>
+							<a href="/hami-preview/recipes/hiroshima-gourmet/">四つの味をのぞく <span aria-hidden="true">→</span></a>
+						</div>
+					</div>
+					<figure class="hiroshima-spotlight-visual">
+						<HamiImage
+							src="/images/hami/hiroshima/hiroshima-trip.avif"
+							alt="もみじ饅頭、広島お好み焼き、焼き牡蠣、あなごめしを楽しむハミちゃん、ミルちゃん、あくたん"
+							loading="lazy"
+						/>
+						<figcaption>食べる時間も、歩く時間も、旅のまま。</figcaption>
+					</figure>
 				</div>
 			</section>
 
@@ -1057,6 +1092,8 @@ const hamiStructuredData = {
 			<nav aria-label="Footer navigation">
 				<a href="#top">ページ上部へ</a>
 				<a href="/hami-preview/recipes/">全14品のレシピ</a>
+				<a href="/hami-preview/hiroshima/">広島旅行特別編</a>
+				<a href="/hami-preview/recipes/hiroshima-gourmet/">広島編の食べもの案内</a>
 				<a href="/hami-preview/fanworks/">二次創作ガイドライン</a>
 				<a href={boothShopUrl} target="_blank" rel="noreferrer">公式BOOTHショップ</a>
 				<a href={youtubePlaylistUrl} target="_blank" rel="noreferrer">YouTube再生リスト</a>
@@ -1292,6 +1329,29 @@ const hamiStructuredData = {
 		color: #ffffff;
 		border-radius: 50%;
 		font-size: 0.68rem;
+		line-height: 1;
+	}
+
+	.jump-nav .nav-hiroshima {
+		gap: 0.35rem;
+		padding-right: 0.9rem;
+		background: linear-gradient(135deg, #d9f2ec, #a9d9d7);
+		color: #1f5960;
+		border: 2px solid rgba(31, 89, 96, 0.35);
+		box-shadow: 0 8px 20px rgba(42, 121, 122, 0.18);
+	}
+
+	.jump-nav .nav-hiroshima span {
+		display: inline-grid;
+		place-items: center;
+		width: 1.45rem;
+		aspect-ratio: 1;
+		background: #287b7d;
+		color: #ffffff;
+		border-radius: 50%;
+		font-size: 0.58rem;
+		font-weight: 950;
+		letter-spacing: 0.04em;
 		line-height: 1;
 	}
 
@@ -1572,6 +1632,31 @@ const hamiStructuredData = {
 	}
 
 	.hero-recipe-action strong {
+		font-size: 0.88rem;
+		line-height: 1.1;
+	}
+
+	.hero-actions a.hero-hiroshima-action {
+		flex-direction: column;
+		gap: 0.1rem;
+		padding-top: 0.55rem;
+		padding-bottom: 0.55rem;
+		background:
+			radial-gradient(circle at 1.55rem 50%, rgba(255, 255, 255, 0.24) 0 0.82rem, transparent 0.86rem),
+			linear-gradient(90deg, #277579, #4aa6a5);
+		border-color: rgba(31, 89, 96, 0.52);
+		box-shadow: 0 14px 28px rgba(42, 121, 122, 0.28);
+	}
+
+	.hero-hiroshima-action span {
+		color: #fff1b1;
+		font-size: 0.58rem;
+		font-weight: 950;
+		letter-spacing: 0.14em;
+		line-height: 1;
+	}
+
+	.hero-hiroshima-action strong {
 		font-size: 0.88rem;
 		line-height: 1.1;
 	}
@@ -2191,6 +2276,192 @@ const hamiStructuredData = {
 		font-size: 1.2rem;
 		font-weight: 700;
 		line-height: 1.8;
+	}
+
+	.hiroshima-spotlight {
+		position: relative;
+		isolation: isolate;
+		width: min(88rem, calc(100% - 3rem));
+		margin: 1.5rem auto 4rem;
+		overflow: hidden;
+		border: 1px solid rgba(29, 90, 93, 0.2);
+		border-radius: 2rem 0.8rem 2.25rem 0.85rem;
+		background:
+			radial-gradient(circle at 8% 8%, rgba(255, 232, 161, 0.56), transparent 21%),
+			radial-gradient(circle at 92% 92%, rgba(79, 177, 177, 0.28), transparent 30%),
+			linear-gradient(135deg, #e9f8f0, #fff8e8 52%, #d5efeb);
+		box-shadow: var(--shadow);
+	}
+
+	.hiroshima-spotlight::before,
+	.hiroshima-spotlight::after {
+		position: absolute;
+		z-index: -1;
+		content: "";
+		border-radius: 50%;
+		pointer-events: none;
+	}
+
+	.hiroshima-spotlight::before {
+		right: -9rem;
+		top: -12rem;
+		width: 32rem;
+		aspect-ratio: 1;
+		background: rgba(255, 255, 255, 0.58);
+	}
+
+	.hiroshima-spotlight::after {
+		left: 34%;
+		bottom: -19rem;
+		width: 38rem;
+		aspect-ratio: 1;
+		background: rgba(38, 118, 120, 0.08);
+	}
+
+	.hiroshima-spotlight-inner {
+		display: grid;
+		grid-template-columns: minmax(20rem, 0.86fr) minmax(24rem, 1.14fr);
+		align-items: center;
+		gap: clamp(2rem, 5vw, 5rem);
+		min-height: 33rem;
+		padding: clamp(2.2rem, 5vw, 4.8rem);
+	}
+
+	.hiroshima-spotlight-copy {
+		position: relative;
+		z-index: 1;
+	}
+
+	.hiroshima-launch-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.6rem;
+		margin-bottom: 1rem;
+		padding: 0.34rem 0.78rem 0.34rem 0.36rem;
+		background: rgba(255, 255, 255, 0.74);
+		border: 1px solid rgba(39, 117, 121, 0.22);
+		border-radius: 999px;
+		color: #245d60;
+		box-shadow: 0 8px 18px rgba(42, 121, 122, 0.11);
+		font-size: 0.78rem;
+	}
+
+	.hiroshima-launch-badge span {
+		padding: 0.28rem 0.62rem;
+		background: #287b7d;
+		border-radius: 999px;
+		color: #ffffff;
+		font-size: 0.62rem;
+		font-weight: 950;
+		letter-spacing: 0.1em;
+	}
+
+	.hiroshima-launch-badge strong {
+		font-weight: 950;
+	}
+
+	.hiroshima-spotlight .section-kicker {
+		color: #287b7d;
+	}
+
+	.hiroshima-spotlight h2 {
+		margin: 0.5rem 0 1.1rem;
+		font-size: clamp(2.7rem, 4.2vw, 4rem);
+		letter-spacing: -0.06em;
+		line-height: 1;
+		white-space: nowrap;
+	}
+
+	.hiroshima-spotlight h2 em {
+		position: relative;
+		color: #24777b;
+		font-style: normal;
+	}
+
+	.hiroshima-spotlight h2 em::after {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -0.4rem;
+		height: 0.24rem;
+		content: "";
+		background: var(--butter);
+		border-radius: 999px;
+		transform: rotate(-1.5deg);
+	}
+
+	.hiroshima-spotlight-copy > p:not(.section-kicker) {
+		max-width: 31rem;
+		margin: 0;
+		color: #4b5f56;
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 1.85;
+	}
+
+	.hiroshima-spotlight-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.7rem;
+		margin-top: 1.6rem;
+	}
+
+	.hiroshima-spotlight-actions a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.2rem;
+		min-height: 3.5rem;
+		padding: 0.75rem 1rem 0.75rem 1.15rem;
+		border: 2px solid #287b7d;
+		border-radius: 1rem;
+		background: #287b7d;
+		color: #ffffff;
+		box-shadow: 0 9px 0 rgba(31, 89, 96, 0.2), 0 16px 28px rgba(42, 121, 122, 0.16);
+		font-size: 0.87rem;
+		font-weight: 900;
+		text-decoration: none;
+		transition: transform 160ms ease, box-shadow 160ms ease;
+	}
+
+	.hiroshima-spotlight-actions a + a {
+		background: rgba(255, 255, 255, 0.8);
+		border-color: rgba(39, 117, 121, 0.42);
+		color: #245d60;
+		box-shadow: 0 9px 0 rgba(39, 117, 121, 0.12), 0 16px 28px rgba(42, 121, 122, 0.1);
+	}
+
+	.hiroshima-spotlight-actions a:hover {
+		box-shadow: 0 4px 0 rgba(31, 89, 96, 0.2), 0 10px 23px rgba(42, 121, 122, 0.18);
+		transform: translateY(5px);
+	}
+
+	.hiroshima-spotlight-visual {
+		position: relative;
+		margin: 0;
+		padding: 0.65rem 0.65rem 2.15rem;
+		background: #ffffff;
+		border: 1px solid rgba(62, 42, 31, 0.14);
+		border-radius: 1.2rem 0.55rem 1.35rem 0.65rem;
+		box-shadow: 0 24px 44px rgba(42, 94, 80, 0.18);
+		transform: rotate(2.4deg);
+	}
+
+	.hiroshima-spotlight-visual img {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		border-radius: 0.75rem;
+	}
+
+	.hiroshima-spotlight-visual figcaption {
+		position: absolute;
+		left: 1rem;
+		bottom: 0.58rem;
+		color: #287b7d;
+		font-family: "Yomogi", "M PLUS Rounded 1c", sans-serif;
+		font-size: 0.82rem;
+		font-weight: 700;
 	}
 
 	.recipe-spotlight {
@@ -3949,6 +4220,89 @@ const hamiStructuredData = {
 		.site-footer nav {
 			flex-direction: column;
 			gap: 0.65rem;
+		}
+	}
+
+	@media (max-width: 980px) {
+		.hiroshima-spotlight-inner {
+			grid-template-columns: 1fr;
+			gap: 2.6rem;
+		}
+
+		.hiroshima-spotlight-copy {
+			max-width: 42rem;
+		}
+
+		.hiroshima-spotlight-visual {
+			width: min(42rem, 100%);
+			margin-inline: auto;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.hero-actions a.hero-hiroshima-action {
+			min-width: 8.8rem;
+		}
+
+		.hiroshima-spotlight {
+			width: calc(100% - 1.25rem);
+			margin: 1rem auto 3rem;
+			border-radius: 1.45rem 0.55rem 1.6rem 0.55rem;
+		}
+
+		.hiroshima-spotlight-inner {
+			min-height: 0;
+			padding: 2.4rem 1rem 2.8rem;
+		}
+
+		.hiroshima-launch-badge {
+			font-size: 0.7rem;
+		}
+
+		.hiroshima-spotlight h2 {
+			font-size: clamp(2.45rem, 11.5vw, 3.65rem);
+			white-space: normal;
+		}
+
+		.hiroshima-spotlight-copy > p:not(.section-kicker) {
+			font-size: 0.9rem;
+			line-height: 1.75;
+		}
+
+		.hiroshima-spotlight-actions {
+			gap: 0.55rem;
+		}
+
+		.hiroshima-spotlight-actions a {
+			flex: 1 1 14rem;
+			min-height: 3.25rem;
+			font-size: 0.82rem;
+		}
+
+		.hiroshima-spotlight-visual {
+			padding: 0.45rem 0.45rem 1.85rem;
+			transform: rotate(1.2deg);
+		}
+
+		.hiroshima-spotlight-visual figcaption {
+			left: 0.8rem;
+			bottom: 0.45rem;
+			font-size: 0.72rem;
+		}
+	}
+
+	@media (max-width: 460px) {
+		.hero-actions {
+			gap: 0.5rem;
+		}
+
+		.hero-actions a.hero-recipe-action,
+		.hero-actions a.hero-hiroshima-action {
+			min-width: 8.35rem;
+		}
+
+		.hiroshima-spotlight-actions a {
+			flex-basis: 100%;
 		}
 	}
 

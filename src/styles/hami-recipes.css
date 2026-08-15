@@ -107,6 +107,7 @@ h3 {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	flex-wrap: nowrap;
 	width: min(1240px, calc(100% - 40px));
 	min-height: 76px;
 	margin-inline: auto;
@@ -119,6 +120,7 @@ h3 {
 	gap: 12px;
 	color: var(--hami-chocolate);
 	text-decoration: none;
+	white-space: nowrap;
 }
 
 .recipe-site-brand__stamp {
@@ -146,6 +148,7 @@ h3 {
 	font-family: 'Kaisei Decol', serif;
 	font-size: 1.02rem;
 	line-height: 1.25;
+	white-space: nowrap;
 }
 
 .recipe-site-brand small {
@@ -159,6 +162,7 @@ h3 {
 .recipe-site-nav {
 	display: flex;
 	align-items: center;
+	flex-wrap: nowrap;
 	gap: 6px;
 }
 
@@ -168,6 +172,7 @@ h3 {
 	font-size: 0.86rem;
 	font-weight: 700;
 	text-decoration: none;
+	white-space: nowrap;
 }
 
 .recipe-site-nav a:first-child {
@@ -1338,6 +1343,666 @@ h3 {
 	text-decoration: none;
 }
 
+/* Hiroshima special: this is a story-and-food guide, not a cooking recipe. */
+.pill-button--coral {
+	background: var(--hami-coral);
+	color: white;
+	box-shadow: 5px 6px 0 rgba(93, 53, 39, 0.18);
+}
+
+.hiroshima-special-callout {
+	display: grid;
+	grid-template-columns: minmax(250px, 0.9fr) minmax(0, 1.1fr);
+	align-items: center;
+	gap: clamp(26px, 5vw, 62px);
+	margin-top: 58px;
+	padding: clamp(24px, 4vw, 46px);
+	overflow: hidden;
+	border: 1px solid rgba(41, 115, 116, 0.22);
+	border-radius: 32px 18px 34px 20px;
+	background:
+		radial-gradient(circle at 5% 8%, rgba(248, 200, 90, 0.38), transparent 24%),
+		radial-gradient(circle at 100% 100%, rgba(101, 192, 184, 0.2), transparent 35%),
+		linear-gradient(135deg, #eff9f1 0%, #fff8e9 54%, #e4f5f1 100%);
+	box-shadow: 0 18px 46px rgba(50, 100, 85, 0.12);
+}
+
+.hiroshima-special-callout__visual {
+	position: relative;
+	padding: 8px 8px 30px;
+	background: white;
+	border: 1px solid rgba(93, 53, 39, 0.14);
+	border-radius: 20px 10px 22px 12px;
+	box-shadow: 0 18px 36px rgba(44, 97, 82, 0.17);
+	transform: rotate(-2deg);
+}
+
+.hiroshima-special-callout__visual img {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	border-radius: 13px;
+	object-fit: cover;
+}
+
+.hiroshima-special-callout__visual > span {
+	position: absolute;
+	right: -13px;
+	top: -15px;
+	display: grid;
+	place-items: center;
+	width: 68px;
+	aspect-ratio: 1;
+	border: 4px double #256c70;
+	border-radius: 50%;
+	background: var(--hami-yellow);
+	color: #245d60;
+	box-shadow: 0 11px 22px rgba(47, 103, 95, 0.2);
+	font-family: 'Kaisei Decol', serif;
+	font-size: 1.1rem;
+	font-weight: 700;
+	transform: rotate(9deg);
+}
+
+.hiroshima-special-callout__copy h2 {
+	margin-bottom: 16px;
+	font-size: clamp(2rem, 3.3vw, 3rem);
+	white-space: nowrap;
+}
+
+.hiroshima-special-callout__copy h2 em,
+.hiroshima-hero h1 em,
+.hiroshima-guide-hero h1 em {
+	color: #277679;
+	font-style: normal;
+}
+
+.hiroshima-special-callout__copy > p:not(.eyebrow) {
+	max-width: 600px;
+	margin-bottom: 0;
+	color: var(--hami-muted);
+}
+
+.hiroshima-special-callout__actions,
+.hiroshima-hero__actions,
+.hiroshima-guide-hero__actions {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 17px;
+	margin-top: 24px;
+}
+
+.hiroshima-special-callout__actions .pill-button,
+.hiroshima-hero__actions .pill-button,
+.hiroshima-guide-hero__actions .pill-button {
+	gap: 8px;
+}
+
+.hiroshima-hero {
+	display: grid;
+	grid-template-columns: minmax(0, 0.98fr) minmax(400px, 1.02fr);
+	align-items: center;
+	gap: clamp(38px, 6vw, 84px);
+	min-height: 620px;
+	padding: 72px max(24px, calc((100% - 1180px) / 2)) 86px;
+	overflow: hidden;
+	background:
+		radial-gradient(circle at 80% 15%, rgba(248, 200, 90, 0.42), transparent 24%),
+		radial-gradient(circle at 8% 90%, rgba(89, 185, 177, 0.17), transparent 29%),
+		linear-gradient(145deg, #f8fff7 0%, #fff6e6 51%, #e7f6f1 100%);
+}
+
+.hiroshima-hero__copy {
+	position: relative;
+	z-index: 1;
+}
+
+.hiroshima-hero h1 {
+	margin-bottom: 22px;
+	font-size: clamp(2.85rem, 4.2vw, 4.45rem);
+	letter-spacing: -0.045em;
+	white-space: nowrap;
+}
+
+.hiroshima-guide-hero h1 {
+	margin-bottom: 22px;
+	font-size: clamp(2.55rem, 3.65vw, 3.55rem);
+	letter-spacing: -0.055em;
+	white-space: nowrap;
+}
+
+.hiroshima-hero__lead {
+	max-width: 600px;
+	margin-bottom: 0;
+	color: var(--hami-muted);
+	font-size: 1.06rem;
+}
+
+.hiroshima-hero__badges {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 9px;
+	margin-top: 24px;
+}
+
+.hiroshima-hero__badges span {
+	padding: 6px 11px;
+	border: 1px solid rgba(39, 118, 121, 0.28);
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.72);
+	color: #277679;
+	font-size: 0.75rem;
+	font-weight: 800;
+}
+
+.hiroshima-hero__visual,
+.hiroshima-guide-hero__visual {
+	position: relative;
+	margin: 0;
+	padding: 10px 10px 40px;
+	background: white;
+	border: 1px solid rgba(93, 53, 39, 0.14);
+	border-radius: 31px 18px 34px 20px;
+	box-shadow: var(--hami-shadow);
+	transform: rotate(1.5deg);
+}
+
+.hiroshima-hero__visual img,
+.hiroshima-guide-hero__visual img {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	border-radius: 21px 11px 23px 13px;
+	object-fit: cover;
+}
+
+.hiroshima-hero__visual figcaption {
+	position: absolute;
+	bottom: 12px;
+	left: 17px;
+	color: #287b7d;
+	font-family: 'Kaisei Decol', serif;
+	font-size: 0.82rem;
+	font-weight: 700;
+}
+
+.hiroshima-route {
+	display: grid;
+	grid-template-columns: minmax(230px, 0.72fr) minmax(0, 1fr) minmax(210px, 0.58fr);
+	align-items: center;
+	gap: clamp(24px, 4vw, 54px);
+	padding: 95px 0 105px;
+}
+
+.hiroshima-route__heading h2 {
+	margin-bottom: 12px;
+	font-size: clamp(1.95rem, 3.1vw, 3.05rem);
+	white-space: nowrap;
+}
+
+.hiroshima-route__heading > p:last-child {
+	margin-bottom: 0;
+	color: var(--hami-muted);
+}
+
+.hiroshima-route__list {
+	display: grid;
+	gap: 12px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.hiroshima-route__list li {
+	display: grid;
+	grid-template-columns: 42px minmax(0, 1fr);
+	gap: 13px;
+	align-items: center;
+	padding: 14px;
+	border: 1px solid var(--hami-line);
+	border-radius: 18px;
+	background: var(--hami-paper);
+	box-shadow: 0 8px 18px rgba(93, 53, 39, 0.06);
+}
+
+.hiroshima-route__list li > span {
+	display: grid;
+	place-items: center;
+	width: 38px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background: #287b7d;
+	color: white;
+	font-size: 0.72rem;
+	font-weight: 800;
+}
+
+.hiroshima-route__list small,
+.hiroshima-route__list strong {
+	display: block;
+}
+
+.hiroshima-route__list small {
+	margin-bottom: 2px;
+	color: #277679;
+	font-size: 0.64rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+}
+
+.hiroshima-route__list strong {
+	font-family: 'Kaisei Decol', serif;
+	font-size: 0.93rem;
+	line-height: 1.45;
+}
+
+.hiroshima-route__tram {
+	margin: 0;
+	padding: 7px 7px 24px;
+	background: white;
+	border: 1px solid rgba(93, 53, 39, 0.12);
+	border-radius: 18px 9px 19px 10px;
+	box-shadow: 0 13px 28px rgba(44, 97, 82, 0.12);
+	transform: rotate(2deg);
+}
+
+.hiroshima-route__tram img {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	border-radius: 12px;
+	object-fit: cover;
+}
+
+.hiroshima-route__tram figcaption {
+	margin-top: 7px;
+	color: #287b7d;
+	font-size: 0.67rem;
+	font-weight: 700;
+	line-height: 1.45;
+}
+
+.hiroshima-foods {
+	padding: 87px 0 95px;
+	background:
+		linear-gradient(rgba(255, 253, 248, 0.9), rgba(255, 253, 248, 0.9)),
+		url('/images/hami/cutlery-pattern.svg') repeat;
+}
+
+.hiroshima-food-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 22px;
+}
+
+.hiroshima-food-card {
+	overflow: hidden;
+	border: 1px solid rgba(93, 53, 39, 0.13);
+	border-radius: 23px;
+	background: var(--hami-paper);
+	box-shadow: 0 13px 33px rgba(93, 53, 39, 0.08);
+	transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.hiroshima-food-card:hover {
+	transform: translateY(-6px);
+	box-shadow: var(--hami-shadow);
+}
+
+.hiroshima-food-card > a:first-child {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	aspect-ratio: 4 / 3;
+	background: #e6f0e4;
+}
+
+.hiroshima-food-card > a:first-child img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 400ms ease;
+}
+
+.hiroshima-food-card:hover > a:first-child img {
+	transform: scale(1.045);
+}
+
+.hiroshima-food-card__day {
+	position: absolute;
+	left: 11px;
+	top: 11px;
+	max-width: calc(100% - 22px);
+	padding: 5px 8px;
+	border-radius: 999px;
+	background: rgba(40, 123, 125, 0.93);
+	color: white;
+	font-size: 0.59rem;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+}
+
+.hiroshima-food-card > div {
+	padding: 18px 18px 20px;
+}
+
+.hiroshima-food-card h3 {
+	margin-bottom: 8px;
+	font-size: 1.28rem;
+}
+
+.hiroshima-food-card p {
+	min-height: 5.1em;
+	margin-bottom: 14px;
+	color: var(--hami-muted);
+	font-size: 0.82rem;
+	line-height: 1.7;
+}
+
+.hiroshima-voices {
+	display: grid;
+	grid-template-columns: minmax(190px, 0.7fr) minmax(0, 1.3fr);
+	gap: clamp(28px, 6vw, 72px);
+	align-items: center;
+	padding: 92px 0;
+}
+
+.hiroshima-voices h2 {
+	margin-bottom: 0;
+	font-size: clamp(2rem, 3.4vw, 3.25rem);
+}
+
+.hiroshima-voices__quotes {
+	display: grid;
+	gap: 12px;
+}
+
+.hiroshima-voices blockquote {
+	display: grid;
+	grid-template-columns: 88px minmax(0, 1fr);
+	gap: 15px;
+	align-items: center;
+	margin: 0;
+	padding: 16px 20px;
+	border: 1px solid var(--hami-line);
+	border-radius: 18px 18px 18px 8px;
+	background: var(--hami-paper);
+	box-shadow: 0 9px 20px rgba(93, 53, 39, 0.06);
+}
+
+.hiroshima-voices blockquote span {
+	color: #277679;
+	font-size: 0.68rem;
+	font-weight: 800;
+	letter-spacing: 0.1em;
+}
+
+.hiroshima-voices blockquote p {
+	margin: 0;
+	font-family: 'Kaisei Decol', serif;
+	font-size: 1.06rem;
+	font-weight: 700;
+}
+
+.hiroshima-watch-band {
+	padding: 74px 0;
+	background:
+		radial-gradient(circle at 85% 15%, rgba(248, 200, 90, 0.3), transparent 22%),
+		linear-gradient(135deg, #235e62, #287b7d 52%, #519e9e);
+	color: white;
+}
+
+.hiroshima-watch-band__inner {
+	display: grid;
+	grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+	align-items: center;
+	gap: 44px;
+}
+
+.hiroshima-watch-thumbnail {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	border: 5px solid rgba(255, 255, 255, 0.82);
+	border-radius: 18px;
+	box-shadow: 0 16px 32px rgba(19, 65, 67, 0.28);
+	transform: rotate(-1.5deg);
+}
+
+.hiroshima-watch-thumbnail img {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	transition: transform 260ms ease;
+}
+
+.hiroshima-watch-thumbnail::after {
+	position: absolute;
+	inset: 0;
+	content: '';
+	background: linear-gradient(135deg, rgba(10, 47, 48, 0.05), rgba(10, 47, 48, 0.38));
+}
+
+.hiroshima-watch-thumbnail > span {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	display: grid;
+	place-items: center;
+	width: 58px;
+	aspect-ratio: 1;
+	border: 3px solid rgba(255, 255, 255, 0.88);
+	border-radius: 50%;
+	background: rgba(40, 123, 125, 0.92);
+	color: white;
+	font-size: 1.1rem;
+	transform: translate(-50%, -50%);
+}
+
+.hiroshima-watch-thumbnail:hover img {
+	transform: scale(1.045);
+}
+
+.hiroshima-watch-band__copy .pill-button {
+	margin-top: 24px;
+}
+
+.hiroshima-watch-band .section-kicker {
+	color: #ffedaa;
+}
+
+.hiroshima-watch-band h2 {
+	margin-bottom: 9px;
+	font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.hiroshima-watch-band__title {
+	margin-bottom: 6px;
+	color: #ffedaa;
+	font-family: 'Kaisei Decol', serif;
+	font-size: clamp(1rem, 1.8vw, 1.2rem);
+	font-weight: 700;
+	line-height: 1.55;
+}
+
+.hiroshima-watch-band__copy > p:not(.section-kicker):not(.hiroshima-watch-band__title) {
+	max-width: 700px;
+	margin-bottom: 0;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.hiroshima-guide-hero {
+	display: grid;
+	grid-template-columns: minmax(0, 0.94fr) minmax(400px, 1.06fr);
+	gap: clamp(40px, 6vw, 82px);
+	align-items: center;
+	padding: 78px max(24px, calc((100% - 1180px) / 2)) 92px;
+	background:
+		radial-gradient(circle at 91% 20%, rgba(248, 200, 90, 0.38), transparent 25%),
+		linear-gradient(145deg, #fff8ec, #eaf8f2 100%);
+}
+
+.hiroshima-guide-hero__copy > p:not(.eyebrow) {
+	max-width: 590px;
+	margin-bottom: 0;
+	color: var(--hami-muted);
+	font-size: 1.04rem;
+}
+
+.hiroshima-guide-hero__visual {
+	padding-bottom: 10px;
+	transform: rotate(-1.35deg);
+}
+
+.hiroshima-guide {
+	padding-top: 86px;
+	padding-bottom: 98px;
+}
+
+.hiroshima-guide__grid {
+	display: grid;
+	gap: 28px;
+}
+
+.hiroshima-guide-card {
+	display: grid;
+	grid-template-columns: minmax(270px, 0.78fr) minmax(0, 1.22fr);
+	gap: clamp(25px, 5vw, 65px);
+	align-items: center;
+	padding: clamp(20px, 4vw, 42px);
+	border: 1px solid var(--hami-line);
+	border-radius: 28px;
+	background: var(--hami-paper);
+	box-shadow: 0 13px 33px rgba(93, 53, 39, 0.08);
+	scroll-margin-top: 100px;
+}
+
+.hiroshima-guide-card:nth-child(even) {
+	grid-template-columns: minmax(0, 1.22fr) minmax(270px, 0.78fr);
+}
+
+.hiroshima-guide-card:nth-child(even) .hiroshima-guide-card__visual {
+	grid-column: 2;
+	grid-row: 1;
+	transform: rotate(1.6deg);
+}
+
+.hiroshima-guide-card:nth-child(even) .hiroshima-guide-card__copy {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+.hiroshima-guide-card__visual {
+	position: relative;
+	padding: 8px;
+	background: #fff;
+	border: 1px solid rgba(93, 53, 39, 0.13);
+	border-radius: 20px 11px 22px 12px;
+	box-shadow: 0 14px 29px rgba(93, 53, 39, 0.12);
+	transform: rotate(-1.6deg);
+}
+
+.hiroshima-guide-card__visual img {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	border-radius: 13px;
+	object-fit: cover;
+}
+
+.hiroshima-guide-card__visual > span {
+	position: absolute;
+	bottom: -15px;
+	left: -15px;
+	display: grid;
+	place-items: center;
+	width: 56px;
+	aspect-ratio: 1;
+	border: 3px solid white;
+	border-radius: 50%;
+	background: #287b7d;
+	color: white;
+	box-shadow: 0 9px 18px rgba(40, 123, 125, 0.22);
+	font-family: 'Kaisei Decol', serif;
+	font-size: 0.95rem;
+	font-weight: 700;
+}
+
+.hiroshima-guide-card__copy h3 {
+	margin-bottom: 13px;
+	font-size: clamp(1.8rem, 3vw, 2.7rem);
+}
+
+.hiroshima-guide-card__copy > p:not(.section-kicker) {
+	margin-bottom: 20px;
+	color: var(--hami-muted);
+}
+
+.hiroshima-guide-card__point {
+	margin: 0 0 17px;
+	padding: 15px 17px;
+	border-left: 4px solid var(--hami-yellow);
+	border-radius: 0 14px 14px 0;
+	background: #fff5db;
+}
+
+.hiroshima-guide-card__point strong {
+	display: block;
+	margin-bottom: 3px;
+	color: var(--hami-coral-dark);
+	font-size: 0.73rem;
+	font-weight: 800;
+	letter-spacing: 0.1em;
+}
+
+.hiroshima-guide-card__point p {
+	margin: 0;
+	font-size: 0.87rem;
+	line-height: 1.7;
+}
+
+.hiroshima-guide-card blockquote {
+	margin: 0;
+	padding: 12px 0 0;
+	border-top: 1px dashed var(--hami-line);
+}
+
+.hiroshima-guide-card blockquote span {
+	display: block;
+	margin-bottom: 3px;
+	color: #277679;
+	font-size: 0.62rem;
+	font-weight: 800;
+	letter-spacing: 0.1em;
+}
+
+.hiroshima-guide-card blockquote p {
+	margin: 0;
+	font-family: 'Kaisei Decol', serif;
+	font-size: 1.06rem;
+	font-weight: 700;
+}
+
+.hiroshima-ryokan-note {
+	display: grid;
+	grid-template-columns: minmax(260px, 0.92fr) minmax(0, 1.08fr);
+	gap: clamp(26px, 7vw, 92px);
+	align-items: center;
+	margin-bottom: 96px;
+	padding: clamp(25px, 5vw, 52px);
+	border: 1px solid rgba(93, 53, 39, 0.15);
+	border-radius: 28px;
+	background: #f7f0e4;
+}
+
+.hiroshima-ryokan-note h2 {
+	margin-bottom: 0;
+	font-size: clamp(1.8rem, 3.3vw, 3.05rem);
+}
+
+.hiroshima-ryokan-note > p {
+	margin-bottom: 0;
+	color: var(--hami-muted);
+}
+
 @media (max-width: 980px) {
 	.recipe-index-hero {
 		grid-template-columns: 1fr;
@@ -1392,6 +2057,11 @@ h3 {
 
 	.recipe-site-header__inner {
 		min-height: 68px;
+		gap: 6px;
+	}
+
+	.recipe-site-brand {
+		gap: 6px;
 	}
 
 	.recipe-site-brand__stamp {
@@ -1407,8 +2077,13 @@ h3 {
 	}
 
 	.recipe-site-nav a {
-		padding: 8px 10px;
-		font-size: 0.72rem;
+		padding: 7px;
+		font-size: 0.68rem;
+		line-height: 1.2;
+	}
+
+	.recipe-site-nav {
+		gap: 4px;
 	}
 
 	.recipe-site-nav a:last-child {
@@ -1666,6 +2341,352 @@ h3 {
 	.recipe-card,
 	.recipe-card__image-link img,
 	.text-link span {
+		transition: none;
+	}
+}
+
+@media (max-width: 980px) {
+	.hiroshima-special-callout,
+	.hiroshima-hero,
+	.hiroshima-guide-hero,
+	.hiroshima-route,
+	.hiroshima-voices,
+	.hiroshima-ryokan-note {
+		grid-template-columns: 1fr;
+	}
+
+	.hiroshima-special-callout {
+		gap: 40px;
+	}
+
+	.hiroshima-special-callout__visual {
+		width: min(590px, 100%);
+		margin-inline: auto;
+	}
+
+	.hiroshima-hero,
+	.hiroshima-guide-hero {
+		min-height: 0;
+	}
+
+	.hiroshima-hero__copy,
+	.hiroshima-guide-hero__copy {
+		max-width: 700px;
+	}
+
+	.hiroshima-hero__visual,
+	.hiroshima-guide-hero__visual {
+		width: min(720px, 100%);
+		margin: 10px auto 0;
+	}
+
+	.hiroshima-route {
+		gap: 34px;
+	}
+
+	.hiroshima-route__tram {
+		width: min(430px, 100%);
+		margin-inline: auto;
+	}
+
+	.hiroshima-food-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.hiroshima-voices {
+		gap: 28px;
+	}
+
+	.hiroshima-guide-card,
+	.hiroshima-guide-card:nth-child(even) {
+		grid-template-columns: 1fr;
+	}
+
+	.hiroshima-guide-card__visual,
+	.hiroshima-guide-card:nth-child(even) .hiroshima-guide-card__visual {
+		grid-column: auto;
+		grid-row: auto;
+		width: min(590px, 100%);
+		transform: rotate(-1deg);
+	}
+
+	.hiroshima-guide-card:nth-child(even) .hiroshima-guide-card__copy {
+		grid-column: auto;
+		grid-row: auto;
+	}
+}
+
+@media (max-width: 720px) {
+	.hiroshima-special-callout {
+		margin-top: 38px;
+		padding: 20px;
+		border-radius: 24px 13px 25px 14px;
+	}
+
+	.hiroshima-special-callout__visual {
+		padding: 6px 6px 25px;
+	}
+
+	.hiroshima-special-callout__visual > span {
+		right: -7px;
+		top: -9px;
+		width: 57px;
+		font-size: 0.92rem;
+	}
+
+	.hiroshima-special-callout__copy h2 {
+		font-size: clamp(1.9rem, 9vw, 2.8rem);
+		white-space: normal;
+	}
+
+	.hiroshima-special-callout__actions,
+	.hiroshima-hero__actions,
+	.hiroshima-guide-hero__actions {
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.hiroshima-hero,
+	.hiroshima-guide-hero {
+		padding: 51px 18px 64px;
+	}
+
+	.hiroshima-hero h1 {
+		font-size: clamp(2.45rem, 11vw, 3.8rem);
+		white-space: normal;
+	}
+
+	.hiroshima-guide-hero h1 {
+		font-size: clamp(1.95rem, 9.3vw, 2.55rem);
+		letter-spacing: -0.07em;
+		white-space: nowrap;
+	}
+
+	.hiroshima-hero__lead,
+	.hiroshima-guide-hero__copy > p:not(.eyebrow) {
+		font-size: 0.92rem;
+		line-height: 1.75;
+	}
+
+	.hiroshima-hero__badges {
+		gap: 7px;
+		margin-top: 18px;
+	}
+
+	.hiroshima-hero__badges span {
+		font-size: 0.68rem;
+	}
+
+	.hiroshima-hero__visual,
+	.hiroshima-guide-hero__visual {
+		padding: 7px 7px 31px;
+		border-radius: 23px 13px 25px 14px;
+	}
+
+	.hiroshima-hero__visual img,
+	.hiroshima-guide-hero__visual img {
+		border-radius: 16px 8px 18px 9px;
+	}
+
+	.hiroshima-hero__visual figcaption {
+		bottom: 8px;
+		left: 12px;
+		font-size: 0.68rem;
+	}
+
+	.hiroshima-route {
+		padding: 66px 0 73px;
+	}
+
+	.hiroshima-route__heading h2,
+	.hiroshima-voices h2 {
+		font-size: clamp(1.9rem, 8.5vw, 2.55rem);
+	}
+
+	.hiroshima-route__heading > p:last-child {
+		font-size: 0.9rem;
+	}
+
+	.hiroshima-route__list li {
+		grid-template-columns: 36px minmax(0, 1fr);
+		gap: 11px;
+		padding: 12px;
+	}
+
+	.hiroshima-route__list li > span {
+		width: 33px;
+		font-size: 0.64rem;
+	}
+
+	.hiroshima-route__list strong {
+		font-size: 0.84rem;
+	}
+
+	.hiroshima-foods {
+		padding: 62px 0 68px;
+	}
+
+	.hiroshima-food-grid {
+		gap: 16px;
+	}
+
+	.hiroshima-food-card > div {
+		padding: 15px;
+	}
+
+	.hiroshima-food-card h3 {
+		font-size: 1.12rem;
+	}
+
+	.hiroshima-food-card p {
+		min-height: 0;
+		font-size: 0.78rem;
+	}
+
+	.hiroshima-voices {
+		padding: 67px 0;
+	}
+
+	.hiroshima-voices blockquote {
+		grid-template-columns: 73px minmax(0, 1fr);
+		gap: 10px;
+		padding: 13px 14px;
+	}
+
+	.hiroshima-voices blockquote p {
+		font-size: 0.93rem;
+	}
+
+	.hiroshima-watch-band {
+		padding: 58px 0;
+	}
+
+	.hiroshima-watch-band__inner {
+		grid-template-columns: 1fr;
+		gap: 24px;
+	}
+
+	.hiroshima-watch-thumbnail {
+		width: min(390px, 100%);
+		margin-inline: auto;
+	}
+
+	.hiroshima-watch-band__copy {
+		width: 100%;
+	}
+
+	.hiroshima-watch-band h2 {
+		font-size: clamp(1.95rem, 9vw, 2.8rem);
+	}
+
+	.hiroshima-watch-band p:last-child {
+		font-size: 0.9rem;
+	}
+
+	.hiroshima-guide {
+		padding-top: 64px;
+		padding-bottom: 71px;
+	}
+
+	.hiroshima-guide__grid {
+		gap: 20px;
+	}
+
+	.hiroshima-guide-card {
+		gap: 25px;
+		padding: 19px;
+		border-radius: 22px;
+	}
+
+	.hiroshima-guide-card__visual > span {
+		bottom: -11px;
+		left: -10px;
+		width: 47px;
+		font-size: 0.8rem;
+	}
+
+	.hiroshima-guide-card__copy h3 {
+		font-size: clamp(1.65rem, 8vw, 2.3rem);
+	}
+
+	.hiroshima-guide-card__copy > p:not(.section-kicker) {
+		font-size: 0.9rem;
+	}
+
+	.hiroshima-guide-card__point {
+		padding: 13px 14px;
+	}
+
+	.hiroshima-guide-card__point p {
+		font-size: 0.81rem;
+	}
+
+	.hiroshima-guide-card blockquote p {
+		font-size: 0.94rem;
+	}
+
+	.hiroshima-ryokan-note {
+		gap: 18px;
+		margin-bottom: 68px;
+		padding: 22px;
+		border-radius: 21px;
+	}
+
+	.hiroshima-ryokan-note h2 {
+		font-size: clamp(1.7rem, 8vw, 2.4rem);
+	}
+
+	.hiroshima-ryokan-note > p {
+		font-size: 0.9rem;
+	}
+}
+
+@media (max-width: 460px) {
+	.hiroshima-food-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.hiroshima-food-card > a:first-child {
+		aspect-ratio: 16 / 9;
+	}
+
+	.hiroshima-food-card p {
+		font-size: 0.82rem;
+	}
+
+	.hiroshima-voices blockquote {
+		grid-template-columns: 1fr;
+		gap: 2px;
+	}
+}
+
+@media (max-width: 360px) {
+	.recipe-site-header__inner {
+		gap: 4px;
+	}
+
+	.recipe-site-brand__stamp {
+		display: none;
+	}
+
+	.recipe-site-brand strong {
+		font-size: 0.75rem;
+	}
+
+	.recipe-site-nav {
+		gap: 3px;
+	}
+
+	.recipe-site-nav a {
+		padding: 6px;
+		font-size: 0.64rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hiroshima-food-card,
+	.hiroshima-food-card > a:first-child img {
 		transition: none;
 	}
 }

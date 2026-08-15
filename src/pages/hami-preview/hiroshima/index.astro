@@ -1,0 +1,233 @@
+---
+import HamiImage from '../../../components/hami/HamiImage.astro';
+import HamiRecipeLayout from '../../../layouts/HamiRecipeLayout.astro';
+
+const canonicalPath = '/hami-preview/hiroshima/';
+const title = 'ハミちゃんの日常飯 特別編 広島旅行 | ハミちゃんの日常飯';
+const description =
+	'ハミちゃん、ミルちゃん、あくたんが広島を歩き、もみじ饅頭、広島お好み焼き、焼き牡蠣、あなごめしを楽しむ「ハミちゃんの日常飯」特別編の案内ページです。';
+const youtubeVideoId = 'Xnjtw6az0L8';
+const youtubeUrl = `https://www.youtube.com/watch?v=${youtubeVideoId}&list=PLQowZoIyUibREBdE8UuNSy5B2t5l7RFOi&index=19`;
+const siteUrl = Astro.site ?? Astro.url.origin;
+const canonicalUrl = new URL(canonicalPath, siteUrl).href;
+const heroImageUrl = new URL('/images/hami/hiroshima/hiroshima-trip.avif', siteUrl).href;
+const youtubeThumbnailUrl = new URL('/images/hami/hiroshima/hiroshima-youtube-thumbnail.jpg', siteUrl).href;
+
+const foods = [
+	{
+		name: 'もみじ饅頭',
+		day: 'DAY 1 · 宮島の小休止',
+		image: '/images/hami/hiroshima/momiji-manju.avif',
+		copy: 'あまくて、あったかい。歩き出す前の小さなごほうび。',
+		anchor: 'momiji-manju',
+	},
+	{
+		name: '広島お好み焼き',
+		day: 'DAY 1 · 鉄板を囲む昼',
+		image: '/images/hami/hiroshima/okonomiyaki-teppan.avif',
+		copy: '湯気と音に、三人の会話までつれていかれる一皿。',
+		anchor: 'okonomiyaki',
+	},
+	{
+		name: '焼き牡蠣',
+		day: 'DAY 2 · 朝の海の香り',
+		image: '/images/hami/hiroshima/grilled-oysters.avif',
+		copy: '殻が開く音と、熱さを待つ一拍。旅の二日目はここから。',
+		anchor: 'grilled-oysters',
+	},
+	{
+		name: 'あなごめし',
+		day: 'DAY 2 · ふたを開ける昼',
+		image: '/images/hami/hiroshima/anago-meshi.avif',
+		copy: 'ふた、湯気、照り。静かな食欲がいちばんよく見える主食。',
+		anchor: 'anago-meshi',
+	},
+];
+
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebPage',
+			'@id': canonicalUrl,
+			url: canonicalUrl,
+			name: title,
+			description,
+			inLanguage: 'ja-JP',
+			primaryImageOfPage: heroImageUrl,
+			mainEntity: { '@id': `${canonicalUrl}#video` },
+		},
+		{
+			'@type': 'VideoObject',
+			'@id': `${canonicalUrl}#video`,
+			name: 'ハミちゃんの日常飯　特別編　広島旅行【グルメアニメ❤本編】',
+			description,
+			url: youtubeUrl,
+			embedUrl: `https://www.youtube.com/embed/${youtubeVideoId}`,
+			thumbnailUrl: [youtubeThumbnailUrl],
+			inLanguage: 'ja-JP',
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{
+					'@type': 'ListItem',
+					position: 1,
+					name: 'ハミちゃんの日常飯',
+					item: new URL('/hami-preview/', siteUrl).href,
+				},
+				{
+					'@type': 'ListItem',
+					position: 2,
+					name: '特別編 広島旅行',
+					item: canonicalUrl,
+				},
+			],
+		},
+	],
+};
+---
+
+<HamiRecipeLayout
+	{title}
+	{description}
+	{canonicalPath}
+	ogImage="/images/hami/hiroshima/hiroshima-trip.avif"
+	{structuredData}
+	brandSubtitle="広島旅行 特別編"
+	navigationLabel="広島旅行の案内"
+	navigationLinks={[
+		{ href: '/hami-preview/recipes/hiroshima-gourmet/', label: '食べもの案内' },
+		{ href: youtubeUrl, label: '本編を見る', external: true },
+		{ href: '/hami-preview/', label: '特設トップ' },
+	]}
+	footerTagline="三人で歩いた景色と、旅の味をもう一度。"
+>
+	<section class="hiroshima-hero">
+		<div class="hiroshima-hero__copy">
+			<p class="eyebrow">SPECIAL EPISODE · HIROSHIMA TRIP</p>
+			<h1>三人で食べて、<br /><em>また来ようね。</em></h1>
+			<p class="hiroshima-hero__lead">
+				ハミちゃん、ミルちゃん、あくたんが、広島の景色と四つの味をたどる特別編。
+				食べる時間も、歩く時間も、旅のまま残します。
+			</p>
+			<div class="hiroshima-hero__badges" aria-label="広島編の食べもの">
+				<span>もみじ饅頭</span>
+				<span>広島お好み焼き</span>
+				<span>焼き牡蠣</span>
+				<span>あなごめし</span>
+			</div>
+			<div class="hiroshima-hero__actions">
+				<a class="pill-button pill-button--coral" href={youtubeUrl} target="_blank" rel="noreferrer">
+					YouTubeで本編を見る <span aria-hidden="true">↗</span>
+				</a>
+				<a class="text-link" href="/hami-preview/recipes/hiroshima-gourmet/">
+					食べもの案内をひらく <span aria-hidden="true">→</span>
+				</a>
+			</div>
+		</div>
+		<figure class="hiroshima-hero__visual">
+			<HamiImage
+				src="/images/hami/hiroshima/hiroshima-trip.avif"
+				alt="もみじ饅頭、広島お好み焼き、焼き牡蠣、あなごめしを楽しむハミちゃん、ミルちゃん、あくたん"
+				fetchpriority="high"
+			/>
+			<figcaption>おいしい、うれしい、少しだけ遠い。広島の二日間。</figcaption>
+		</figure>
+	</section>
+
+	<section class="hiroshima-route recipe-container" aria-labelledby="hiroshima-route-title">
+		<div class="hiroshima-route__heading">
+			<p class="section-kicker">TWO DAYS, FOUR TASTES</p>
+			<h2 id="hiroshima-route-title">旅のあしあと</h2>
+			<p>食べることだけを急がず、三人の時間に沿って味をたどります。</p>
+		</div>
+		<ol class="hiroshima-route__list">
+			<li>
+				<span>01</span>
+				<div><small>DAY 1 · 宮島</small><strong>もみじ饅頭で、散策のはじまり。</strong></div>
+			</li>
+			<li>
+				<span>02</span>
+				<div><small>DAY 1 · 広島市内</small><strong>鉄板を囲む、広島お好み焼きの昼。</strong></div>
+			</li>
+			<li>
+				<span>03</span>
+				<div><small>DAY 2 · 朝の宮島</small><strong>火と殻と湯気の、焼き牡蠣。</strong></div>
+			</li>
+			<li>
+				<span>04</span>
+				<div><small>DAY 2 · お昼</small><strong>ふたを開ける、あなごめし。</strong></div>
+			</li>
+		</ol>
+		<figure class="hiroshima-route__tram">
+			<HamiImage src="/images/hami/hiroshima/hiroshima-tram.avif" alt="青空の下を走る広島の路面電車のイラスト" />
+			<figcaption>乗りものと足音のあいだに、旅の景色があります。</figcaption>
+		</figure>
+	</section>
+
+	<section class="hiroshima-foods" aria-labelledby="hiroshima-foods-title">
+		<div class="recipe-container">
+			<header class="recipe-section-heading">
+				<div>
+					<p class="section-kicker">FOODS IN THE STORY</p>
+					<h2 id="hiroshima-foods-title">広島編の四つの味</h2>
+				</div>
+				<p>つくり方ではなく、作中で出会う一皿ずつの小さな紹介です。</p>
+			</header>
+			<div class="hiroshima-food-grid">
+				{foods.map((food) => (
+					<article class="hiroshima-food-card">
+						<a href={`/hami-preview/recipes/hiroshima-gourmet/#${food.anchor}`} aria-label={`${food.name}の紹介を見る`}>
+							<HamiImage src={food.image} alt={food.name} />
+							<span class="hiroshima-food-card__day">{food.day}</span>
+						</a>
+						<div>
+							<h3>{food.name}</h3>
+							<p>{food.copy}</p>
+							<a class="text-link" href={`/hami-preview/recipes/hiroshima-gourmet/#${food.anchor}`}>
+								ワンポイントを見る <span aria-hidden="true">→</span>
+							</a>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="hiroshima-voices recipe-container" aria-labelledby="hiroshima-voices-title">
+		<div>
+			<p class="section-kicker">TRAVEL NOTES</p>
+			<h2 id="hiroshima-voices-title">旅のはじまりの、ひとこと。</h2>
+		</div>
+		<div class="hiroshima-voices__quotes">
+			<blockquote><span>ハミ</span><p>「これも、これも食べたい！」</p></blockquote>
+			<blockquote><span>ミル</span><p>「あなご。」</p></blockquote>
+			<blockquote><span>あくたん</span><p>「……全部、回れるのか」</p></blockquote>
+		</div>
+	</section>
+
+	<section class="hiroshima-watch-band">
+		<div class="recipe-container hiroshima-watch-band__inner">
+			<a class="hiroshima-watch-thumbnail" href={youtubeUrl} target="_blank" rel="noreferrer" aria-label="ハミちゃんの日常飯 特別編 広島旅行をYouTubeで見る">
+				<img
+					src="/images/hami/hiroshima/hiroshima-youtube-thumbnail.jpg"
+					alt="YouTube動画「ハミちゃんの日常飯 特別編 広島旅行」のサムネイル"
+					width="480"
+					height="360"
+					loading="lazy"
+				/>
+				<span aria-hidden="true">▶</span>
+			</a>
+			<div class="hiroshima-watch-band__copy">
+				<p class="section-kicker">WATCH THE SPECIAL</p>
+				<h2>景色も、ごはんも。<br />本編でいっしょに。</h2>
+				<p class="hiroshima-watch-band__title">ハミちゃんの日常飯　特別編　広島旅行【グルメアニメ❤本編】</p>
+				<p>もみじ饅頭からあなごめしまで、三人の二日間をYouTube本編で公開中です。</p>
+				<a class="pill-button pill-button--cream" href={youtubeUrl} target="_blank" rel="noreferrer">
+					本編をYouTubeで見る <span aria-hidden="true">↗</span>
+				</a>
+			</div>
+		</div>
+	</section>
+</HamiRecipeLayout>

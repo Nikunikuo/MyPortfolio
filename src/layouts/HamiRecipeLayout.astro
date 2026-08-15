@@ -1,12 +1,22 @@
 ---
 import '../styles/hami-recipes.css';
 
+type NavigationLink = {
+	href: string;
+	label: string;
+	external?: boolean;
+};
+
 interface Props {
 	title: string;
 	description: string;
 	canonicalPath: string;
 	ogImage: string;
 	structuredData?: object | object[];
+	brandSubtitle?: string;
+	navigationLabel?: string;
+	navigationLinks?: NavigationLink[];
+	footerTagline?: string;
 }
 
 const {
@@ -15,6 +25,14 @@ const {
 	canonicalPath,
 	ogImage,
 	structuredData,
+	brandSubtitle = 'おうち再現レシピ',
+	navigationLabel = 'レシピサイト',
+	navigationLinks = [
+		{ href: '/hami-preview/recipes/', label: 'レシピ一覧' },
+		{ href: '/hami-preview/fanworks/', label: '二次創作' },
+		{ href: '/hami-preview/', label: '特設トップ' },
+	],
+	footerTagline = '物語の余韻を、今夜のひと皿へ。',
 } = Astro.props;
 
 const canonical = new URL(canonicalPath, Astro.site ?? Astro.url.origin);
@@ -57,13 +75,19 @@ const absoluteOgImage = new URL(ogImage, Astro.site ?? Astro.url.origin);
 					<span class="recipe-site-brand__stamp" aria-hidden="true">飯</span>
 					<span>
 						<strong>ハミちゃんの日常飯</strong>
-						<small>おうち再現レシピ</small>
+						<small>{brandSubtitle}</small>
 					</span>
 				</a>
-				<nav class="recipe-site-nav" aria-label="レシピサイト">
-					<a href="/hami-preview/recipes/">レシピ一覧</a>
-					<a href="/hami-preview/fanworks/">二次創作</a>
-					<a href="/hami-preview/">特設トップ</a>
+				<nav class="recipe-site-nav" aria-label={navigationLabel}>
+					{navigationLinks.map((link) => (
+						<a
+							href={link.href}
+							target={link.external ? '_blank' : undefined}
+							rel={link.external ? 'noreferrer' : undefined}
+						>
+							{link.label}
+						</a>
+					))}
 				</nav>
 			</div>
 		</header>
@@ -75,7 +99,7 @@ const absoluteOgImage = new URL(ogImage, Astro.site ?? Astro.url.origin);
 		<footer class="recipe-site-footer">
 			<div>
 				<strong>ハミちゃんの日常飯</strong>
-				<p>物語の余韻を、今夜のひと皿へ。</p>
+				<p>{footerTagline}</p>
 			</div>
 			<div class="recipe-site-footer__links">
 				<a href="/hami-preview/recipes/">全レシピ</a>

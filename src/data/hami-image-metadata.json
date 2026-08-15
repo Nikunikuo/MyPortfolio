@@ -137,6 +137,42 @@
     "bytes": 53012,
     "hasAlpha": false
   },
+  "/images/hami/hiroshima/anago-meshi.avif": {
+    "width": 1200,
+    "height": 674,
+    "bytes": 62243,
+    "hasAlpha": false
+  },
+  "/images/hami/hiroshima/grilled-oysters.avif": {
+    "width": 1200,
+    "height": 674,
+    "bytes": 109811,
+    "hasAlpha": false
+  },
+  "/images/hami/hiroshima/hiroshima-tram.avif": {
+    "width": 1600,
+    "height": 898,
+    "bytes": 241456,
+    "hasAlpha": false
+  },
+  "/images/hami/hiroshima/hiroshima-trip.avif": {
+    "width": 1672,
+    "height": 941,
+    "bytes": 287743,
+    "hasAlpha": false
+  },
+  "/images/hami/hiroshima/momiji-manju.avif": {
+    "width": 1200,
+    "height": 674,
+    "bytes": 50793,
+    "hasAlpha": false
+  },
+  "/images/hami/hiroshima/okonomiyaki-teppan.avif": {
+    "width": 1200,
+    "height": 674,
+    "bytes": 59650,
+    "hasAlpha": false
+  },
   "/images/hami/karaage-card.avif": {
     "width": 1254,
     "height": 1254,
