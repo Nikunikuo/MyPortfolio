@@ -39,11 +39,12 @@ Current episodes:
 - チレス・エン・ノガーダ編
 - 雨音の焼き餃子編
 - 激辛のラーメン編, featuring あくたん
+- 郷愁のルンダン編
 
 Recipe collection:
 
 - https://niku.studio/hami-preview/recipes/
-- One household recipe page for each of the 13 public episodes.
+- One household recipe page for each of the 14 public episodes.
 - Pages include ingredients, cooking steps, character comments, and an embedded episode video. Episodes without useful cooking footage use clearly disclosed GPT-image-2 household-reconstruction illustrations.
 
 Fanwork guidelines:

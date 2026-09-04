@@ -1,30 +1,31 @@
-# Astro Starter Kit: Portfolio
+# niku.studio
 
-```sh
-npm create astro@latest -- --template portfolio
-```
+大鹿ニク / M1RA のポートフォリオとプロジェクトアーカイブを管理する Astro サイトです。公開サイトは [niku.studio](https://niku.studio/) です。
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/portfolio)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/portfolio)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/portfolio/devcontainer.json)
+## 主なページ
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- `/` — トップページ
+- `/work/` — 作品一覧、ミュージックビデオ、開発プロジェクト
+- `/create-with-me/` — 制作相談・お仕事依頼
+- `/hami-preview/` — 「ハミちゃんの日常飯」特設サイト
+- `/ghosts/` — GHOSTS 公式ポータル
+- `/100days/` — #AI創作100日チャレンジ
 
-![portfolio](https://user-images.githubusercontent.com/357379/210779178-a98f0fb7-6b1a-4068-894c-8e1403e26654.jpg)
+## 開発
 
-## 🧞 Commands
+プロジェクトのルートで実行します。
 
-All commands are run from the root of the project, from a terminal:
+| コマンド | 用途 |
+| :-- | :-- |
+| `npm install` | 依存関係をインストールする |
+| `npm run dev` | ローカル開発サーバーを起動する |
+| `npm run build` | 本番用の静的出力を `dist/` に生成する |
+| `npm run preview` | ビルド済みサイトをローカルで確認する |
+| `npm run images:hami-avif` | ハミちゃん用画像を AVIF に変換する |
+| `npm run astro -- ...` | Astro CLI を実行する |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## ファイルの扱い
 
-## 👀 Want to learn more?
+現行サイトのルート・コンポーネント・データは主に `src/`、公開アセットは `public/` にあります。`M1RA/`、`100cha/`、企画資料、解析用スクリプトなどは現行サイトの実装と用途が異なる可能性があります。明確な確認なしに移動・削除・置換しないでください。
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+公開・デプロイは、明示的に依頼された場合だけ行います。通常の修正では、まずローカルのビルド確認までを完了条件にします。

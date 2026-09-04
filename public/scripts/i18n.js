@@ -152,7 +152,7 @@ const translations = {
 		"en": "Watch on YouTube"
 	},
 	"work_video_archive": {
-		"jp": "作品倉庫（見本）",
+		"jp": "作品アーカイブ",
 		"en": "Video Archive"
 	},
 	"work_100days": {
@@ -298,10 +298,6 @@ const translations = {
 	"work_experimental_desc": {
 		"jp": "新しい技術やアイデアを試すための実験的な取り組みです。",
 		"en": "Experimental initiatives to try new technologies and ideas."
-	},
-	"work_experimental_link": {
-		"jp": "詳細を見る",
-		"en": "View Details"
 	},
 	"work_opensource_title": {
 		"jp": "オープンソース",

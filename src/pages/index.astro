@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import CallToAction from "../components/CallToAction.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Grid from "../components/Grid.astro";
@@ -7,12 +6,7 @@ import HamiImage from "../components/hami/HamiImage.astro";
 import Hero from "../components/Hero.astro";
 import Icon from "../components/Icon.astro";
 import Pill from "../components/Pill.astro";
-import PortfolioPreview from "../components/PortfolioPreview.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const projects = (await getCollection("work"))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 6);
 
 const homeStructuredData = {
 	'@context': 'https://schema.org',
@@ -31,7 +25,7 @@ const homeStructuredData = {
 				name: 'ハミちゃんの日常飯',
 				url: 'https://niku.studio/hami-preview/',
 				description:
-					'ハミちゃん、ミルちゃん、あくたんが身近なごはんを囲み、かわいくて少しおかしい事件を起こす全13話の日常系ごはんアニメ。全話の家庭向けレシピも公開中。',
+					'ハミちゃん、ミルちゃん、あくたんが身近なごはんを囲み、かわいくて少しおかしい事件を起こす全14話の日常系ごはんアニメ。全話の家庭向けレシピも公開中。',
 				image: 'https://niku.studio/images/hami/og-card.jpg',
 				genre: ['日常系アニメ', '料理アニメ', 'ショートアニメ'],
 				hasPart: {
@@ -226,7 +220,7 @@ const homeStructuredData = {
 					/>
 				</div>
 				<p>
-					最新の制作実績。詳細は"Gallery"ページからご覧いただけます。（2026/4/28　お問合せページの作成。）
+					最新の制作実績。ハミちゃんの日常飯「広島旅行特別編」を公開しました。（2026/8/15）
 				</p>
 			</header>
 
@@ -342,7 +336,7 @@ const homeStructuredData = {
 					</li>
 					<li class="link-card">
 						<a
-							href="http://www.youtube.com/@M1RA_Archive_Project"
+							href="https://www.youtube.com/@M1RA_Archive_Project"
 							target="_blank"
 							rel="noopener noreferrer"
 						>

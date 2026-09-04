@@ -131,13 +131,15 @@ const description = `${mv.intro} - 生成AIで制作したミュージックビ�
 					<p class="intro-text">{mv.intro}</p>
 
 					<!-- 制作秘話へのリンク -->
-					<div class="action-buttons">
-						<a href={mv.noteUrl} target="_blank" rel="noopener noreferrer" class="note-link">
-							<Icon icon="pencil-line" size="1.5em" />
-							<span data-i18n="mv_read_behind">制作秘話を読む</span>
-							<Icon icon="external-link" size="1.2em" />
-						</a>
-					</div>
+					{mv.noteUrl && (
+						<div class="action-buttons">
+							<a href={mv.noteUrl} target="_blank" rel="noopener noreferrer" class="note-link">
+								<Icon icon="pencil-line" size="1.5em" />
+								<span data-i18n="mv_read_behind">制作秘話を読む</span>
+								<Icon icon="external-link" size="1.2em" />
+							</a>
+						</div>
+					)}
 				</div>
 
 				<!-- ナビゲーション -->

@@ -1,20 +1,13 @@
 ---
-import { getCollection } from "astro:content";
 import ContactCTA from "../components/ContactCTA.astro";
-import Grid from "../components/Grid.astro";
 import Hero from "../components/Hero.astro";
 import Icon from "../components/Icon.astro";
-import PortfolioPreview from "../components/PortfolioPreview.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const projects = (await getCollection("work")).sort(
-	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
-);
 ---
 
 <BaseLayout
 	title="Works | 大鹿ニク / M1RA"
-	description="生成AIで制作した作品集。ディスコグラフィー（ミュージックビデオ10作品、Spotify/Apple Music配信楽曲）、開発プロジェクト（AITuber M1RA、大鹿堂）など。定期的に新作公開中。"
+	description="生成AIで制作した作品集。ディスコグラフィー（ミュージックビデオ12作品、Spotify/Apple Music配信楽曲）、開発プロジェクト（AITuber M1RA、大鹿堂）など。定期的に新作公開中。"
 >
 	<!-- Breadcrumb Schema -->
 	<script type="application/ld+json" slot="head">
@@ -49,7 +42,7 @@ const projects = (await getCollection("work")).sort(
 			>
 				<div class="youtube-link">
 					<a
-						href="http://www.youtube.com/@M1RA_Archive_Project"
+						href="https://www.youtube.com/@M1RA_Archive_Project"
 						target="_blank"
 						rel="noopener noreferrer"
 						class="youtube-cta"
@@ -155,7 +148,7 @@ const projects = (await getCollection("work")).sort(
 						</p>
 						<div class="card-links-group">
 							<a
-								href="http://www.youtube.com/@M1RA_Archive_Project"
+								href="https://www.youtube.com/@M1RA_Archive_Project"
 								target="_blank"
 								rel="noopener noreferrer"
 								class="card-link"
@@ -167,7 +160,7 @@ const projects = (await getCollection("work")).sort(
 							</a>
 							<a href="/video-archive/" class="card-link">
 								<span data-i18n="work_video_archive"
-									>作品倉庫（見本）</span
+									>作品アーカイブ</span
 								>
 								<Icon icon="arrow-right" size="1em" />
 							</a>
@@ -302,12 +295,10 @@ const projects = (await getCollection("work")).sort(
 						<p data-i18n="work_experimental_desc">
 							新しい技術やアイデアを試すための実験的な取り組みです。
 						</p>
-						<a href="#" class="card-link">
-							<span data-i18n="work_experimental_link"
-								>詳細を見る</span
-							>
+						<span class="card-link disabled">
+							<span>準備中</span>
 							<Icon icon="arrow-right" size="1em" />
-						</a>
+						</span>
 					</div>
 					<div class="category-card">
 						<div class="card-icon">

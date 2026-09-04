@@ -1,11 +1,21 @@
+export interface MusicVideo {
+	slug: string;
+	title: string;
+	youtubeId: string;
+	intro: string;
+	noteUrl?: string;
+	description: string;
+	releaseDate: string;
+	isNew?: boolean;
+}
+
 // ミュージックビデオ作品データ（新しい順）
-export const musicVideos = [
+export const musicVideos: MusicVideo[] = [
 	{
 		slug: '12',
 		title: '情熱ブロッサム',
 		youtubeId: '397bpH3HSfQ',
 		intro: '情熱が花開くように広がる、エナジーあふれる楽曲のミュージックビデオ。',
-		noteUrl: 'https://note.com/m1ra_project/n/xxx-jyounetsu-blossom', // ← 後で実際のURLに差し替え
 		description: '',
 		releaseDate: '',
 		isNew: true,
@@ -15,7 +25,6 @@ export const musicVideos = [
 		title: 'Step to "me"',
 		youtubeId: 'lKCH_9_7HpM',
 		intro: '自分自身へと踏み出す一歩を描いた、内省的なミュージックビデオ。',
-		noteUrl: 'https://note.com/m1ra_project/n/xxx-step-to-me', // ← 後で実際のURLに差し替え
 		description: '',
 		releaseDate: '',
 	},
@@ -24,7 +33,6 @@ export const musicVideos = [
 		title: '君は人間ですか',
 		youtubeId: 'oNsT8Pgaj7Q',
 		intro: 'AIと人間の境界を問う、哲学的なミュージックビデオ。',
-		noteUrl: 'https://note.com/m1ra_project/n/xxx-kimi-wa-ningen', // ← 後で実際のURLに差し替え
 		description: '',
 		releaseDate: '',
 	},
@@ -42,7 +50,6 @@ export const musicVideos = [
 		title: 'AI☆NIKE PUNK!',
 		youtubeId: 'ywRXhxSJdMw',
 		intro: 'パンクロックで突き進む、AIの反骨精神を表現。',
-		noteUrl: 'https://note.com/m1ra_project/n/xxx-ai-nike-punk', // ← 後で実際のURLに差し替え
 		description: '',
 		releaseDate: '',
 	},
@@ -51,7 +58,6 @@ export const musicVideos = [
 		title: 'Unbreakable',
 		youtubeId: 'XCN4nPhHr9E',
 		intro: '決して折れない心を描いた、エモーショナルな楽曲。',
-		noteUrl: 'https://note.com/m1ra_project/n/xxx-unbreakable', // ← 後で実際のURLに差し替え
 		description: '',
 		releaseDate: '',
 	},
@@ -60,7 +66,6 @@ export const musicVideos = [
 		title: '無敵の船長',
 		youtubeId: 'Cj-lY7xvow0',
 		intro: '航海に出る船長の冒険心を歌ったミュージックビデオ。',
-		noteUrl: 'https://note.com/m1ra_project/n/xxx-muteki-no-senchou', // ← 後で実際のURLに差し替え
 		description: '',
 		releaseDate: '',
 	},
@@ -69,7 +74,6 @@ export const musicVideos = [
 		title: '街角の亡霊',
 		youtubeId: '9nNO0_YVM0k',
 		intro: '都会の片隅に佇む、記憶の残像を描いた作品。',
-		noteUrl: 'https://note.com/m1ra_project/n/xxx-machikado-no-bourei', // ← 後で実際のURLに差し替え
 		description: '',
 		releaseDate: '',
 	},
@@ -78,7 +82,6 @@ export const musicVideos = [
 		title: 'NEOSPHERE PARADE',
 		youtubeId: 'cqAXSlSeUTI',
 		intro: '新しい世界のパレード。未来への期待感を表現。',
-		noteUrl: 'https://note.com/m1ra_project/n/xxx-neosphere-parade', // ← 後で実際のURLに差し替え
 		description: '',
 		releaseDate: '',
 	},
@@ -87,7 +90,6 @@ export const musicVideos = [
 		title: 'ヴァルカンとパラス',
 		youtubeId: 'ZhJS_KGtdo4',
 		intro: '神話に登場する二柱の神を題材にした幻想的な作品。',
-		noteUrl: 'https://note.com/m1ra_project/n/xxx-vulcan-pallas', // ← 後で実際のURLに差し替え
 		description: '',
 		releaseDate: '',
 	},
@@ -105,20 +107,7 @@ export const musicVideos = [
 		title: '名前の無い木',
 		youtubeId: 'r-4K6_aHMYc',
 		intro: '名もなき存在の静かな物語。初期作品。',
-		noteUrl: 'https://note.com/m1ra_project/n/xxx-namae-no-nai-ki', // ← 後で実際のURLに差し替え
 		description: '',
 		releaseDate: '',
 	},
 ];
-
-// TypeScript型定義
-export interface MusicVideo {
-	slug: string;
-	title: string;
-	youtubeId: string;
-	intro: string;
-	noteUrl: string;
-	description: string;
-	releaseDate: string;
-	isNew?: boolean;
-}
