@@ -1,13 +1,13 @@
 /* Approved 03 COLOR poster, using the existing key visual and background. */
 .poster-top { display: flex; justify-content: space-between; gap: 24px; padding-block: 22px; border-bottom: 1px solid var(--studio-ink); font-size: 13px; font-weight: 700; }
 .poster-composition { position: relative; display: grid; grid-template-columns: .8fr 1fr; gap: 22px; min-height: clamp(560px,57vw,880px); padding-top: 32px; }
-.poster-wordmark { position: relative; z-index: 1; display: flex; flex-direction: column; align-self: start; font-family: "Barlow Condensed",sans-serif; font-size: clamp(110px,19.6vw,360px); font-weight: 900; letter-spacing: -.04em; line-height: .78; }
+.poster-wordmark { position: relative; z-index: 1; min-width: 0; display: flex; flex-direction: column; align-self: start; font-family: var(--font-brand); font-size: clamp(4.25rem,10vw,11.5rem); font-weight: var(--font-brand-weight); letter-spacing: .02em; line-height: .95; }
 .poster-wordmark span:last-child { margin-top: .15em; font-size: .688em; }
 .hero-art { position: relative; height: clamp(380px,43vw,680px); margin: 9px 16px 0 0; background: #fff; box-shadow: 14px 14px 0 #1b211b; transform: rotate(2deg); }
 .hero-art > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 38%; filter: none; }
 .hero-art figcaption { position: absolute; right: 0; bottom: 0; padding: 9px 14px; background: var(--studio-accent); color: var(--studio-ink); font-family: "IBM Plex Mono",monospace; font-size: 12px; font-weight: 600; }
 .poster-index { position: absolute; left: 0; bottom: 24px; font-family: "IBM Plex Mono",monospace; font-size: 13px; }
-.hero-poster h1 { position: absolute; z-index: 2; left: 6%; bottom: 8%; margin: 0; transform: rotate(-4deg); font-family: "Zen Kaku Gothic New",sans-serif; font-size: clamp(34px,5.7vw,100px); font-weight: 900; letter-spacing: -.06em; line-height: 1.33; }
+.hero-poster h1 { position: absolute; z-index: 2; left: 6%; bottom: 8%; margin: 0; transform: rotate(-4deg); font-family: var(--font-brand); font-size: clamp(34px,5.7vw,100px); font-weight: var(--font-brand-weight); letter-spacing: var(--tracking-heading); line-height: 1.4; }
 .hero-poster h1 > span { display: table; padding: 0 .28em .1em; background: var(--studio-accent); box-shadow: 8px 8px 0 var(--studio-ink); }
 .hero-poster h1 > span:last-child { margin: 8px 0 0 7%; white-space: nowrap; }
 .poster-foot { display: flex; justify-content: space-between; align-items: end; gap: 30px; padding: 28px 0 36px; border-bottom: 2px solid var(--studio-ink); }
@@ -18,7 +18,7 @@
 .series, .works { padding-top: clamp(88px,10vw,160px); scroll-margin-top: 28px; }
 .section-heading { margin-bottom: clamp(40px,6vw,88px); }
 .section-heading p { margin-bottom: 24px; font-family: "IBM Plex Mono",monospace; font-size: 13px; font-weight: 600; letter-spacing: .04em; }
-.section-heading h2 { font-family: var(--font-brand); font-size: clamp(2.3rem,6.1vw,6.5rem); font-weight: 900; letter-spacing: -.06em; line-height: 1.12; text-wrap: balance; }
+.section-heading h2 { font-family: var(--font-brand); font-size: clamp(2.3rem,6.1vw,6.5rem); font-weight: var(--font-brand-weight); letter-spacing: var(--tracking-heading); line-height: 1.3; text-wrap: balance; overflow-wrap: anywhere; }
 .series-links { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(32px,5vw,88px); padding-inline: 10px; }
 .series-link { position: relative; display: block; min-width: 0; color: inherit; text-decoration: none; }
 .series-link.hami { transform: rotate(-1.2deg); }
@@ -29,21 +29,22 @@
 .series-media .hami-logo { position: absolute; width: 85%; height: auto; left: 4%; bottom: 0; filter: drop-shadow(0 2px 9px #0008); }
 .series-copy { padding: 30px 48px 0 0; }
 .series-copy > p { font-family: "IBM Plex Mono",monospace; font-size: 13px; }
-.series-copy h3 { margin: 12px 0; font-family: var(--font-brand); font-size: clamp(1.6rem,3.1vw,3.3rem); font-weight: 900; letter-spacing: -.03em; }
+.series-copy h3 { margin: 12px 0; font-family: var(--font-brand); font-size: clamp(1.6rem,3.1vw,3.3rem); font-weight: var(--font-brand-weight); letter-spacing: var(--tracking-heading); line-height: 1.3; overflow-wrap: anywhere; }
 .series-copy > span { font-size: 16px; line-height: 1.8; }
 .series-link > b { position: absolute; bottom: 0; right: 0; font-size: 42px; font-weight: 400; }
 .works-list { margin: 0; padding: 0; list-style: none; border-top: 2px solid var(--studio-ink); }
 .works-list li { border-bottom: 2px solid var(--studio-ink); }
 .works-list a { display: grid; grid-template-columns: 100px minmax(0,1fr) 180px 40px; gap: 24px; align-items: center; min-height: 160px; padding: 24px 12px; color: inherit; text-decoration: none; }
 .works-list a:hover { background: var(--studio-accent); }
-.work-mark { font-family: var(--font-brand); font-size: 56px; font-weight: 900; letter-spacing: -.04em; }
-.works-list strong { font-family: var(--font-brand); font-size: clamp(1.6rem,3vw,2.9rem); font-weight: 900; letter-spacing: -.04em; line-height: 1.2; }
+.work-mark { font-family: var(--font-brand); font-size: 36px; font-weight: var(--font-brand-weight); letter-spacing: var(--tracking-heading); }
+.works-list strong { min-width: 0; font-family: var(--font-brand); font-size: clamp(1.6rem,3vw,2.9rem); font-weight: var(--font-brand-weight); letter-spacing: var(--tracking-heading); line-height: 1.3; overflow-wrap: anywhere; }
 .works-list small { color: var(--studio-muted); font-size: 14px; }
 .works-list i { font-size: 36px; font-style: normal; }
 .all-works { display: flex; width: fit-content; margin: 28px 0 0 auto; }
 .contact { margin-top: clamp(90px,12vw,180px); padding: clamp(42px,6vw,90px); border-top: 12px solid var(--studio-accent); background: var(--studio-ink); color: var(--studio-paper); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .contact p { margin-bottom: 40px; font-size: 13px; font-weight: 700; }
-.contact h2 { margin-bottom: 28px; color: inherit; font-family: var(--font-brand); font-size: clamp(2.5rem,6vw,6.8rem); font-weight: 900; letter-spacing: -.065em; line-height: 1.2; }
+.contact > div { min-width: 0; }
+.contact h2 { margin-bottom: 28px; color: inherit; font-family: var(--font-brand); font-size: clamp(2.5rem,6vw,6.8rem); font-weight: var(--font-brand-weight); letter-spacing: var(--tracking-heading); line-height: 1.3; overflow-wrap: anywhere; }
 .contact > a { display: flex; flex-direction: column; align-items: end; flex-shrink: 0; color: var(--studio-accent); font-size: 16px; text-decoration: none; }
 .contact > a span { font-size: clamp(70px,9vw,150px); line-height: 1; }
 html[data-theme="overprint"] .contact > a:focus-visible { outline-color: var(--studio-accent); }
@@ -51,11 +52,11 @@ html[data-theme="overprint"] .contact > a:focus-visible { outline-color: var(--s
 	.poster-top { padding-block: 18px; font-size: 12px; }
 	.poster-top > span { display: none; }
 	.poster-composition { grid-template-columns: minmax(0,1fr); min-height: 600px; padding-top: 26px; gap: 24px; }
-	.poster-wordmark { min-width: 0; flex-direction: row; align-items: baseline; gap: .06em; font-size: 23.5vw; }
+	.poster-wordmark { min-width: 0; flex-direction: row; align-items: baseline; gap: .15em; font-size: 11vw; }
 	.poster-wordmark span:last-child { margin: 0; font-size: .68em; }
 	.hero-art { justify-self: end; align-self: start; width: 85%; height: 340px; margin: 0 9px 65px 0; box-shadow: 7px 7px 0 var(--studio-ink); }
 	.hero-art figcaption { padding: 7px 9px; font-size: 12px; }
-	.hero-poster h1 { left: 0; bottom: 27px; font-size: clamp(24px,6.8vw,46px); }
+	.hero-poster h1 { left: 0; bottom: 27px; font-size: clamp(20px,6.2vw,46px); }
 	.hero-poster h1 > span { box-shadow: 4px 4px 0 var(--studio-ink); }
 	.hero-poster h1 > span:last-child { margin-left: 3%; }
 	.poster-index { display: none; }
@@ -66,7 +67,7 @@ html[data-theme="overprint"] .contact > a:focus-visible { outline-color: var(--s
 	.series-media { height: clamp(330px,100vw,435px); box-shadow: 7px 7px 0 var(--studio-ink); }
 	.series-copy { padding-top: 24px; }
 	.works-list a { grid-template-columns: 52px minmax(0,1fr) 26px; min-height: 126px; padding: 20px 4px; gap: 12px; }
-	.work-mark { font-size: 32px; }
+	.work-mark { font-size: 22px; }
 	.works-list small { display: none; }
 	.works-list i { font-size: 28px; }
 	.contact { flex-direction: column; align-items: flex-start; padding: 42px 24px; }

@@ -11,6 +11,9 @@ const {
 	description = '生成AIを制作手段のひとつとして、映像、音楽、アニメーション、Webを制作する大鹿ニクのポートフォリオ。',
 } = Astro.props;
 
+// The shared 404 also contains the unchanged GHOSTS error screen.
+const preserveGhosts404Fonts = /^\/404(?:\.html)?\/?$/.test(Astro.url.pathname);
+
 const creatorStructuredData = {
 	'@context': 'https://schema.org',
 	'@graph': [
@@ -61,9 +64,17 @@ const creatorStructuredData = {
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-	href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+	href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap"
 	rel="stylesheet"
 />
+{
+	preserveGhosts404Fonts && (
+		<link
+			href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+			rel="stylesheet"
+		/>
+	)
+}
 
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url.href} />

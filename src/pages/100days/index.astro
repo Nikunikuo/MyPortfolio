@@ -142,9 +142,10 @@ const structuredData = {
 	.challenge-overview strong {
 		color: var(--studio-ink);
 		font-family: var(--font-brand);
-		font-size: clamp(7rem, 17vw, 16rem);
-		letter-spacing: -0.09em;
-		line-height: 0.72;
+		font-size: clamp(4rem, 9vw, 8.5rem);
+		font-weight: var(--font-brand-weight);
+		letter-spacing: var(--tracking-heading);
+		line-height: 1;
 	}
 
 	.challenge-overview span,
@@ -338,9 +339,10 @@ const structuredData = {
 		background: var(--studio-accent);
 		padding: 4px 10px;
 		font-family: var(--font-brand);
-		font-size: clamp(4rem, 7vw, 7rem);
-		letter-spacing: -0.09em;
-		line-height: 0.8;
+		font-size: clamp(2.6rem, 4.5vw, 4.5rem);
+		font-weight: var(--font-brand-weight);
+		letter-spacing: var(--tracking-heading);
+		line-height: 1;
 	}
 
 	.challenge-copy {
@@ -362,10 +364,12 @@ const structuredData = {
 		display: block;
 		margin-top: 15px;
 		color: var(--studio-ink);
-		font-family: "Zen Kaku Gothic New", sans-serif;
+		font-family: var(--font-body);
 		font-size: clamp(1.05rem, 1.6vw, 1.4rem);
-		font-weight: 900;
+		font-weight: 700;
+		letter-spacing: 0;
 		line-height: 1.35;
+		overflow-wrap: anywhere;
 	}
 
 	.challenge-copy i {
@@ -390,7 +394,11 @@ const structuredData = {
 	.no-results strong {
 		color: var(--studio-ink);
 		font-family: var(--font-brand);
-		font-size: clamp(3rem, 8vw, 8rem);
+		font-size: clamp(1.75rem, 5vw, 5rem);
+		font-weight: var(--font-brand-weight);
+		letter-spacing: var(--tracking-heading);
+		line-height: 1.3;
+		overflow-wrap: anywhere;
 	}
 
 	.no-results p {
@@ -444,9 +452,10 @@ const structuredData = {
 	.modal-day-badge {
 		color: var(--studio-ink);
 		font-family: var(--font-brand);
-		font-size: clamp(4rem, 11vw, 9rem);
-		letter-spacing: -0.08em;
-		line-height: 0.8;
+		font-size: clamp(3rem, 8vw, 7rem);
+		font-weight: var(--font-brand-weight);
+		letter-spacing: var(--tracking-heading);
+		line-height: 1;
 	}
 
 	.modal-date,
@@ -459,11 +468,12 @@ const structuredData = {
 	.modal-title {
 		margin: 34px 0 22px;
 		color: var(--studio-ink);
-		font-family: var(--font-brand);
+		font-family: var(--font-body);
 		font-size: clamp(2.1rem, 5.5vw, 5.4rem);
-		font-weight: 900;
-		letter-spacing: -0.06em;
-		line-height: 1.2;
+		font-weight: 700;
+		letter-spacing: 0;
+		line-height: 1.35;
+		overflow-wrap: anywhere;
 	}
 
 	.modal-summary {
