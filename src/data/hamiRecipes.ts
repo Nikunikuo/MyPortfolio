@@ -1,4 +1,5 @@
 import recipeCollection from './hami-recipes.json';
+import parfaitRecipe from './hami-parfait-recipe.json';
 
 export type SourceType = 'episode_fact' | 'household_proposal' | 'safety_guidance';
 
@@ -7,6 +8,7 @@ type RecipeMeta = {
 	youtubeId?: string;
 	releaseLabel?: string;
 	hasGeneratedMedia: boolean;
+	episodeNumberUnconfirmed?: boolean;
 };
 
 const recipeMetaBySlug: Record<string, RecipeMeta> = {
@@ -80,9 +82,15 @@ const recipeMetaBySlug: Record<string, RecipeMeta> = {
 		youtubeId: 'vyYJYYfK98A',
 		hasGeneratedMedia: false,
 	},
+	'favorite-parfait-party': {
+		episodeNumber: 15,
+		episodeNumberUnconfirmed: true,
+		youtubeId: '0-LZ7_sGK38',
+		hasGeneratedMedia: true,
+	},
 };
 
-export const recipes = recipeCollection.recipes
+export const recipes = [...recipeCollection.recipes, parfaitRecipe]
 	.map((recipe) => {
 		const meta = recipeMetaBySlug[recipe.slug];
 

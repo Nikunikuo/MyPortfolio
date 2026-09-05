@@ -1,0 +1,88 @@
+---
+import HamiImage from './HamiImage.astro';
+
+const parfaits = [
+	{
+		id: 'strawberry-pistachio', person: 'ハミちゃん', color: 'strawberry', number: '01',
+		name: 'イチゴとピスタチオの', finish: 'ロイヤルフレア',
+		taste: '苺の甘酸っぱさに、ピスタチオの香ばしさ。',
+		layers: '苺 / ピスタチオ / ふわふわホイップ', step: 5,
+	},
+	{
+		id: 'mango-passion', person: 'ミルちゃん', color: 'mango', number: '02',
+		name: '完熟マンゴーと', finish: 'パッションサンセット',
+		taste: 'とろりと甘いマンゴーに、きゅっと爽やかな酸味。',
+		layers: 'マンゴー / パッション / バニラアイス', step: 6,
+	},
+	{
+		id: 'raspberry-millefeuille', person: 'あくたん', color: 'raspberry', number: '03',
+		name: 'ラズベリーミルフィーユ', finish: 'ルビーブーケを添えて',
+		taste: 'ルビー色のベリーと、さくっと軽いパイ。',
+		layers: 'ラズベリー / ソルベ / ミルフィーユ', step: 7,
+	},
+];
+---
+
+<section class="parfait-menu" id="parfait-menu" aria-labelledby="parfait-menu-title">
+	<header class="parfait-menu__heading">
+		<p class="section-kicker">THREE LITTLE HAPPINESSES</p>
+		<h2 id="parfait-menu-title">きょうは、どのパフェにする？</h2>
+		<p>3人のとっておき。ひとつ選んでも、全部並べても。</p>
+	</header>
+	<div class="parfait-menu__grid">
+		{parfaits.map((parfait) => (
+			<article class:list={['parfait-flavor', `parfait-flavor--${parfait.color}`]}>
+				<div class="parfait-flavor__topline"><span>{parfait.person}の1杯</span><span aria-hidden="true">{parfait.number}</span></div>
+				<a class="parfait-flavor__image" href={`#step-${parfait.step}`} aria-label={`${parfait.name}${parfait.finish}の作り方へ`}>
+					<HamiImage src={`/images/hami/recipes/generated/favorite-parfait-party/${parfait.id}.avif`} alt={`${parfait.name}${parfait.finish}。作中の材料をもとにGPT-image-2で作成した再現イラスト`} />
+				</a>
+				<div class="parfait-flavor__copy">
+					<p class="parfait-flavor__layers">{parfait.layers}</p>
+					<h3><span>{parfait.name}</span><strong>{parfait.finish}</strong></h3>
+					<p>{parfait.taste}</p>
+					<a class="parfait-flavor__link" href={`#step-${parfait.step}`}>このパフェをつくる <span aria-hidden="true">↓</span></a>
+				</div>
+			</article>
+		))}
+	</div>
+	<p class="parfait-menu__caption">3枚のパフェイラストは、作中の材料と配色を参考にGPT-image-2で新しく制作した盛り付けイメージです。本編カットではありません。重ねる順番と分量は、下のレシピをご覧ください。</p>
+	<p class="parfait-menu__one"><strong>1杯だけ作るなら</strong><span>生クリーム50ml＋砂糖4gと、選んだパフェの材料を用意。<a href="#ingredients-title">材料を見る ↓</a></span></p>
+</section>
+
+<style>
+	.parfait-menu { padding: 12px 0 54px; }
+	.parfait-menu__heading { text-align: center; margin-bottom: 30px; }
+	.parfait-menu__heading h2 { margin-bottom: 12px; font-size: clamp(1.8rem, 3.4vw, 2.65rem); text-wrap: balance; }
+	.parfait-menu__heading > p:last-child { color: var(--hami-muted); }
+	.parfait-menu__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+	.parfait-flavor { --flavor: #a83d51; --tint: #fff0f2; min-width: 0; overflow: hidden; border: 1px solid #edcbd1; border-radius: 80px 80px 22px 22px; background: #fffefa; box-shadow: 0 12px 28px #7838470a; }
+	.parfait-flavor--mango { --flavor: #80500b; --tint: #fff5d8; border-color: #e8d09b; }
+	.parfait-flavor--raspberry { --flavor: #973454; --tint: #fff0f6; border-color: #eac4d1; }
+	.parfait-flavor__topline { display: flex; justify-content: center; align-items: center; gap: 16px; padding: 26px 24px 16px; color: var(--flavor); background: var(--tint); font-size: 1rem; font-weight: 800; }
+	.parfait-flavor__topline > span:last-child { font: 500 1.5rem 'Kaisei Decol', serif; opacity: .65; }
+	.parfait-flavor__image { display: block; overflow: hidden; background: var(--tint); }
+	.parfait-flavor__image :global(img) { width: 100%; aspect-ratio: 4 / 5; object-fit: contain; }
+	.parfait-flavor__copy { display: flex; flex-direction: column; padding: 24px; }
+	.parfait-flavor__layers { margin-bottom: 14px; color: var(--flavor); font-size: .875rem; font-weight: 700; }
+	.parfait-flavor h3 { min-height: 5em; margin-bottom: 12px; color: var(--flavor); font-size: clamp(1.12rem, 1.65vw, 1.4rem); line-height: 1.6; }
+	.parfait-flavor h3 span, .parfait-flavor h3 strong { display: block; font-weight: 700; }
+	.parfait-flavor__copy > p:not(.parfait-flavor__layers) { min-height: 3.6em; margin-bottom: 20px; font-size: 1rem; }
+	.parfait-flavor__link { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 48px; border-top: 1px solid color-mix(in srgb, var(--flavor) 23%, transparent); padding-top: 14px; color: var(--flavor); font-weight: 800; text-decoration: none; }
+	.parfait-flavor__link:hover { text-decoration: underline; text-underline-offset: 4px; }
+	.parfait-menu__caption { margin: 20px 0 22px; color: #77655d; font-size: .875rem; }
+	.parfait-menu__one { display: flex; gap: 20px; align-items: baseline; padding: 22px 26px; border: 1px dashed #b8cda5; border-radius: 16px; background: #f2f7e8; }
+	.parfait-menu__one > strong { flex-shrink: 0; color: #526537; }
+	.parfait-menu__one a { display: inline-block; margin-left: 8px; text-underline-offset: 4px; font-weight: 700; }
+	@media (max-width: 900px) {
+		.parfait-menu__grid { gap: 14px; }
+		.parfait-flavor__copy { padding: 20px 16px; }
+		.parfait-flavor { border-radius: 48px 48px 20px 20px; }
+	}
+	@media (max-width: 680px) {
+		.parfait-menu__grid { grid-template-columns: minmax(0, 1fr); gap: 28px; max-width: 440px; margin-inline: auto; }
+		.parfait-flavor__copy { padding: 24px; }
+		.parfait-flavor h3 { min-height: 0; font-size: 1.5rem; }
+		.parfait-flavor__copy > p:not(.parfait-flavor__layers) { min-height: 0; }
+		.parfait-menu__one { flex-direction: column; gap: 6px; padding: 20px; }
+	}
+</style>

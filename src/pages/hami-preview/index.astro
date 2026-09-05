@@ -1,5 +1,8 @@
 ---
 import HamiImage from '../../components/hami/HamiImage.astro';
+import { recipes } from '../../data/hamiRecipes';
+
+const recipeCount = recipes.length;
 
 const episodes = [
 	{
@@ -113,6 +116,16 @@ const episodes = [
 		image: '/images/hami/recipes/episodes/nostalgic-rendang/hero.avif',
 		copy: 'スパイスの香りが連れてくる、遠い故郷の記憶。',
 		youtubeId: 'vyYJYYfK98A',
+	},
+	{
+		no: 'PARFAIT',
+		episodeNumberUnconfirmed: true,
+		title: '好きなものだけパフェ編',
+		food: '3人のフルーツパフェ',
+		image: '/images/hami/recipes/episodes/favorite-parfait-party/hero.avif',
+		copy: '苺、マンゴー、ラズベリー。好きなものだけ、グラスいっぱいに。',
+		youtubeId: '0-LZ7_sGK38',
+		recipeHref: '/hami-preview/recipes/favorite-parfait-party/',
 		isLatest: true,
 	},
 ];
@@ -302,7 +315,7 @@ const siteUrl = Astro.site ?? new URL('https://niku.studio');
 const canonicalUrl = new URL('/hami-preview/', siteUrl).toString();
 const pageTitle = 'ハミちゃんの日常飯 | 日常系ごはんアニメ特設サイト';
 const pageDescription =
-	'ハミちゃんの日常飯は、食べることが大好きなハミちゃん、無口で食欲旺盛なミルちゃん、激辛に強く猫舌なあくたんが、ごはんを通して毎回ちょっとした事件を起こす全14話の日常系ごはんアニメです。全話の家庭向けレシピと、広島旅行特別編の食べもの案内を公開しています。';
+	'ハミちゃんの日常飯は、食べることが大好きなハミちゃん、無口で食欲旺盛なミルちゃん、激辛に強く猫舌なあくたんが、ごはんを通して毎回ちょっとした事件を起こす日常系ごはんアニメです。パフェ編をはじめとする家庭向けレシピと、広島旅行特別編の食べもの案内を掲載しています。';
 const pageKeywords = [
 	'ハミちゃんの日常飯',
 	'ハミちゃん',
@@ -367,7 +380,7 @@ const episodeListItems = publishedEpisodes.map((episode, index) => ({
 		name: episode.title,
 		description: episode.copy,
 		position: index + 1,
-		episodeNumber: episode.no,
+		...(episode.episodeNumberUnconfirmed ? {} : { episodeNumber: episode.no }),
 		image: new URL(episode.image, siteUrl).toString(),
 		url: youtubeWatchUrl(episode.youtubeId),
 		partOfSeries: { '@id': seriesId },
@@ -421,7 +434,7 @@ const hamiStructuredData = {
 			},
 			breadcrumb: { '@id': `${canonicalUrl}#breadcrumb` },
 			datePublished: '2026-06-03',
-			dateModified: '2026-08-15',
+			dateModified: '2026-09-05',
 			relatedLink: [
 				new URL('/hami-preview/recipes/', siteUrl).toString(),
 				new URL('/hami-preview/recipes/hiroshima-gourmet/', siteUrl).toString(),
@@ -627,7 +640,7 @@ const hamiStructuredData = {
 				<a href="#watch">WATCH</a>
 				<a href="#characters">CHARACTER</a>
 				<a href="#episodes">EPISODE</a>
-				<a href="#recipes" class="nav-recipe"><span>14</span>RECIPE</a>
+				<a href="#recipes" class="nav-recipe"><span>{recipeCount}</span>RECIPE</a>
 				<a href="/hami-preview/hiroshima/" class="nav-hiroshima"><span>SP</span>広島</a>
 				<a href="#goods">GOODS</a>
 				<a href="/hami-preview/fanworks/">FANWORKS</a>
@@ -673,7 +686,7 @@ const hamiStructuredData = {
 					<div class="hero-actions">
 						<a href="#watch">最新話をみる</a>
 						<a href="#episodes">全話から選ぶ</a>
-						<a class="hero-recipe-action" href="/hami-preview/recipes/"><span>NEW</span><strong>全14品のレシピ</strong></a>
+						<a class="hero-recipe-action" href="/hami-preview/recipes/"><span>NEW</span><strong>全{recipeCount}レシピ</strong></a>
 						<a class="hero-hiroshima-action" href="/hami-preview/hiroshima/"><span>SP</span><strong>広島旅行特別編</strong></a>
 					</div>
 				</div>
@@ -697,9 +710,10 @@ const hamiStructuredData = {
 						<h2 id="watch-title">今日見るなら、この一皿。</h2>
 						<p>最新話をここで再生。初めての人向けと、ふたりを知る回も選びました。</p>
 					</div>
-					<a class="playlist-link" href={youtubePlaylistUrl} target="_blank" rel="noreferrer">
-						全話をまとめて見る
-					</a>
+					<div class="watch-header-links">
+						{latestEpisode.recipeHref && <a class="playlist-link" href={latestEpisode.recipeHref}>この回のレシピを見る →</a>}
+						<a class="playlist-link" href={youtubePlaylistUrl} target="_blank" rel="noreferrer">全話をまとめて見る</a>
+					</div>
 				</header>
 				<div class="watch-layout">
 					<div class="inline-player" data-video-id={latestEpisode.youtubeId}>
@@ -757,20 +771,20 @@ const hamiStructuredData = {
 				<p class="recipe-spotlight-watermark" aria-hidden="true">RECIPE BOOK</p>
 				<div class="recipe-spotlight-inner">
 					<div class="recipe-spotlight-copy">
-						<div class="recipe-launch-badge"><span>NEW</span><strong>全14話ぶん、ぜんぶ公開。</strong></div>
+						<div class="recipe-launch-badge"><span>NEW</span><strong><a href="/hami-preview/recipes/favorite-parfait-party/">好きなものだけパフェ編、できました。 →</a></strong></div>
 						<p class="section-kicker">HAMICHAN RECIPE COLLECTION</p>
 						<h2 id="recipes-title">アニメを観たら、<br /><em>次はつくろう。</em></h2>
 						<p class="recipe-spotlight-lead">
 							本編に登場した「あの一皿」を、おうちの台所で再現できるレシピにしました。
-							材料も工程も、動画も、ハミちゃんたちのひとことも。全話ぶん、まるごと一冊です。
+							3人それぞれのパフェも仲間入り。材料も作り方も、ハミちゃんたちのひとことも、一冊に。
 						</p>
 						<div class="recipe-spotlight-stats" aria-label="レシピコレクションの概要">
-							<div><strong>14</strong><span>RECIPES</span><small>全14品</small></div>
-							<div><strong>14</strong><span>EPISODES</span><small>全14話</small></div>
-							<div><strong>ALL</strong><span>WITH MOVIE</span><small>本編つき</small></div>
+							<div><strong>{recipeCount}</strong><span>RECIPES</span><small>全{recipeCount}レシピ</small></div>
+							<div><strong>{publishedEpisodes.length}</strong><span>WITH MOVIE</span><small>本編リンクつき</small></div>
+							<div><strong>3</strong><span>PARFAITS</span><small>3人のとっておき</small></div>
 						</div>
 						<a class="recipe-spotlight-cta" href="/hami-preview/recipes/">
-							<span><small>HAMICHAN RECIPE BOOK</small><strong>全14品のレシピ本をひらく</strong></span>
+							<span><small>HAMICHAN RECIPE BOOK</small><strong>全{recipeCount}レシピの本をひらく</strong></span>
 							<b aria-hidden="true">→</b>
 						</a>
 						<p class="recipe-spotlight-note">作中でわかることと、家庭向けに補った分量・手順を分けて掲載しています。</p>
@@ -781,7 +795,7 @@ const hamiStructuredData = {
 							<HamiImage class="recipe-food-photo recipe-food-photo--one" src="/images/hami/recipes/episodes/friendship-fuwatoro-omurice/hero.avif" alt="" />
 							<HamiImage class="recipe-food-photo recipe-food-photo--two" src="/images/hami/recipes/episodes/ameoto-yaki-gyoza/hero.avif" alt="" />
 							<HamiImage class="recipe-food-photo recipe-food-photo--three" src="/images/hami/recipes/episodes/home-spicy-miso-ramen/hero.avif" alt="" />
-							<span class="recipe-open-seal">全話<br />公開中</span>
+							<span class="recipe-open-seal">全{recipeCount}<br />レシピ</span>
 						</div>
 						<HamiImage class="recipe-character recipe-character--hami" src="/images/hami/recipes/characters/hami-thumbsup.avif" alt="親指を立てるふくよかなハミちゃん" />
 						<HamiImage class="recipe-character recipe-character--miru" src="/images/hami/recipes/characters/miru-gyoza.avif" alt="焼き餃子を持つふくよかなミルちゃん" />
@@ -792,6 +806,7 @@ const hamiStructuredData = {
 					<li>卵かけご飯</li><li>ナポリタン</li><li>ホットドッグ</li><li>からあげ</li><li>トースト</li>
 					<li>オムライス</li><li>ホットサンド</li><li>たいやき</li><li>プリン</li><li>目玉焼き</li>
 					<li>チレス・エン・ノガーダ</li><li>焼き餃子</li><li>激辛ラーメン</li>
+					<li>ルンダン</li><li><a href="/hami-preview/recipes/favorite-parfait-party/">3人のパフェ</a></li>
 				</ul>
 			</section>
 
@@ -863,7 +878,7 @@ const hamiStructuredData = {
 					</div>
 					<div>
 						<dt>現在の話数</dt>
-						<dd>公開本編14話。ショート、総集編、NG集に加えて、全話の家庭向けレシピも公開中です。</dd>
+						<dd>公開本編{publishedEpisodes.length}話。ショート、総集編、NG集に加えて、全話の家庭向けレシピも公開中です。</dd>
 					</div>
 				</dl>
 			</section>
@@ -1091,7 +1106,7 @@ const hamiStructuredData = {
 			</div>
 			<nav aria-label="Footer navigation">
 				<a href="#top">ページ上部へ</a>
-				<a href="/hami-preview/recipes/">全14品のレシピ</a>
+				<a href="/hami-preview/recipes/">全{recipeCount}レシピ</a>
 				<a href="/hami-preview/hiroshima/">広島旅行特別編</a>
 				<a href="/hami-preview/recipes/hiroshima-gourmet/">広島編の食べもの案内</a>
 				<a href="/hami-preview/fanworks/">二次創作ガイドライン</a>
@@ -3352,6 +3367,13 @@ const hamiStructuredData = {
 		border-radius: 8px;
 		background: #2d241f;
 		box-shadow: var(--shadow);
+	}
+
+	.watch-header-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+		align-items: center;
 	}
 
 	.playlist-link {

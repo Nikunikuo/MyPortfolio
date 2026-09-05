@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import HamiCharacterNote from '../../../components/hami/HamiCharacterNote.astro';
 import HamiImage from '../../../components/hami/HamiImage.astro';
+import HamiParfaitMenu from '../../../components/hami/HamiParfaitMenu.astro';
 import HamiRecipeLayout from '../../../layouts/HamiRecipeLayout.astro';
 import {
 	episodeImagePath,
@@ -26,6 +27,7 @@ interface Props {
 }
 
 const { recipe, index } = Astro.props;
+const isParfait = recipe.slug === 'favorite-parfait-party';
 const previous = index > 0 ? recipes[index - 1] : undefined;
 const next = index < recipes.length - 1 ? recipes[index + 1] : undefined;
 const canonicalPath = recipePath(recipe.slug);
@@ -34,7 +36,7 @@ const heroSocialImage = episodeSocialImagePath(recipe.slug, 'hero.jpg');
 const title = `${recipe.dishTitle}の作り方 | ハミちゃんの日常飯`;
 const youtubeId = recipe.meta.youtubeId;
 const releaseLabel = recipe.meta.releaseLabel ?? 'YouTube公開準備中';
-const description = `${recipe.episodeTitle}「${recipe.dishTitle}」を家庭で再現する材料と8つの手順。${recipe.time}、${recipe.servings}。${youtubeId ? '本編動画も掲載。' : `本編は${releaseLabel}。`}`;
+const description = `${recipe.episodeTitle}「${recipe.dishTitle}」を家庭で再現する材料と8つの手順。${recipe.time}、${recipe.servings}。${youtubeId ? '本編動画も掲載。' : isParfait ? '3人それぞれのパフェをイラストとともに紹介。' : `本編は${releaseLabel}。`}`;
 
 const generatedRoot = join(
 	process.cwd(),
@@ -157,7 +159,7 @@ const structuredData = [
 	ogImage={heroSocialImage}
 	{structuredData}
 >
-	<article class="recipe-detail">
+	<article class:list={['recipe-detail', { 'parfait-page': isParfait }]}>
 		<div class="recipe-container">
 			<nav class="recipe-breadcrumb" aria-label="パンくずリスト">
 				<a href="/hami-preview/">特設トップ</a>
@@ -170,14 +172,16 @@ const structuredData = [
 
 		<header class="recipe-detail-hero recipe-container">
 			<div class="recipe-detail-hero__image">
-				<HamiImage src={heroImage} alt={`${recipe.dishTitle}の本編カット`} />
-				<span>EPISODE {String(recipe.meta.episodeNumber).padStart(2, '0')}</span>
+				<HamiImage src={heroImage} alt={isParfait ? 'ハミちゃん、ミルちゃん、あくたんと3種類のパフェ。既存のGPT-image-2制作イラスト' : `${recipe.dishTitle}の本編カット`} />
+				<span>{isParfait ? 'PARFAIT PARTY' : `EPISODE ${String(recipe.meta.episodeNumber).padStart(2, '0')}`}</span>
+				{isParfait && <p class="parfait-art-caption">パフェ編の制作イラストより。本編カットではありません。</p>}
 			</div>
 			<div class="recipe-detail-hero__copy">
 				<p class="eyebrow">HAMI'S HOME RECIPE</p>
-				<p class="recipe-detail-hero__episode">第{String(recipe.meta.episodeNumber).padStart(2, '0')}話 · {recipe.episodeTitle}</p>
+				<p class="recipe-detail-hero__episode">{!recipe.meta.episodeNumberUnconfirmed && <>第{String(recipe.meta.episodeNumber).padStart(2, '0')}話 · </>}{recipe.episodeTitle}</p>
 				<h1>{recipe.dishTitle}</h1>
 				<p class="recipe-detail-hero__lead">{recipe.lead}</p>
+				{isParfait && <nav class="parfait-jumps" aria-label="パフェレシピの目次"><a href="#parfait-menu">3人のパフェ ↓</a><a href="#ingredients-title">材料 ↓</a><a href="#method-title">作り方 ↓</a></nav>}
 				<div class="recipe-facts" aria-label="レシピの概要">
 					<div><span>人数</span><strong>{recipe.servings}</strong></div>
 					<div><span>できあがり</span><strong>{recipe.yield}</strong></div>
@@ -196,6 +200,7 @@ const structuredData = [
 		</header>
 
 		<div class="recipe-container recipe-detail__body">
+			{isParfait && <HamiParfaitMenu />}
 			<section class="source-disclosure" aria-labelledby="source-disclosure-title">
 				<div>
 					<p class="section-kicker">CANON &amp; HOME ARRANGEMENT</p>
@@ -378,7 +383,7 @@ const structuredData = [
 				)}
 			</section>
 
-			<section class="recipe-section recipe-video" aria-labelledby="episode-video-title">
+			{(!isParfait || youtubeId) && <section class="recipe-section recipe-video" aria-labelledby="episode-video-title">
 				<div class="recipe-video__copy">
 					<div>
 						<p class="section-kicker">WATCH THE EPISODE</p>
@@ -407,10 +412,10 @@ const structuredData = [
 						<p>YouTube公開前のため、いまはレシピをひと足先にお楽しみください。</p>
 					</div>
 				)}
-			</section>
+			</section>}
 
 			<section class="recipe-ending">
-				<HamiImage src={episodeImagePath(recipe.slug, 'ending.jpg')} alt={`${recipe.episodeTitle}のエンディングカット`} />
+				<HamiImage src={episodeImagePath(recipe.slug, 'ending.jpg')} alt={isParfait ? '3人でパフェを楽しむ、パフェ編の制作イラスト' : `${recipe.episodeTitle}のエンディングカット`} />
 				<div>
 					<p class="section-kicker">AFTER THE MEAL</p>
 					{recipe.endingQuote && <blockquote>「{recipe.endingQuote}」</blockquote>}
@@ -439,3 +444,26 @@ const structuredData = [
 		</nav>
 	</article>
 </HamiRecipeLayout>
+
+<style>
+	.parfait-page { background: linear-gradient(180deg, #fff0f3 0, #fffbf4 800px, transparent 1500px); }
+	.parfait-page .recipe-detail-hero { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 36px; padding-bottom: 50px; }
+	.parfait-page .recipe-detail-hero__image :global(img) { aspect-ratio: 16 / 9; object-fit: contain; transform: none; border: 8px solid white; border-radius: 30px; }
+	.parfait-page .recipe-detail-hero__image > span { font-size: .875rem; background: #ae3e58; }
+	.parfait-page .recipe-detail-hero h1 { color: #863548; font-size: clamp(2.2rem, 3.8vw, 3.5rem); letter-spacing: .01em; line-height: 1.45; }
+	.parfait-page .recipe-detail-hero__episode { font-size: .875rem; }
+	.parfait-art-caption { margin: 14px 8px 0; color: #77655d; font-size: .875rem; }
+	.parfait-jumps { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 24px; }
+	.parfait-jumps a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 15px; border: 1px solid #c66c7e; border-radius: 99px; color: #863548; background: white; font-size: .875rem; font-weight: 800; text-decoration: none; }
+	.parfait-jumps a:hover { background: #ffe2e9; }
+	.parfait-page :is(#ingredients-title, #method-title, #parfait-menu, .recipe-step) { scroll-margin-top: 110px; }
+	@media (max-width: 1000px) {
+		.parfait-page .recipe-detail-hero { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+		.parfait-page .recipe-detail-hero__copy { max-width: 760px; }
+	}
+	@media (max-width: 600px) {
+		.parfait-page .recipe-detail-hero__image :global(img) { border-width: 5px; border-radius: 20px; }
+		.parfait-page .recipe-detail-hero__image > span { top: 12px; left: 12px; font-size: .75rem; padding: 5px 10px; }
+		.parfait-page .recipe-detail-hero h1 { font-size: 2.2rem; }
+	}
+</style>

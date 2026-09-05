@@ -13,9 +13,9 @@ const canonicalPath = '/hami-preview/recipes/';
 const title = 'ハミちゃんのおうち再現レシピ | ハミちゃんの日常飯';
 const recipeCount = recipes.length;
 const publishedEpisodeCount = recipes.filter((recipe) => recipe.meta.youtubeId).length;
-const pendingRecipes = recipes.filter((recipe) => !recipe.meta.youtubeId);
+const pendingRecipes = recipes.filter((recipe) => !recipe.meta.youtubeId && recipe.meta.releaseLabel);
 const nextReleaseLabel = pendingRecipes[0]?.meta.releaseLabel;
-const description = `「ハミちゃんの日常飯」の料理全${recipeCount}品を、家庭で再現しやすい分量と手順にまとめたレシピ集。動画といっしょに楽しめます。`;
+const description = `「ハミちゃんの日常飯」の料理を、家庭で再現しやすい分量と手順にまとめた全${recipeCount}レシピ。3人のパフェも仲間入り。`;
 const structuredData = {
 	'@context': 'https://schema.org',
 	'@type': 'CollectionPage',
@@ -46,7 +46,7 @@ const structuredData = {
 			<p class="eyebrow">HAMI'S HOME COOKING</p>
 			<h1>物語のあの味を、<br /><em>おうちの台所</em>へ。</h1>
 			<p class="recipe-index-hero__lead">
-				完成動画と制作資料から読み取れることを大切にしながら、家庭で作れる分量と手順に整えた全{recipeCount}品のレシピ集です。
+				完成動画と制作資料から読み取れることを大切にしながら、家庭で作れる分量と手順に整えた全{recipeCount}レシピです。
 			</p>
 			<div class="recipe-index-hero__stats" aria-label="レシピ集の概要">
 				<span><strong>{recipeCount}</strong> RECIPES</span>
@@ -59,7 +59,7 @@ const structuredData = {
 			<HamiImage class="recipe-index-hero__photo recipe-index-hero__photo--one" src={episodeImagePath('friendship-fuwatoro-omurice', 'hero.jpg')} alt="" />
 			<HamiImage class="recipe-index-hero__photo recipe-index-hero__photo--two" src={episodeImagePath('ameoto-yaki-gyoza', 'hero.jpg')} alt="" />
 			<HamiImage class="recipe-index-hero__photo recipe-index-hero__photo--three" src={episodeImagePath('hardboiled-caramel-pudding', 'hero.jpg')} alt="" />
-			<div class="recipe-index-hero__seal">{nextReleaseLabel ? <>NEW<br />{nextReleaseLabel.replace('公開予定', '')}</> : <>全話<br />公開中</>}</div>
+			<div class="recipe-index-hero__seal">{nextReleaseLabel ? <>NEW<br />{nextReleaseLabel.replace('公開予定', '')}</> : <>全{recipeCount}<br />レシピ</>}</div>
 		</div>
 	</section>
 
@@ -112,9 +112,9 @@ const structuredData = {
 		<header class="recipe-section-heading">
 			<div>
 				<p class="section-kicker">ALL EPISODE RECIPES</p>
-				<h2 id="recipe-collection-title">全{recipeCount}品のレシピ</h2>
+				<h2 id="recipe-collection-title">全{recipeCount}レシピ</h2>
 			</div>
-			<p>気分で選んで、動画を観ながら作れます。</p>
+			<p><a class="text-link" href="/hami-preview/recipes/favorite-parfait-party/">NEW · 3人のパフェを見てみる →</a></p>
 		</header>
 
 		<div class="recipe-card-grid">
@@ -134,7 +134,7 @@ const structuredData = {
 						)}
 					</a>
 					<div class="recipe-card__body">
-						<p class="recipe-card__episode">第{String(recipe.meta.episodeNumber).padStart(2, '0')}話 · {recipe.episodeTitle}</p>
+						<p class="recipe-card__episode">{!recipe.meta.episodeNumberUnconfirmed && <>第{String(recipe.meta.episodeNumber).padStart(2, '0')}話 · </>}{recipe.episodeTitle}</p>
 						<h3><a href={recipePath(recipe.slug)}>{recipe.dishTitle}</a></h3>
 						<p>{recipe.lead}</p>
 						<div class="recipe-card__meta">
@@ -154,7 +154,7 @@ const structuredData = {
 			<div>
 				<p class="section-kicker">WATCH THE STORY</p>
 				<h2>料理の前に、物語を。</h2>
-				<p>公開済みのレシピにはYouTube本編を掲載し、公開前の新作は公開予定をお知らせします。台所の音やキャラクターの表情も、味の一部です。</p>
+				<p>本編リンクを掲載しているレシピは、動画といっしょに楽しめます。台所の音やキャラクターの表情も、味の一部です。</p>
 			</div>
 			<a class="pill-button pill-button--cream" href="/hami-preview/">シリーズ特設サイトへ</a>
 		</div>
