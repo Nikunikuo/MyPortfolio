@@ -8,14 +8,20 @@ const description = 'MV、AIアニメーション、プロモーション映像�
 const creativeImages = [
 	{
 		src: '/images/creat1.png',
+		width: 1672,
+		height: 941,
 		alt: '言葉から映像へ、思いをかたちにする制作サービスの紹介ビジュアル',
 	},
 	{
 		src: '/images/creat2.png',
+		width: 1672,
+		height: 941,
 		alt: 'ヒアリングから納品までの制作の流れを説明するビジュアル',
 	},
 	{
 		src: '/images/creat3.png',
+		width: 1402,
+		height: 1122,
 		alt: '想いを映像として届く形にすることを表現したキービジュアル',
 	},
 ];
@@ -39,7 +45,7 @@ const structuredData = {
 	number="04"
 	structuredData={structuredData}
 >
-	<section class="creator-section" aria-labelledby="showcase-title">
+	<section class="creator-section showcase-section" aria-labelledby="showcase-title">
 		<header class="creator-section-heading">
 			<p class="creator-section-kicker">WHAT I MAKE</p>
 			<h2 id="showcase-title">言葉から映像へ</h2>
@@ -52,6 +58,8 @@ const structuredData = {
 						<img
 							src={image.src}
 							alt={image.alt}
+							width={image.width}
+							height={image.height}
 							loading={index === 0 ? 'eager' : 'lazy'}
 							decoding="async"
 						/>
@@ -142,22 +150,28 @@ const structuredData = {
 </CreatorLayout>
 
 <style>
+	.showcase-section {
+		grid-template-columns: minmax(0, 1fr);
+		gap: clamp(28px, 4vw, 60px);
+	}
+
+	.showcase-section > .creator-section-heading {
+		position: static;
+	}
+
 	.showcase-grid {
 		display: grid;
-		grid-template-columns: repeat(12, minmax(0, 1fr));
-		gap: clamp(18px, 3vw, 42px);
+		grid-template-columns: minmax(0, 1fr);
+		gap: clamp(32px, 5vw, 76px);
 	}
 
 	.showcase-item {
-		grid-column: span 7;
+		min-width: 0;
 	}
 
-	.showcase-item:nth-child(2) {
-		grid-column: 6 / -1;
-	}
-
-	.showcase-item:nth-child(3) {
-		grid-column: 2 / span 9;
+	.showcase-item img {
+		height: auto;
+		object-fit: contain;
 	}
 
 	.showcase-item > span {
@@ -318,14 +332,14 @@ const structuredData = {
 	}
 
 	@media (max-width: 900px) {
-		.showcase-item,
-		.showcase-item:nth-child(2),
-		.showcase-item:nth-child(3) {
-			grid-column: 1 / -1;
-		}
-
 		.request-block {
 			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.showcase-grid {
+			margin-inline: calc(12px - var(--studio-gutter));
 		}
 	}
 
