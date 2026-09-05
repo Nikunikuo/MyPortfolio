@@ -1,718 +1,717 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import Icon from "../../components/Icon.astro";
-import ContactCTA from "../../components/ContactCTA.astro";
-import { challenges100days, categoryLabels } from "../../data/100daysData";
+import CreatorLayout from '../../layouts/CreatorLayout.astro';
+import { challenges100days, categoryLabels } from '../../data/100daysData';
 
-const title = "#AI創作100日チャレンジ | 大鹿ニク / M1RA";
-const description =
-	"2025年8月9日からスタートした#AI創作100日チャレンジの軌跡。生成AIを使った創作を100日間毎日継続する挑戦の記録。";
+const title = '#AI創作100日チャレンジ | 大鹿ニク';
+const description = '2025年8月9日から100日間、生成AIを使って毎日続けた創作の記録。音楽、アニメ、漫画、ツール、実験を日ごとに辿れます。';
+const firstDay = challenges100days[0];
+const lastDay = challenges100days[challenges100days.length - 1];
+
+const categories = [
+	{ key: 'all', label: 'すべて' },
+	{ key: 'music', label: '音楽' },
+	{ key: 'anime', label: 'アニメ' },
+	{ key: 'tool', label: 'ツール' },
+	{ key: 'manga', label: '漫画' },
+	{ key: 'other', label: 'その他' },
+];
+
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'CollectionPage',
+	name: '#AI創作100日チャレンジ',
+	description,
+	url: 'https://niku.studio/100days/',
+	inLanguage: 'ja-JP',
+	mainEntity: {
+		'@type': 'ItemList',
+		numberOfItems: challenges100days.length,
+		itemListElement: challenges100days.map((challenge) => ({
+			'@type': 'ListItem',
+			position: challenge.day,
+			name: challenge.title,
+			description: challenge.summary,
+		})),
+	},
+};
 ---
 
-<BaseLayout title={title} description={description}>
-	<div class="stack gap-20">
-		<main class="wrapper stack gap-8">
-			<Hero
-				title="#AI創作100日チャレンジ"
-				tagline="2025/8/9～ 生成AIで毎日創作を続ける100日間の軌跡"
-				align="start"
-				titleI18n="100days_title"
-				taglineI18n="100days_tagline"
-			/>
+<CreatorLayout
+	title={title}
+	description={description}
+	eyebrow="100 DAYS / CREATIVE LOG"
+	heading="#AI創作100日"
+	intro="毎日ひとつ、何かをつくる。うまくいった日も、失敗した日も、そのまま100日分残しています。"
+	number="100"
+	backHref="/work/"
+	backLabel="その他制作物の倉庫"
+	structuredData={structuredData}
+>
+	<section class="challenge-overview" aria-label="チャレンジ概要">
+		<div>
+			<strong>{challenges100days.length}</strong>
+			<span>DAYS / COMPLETE</span>
+		</div>
+		<dl>
+			<div><dt>START</dt><dd>{firstDay?.date.replaceAll('-', '.')}</dd></div>
+			<div><dt>FINISH</dt><dd>{lastDay?.date.replaceAll('-', '.')}</dd></div>
+			<div><dt>RANGE</dt><dd>MUSIC / ANIME / TOOL / MANGA / OTHER</dd></div>
+		</dl>
+	</section>
 
-			<!-- 検索・フィルター・ソートエリア -->
-			<section class="controls">
-				<div class="search-box">
-					<Icon icon="paper-plane-tilt" size="1.2em" />
-					<input
-						type="text"
-						id="searchInput"
-						data-i18n-placeholder="100days_search"
-						placeholder="タイトルや内容で検索..."
-					/>
-				</div>
+	<section class="archive-controls" aria-label="制作記録の絞り込み">
+		<div class="search-field">
+			<label for="searchInput">キーワード検索</label>
+			<input id="searchInput" type="search" placeholder="タイトルや内容を検索" autocomplete="off" />
+		</div>
+		<div class="filter-group" aria-label="カテゴリ">
+			<span>FILTER</span>
+			{
+				categories.map((category, index) => (
+					<button class:list={['filter-btn', { active: index === 0 }]} type="button" data-category={category.key} aria-pressed={index === 0}>
+						{category.label}
+					</button>
+				))
+			}
+		</div>
+		<div class="sort-group" aria-label="並び順">
+			<span>SORT</span>
+			<button class="sort-btn active" type="button" data-sort="asc" aria-pressed="true">01 → 100</button>
+			<button class="sort-btn" type="button" data-sort="desc" aria-pressed="false">100 → 01</button>
+		</div>
+	</section>
 
-				<div class="filter-buttons">
-					<button
-						class="filter-btn active"
-						data-category="all"
-						data-i18n="100days_filter_all">全て</button
-					>
-					<button
-						class="filter-btn"
-						data-category="music"
-						data-i18n="100days_filter_music">🎵 音楽</button
-					>
-					<button
-						class="filter-btn"
-						data-category="anime"
-						data-i18n="100days_filter_anime">🎬 アニメ</button
-					>
-					<button
-						class="filter-btn"
-						data-category="tool"
-						data-i18n="100days_filter_tool">💻 ツール</button
-					>
-					<button
-						class="filter-btn"
-						data-category="manga"
-						data-i18n="100days_filter_manga">📚 漫画</button
-					>
-					<button
-						class="filter-btn"
-						data-category="other"
-						data-i18n="100days_filter_other">✨ その他</button
-					>
-				</div>
+	<section class="challenge-grid" id="cardsGrid" aria-label="100日分の制作記録">
+		{
+			challenges100days.map((challenge) => (
+				<button
+					type="button"
+					class="challenge-card"
+					data-day={challenge.day}
+					data-date={challenge.date}
+					data-category={challenge.category}
+					data-title={challenge.title.toLowerCase()}
+					data-summary={challenge.summary.toLowerCase()}
+					data-modal-title={challenge.title}
+					data-modal-summary={challenge.summary}
+					data-grok-comment={challenge.grokComment}
+					data-grok-emotion={challenge.grokEmotion}
+					aria-label={`${challenge.day}日目、${challenge.title}の詳細を開く`}
+				>
+					<span class="challenge-image">
+						<img src={challenge.imagePath} alt="" width="640" height="360" loading="lazy" decoding="async" />
+						<b>{String(challenge.day).padStart(3, '0')}</b>
+					</span>
+					<span class="challenge-copy">
+						<small>{challenge.date.replaceAll('-', '.')} / {categoryLabels[challenge.category]}</small>
+						<strong>{challenge.title}</strong>
+						<i aria-hidden="true">↗</i>
+					</span>
+				</button>
+			))
+		}
+	</section>
 
-				<div class="sort-buttons">
-					<button
-						class="sort-btn active"
-						data-sort="asc"
-						data-i18n="100days_sort_old">古い順 ↑</button
-					>
-					<button
-						class="sort-btn"
-						data-sort="desc"
-						data-i18n="100days_sort_new">新しい順 ↓</button
-					>
-				</div>
-			</section>
-
-			<!-- カードグリッド -->
-			<section class="cards-grid" id="cardsGrid">
-				{
-					challenges100days.map((challenge) => (
-						<div
-							class="challenge-card"
-							data-day={challenge.day}
-							data-category={challenge.category}
-							data-title={challenge.title.toLowerCase()}
-							data-summary={challenge.summary.toLowerCase()}
-						>
-							<div class="card-image">
-								<img
-									src={`/images/100days/${challenge.day}.webp`}
-									alt={challenge.title}
-									loading="lazy"
-								/>
-								<div class="day-badge">{challenge.day}/100</div>
-							</div>
-							<div class="card-content">
-								<h3 class="card-title">{challenge.title}</h3>
-								<div class="card-category">
-									{categoryLabels[challenge.category]}
-								</div>
-							</div>
-						</div>
-					))
-				}
-			</section>
-
-			<!-- 結果がない場合のメッセージ -->
-			<div id="noResults" class="no-results" style="display: none;">
-				<Icon icon="paper-plane-tilt" size="3em" />
-				<p data-i18n="100days_no_results">
-					該当する投稿が見つかりませんでした
-				</p>
-			</div>
-		</main>
-		<ContactCTA />
+	<div id="noResults" class="no-results" hidden aria-live="polite">
+		<strong>NO RESULT</strong>
+		<p>該当する記録が見つかりませんでした。</p>
 	</div>
 
-	<!-- モーダルウィンドウ -->
-	<div id="modal" class="modal">
-		<div class="modal-content">
-			<button class="modal-close" id="modalClose">✕</button>
+	<div id="modal" class="challenge-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+		<div class="modal-panel">
+			<button class="modal-close" id="modalClose" type="button" aria-label="詳細を閉じる">CLOSE ×</button>
 			<div id="modalBody"></div>
 		</div>
 	</div>
-</BaseLayout>
+</CreatorLayout>
 
 <style is:global>
-	.controls {
+	.challenge-overview {
+		display: grid;
+		grid-template-columns: minmax(210px, 0.42fr) minmax(0, 1fr);
+		gap: clamp(28px, 6vw, 96px);
+		padding-bottom: clamp(70px, 10vw, 130px);
+		border-bottom: 2px solid var(--studio-ink);
+	}
+
+	.challenge-overview > div {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
-		margin-top: 2rem;
 	}
 
-	.search-box {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		padding: 1rem 1.5rem;
-		background: rgba(0, 20, 40, 0.6);
-		border: 2px solid rgba(0, 255, 136, 0.3);
-		border-radius: 0.75rem;
-		color: #00ff88;
+	.challenge-overview strong {
+		color: var(--studio-ink);
+		font-family: var(--font-brand);
+		font-size: clamp(7rem, 17vw, 16rem);
+		letter-spacing: -0.09em;
+		line-height: 0.72;
 	}
 
-	.search-box input {
-		flex: 1;
+	.challenge-overview span,
+	.challenge-overview dt,
+	.challenge-overview dd {
+		font-family: "IBM Plex Mono", monospace;
+		font-size: 0.82rem;
+	}
+
+	.challenge-overview span {
+		margin-top: 22px;
+		letter-spacing: 0.12em;
+	}
+
+	.challenge-overview dl {
+		align-self: end;
+		margin: 0;
+	}
+
+	.challenge-overview dl > div {
+		display: grid;
+		grid-template-columns: 90px minmax(0, 1fr);
+		gap: 20px;
+		padding: 17px 0;
+		border-top: 1px solid var(--studio-line);
+	}
+
+	.challenge-overview dt {
+		color: var(--studio-ink);
+	}
+
+	.challenge-overview dd {
+		margin: 0;
+		color: var(--studio-ink);
+		line-height: 1.7;
+	}
+
+	.archive-controls {
+		position: sticky;
+		top: 0;
+		z-index: 20;
+		display: grid;
+		grid-template-columns: minmax(250px, 1fr) minmax(0, 1.5fr) auto;
+		gap: 24px;
+		align-items: end;
+		margin: 0 0 clamp(48px, 7vw, 90px);
+		padding: 24px 0;
+		border-bottom: 2px solid var(--studio-ink);
+		background: var(--studio-panel);
+		backdrop-filter: blur(14px);
+	}
+
+	.search-field {
+		display: grid;
+		gap: 8px;
+	}
+
+	.search-field label,
+	.filter-group > span,
+	.sort-group > span {
+		color: var(--studio-ink);
+		font-family: "IBM Plex Mono", monospace;
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+	}
+
+	.search-field input {
+		width: 100%;
+		padding: 10px 0;
+		border: 0;
+		border-bottom: 1px solid var(--studio-ink);
+		border-radius: 0;
 		background: transparent;
-		border: none;
-		color: #ffffff;
-		font-size: var(--text-base);
+		color: var(--studio-ink);
+		font: inherit;
 		outline: none;
 	}
 
-	.search-box input::placeholder {
-		color: rgba(255, 255, 255, 0.5);
+	.search-field input:focus {
+		border-color: var(--studio-ink);
 	}
+	.search-field input::placeholder { color: var(--studio-muted); }
 
-	.filter-buttons,
-	.sort-buttons {
+	.filter-group,
+	.sort-group {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.75rem;
+		gap: 7px;
+		align-items: center;
+	}
+
+	.filter-group > span,
+	.sort-group > span {
+		margin-right: 5px;
 	}
 
 	.filter-btn,
 	.sort-btn {
-		padding: 0.75rem 1.5rem;
-		background: rgba(0, 20, 40, 0.6);
-		border: 2px solid rgba(0, 255, 136, 0.3);
-		border-radius: 0.5rem;
-		color: rgba(255, 255, 255, 0.9);
-		font-size: var(--text-sm);
-		font-weight: 600;
+		padding: 8px 10px;
+		border: 1px solid var(--studio-line);
+		border-radius: 0;
+		background: transparent;
+		color: var(--studio-ink);
+		font: inherit;
+		font-size: 0.82rem;
+		font-weight: 700;
 		cursor: pointer;
-		transition: all 0.3s ease;
 	}
 
 	.filter-btn:hover,
-	.sort-btn:hover {
-		border-color: #00ff88;
-		background: rgba(0, 255, 136, 0.1);
-		transform: translateY(-2px);
-	}
-
+	.filter-btn:focus-visible,
+	.sort-btn:hover,
+	.sort-btn:focus-visible,
 	.filter-btn.active,
 	.sort-btn.active {
-		background: rgba(0, 255, 136, 0.2);
-		border-color: #00ff88;
-		color: #00ff88;
+		border-color: var(--studio-ink);
+		background: var(--studio-accent);
+		color: var(--studio-ink);
+		outline: none;
 	}
 
-	.cards-grid {
+	.challenge-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-		gap: 2rem;
-		margin-top: 2rem;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: clamp(38px, 5vw, 76px) clamp(14px, 2.8vw, 38px);
+		padding-bottom: clamp(100px, 14vw, 190px);
 	}
 
 	.challenge-card {
-		background: rgba(0, 20, 40, 0.6);
-		border: 2px solid rgba(0, 255, 136, 0.3);
-		border-radius: 1rem;
-		overflow: hidden;
+		display: block;
+		min-width: 0;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		background: transparent;
+		color: inherit;
+		font: inherit;
+		text-align: left;
 		cursor: pointer;
-		transition: all 0.3s ease;
 	}
 
-	.challenge-card:hover {
-		border-color: #00ff88;
-		box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
-		transform: translateY(-5px);
+	.challenge-card:nth-child(3n + 2) {
+		transform: translateY(56px);
 	}
 
-	.card-image {
+	.challenge-card:focus-visible {
+		outline: 3px solid var(--studio-accent);
+		outline-offset: 6px;
+	}
+
+	.challenge-image {
 		position: relative;
-		width: 100%;
-		height: 200px;
+		display: block;
 		overflow: hidden;
-		background: rgba(0, 0, 0, 0.5);
+		aspect-ratio: 4 / 3;
+		border: 1px solid var(--studio-line);
+		background: var(--studio-paper);
+		box-shadow: 6px 6px 0 var(--studio-ink);
 	}
 
-	.card-image img {
+	.challenge-image::after {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(160deg, transparent 45%, rgba(9, 9, 8, 0.62));
+		content: "";
+		pointer-events: none;
+	}
+
+	.challenge-image img {
+		display: block;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		transition: transform 0.3s ease;
+		filter: none;
+		transition: filter 180ms ease, transform 260ms ease;
 	}
 
-	.challenge-card:hover .card-image img {
-		transform: scale(1.05);
+	.challenge-card:hover .challenge-image img,
+	.challenge-card:focus-visible .challenge-image img {
+		filter: saturate(1) contrast(1.02);
+		transform: scale(1.03);
 	}
 
-	.day-badge {
+	.challenge-image b {
 		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		padding: 0.5rem 1rem;
-		background: linear-gradient(135deg, #ff0080, #ff8c00);
-		color: #ffffff;
-		font-weight: 700;
-		font-size: var(--text-sm);
-		border-radius: 0.5rem;
-		box-shadow: 0 4px 12px rgba(255, 0, 128, 0.5);
-		z-index: 10;
+		right: 12px;
+		bottom: 0;
+		z-index: 2;
+		color: var(--studio-ink);
+		background: var(--studio-accent);
+		padding: 4px 10px;
+		font-family: var(--font-brand);
+		font-size: clamp(4rem, 7vw, 7rem);
+		letter-spacing: -0.09em;
+		line-height: 0.8;
 	}
 
-	.card-content {
-		padding: 1.5rem;
+	.challenge-copy {
+		position: relative;
+		display: block;
+		min-height: 138px;
+		padding: 18px 32px 18px 0;
+		border-bottom: 1px solid var(--studio-line);
 	}
 
-	.card-title {
-		font-size: var(--text-lg);
-		font-weight: 700;
-		color: #ffffff;
-		margin-bottom: 0.75rem;
+	.challenge-copy small {
+		display: block;
+		color: var(--studio-ink);
+		font-family: "IBM Plex Mono", monospace;
+		font-size: 0.75rem;
 	}
 
-	.card-category {
-		font-size: var(--text-sm);
-		color: rgba(255, 255, 255, 0.7);
-		margin-bottom: 1rem;
+	.challenge-copy strong {
+		display: block;
+		margin-top: 15px;
+		color: var(--studio-ink);
+		font-family: "Zen Kaku Gothic New", sans-serif;
+		font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+		font-weight: 900;
+		line-height: 1.35;
 	}
 
-	.x-link-btn {
-		display: inline-block;
-		padding: 0.5rem 1rem;
-		background: rgba(29, 155, 240, 0.1);
-		border: 2px solid rgba(29, 155, 240, 0.5);
-		border-radius: 0.5rem;
-		color: #1d9bf0;
-		text-decoration: none;
-		font-size: var(--text-sm);
-		font-weight: 600;
-		transition: all 0.3s ease;
-	}
-
-	.x-link-btn:hover {
-		background: rgba(29, 155, 240, 0.2);
-		border-color: #1d9bf0;
-		transform: translateX(4px);
+	.challenge-copy i {
+		position: absolute;
+		right: 0;
+		bottom: 18px;
+		font-family: "IBM Plex Mono", monospace;
+		font-size: 1.2rem;
+		font-style: normal;
 	}
 
 	.no-results {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1rem;
-		padding: 4rem 2rem;
-		color: rgba(255, 255, 255, 0.7);
+		padding: 100px 20px;
+		border-top: 2px solid var(--studio-ink);
 		text-align: center;
 	}
 
-	.modal {
+	.no-results[hidden] {
 		display: none;
+	}
+
+	.no-results strong {
+		color: var(--studio-ink);
+		font-family: var(--font-brand);
+		font-size: clamp(3rem, 8vw, 8rem);
+	}
+
+	.no-results p {
+		margin-top: 18px;
+		color: var(--studio-muted);
+	}
+
+	.challenge-modal[hidden] {
+		display: none;
+	}
+
+	.challenge-modal {
 		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(0, 0, 0, 0.85);
+		inset: 0;
 		z-index: 1000;
+		display: grid;
+		place-items: center;
 		overflow-y: auto;
-		padding: 2rem;
+		padding: clamp(12px, 4vw, 48px);
+		background: rgba(0, 0, 0, 0.9);
 	}
 
-	.modal.active {
-		display: flex;
-		align-items: flex-start;
-		justify-content: center;
-		padding-top: 2rem;
-		padding-bottom: 2rem;
-	}
-
-	.modal-content {
+	.modal-panel {
 		position: relative;
-		margin: auto;
-		max-width: 800px;
-		width: 100%;
-		background: rgba(0, 20, 40, 0.95);
-		border: 2px solid rgba(0, 255, 136, 0.5);
-		border-radius: 1rem;
-		padding: 2rem;
-		box-shadow: 0 0 40px rgba(0, 255, 136, 0.3);
+		width: min(900px, 100%);
+		max-height: calc(100vh - 32px);
+		overflow-y: auto;
+		padding: clamp(54px, 7vw, 90px) clamp(22px, 6vw, 72px);
+		border: 2px solid var(--studio-ink);
+		background: var(--studio-paper);
+		box-shadow: 10px 10px 0 var(--studio-accent);
+		color: var(--studio-ink);
 	}
 
 	.modal-close {
 		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		background: rgba(255, 0, 0, 0.2);
-		border: 2px solid rgba(255, 0, 0, 0.5);
-		border-radius: 50%;
-		width: 3rem;
-		height: 3rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: #ff0088;
+		top: 14px;
+		right: 14px;
+		padding: 8px 0;
+		border: 0;
+		border-bottom: 2px solid var(--studio-accent);
+		border-radius: 0;
+		background: transparent;
+		color: var(--studio-ink);
+		font-family: "IBM Plex Mono", monospace;
+		font-size: 0.75rem;
+		font-weight: 600;
 		cursor: pointer;
-		transition: all 0.3s ease;
-		z-index: 10;
-		font-size: 1.5rem;
-	}
-
-	.modal-close:hover {
-		background: rgba(255, 0, 0, 0.4);
-		transform: rotate(90deg);
-	}
-
-	@media (max-width: 768px) {
-		.cards-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.filter-buttons {
-			justify-content: center;
-		}
-
-		.modal-content {
-			padding: 1.5rem;
-			margin: 1rem;
-		}
-	}
-	}
-
-	.modal-header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-bottom: 1rem;
 	}
 
 	.modal-day-badge {
-		padding: 0.5rem 1rem;
-		background: linear-gradient(135deg, #ff0080, #ff8c00);
-		color: #ffffff;
-		font-weight: 700;
-		font-size: var(--text-sm);
-		border-radius: 0.5rem;
+		color: var(--studio-ink);
+		font-family: var(--font-brand);
+		font-size: clamp(4rem, 11vw, 9rem);
+		letter-spacing: -0.08em;
+		line-height: 0.8;
+	}
+
+	.modal-date,
+	.modal-category {
+		color: var(--studio-muted);
+		font-family: "IBM Plex Mono", monospace;
+		font-size: 0.78rem;
 	}
 
 	.modal-title {
-		font-size: var(--text-2xl);
-		color: #ffffff;
-		font-weight: 700;
-		margin-bottom: 1rem;
+		margin: 34px 0 22px;
+		color: var(--studio-ink);
+		font-family: var(--font-brand);
+		font-size: clamp(2.1rem, 5.5vw, 5.4rem);
+		font-weight: 900;
+		letter-spacing: -0.06em;
+		line-height: 1.2;
 	}
 
 	.modal-summary {
-		font-size: var(--text-base);
-		color: rgba(255, 255, 255, 0.9);
-		line-height: 1.8;
-		margin-bottom: 1rem;
+		color: var(--studio-ink);
+		font-size: 1rem;
+		line-height: 1.9;
 	}
 
-	.modal-category {
-		font-size: var(--text-sm);
-		color: rgba(255, 255, 255, 0.7);
-		margin-bottom: 1.5rem;
-	}
-
-	.modal-image {
-		width: 100%;
-		max-height: 400px;
-		object-fit: contain;
-		border-radius: 0.75rem;
-		margin-bottom: 1.5rem;
-		background: rgba(0, 0, 0, 0.3);
-	}
-
-	.modal-x-link {
-		display: inline-block;
-		padding: 0.75rem 1.5rem;
-		background: rgba(29, 155, 240, 0.1);
-		border: 2px solid rgba(29, 155, 240, 0.5);
-		border-radius: 0.5rem;
-		color: #1d9bf0;
-		text-decoration: none;
-		font-weight: 600;
-		transition: all 0.3s ease;
-	}
-
-	.modal-x-link:hover {
-		background: rgba(29, 155, 240, 0.2);
-		border-color: #1d9bf0;
-		transform: translateX(4px);
-	}
-
-	/* Grok吹き出しスタイル */
 	.grok-comment-section {
-		display: flex;
-		align-items: flex-start;
-		gap: 1rem;
-		margin: 2rem 0;
-		padding: 1.5rem;
-		background: rgba(255, 136, 0, 0.05);
-		border-left: 4px solid rgba(255, 136, 0, 0.5);
-		border-radius: 0.75rem;
+		display: grid;
+		grid-template-columns: 76px minmax(0, 1fr);
+		gap: 20px;
+		margin-top: 42px;
+		padding: 24px 0;
+		border-top: 1px solid var(--studio-line);
+		border-bottom: 1px solid var(--studio-line);
 	}
 
 	.grok-avatar {
-		flex-shrink: 0;
-		width: 5.25rem;
-		height: 5.25rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		width: 76px;
+		aspect-ratio: 1;
 		overflow: hidden;
-		border-radius: 50%;
-		background: rgba(255, 136, 0, 0.1);
-		border: 2px solid rgba(255, 136, 0, 0.3);
+		border: 1px solid var(--studio-line);
 	}
 
-	.grok-avatar-img {
+	.grok-avatar img {
+		display: block;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 	}
 
-	.grok-bubble {
-		flex: 1;
-		background: rgba(255, 255, 255, 0.05);
-		border-radius: 0.75rem;
-		padding: 1rem 1.5rem;
-		position: relative;
-	}
-
-	.grok-bubble::before {
-		content: "";
-		position: absolute;
-		left: -8px;
-		top: 1rem;
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-width: 8px 8px 8px 0;
-		border-color: transparent rgba(255, 255, 255, 0.05) transparent
-			transparent;
-	}
-
 	.grok-name {
-		font-size: var(--text-sm);
-		font-weight: 700;
-		color: #ff8800;
-		margin-bottom: 0.5rem;
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
+		margin-bottom: 8px;
+		color: var(--studio-ink);
+		font-family: "IBM Plex Mono", monospace;
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.1em;
 	}
 
 	.grok-message {
-		font-size: var(--text-base);
-		color: rgba(255, 255, 255, 0.95);
-		line-height: 1.6;
+		color: var(--studio-ink);
+		line-height: 1.75;
 	}
 
-	.x-embed-container {
-		display: flex;
-		justify-content: center;
-		margin-top: 2rem;
-		min-height: 300px; /* ロード中の高さ確保 */
-		width: 100% !important;
-		max-width: 300px !important;
-		margin-left: auto !important;
-		margin-right: auto !important;
-		/* overflow: hidden !important; 削除 */
+	@media (max-width: 1080px) {
+		.archive-controls {
+			position: static;
+			grid-template-columns: 1fr;
+		}
+
+		.challenge-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.challenge-card:nth-child(3n + 2) {
+			transform: none;
+		}
+
+		.challenge-card:nth-child(even) {
+			transform: translateY(42px);
+		}
 	}
 
-	.x-embed-container iframe {
-		max-width: 100% !important;
-		width: 100% !important;
+	@media (max-width: 680px) {
+		.challenge-overview {
+			grid-template-columns: 1fr;
+		}
+
+		.challenge-grid {
+			grid-template-columns: 1fr;
+			gap: 52px;
+		}
+
+		.challenge-card:nth-child(even) {
+			transform: none;
+		}
+
+		.filter-group,
+		.sort-group {
+			align-items: stretch;
+		}
+
+		.filter-group > span,
+		.sort-group > span {
+			flex-basis: 100%;
+		}
+
+		.filter-btn,
+		.sort-btn {
+			flex: 1 1 auto;
+		}
+
+		.grok-comment-section {
+			grid-template-columns: 54px minmax(0, 1fr);
+		}
+
+		.grok-avatar {
+			width: 54px;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.challenge-image img {
+			transition: none;
+		}
 	}
 </style>
 
 <script>
-	import { challenges100days } from "../../data/100daysData";
-
-	const searchInput = document.getElementById(
-		"searchInput",
-	) as HTMLInputElement;
-	const cardsGrid = document.getElementById("cardsGrid") as HTMLElement;
-	const noResults = document.getElementById("noResults") as HTMLElement;
-	const filterButtons = document.querySelectorAll(".filter-btn");
-	const sortButtons = document.querySelectorAll(".sort-btn");
-	const modal = document.getElementById("modal") as HTMLElement;
-	const modalClose = document.getElementById("modalClose") as HTMLElement;
-	const modalBody = document.getElementById("modalBody") as HTMLElement;
-
-	let currentCategory = "all";
-	let currentSort = "asc";
+	function initializeArchive() {
+	const grid = document.getElementById('cardsGrid');
+	if (!grid || grid.dataset.initialized === 'true') return;
+	grid.dataset.initialized = 'true';
+	const controller = new AbortController();
+	const searchInput = document.getElementById('searchInput') as HTMLInputElement | null;
+	const cardsGrid = document.getElementById('cardsGrid') as HTMLElement | null;
+	const noResults = document.getElementById('noResults') as HTMLElement | null;
+	const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+	const sortButtons = document.querySelectorAll<HTMLButtonElement>('.sort-btn');
+	const modal = document.getElementById('modal') as HTMLElement | null;
+	const modalClose = document.getElementById('modalClose') as HTMLButtonElement | null;
+	const modalBody = document.getElementById('modalBody') as HTMLElement | null;
+	let lastTrigger: HTMLButtonElement | null = null;
+	let currentCategory = 'all';
+	let currentSort = 'asc';
 
 	function filterAndSort() {
-		const searchTerm = searchInput.value.toLowerCase();
-		const cards = Array.from(
-			document.querySelectorAll(".challenge-card"),
-		) as HTMLElement[];
+		if (!searchInput || !cardsGrid || !noResults) return;
+		const searchTerm = searchInput.value.toLowerCase().trim();
+		const cards = Array.from(cardsGrid.querySelectorAll<HTMLButtonElement>('.challenge-card'));
 		let visibleCount = 0;
 
 		cards.forEach((card) => {
-			const category = card.dataset.category || "";
-			const title = card.dataset.title || "";
-			const summary = card.dataset.summary || "";
-
-			const categoryMatch =
-				currentCategory === "all" || category === currentCategory;
-			const searchMatch =
-				title.includes(searchTerm) || summary.includes(searchTerm);
-
-			if (categoryMatch && searchMatch) {
-				card.style.display = "block";
-				visibleCount++;
-			} else {
-				card.style.display = "none";
-			}
+			const category = card.dataset.category || '';
+			const title = card.dataset.title || '';
+			const summary = card.dataset.summary || '';
+			const visible = (currentCategory === 'all' || category === currentCategory)
+				&& (!searchTerm || title.includes(searchTerm) || summary.includes(searchTerm));
+			card.hidden = !visible;
+			if (visible) visibleCount += 1;
 		});
 
-		const sortedCards = cards.sort((a, b) => {
-			const dayA = parseInt(a.dataset.day || "0");
-			const dayB = parseInt(a.dataset.day || "0");
-			return currentSort === "asc" ? dayA - dayB : dayB - dayA;
-		});
+		cards
+			.sort((a, b) => {
+				const dayA = Number(a.dataset.day || 0);
+				const dayB = Number(b.dataset.day || 0);
+				return currentSort === 'asc' ? dayA - dayB : dayB - dayA;
+			})
+			.forEach((card) => cardsGrid.appendChild(card));
 
-		sortedCards.forEach((card) => cardsGrid.appendChild(card));
-		noResults.style.display = visibleCount === 0 ? "block" : "none";
+		noResults.hidden = visibleCount !== 0;
 	}
 
-	filterButtons.forEach((btn) => {
-		btn.addEventListener("click", () => {
-			filterButtons.forEach((b) => b.classList.remove("active"));
-			btn.classList.add("active");
-			currentCategory = (btn as HTMLElement).dataset.category || "all";
+	filterButtons.forEach((button) => {
+		button.addEventListener('click', () => {
+			filterButtons.forEach((item) => {
+				item.classList.remove('active');
+				item.setAttribute('aria-pressed', 'false');
+			});
+			button.classList.add('active');
+			button.setAttribute('aria-pressed', 'true');
+			currentCategory = button.dataset.category || 'all';
 			filterAndSort();
 		});
 	});
 
-	sortButtons.forEach((btn) => {
-		btn.addEventListener("click", () => {
-			sortButtons.forEach((b) => b.classList.remove("active"));
-			btn.classList.add("active");
-			currentSort = (btn as HTMLElement).dataset.sort || "asc";
+	sortButtons.forEach((button) => {
+		button.addEventListener('click', () => {
+			sortButtons.forEach((item) => {
+				item.classList.remove('active');
+				item.setAttribute('aria-pressed', 'false');
+			});
+			button.classList.add('active');
+			button.setAttribute('aria-pressed', 'true');
+			currentSort = button.dataset.sort || 'asc';
 			filterAndSort();
 		});
 	});
 
-	searchInput.addEventListener("input", filterAndSort);
+	searchInput?.addEventListener('input', filterAndSort);
 
-	document.querySelectorAll(".challenge-card").forEach((card, index) => {
-		card.addEventListener("click", () => {
-			const challenge = challenges100days[index];
-			showModal(challenge);
-		});
-	});
+	function closeModal() {
+		if (!modal || !modalBody) return;
+		modal.hidden = true;
+		document.body.style.overflow = '';
+		modalBody.innerHTML = '';
+		lastTrigger?.focus();
+	}
 
-	function showModal(challenge: any) {
-		// Grokのアバター画像を感情に応じて選択
+	function showModal(trigger: HTMLButtonElement) {
+		if (!modal || !modalBody || !modalClose) return;
+		lastTrigger = trigger;
+		const day = Number(trigger.dataset.day || 0);
+		const date = trigger.dataset.date || '';
+		const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]!));
+		const title = escapeHtml(trigger.dataset.modalTitle || '');
+		const summary = escapeHtml(trigger.dataset.modalSummary || '');
+		const category = trigger.dataset.category || '';
+		const grokComment = escapeHtml(trigger.dataset.grokComment || '');
+		const grokEmotion = trigger.dataset.grokEmotion || 'naruhodo';
 		const grokAvatars = {
-			huh: "/images/100days/grok/huh.webp", // ニヤリ
-			naruhodo: "/images/100days/grok/naruhodo.webp", // なるほど
-			interesting: "/images/100days/grok/interesting.webp", // 普通の顔
-			h: "/images/100days/grok/h.webp" // ムフフ
+			huh: '/images/100days/grok/huh.webp',
+			naruhodo: '/images/100days/grok/naruhodo.webp',
+			interesting: '/images/100days/grok/interesting.webp',
+			h: '/images/100days/grok/h.webp',
 		};
-		const grokAvatar = grokAvatars[challenge.grokEmotion as keyof typeof grokAvatars] || "/images/100days/grok/naruhodo.webp";
-		
-		// Grokコメントセクション
-		const grokSection = challenge.grokComment
-			? `<div class="grok-comment-section">
-					<div class="grok-avatar">
-						<img src="${grokAvatar}" alt="Grok" class="grok-avatar-img" />
-					</div>
-					<div class="grok-bubble">
-						<div class="grok-name">Grok</div>
-						<div class="grok-message">${challenge.grokComment}</div>
-					</div>
-				</div>`
-			: "";
-
+		const grokAvatar = grokAvatars[grokEmotion as keyof typeof grokAvatars] || grokAvatars.naruhodo;
 		modalBody.innerHTML = `
-			<div class="modal-header">
-				<div class="modal-day-badge">${challenge.day}/100</div>
+			<div class="modal-day-badge">${String(day).padStart(3, '0')} / 100</div>
+			<div class="modal-date">${date.replaceAll('-', '.')}</div>
+			<h2 class="modal-title" id="modal-title">${title}</h2>
+			<p class="modal-summary">${summary}</p>
+			<div class="modal-category">${category.toUpperCase()}</div>
+			<div class="grok-comment-section">
+				<div class="grok-avatar"><img src="${grokAvatar}" alt="Grok" /></div>
+				<div><div class="grok-name">GROK'S COMMENT</div><div class="grok-message">${grokComment}</div></div>
 			</div>
-			<div class="x-embed-container" id="xEmbedContainer"></div>
-			<div id="xLinkContainer" style="text-align: center; margin-bottom: 1.5rem;"></div>
-			<h2 class="modal-title">${challenge.title}</h2>
-			<p class="modal-summary">${challenge.summary}</p>
-			<div class="modal-category">${challenge.category}</div>
-			${grokSection}
 		`;
 
-		modal.classList.add("active");
-		document.body.style.overflow = "hidden";
-
-		// X埋め込みのレンダリング
-		const container = document.getElementById("xEmbedContainer");
-		const linkContainer = document.getElementById("xLinkContainer");
-
-		if (container && challenge.xUrl) {
-			// URLから空白を除去してクリーンにする
-			const cleanUrl = challenge.xUrl.replace(/\s+/g, '');
-			// 15桁以上の数字を抽出（より堅牢なID抽出）
-			const tweetIdMatch = cleanUrl.match(/(\d{15,})/);
-			const tweetId = tweetIdMatch ? tweetIdMatch[1] : "";
-			
-			console.log(`Day ${challenge.day}: ID extracted = ${tweetId} from ${cleanUrl}`);
-
-			// 常にリンクを表示
-			if (linkContainer) {
-				linkContainer.innerHTML = `
-					<a href="${challenge.xUrl}" target="_blank" rel="noopener noreferrer" class="modal-x-link" style="font-size: 0.9rem; opacity: 0.8; color: #1d9bf0; text-decoration: none;">
-						Xで元のポストを見る →
-					</a>
-				`;
-			}
-
-			if (tweetId && (window as any).twttr && (window as any).twttr.widgets) {
-				container.innerHTML = ""; // クリア
-				(window as any).twttr.widgets.createTweet(
-					tweetId,
-					container,
-					{
-						theme: 'dark',
-						lang: 'ja',
-						align: 'center'
-					}
-				).then(function (el: any) {
-					if (!el) {
-						console.warn(`Day ${challenge.day}: Tweet embed failed for ID ${tweetId}`);
-						// 埋め込み失敗時（elがnullの場合）
-						container.innerHTML = `<p style="text-align:center; color:#888;">埋め込みを表示できませんでした。</p>`;
-					}
-				});
-			} else {
-				// スクリプト未ロード時やIDなし
-				container.innerHTML = "";
-			}
-		}
+		modal.hidden = false;
+		document.body.style.overflow = 'hidden';
+		modalClose.focus();
 	}
 
-	modalClose.addEventListener("click", () => {
-		modal.classList.remove("active");
-		document.body.style.overflow = "";
-		// モーダルを閉じたときに中身をクリア
-		const container = document.getElementById("xEmbedContainer");
-		if (container) container.innerHTML = "";
+	document.querySelectorAll<HTMLButtonElement>('.challenge-card').forEach((card) => {
+		card.addEventListener('click', () => {
+			showModal(card);
+		});
 	});
 
-	window.addEventListener("click", (e) => {
-		if (e.target === modal) {
-			modal.classList.remove("active");
-			document.body.style.overflow = "";
-			const container = document.getElementById("xEmbedContainer");
-			if (container) container.innerHTML = "";
+	modalClose?.addEventListener('click', closeModal);
+	modal?.addEventListener('click', (event) => {
+		if (event.target === modal) closeModal();
+	});
+	window.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape' && modal && !modal.hidden) closeModal();
+		if (event.key === 'Tab' && modal && !modal.hidden) {
+			event.preventDefault();
+			modalClose?.focus();
 		}
-	});
-
-	// Twitter Widget Scriptの読み込み
-	(window as any).twttr = (function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0],
-		t = (window as any).twttr || {};
-		if (d.getElementById(id)) return t;
-		js = d.createElement(s) as HTMLScriptElement;
-		js.id = id;
-		js.src = "https://platform.twitter.com/widgets.js";
-		fjs.parentNode?.insertBefore(js, fjs);
-
-		t._e = [];
-		t.ready = function(f: any) {
-			t._e.push(f);
-		};
-
-		return t;
-	}(document, "script", "twitter-wjs"));
+	}, { signal: controller.signal });
+	document.addEventListener('astro:before-swap', () => {
+		controller.abort();
+		document.body.style.overflow = '';
+	}, { once: true, signal: controller.signal });
+	}
+	initializeArchive();
+	document.addEventListener('astro:page-load', initializeArchive);
 </script>

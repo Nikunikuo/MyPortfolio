@@ -1,0 +1,22 @@
+---
+interface Props {
+	kicker?: string;
+	heading?: string;
+	text?: string;
+}
+
+const {
+	kicker = '仕事の相談',
+	heading = '一緒につくる。',
+	text = '映像、音楽、アニメーション、Web。まだ輪郭のない話からでも。',
+} = Astro.props;
+---
+
+<section class="creator-contact-strip" aria-labelledby="creator-contact-title">
+	<div>
+		<p>{kicker}</p>
+		<h2 id="creator-contact-title">{heading}</h2>
+		<span>{text}</span>
+	</div>
+	<a href="/create-with-me/">連絡する <span aria-hidden="true">↗</span></a>
+</section>

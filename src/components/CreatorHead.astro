@@ -1,0 +1,85 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string | undefined;
+	description?: string | undefined;
+}
+
+const {
+	title = 'NIKU STUDIO — 大鹿ニクの秘密基地',
+	description = '生成AIを制作手段のひとつとして、映像、音楽、アニメーション、Webを制作する大鹿ニクのポートフォリオ。',
+} = Astro.props;
+
+const creatorStructuredData = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'Person',
+			'@id': 'https://niku.studio/#person',
+			name: '大鹿ニク',
+			alternateName: ['OosikaNiku', 'ニク'],
+			description: '生成AIを制作手段のひとつとして、映像、音楽、アニメーション、Webを制作するクリエイター。',
+			url: 'https://niku.studio/',
+			image: 'https://niku.studio/images/top.png',
+			jobTitle: '映像・音楽・アニメーションクリエイター',
+			knowsAbout: ['生成AI', '映像制作', '音楽制作', 'アニメーション', 'Web制作'],
+			sameAs: [
+				'https://github.com/Nikunikuo',
+				'https://nikuoosika.booth.pm/',
+				'https://suno.com/@yajusika',
+				'https://open.spotify.com/intl-ja/artist/4MjpBNzO8tRzviKOgXeHoY',
+				'https://music.apple.com/jp/artist/%E5%A4%A7%E9%B9%BF%E3%83%8B%E3%82%AF/1831287955',
+			],
+		},
+		{
+			'@type': 'WebSite',
+			'@id': 'https://niku.studio/#website',
+			url: 'https://niku.studio/',
+			name: 'NIKU STUDIO',
+			alternateName: '大鹿ニクの秘密基地',
+			description,
+			publisher: { '@id': 'https://niku.studio/#person' },
+			inLanguage: 'ja-JP',
+		},
+	],
+};
+---
+
+<meta charset="UTF-8" />
+<meta name="description" property="og:description" content={description} />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<meta name="generator" content={Astro.generator} />
+<meta name="keywords" content="大鹿ニク, 生成AI, 映像制作, ミュージックビデオ, AI音楽, アニメーション, Web制作, クリエイター, ポートフォリオ" />
+<meta name="author" content="大鹿ニク" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="theme-color" content="#daf946" />
+<title>{title}</title>
+
+<link rel="canonical" href={Astro.url.href} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+	rel="stylesheet"
+/>
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url.href} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:site_name" content="NIKU STUDIO" />
+<meta property="og:image" content="https://niku.studio/images/topcard.png" />
+<meta property="og:image:width" content="1536" />
+<meta property="og:image:height" content="1024" />
+<meta property="og:image:alt" content="大鹿ニクのポートフォリオ キービジュアル" />
+<meta property="og:locale" content="ja_JP" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content="https://niku.studio/images/topcard.png" />
+<meta name="twitter:image:alt" content="大鹿ニクのポートフォリオ キービジュアル" />
+
+<script type="application/ld+json" set:html={JSON.stringify(creatorStructuredData)} />

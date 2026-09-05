@@ -1,0 +1,38 @@
+---
+interface Props {
+	home?: boolean;
+}
+
+const { home = false } = Astro.props;
+const pathname = Astro.url.pathname;
+
+const links = [
+	{ label: '独自IP作品', href: home ? '#series' : '/#series', current: false },
+	{ label: '制作物', href: home ? '#works' : '/work/', current: pathname.startsWith('/work/') || pathname === '/work/' },
+	{ label: 'プロフィール', href: '/about/', current: pathname === '/about/' },
+];
+---
+
+<nav class="site-nav" aria-label="NIKU STUDIOのメインナビ">
+	<a class="brand" href="/" aria-label="NIKU STUDIO トップ">
+		<img src="/favicon.svg" alt="" width="28" height="28" />
+		<span>
+			<strong>NIKU STUDIO</strong>
+			<small>大鹿ニクの秘密基地</small>
+		</span>
+	</a>
+	<div class="site-links">
+		{
+			links.map((link) => (
+				<a href={link.href} aria-current={link.current ? 'page' : undefined}>{link.label}</a>
+			))
+		}
+	</div>
+	<a
+		class="nav-contact"
+		href="/create-with-me/"
+		aria-current={pathname === '/create-with-me/' ? 'page' : undefined}
+	>
+		仕事の相談 <span aria-hidden="true">↗</span>
+	</a>
+</nav>

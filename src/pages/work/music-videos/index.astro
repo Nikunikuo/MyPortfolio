@@ -1,384 +1,214 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Hero from '../../../components/Hero.astro';
-import Icon from '../../../components/Icon.astro';
-import ContactCTA from '../../../components/ContactCTA.astro';
+import CreatorContactStrip from '../../../components/CreatorContactStrip.astro';
+import CreatorLayout from '../../../layouts/CreatorLayout.astro';
 import { musicVideos } from '../../../data/musicVideos';
 
-const title = 'ミュージックビデオ | 大鹿ニク / M1RA';
-const description = '生成AIで制作したミュージックビデオ全12作品。最新作「情熱ブロッサム」から「名前の無い木」まで。AIと人間の境界を問う哲学的作品から、パンクロック、エレクトロニックまで幅広いジャンル。1～2週ごとに新作公開中。';
+const title = 'ミュージックビデオ | 大鹿ニク';
+const description = `大鹿ニクが制作したミュージックビデオ全${musicVideos.length}作品。音楽と映像を一本ずつまとめたアーカイブ。`;
+
+const structuredData = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://niku.studio/' },
+			{ '@type': 'ListItem', position: 2, name: '制作物', item: 'https://niku.studio/work/' },
+			{ '@type': 'ListItem', position: 3, name: 'ミュージックビデオ', item: 'https://niku.studio/work/music-videos/' },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'CollectionPage',
+		name: 'ミュージックビデオ',
+		description,
+		url: 'https://niku.studio/work/music-videos/',
+		mainEntity: {
+			'@type': 'ItemList',
+			numberOfItems: musicVideos.length,
+			itemListElement: musicVideos.map((mv, index) => ({
+				'@type': 'ListItem',
+				position: index + 1,
+				item: {
+					'@type': 'VideoObject',
+					name: mv.title,
+					description: mv.intro,
+					embedUrl: `https://www.youtube.com/embed/${mv.youtubeId}`,
+					thumbnailUrl: `https://i.ytimg.com/vi/${mv.youtubeId}/maxresdefault.jpg`,
+					url: `https://niku.studio/work/music-videos/${mv.slug}/`,
+					creator: { '@id': 'https://niku.studio/#person' },
+				},
+			})),
+		},
+	},
+];
 ---
 
-<BaseLayout title={title} description={description}>
-	<!-- Breadcrumb Schema -->
-	<script type="application/ld+json" slot="head">
-	{
-		"@context": "https://schema.org",
-		"@type": "BreadcrumbList",
-		"itemListElement": [
-			{
-				"@type": "ListItem",
-				"position": 1,
-				"name": "Home",
-				"item": "https://niku.studio/"
-			},
-			{
-				"@type": "ListItem",
-				"position": 2,
-				"name": "Work",
-				"item": "https://niku.studio/work/"
-			},
-			{
-				"@type": "ListItem",
-				"position": 3,
-				"name": "ミュージックビデオ",
-				"item": "https://niku.studio/work/music-videos/"
-			}
-		]
-	}
-	</script>
-
-	<!-- Music Videos Collection JSON-LD -->
-	<script type="application/ld+json" slot="head">
-	{
-		"@context": "https://schema.org",
-		"@type": "CollectionPage",
-		"name": "ミュージックビデオ作品集",
-		"description": "生成AIで制作したミュージックビデオ全12作品。最新作から過去作まで、AIと人間の境界を問う哲学的作品から、パンクロック、エレクトロニックまで幅広いジャンル。",
-		"url": "https://niku.studio/work/music-videos/",
-		"inLanguage": "ja",
-		"mainEntity": {
-			"@type": "ItemList",
-			"numberOfItems": ${musicVideos.length},
-			"itemListElement": ${JSON.stringify(musicVideos.map((mv, index) => ({
-				"@type": "ListItem",
-				"position": index + 1,
-				"item": {
-					"@type": "VideoObject",
-					"name": mv.title,
-					"description": mv.intro,
-					"url": `https://www.youtube.com/watch?v=${mv.youtubeId}`,
-					"embedUrl": `https://www.youtube.com/embed/${mv.youtubeId}`,
-					"thumbnailUrl": `https://i.ytimg.com/vi/${mv.youtubeId}/maxresdefault.jpg`,
-					"contentUrl": `https://niku.studio/work/music-videos/${mv.slug}/`,
-					"creator": {
-						"@type": "Person",
-						"name": "大鹿ニク",
-						"url": "https://niku.studio/"
-					}
-				}
-			})))}
-		},
-		"author": {
-			"@type": "Person",
-			"name": "大鹿ニク",
-			"url": "https://niku.studio/"
-		},
-		"isPartOf": {
-			"@type": "WebSite",
-			"name": "大鹿ニク / M1RA",
-			"url": "https://niku.studio/"
+<CreatorLayout
+	title={title}
+	description={description}
+	eyebrow="MUSIC / VIDEO"
+	heading="Music Videos"
+	intro={`音をつくり、画をつくり、編集して一本にする。公開中の${musicVideos.length}本を新しい順に並べています。`}
+	number="MV"
+	backHref="/work/"
+	backLabel="その他制作物の倉庫"
+	structuredData={structuredData}
+>
+	<section class="mv-grid" aria-label="ミュージックビデオ一覧">
+		{
+			musicVideos.map((mv, index) => (
+				<a class="mv-entry" href={`/work/music-videos/${mv.slug}/`}>
+					<figure class="mv-thumb">
+						<img
+							src={`https://i.ytimg.com/vi/${mv.youtubeId}/hqdefault.jpg`}
+							alt={`${mv.title} の動画サムネイル`}
+							width="480"
+							height="360"
+							loading={index < 2 ? 'eager' : 'lazy'}
+							decoding="async"
+						/>
+						{mv.isNew && <span class="mv-new">NEW</span>}
+					</figure>
+					<div class="mv-copy">
+						<span class="mv-index">{String(index + 1).padStart(2, '0')}</span>
+						<h2>{mv.title}</h2>
+						<p>{mv.intro}</p>
+						<i aria-hidden="true">↗</i>
+					</div>
+				</a>
+			))
 		}
-	}
-	</script>
+	</section>
 
-	<div class="stack gap-20">
-		<main class="wrapper stack gap-8">
-			<Hero
-				title="ミュージックビデオ"
-				tagline="生成AIを活用して制作したミュージックビデオ作品集"
-				align="start"
-				titleI18n="mv_title"
-				taglineI18n="mv_tagline"
-			>
-				<div class="youtube-link">
-					<a href="https://www.youtube.com/@M1RA_Archive_Project" target="_blank" rel="noopener noreferrer" class="youtube-cta">
-						<Icon icon="youtube-logo" size="1.5em" />
-						<span data-i18n="mv_youtube_link">YouTubeチャンネルを見る</span>
-					</a>
-				</div>
-			</Hero>
-
-			<section class="mv-list">
-				{musicVideos.map((mv) => (
-					<a href={`/work/music-videos/${mv.slug}/`} class="mv-card">
-						<div class="mv-video">
-							{mv.isNew && <span class="new-badge">NEW</span>}
-							<iframe
-								width="100%"
-								height="315"
-								src={`https://www.youtube.com/embed/${mv.youtubeId}`}
-								title={mv.title}
-								frameborder="0"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowfullscreen
-								loading="lazy"
-							></iframe>
-						</div>
-						<div class="mv-info">
-							<h3>{mv.title}</h3>
-							<p class="mv-intro">{mv.intro}</p>
-							<span class="read-more">
-								<span>詳細を見る</span>
-								<span class="arrow">→</span>
-							</span>
-						</div>
-					</a>
-				))}
-			</section>
-
-			<section class="other-projects">
-				<h2>他のプロジェクトも見る</h2>
-				<div class="project-links">
-					<a href="/mira/" class="project-card">
-						<div class="card-icon">
-							<Icon icon="strategy" size="2.5em" />
-						</div>
-						<h3>M1RAプロジェクト</h3>
-						<p>AIが「存在したい」と願った、関係の特異点を探求するプロジェクト</p>
-						<span class="link-arrow">→</span>
-					</a>
-					<a href="/work/" class="project-card">
-						<div class="card-icon">
-							<Icon icon="rocket-launch" size="2.5em" />
-						</div>
-						<h3>全ての作品を見る</h3>
-						<p>ディスコグラフィー、開発プロジェクト、その他の作品一覧</p>
-						<span class="link-arrow">→</span>
-					</a>
-				</div>
-			</section>
-		</main>
-		<ContactCTA />
-	</div>
-</BaseLayout>
+	<CreatorContactStrip />
+</CreatorLayout>
 
 <style>
-	.youtube-link {
-		margin-top: 1.5rem;
-	}
-
-	.youtube-cta {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.75rem;
-		padding: 1rem 2rem;
-		background: var(--gradient-accent);
-		color: var(--gray-999);
-		text-decoration: none;
-		border-radius: 999rem;
-		font-weight: 600;
-		font-size: var(--text-md);
-		transition: all 0.3s ease;
-		box-shadow: var(--shadow-md);
-	}
-
-	.youtube-cta:hover {
-		transform: translateY(-2px);
-		box-shadow: var(--shadow-lg);
-	}
-
-	.mv-list {
+	.mv-grid {
 		display: grid;
-		gap: 3rem;
-		margin-top: 2rem;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: clamp(46px, 7vw, 110px) clamp(18px, 4vw, 64px);
+		padding-bottom: clamp(90px, 13vw, 180px);
 	}
 
-	.mv-card {
+	.mv-entry {
 		display: block;
-		background: rgba(0, 20, 40, 0.6);
-		border: 2px solid rgba(0, 255, 136, 0.3);
-		border-radius: 1rem;
-		overflow: hidden;
-		transition: all 0.3s ease;
+		min-width: 0;
+		color: inherit;
 		text-decoration: none;
-		cursor: pointer;
 	}
 
-	.mv-card:hover {
-		border-color: #00ff88;
-		box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
-		transform: translateY(-5px);
+	.mv-entry:nth-child(even) {
+		margin-top: clamp(70px, 10vw, 150px);
 	}
 
-	.mv-video {
+	.mv-thumb {
 		position: relative;
-		width: 100%;
-		padding-bottom: 56.25%; /* 16:9 aspect ratio */
-		height: 0;
 		overflow: hidden;
+		margin: 0;
+		aspect-ratio: 16 / 10;
+		border: 2px solid var(--studio-ink);
+		background: var(--studio-paper);
+		box-shadow: 8px 8px 0 var(--studio-ink);
 	}
 
-	.mv-video iframe {
+	.mv-thumb::after {
+		position: absolute;
+		inset: 0;
+		background: none;
+		content: "";
+		pointer-events: none;
+	}
+
+	.mv-thumb img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		filter: none;
+		transition: filter 200ms ease, transform 280ms ease;
+	}
+
+	.mv-entry:hover .mv-thumb img,
+	.mv-entry:focus-visible .mv-thumb img {
+		filter: saturate(1) contrast(1.04);
+		transform: scale(1.025);
+	}
+
+	.mv-entry:focus-visible {
+		outline: 3px solid var(--studio-accent);
+		outline-offset: 6px;
+	}
+
+	.mv-new {
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 100%;
-		height: 100%;
-	}
-
-	.new-badge {
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		z-index: 10;
-		background: linear-gradient(135deg, #ff0080, #ff8c00);
-		color: #ffffff;
-		padding: 0.5rem 1rem;
-		border-radius: 0.5rem;
-		font-weight: 700;
-		font-size: var(--text-sm);
-		letter-spacing: 0.1em;
-		box-shadow: 0 4px 12px rgba(255, 0, 128, 0.5);
-		animation: pulse 2s ease-in-out infinite;
-	}
-
-	@keyframes pulse {
-		0%, 100% {
-			transform: scale(1);
-			box-shadow: 0 4px 12px rgba(255, 0, 128, 0.5);
-		}
-		50% {
-			transform: scale(1.05);
-			box-shadow: 0 6px 20px rgba(255, 0, 128, 0.7);
-		}
-	}
-
-	.mv-info {
-		padding: 2rem;
-	}
-
-	.mv-info h3 {
-		font-size: var(--text-2xl);
-		color: #ffffff;
-		margin-bottom: 0.5rem;
-		font-weight: 700;
-	}
-
-	.mv-intro {
-		font-size: var(--text-base);
-		color: rgba(255, 255, 255, 0.9);
-		line-height: 1.6;
-		margin-bottom: 1rem;
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-	}
-
-	.read-more {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		font-size: var(--text-base);
-		color: #00ff88;
+		z-index: 2;
+		padding: 10px 14px;
+		background: var(--studio-accent);
+		color: var(--studio-ink);
+		font-family: "IBM Plex Mono", monospace;
+		font-size: 0.82rem;
 		font-weight: 600;
-		transition: all 0.3s ease;
 	}
 
-	.mv-card:hover .read-more .arrow {
-		transform: translateX(5px);
-	}
-
-	.read-more .arrow {
-		display: inline-block;
-		transition: transform 0.3s ease;
-	}
-
-	.mv-date {
-		font-size: var(--text-sm);
-		color: #00ff88;
-		margin-bottom: 1rem;
-	}
-
-	.mv-description {
-		font-size: var(--text-base);
-		color: rgba(255, 255, 255, 0.9);
-		line-height: 1.6;
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-	}
-
-	.other-projects {
-		margin-top: 4rem;
-	}
-
-	.other-projects h2 {
-		font-size: var(--text-3xl);
-		color: #ffffff;
-		margin-bottom: 2rem;
-		text-align: center;
-		font-weight: 700;
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-	}
-
-	.project-links {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
-	}
-
-	.project-card {
+	.mv-copy {
 		position: relative;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1rem;
-		padding: 2rem;
-		background: rgba(0, 20, 40, 0.6);
-		border: 2px solid rgba(0, 255, 136, 0.3);
-		border-radius: 1rem;
-		text-decoration: none;
-		text-align: center;
-		transition: all 0.3s ease;
+		min-height: 200px;
+		padding: 22px 42px 22px 0;
+		border-bottom: 1px solid var(--studio-line);
 	}
 
-	.project-card:hover {
-		border-color: #00ff88;
-		box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
-		transform: translateY(-5px);
+	.mv-index {
+		color: var(--studio-ink);
+		font-family: "IBM Plex Mono", monospace;
+		font-size: 0.82rem;
+		font-weight: 600;
 	}
 
-	.card-icon {
-		color: #00ff88;
+	.mv-copy h2 {
+		margin: 30px 0 16px;
+		color: var(--studio-ink);
+		font-family: var(--font-brand);
+		font-size: clamp(1.8rem, 3.5vw, 3.7rem);
+		font-weight: 900;
+		letter-spacing: -0.06em;
+		line-height: 1.2;
 	}
 
-	.project-card h3 {
-		font-size: var(--text-xl);
-		color: #00ff88;
-		margin: 0;
-		font-weight: 700;
+	.mv-copy p {
+		max-width: 48ch;
+		color: var(--studio-muted);
+		line-height: 1.75;
 	}
 
-	.project-card p {
-		font-size: var(--text-base);
-		color: rgba(255, 255, 255, 0.9);
-		line-height: 1.6;
-		margin: 0;
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+	.mv-copy i {
+		position: absolute;
+		right: 0;
+		bottom: 22px;
+		font-family: "IBM Plex Mono", monospace;
+		font-size: 1.5rem;
+		font-style: normal;
 	}
 
-	.link-arrow {
-		font-size: var(--text-2xl);
-		color: #00ff88;
-		transition: transform 0.3s ease;
-	}
-
-	.project-card:hover .link-arrow {
-		transform: translateX(5px);
-	}
-
-	@media (min-width: 768px) {
-		.mv-card {
-			display: grid;
-			grid-template-columns: 1.5fr 1fr;
-		}
-
-		.mv-video {
-			padding-bottom: 0;
-			height: 100%;
-		}
-	}
-
-	@media (max-width: 768px) {
-		.project-links {
+	@media (max-width: 760px) {
+		.mv-grid {
 			grid-template-columns: 1fr;
+		}
+
+		.mv-entry:nth-child(even) {
+			margin-top: 0;
+		}
+
+		.mv-copy {
+			min-height: 170px;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.mv-thumb img {
+			transition: none;
 		}
 	}
 </style>

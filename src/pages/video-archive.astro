@@ -1,103 +1,156 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
+import CreatorContactStrip from '../components/CreatorContactStrip.astro';
+import CreatorLayout from '../layouts/CreatorLayout.astro';
 
 const videos = [
-    {
-        title: "AI Music Video 2025年上半期クロスフェード",
-        description:
-            "2025年上半期に公開したAI Music Videoのクロスフェード映像。",
-        id: "19XJHhlEPQs",
-    },
-    {
-        title: "架空のＡＩアニメ「ポルテポルカドット」",
-        description: "生成AIで制作した架空のアニメ作品。",
-        id: "ufYzgDmrw4I",
-    },
+	{
+		title: 'AI Music Video 2025年上半期クロスフェード',
+		description: '2025年上半期に公開したAI Music Videoのクロスフェード映像。',
+		id: '19XJHhlEPQs',
+		detailHref: '/work/sample-mv-01/',
+	},
+	{
+		title: '架空のＡＩアニメ「ポルテポルカドット」',
+		description: '生成AIで制作した架空のアニメ作品。',
+		id: 'ufYzgDmrw4I',
+		detailHref: '/work/sample-short-01/',
+	},
 ];
+
+const title = '映像作品アーカイブ | 大鹿ニク';
+const description = '大鹿ニクが公開している短編映像とAIアニメーションをまとめたアーカイブ。';
+
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'CollectionPage',
+	name: '映像作品アーカイブ',
+	description,
+	url: 'https://niku.studio/video-archive/',
+	mainEntity: {
+		'@type': 'ItemList',
+		numberOfItems: videos.length,
+		itemListElement: videos.map((video, index) => ({
+			'@type': 'ListItem',
+			position: index + 1,
+			item: {
+				'@type': 'VideoObject',
+				name: video.title,
+				description: video.description,
+				embedUrl: `https://www.youtube.com/embed/${video.id}`,
+				thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`,
+				url: `https://www.youtube.com/watch?v=${video.id}`,
+			},
+		})),
+	},
+};
 ---
 
-<BaseLayout
-    title="Video Archive | 大鹿ニク / M1RA"
-    description="公開中のAI映像作品をまとめたアーカイブ。"
+<CreatorLayout
+	title={title}
+	description={description}
+	eyebrow="VIDEO / ARCHIVE"
+	heading="映像作品アーカイブ"
+	intro="短編、アニメーション、クロスフェード。いま公開している映像を、そのまま再生できます。"
+	number="05"
+	backHref="/work/"
+	backLabel="その他制作物の倉庫"
+	structuredData={structuredData}
 >
-    <div class="stack gap-20">
-        <main class="wrapper stack gap-8">
-            <Hero
-                title="作品アーカイブ"
-                tagline="公開中のAI映像作品をまとめたアーカイブです。"
-                align="start"
-            />
+	<section class="archive-stack" aria-label="映像作品一覧">
+		{
+			videos.map((video, index) => (
+				<article class="archive-video">
+					<header>
+						<span>{String(index + 1).padStart(2, '0')} / {String(videos.length).padStart(2, '0')}</span>
+						<h2>{video.title}</h2>
+						<p>{video.description}</p>
+					</header>
+					<div class="creator-video">
+						<iframe
+							src={`https://www.youtube.com/embed/${video.id}`}
+							title={video.title}
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+							loading="lazy"
+						/>
+					</div>
+					<a class="creator-text-link" href={video.detailHref}>作品の記録を読む <span aria-hidden="true">→</span></a>
+				</article>
+			))
+		}
+	</section>
 
-            <div class="video-grid">
-                {
-                    videos.map((video) => (
-                        <div class="video-card">
-                            <h3>{video.title}</h3>
-                            <div class="video-wrapper">
-                                <iframe
-                                    src={`https://www.youtube.com/embed/${video.id}`}
-                                    title={video.title}
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen
-                                />
-                            </div>
-                            <p>{video.description}</p>
-                        </div>
-                    ))
-                }
-            </div>
-        </main>
-    </div>
-</BaseLayout>
+	<CreatorContactStrip />
+</CreatorLayout>
 
 <style>
-    .video-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 2rem;
-    }
+	.archive-stack {
+		display: grid;
+		gap: clamp(90px, 14vw, 190px);
+		padding-bottom: clamp(80px, 12vw, 170px);
+	}
 
-    .video-card {
-        background: var(--gradient-subtle);
-        border: 1px solid var(--gray-800);
-        border-radius: 1.5rem;
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+	.archive-video {
+		display: grid;
+		grid-template-columns: minmax(240px, 0.44fr) minmax(0, 1fr);
+		gap: clamp(28px, 6vw, 90px);
+		align-items: start;
+	}
 
-    .video-card h3 {
-        font-size: var(--text-lg);
-        color: var(--gray-100);
-    }
+	.archive-video:nth-child(even) header {
+		order: 2;
+	}
 
-    .video-card p {
-        color: var(--gray-300);
-    }
+	.archive-video header {
+		padding-top: 12px;
+		border-top: 2px solid var(--studio-ink);
+	}
 
-    .video-wrapper {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-        height: 0;
-        overflow: hidden;
-        border-radius: 1rem;
-    }
+	.archive-video header > span {
+		color: var(--studio-ink);
+		font-family: "IBM Plex Mono", monospace;
+		font-size: 0.82rem;
+		font-weight: 600;
+	}
 
-    .video-wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
+	.archive-video h2 {
+		margin: clamp(50px, 7vw, 92px) 0 20px;
+		color: var(--studio-ink);
+		font-family: var(--font-brand);
+		font-size: clamp(2rem, 4.2vw, 4.4rem);
+		font-weight: 900;
+		letter-spacing: -0.06em;
+		line-height: 1.2;
+	}
 
-    @media (max-width: 50em) {
-        .video-grid {
-            grid-template-columns: 1fr;
-        }
-    }
+	.archive-video p {
+		color: var(--studio-muted);
+		line-height: 1.8;
+	}
+
+	.archive-video > .creator-text-link {
+		grid-column: 2;
+		justify-self: end;
+	}
+
+	.archive-video:nth-child(even) > .creator-text-link {
+		grid-column: 1;
+		justify-self: start;
+	}
+
+	@media (max-width: 840px) {
+		.archive-video {
+			grid-template-columns: 1fr;
+		}
+
+		.archive-video:nth-child(even) header {
+			order: initial;
+		}
+
+		.archive-video > .creator-text-link,
+		.archive-video:nth-child(even) > .creator-text-link {
+			grid-column: 1;
+			justify-self: start;
+		}
+	}
 </style>

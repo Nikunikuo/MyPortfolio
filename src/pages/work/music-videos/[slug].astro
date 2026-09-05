@@ -1,11 +1,8 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Hero from '../../../components/Hero.astro';
-import Icon from '../../../components/Icon.astro';
-import ContactCTA from '../../../components/ContactCTA.astro';
-import { musicVideos } from '../../../data/musicVideos';
+import CreatorContactStrip from '../../../components/CreatorContactStrip.astro';
+import CreatorLayout from '../../../layouts/CreatorLayout.astro';
+import { musicVideos, type MusicVideo } from '../../../data/musicVideos';
 
-// 動的ルート用：全てのslugを生成
 export function getStaticPaths() {
 	return musicVideos.map((mv) => ({
 		params: { slug: mv.slug },
@@ -13,289 +10,196 @@ export function getStaticPaths() {
 	}));
 }
 
-const { mv } = Astro.props;
+interface Props {
+	mv: MusicVideo;
+}
 
-const title = `${mv.title} | ミュージックビデオ | 大鹿ニク / M1RA`;
-const description = `${mv.intro} - 生成AIで制作したミュージックビデオ作品。`;
+const { mv } = Astro.props;
+const currentIndex = musicVideos.findIndex((item) => item.slug === mv.slug);
+const previous = currentIndex > 0 ? musicVideos[currentIndex - 1] : undefined;
+const next = currentIndex < musicVideos.length - 1 ? musicVideos[currentIndex + 1] : undefined;
+const title = `${mv.title} | ミュージックビデオ | 大鹿ニク`;
+const description = `${mv.intro} 大鹿ニクが制作したミュージックビデオ。`;
+
+const videoStructuredData: Record<string, unknown> = {
+	'@context': 'https://schema.org',
+	'@type': 'VideoObject',
+	name: mv.title,
+	description: mv.intro,
+	thumbnailUrl: [
+		`https://i.ytimg.com/vi/${mv.youtubeId}/maxresdefault.jpg`,
+		`https://i.ytimg.com/vi/${mv.youtubeId}/sddefault.jpg`,
+	],
+	embedUrl: `https://www.youtube.com/embed/${mv.youtubeId}`,
+	contentUrl: `https://www.youtube.com/watch?v=${mv.youtubeId}`,
+	url: `https://niku.studio/work/music-videos/${mv.slug}/`,
+	inLanguage: 'ja',
+	creator: { '@id': 'https://niku.studio/#person' },
+	isPartOf: {
+		'@type': 'CollectionPage',
+		name: 'ミュージックビデオ',
+		url: 'https://niku.studio/work/music-videos/',
+	},
+};
+
+if (mv.releaseDate) videoStructuredData.uploadDate = mv.releaseDate;
 ---
 
-<BaseLayout title={title} description={description}>
-	<!-- Breadcrumb Schema -->
-	<script type="application/ld+json" slot="head">
-	{
-		"@context": "https://schema.org",
-		"@type": "BreadcrumbList",
-		"itemListElement": [
-			{
-				"@type": "ListItem",
-				"position": 1,
-				"name": "Home",
-				"item": "https://niku.studio/"
-			},
-			{
-				"@type": "ListItem",
-				"position": 2,
-				"name": "Work",
-				"item": "https://niku.studio/work/"
-			},
-			{
-				"@type": "ListItem",
-				"position": 3,
-				"name": "ミュージックビデオ",
-				"item": "https://niku.studio/work/music-videos/"
-			},
-			{
-				"@type": "ListItem",
-				"position": 4,
-				"name": mv.title,
-				"item": `https://niku.studio/work/music-videos/${mv.slug}/`
-			}
-		]
-	}
-	</script>
-
-	<!-- VideoObject Schema -->
-	<script type="application/ld+json" slot="head">
-	{
-		"@context": "https://schema.org",
-		"@type": "VideoObject",
-		"name": mv.title,
-		"description": mv.intro,
-		"uploadDate": mv.releaseDate || "2024-01-01",
-		"thumbnailUrl": [
-			`https://i.ytimg.com/vi/${mv.youtubeId}/maxresdefault.jpg`,
-			`https://i.ytimg.com/vi/${mv.youtubeId}/sddefault.jpg`
-		],
-		"embedUrl": `https://www.youtube.com/embed/${mv.youtubeId}`,
-		"contentUrl": `https://www.youtube.com/watch?v=${mv.youtubeId}`,
-		"url": `https://niku.studio/work/music-videos/${mv.slug}/`,
-		"inLanguage": "ja",
-		"genre": ["Music Video", "AI Music", "J-Pop"],
-		"keywords": "生成AI, ミュージックビデオ, AI音楽, ${mv.title}",
-		"creator": {
-			"@type": "Person",
-			"name": "大鹿ニク",
-			"alternateName": ["M1RA", "OosikaNiku"],
-			"url": "https://niku.studio/"
-		},
-		"author": {
-			"@type": "Person",
-			"name": "大鹿ニク",
-			"url": "https://niku.studio/"
-		},
-		"publisher": {
-			"@type": "Organization",
-			"name": "大鹿ニク / M1RA",
-			"url": "https://niku.studio/",
-			"logo": {
-				"@type": "ImageObject",
-				"url": "https://niku.studio/images/top.png"
-			}
-		},
-		"isPartOf": {
-			"@type": "WebPage",
-			"name": "ミュージックビデオ作品集",
-			"url": "https://niku.studio/work/music-videos/"
-		}
-	}
-	</script>
-
-	<div class="stack gap-20">
-		<main class="wrapper stack gap-8">
-			<Hero
+<CreatorLayout
+	title={title}
+	description={description}
+	eyebrow="MUSIC VIDEO"
+	heading={mv.title}
+	intro={mv.intro}
+	number={mv.slug}
+	backHref="/work/music-videos/"
+	backLabel="ミュージックビデオ一覧"
+	compact
+	structuredData={videoStructuredData}
+>
+	<article class="mv-detail">
+		<div class="creator-video">
+			<iframe
+				src={`https://www.youtube.com/embed/${mv.youtubeId}`}
 				title={mv.title}
-				tagline={mv.intro}
-				align="start"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen
+			/>
+		</div>
+
+		<section class="mv-note" aria-labelledby="about-work-title">
+			<p class="creator-section-kicker">ABOUT THIS WORK</p>
+			<h2 id="about-work-title">作品について</h2>
+			<p>{mv.intro}</p>
+			<a
+				class="creator-text-link"
+				href={`https://www.youtube.com/watch?v=${mv.youtubeId}`}
+				target="_blank"
+				rel="noopener noreferrer"
 			>
-				{mv.isNew && <span class="new-badge">NEW</span>}
-			</Hero>
+				YouTubeで再生する <span aria-hidden="true">↗</span>
+			</a>
+		</section>
 
-			<section class="mv-detail">
-				<!-- YouTube埋め込み -->
-				<div class="video-container">
-					<iframe
-						width="100%"
-						height="100%"
-						src={`https://www.youtube.com/embed/${mv.youtubeId}`}
-						title={mv.title}
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen
-						loading="lazy"
-					></iframe>
-				</div>
-
-				<!-- 作品情報 -->
-				<div class="mv-info-section">
-					<h2 data-i18n="mv_about_work">作品について</h2>
-					<p class="intro-text">{mv.intro}</p>
-
-					<!-- 制作秘話へのリンク -->
-					{mv.noteUrl && (
-						<div class="action-buttons">
-							<a href={mv.noteUrl} target="_blank" rel="noopener noreferrer" class="note-link">
-								<Icon icon="pencil-line" size="1.5em" />
-								<span data-i18n="mv_read_behind">制作秘話を読む</span>
-								<Icon icon="external-link" size="1.2em" />
-							</a>
-						</div>
-					)}
-				</div>
-
-				<!-- ナビゲーション -->
-				<div class="navigation">
-					<a href="/work/music-videos/" class="back-link">
-						<Icon icon="arrow-left" size="1.2em" />
-						<span data-i18n="mv_back_to_list">ミュージックビデオ一覧に戻る</span>
+		<nav class="mv-pager" aria-label="別のミュージックビデオ">
+			{
+				previous ? (
+					<a href={`/work/music-videos/${previous.slug}/`}>
+						<span>← PREV</span>
+						<strong>{previous.title}</strong>
 					</a>
-				</div>
-			</section>
-		</main>
-		<ContactCTA />
-	</div>
-</BaseLayout>
+				) : <span aria-hidden="true"></span>
+			}
+			{
+				next && (
+					<a href={`/work/music-videos/${next.slug}/`} class="next">
+						<span>NEXT →</span>
+						<strong>{next.title}</strong>
+					</a>
+				)
+			}
+		</nav>
+	</article>
+
+	<CreatorContactStrip />
+</CreatorLayout>
 
 <style>
-	.new-badge {
-		display: inline-block;
-		margin-top: 1rem;
-		background: linear-gradient(135deg, #ff0080, #ff8c00);
-		color: #ffffff;
-		padding: 0.5rem 1rem;
-		border-radius: 0.5rem;
-		font-weight: 700;
-		font-size: var(--text-sm);
-		letter-spacing: 0.1em;
-		box-shadow: 0 4px 12px rgba(255, 0, 128, 0.5);
-		animation: pulse 2s ease-in-out infinite;
-	}
-
-	@keyframes pulse {
-		0%, 100% {
-			transform: scale(1);
-			box-shadow: 0 4px 12px rgba(255, 0, 128, 0.5);
-		}
-		50% {
-			transform: scale(1.05);
-			box-shadow: 0 6px 20px rgba(255, 0, 128, 0.7);
-		}
-	}
-
 	.mv-detail {
+		display: grid;
+		grid-template-columns: minmax(0, 1.28fr) minmax(260px, 0.72fr);
+		gap: clamp(36px, 6vw, 92px);
+		align-items: start;
+		padding-bottom: clamp(90px, 13vw, 170px);
+	}
+
+	.mv-note {
+		padding-top: 16px;
+		border-top: 2px solid var(--studio-ink);
+	}
+
+	.mv-note h2 {
+		margin: clamp(42px, 7vw, 86px) 0 24px;
+		color: var(--studio-ink);
+		font-family: var(--font-brand);
+		font-size: clamp(2.2rem, 4.5vw, 4.8rem);
+		font-weight: 900;
+		letter-spacing: -0.06em;
+		line-height: 1.2;
+	}
+
+	.mv-note > p:not(.creator-section-kicker) {
+		color: var(--studio-muted);
+		font-size: 1.05rem;
+		line-height: 1.9;
+	}
+
+	.mv-note .creator-text-link {
+		margin-top: 34px;
+	}
+
+	.mv-pager {
+		display: grid;
+		grid-column: 1 / -1;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		margin-top: clamp(50px, 8vw, 110px);
+		border-top: 2px solid var(--studio-ink);
+		border-left: 1px solid var(--studio-line);
+	}
+
+	.mv-pager a,
+	.mv-pager > span {
+		min-height: 150px;
+		padding: 24px;
+		border-right: 1px solid var(--studio-line);
+		border-bottom: 1px solid var(--studio-line);
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.mv-pager a {
 		display: flex;
 		flex-direction: column;
-		gap: 3rem;
+		justify-content: space-between;
+		transition: background-color 180ms ease, color 180ms ease;
 	}
 
-	.video-container {
-		position: relative;
-		width: 100%;
-		padding-bottom: 56.25%; /* 16:9 aspect ratio */
-		height: 0;
-		overflow: hidden;
-		border-radius: 1rem;
-		background: rgba(0, 20, 40, 0.6);
-		border: 2px solid rgba(0, 255, 136, 0.3);
-		box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+	.mv-pager a:hover,
+	.mv-pager a:focus-visible {
+		background: var(--studio-accent);
+		color: var(--studio-ink);
+		outline: none;
 	}
 
-	.video-container iframe {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
+	.mv-pager .next {
+		text-align: right;
 	}
 
-	.mv-info-section {
-		background: rgba(0, 20, 40, 0.6);
-		border: 2px solid rgba(0, 255, 136, 0.3);
-		border-radius: 1rem;
-		padding: 2rem;
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-	}
-
-	.mv-info-section h2 {
-		font-size: var(--text-2xl);
-		color: #00ff88;
-		margin-bottom: 1rem;
-		font-weight: 700;
-	}
-
-	.intro-text {
-		font-size: var(--text-lg);
-		color: rgba(255, 255, 255, 0.95);
-		line-height: 1.8;
-		margin-bottom: 2rem;
-	}
-
-	.action-buttons {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1rem;
-	}
-
-	.note-link {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.75rem;
-		padding: 1rem 2rem;
-		background: var(--gradient-accent);
-		color: var(--gray-999);
-		text-decoration: none;
-		border-radius: 999rem;
+	.mv-pager span {
+		font-family: "IBM Plex Mono", monospace;
+		font-size: 0.75rem;
 		font-weight: 600;
-		font-size: var(--text-md);
-		transition: all 0.3s ease;
-		box-shadow: var(--shadow-md);
 	}
 
-	.note-link:hover {
-		transform: translateY(-2px);
-		box-shadow: var(--shadow-lg);
+	.mv-pager strong {
+		font-family: var(--font-brand);
+		font-size: clamp(1.25rem, 2.5vw, 2.35rem);
+		font-weight: 900;
+		letter-spacing: -0.04em;
+		line-height: 1.2;
 	}
 
-	.navigation {
-		margin-top: 2rem;
-	}
-
-	.back-link {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.75rem;
-		padding: 0.75rem 1.5rem;
-		background: rgba(0, 255, 136, 0.1);
-		border: 2px solid rgba(0, 255, 136, 0.3);
-		border-radius: 0.5rem;
-		color: #00ff88;
-		text-decoration: none;
-		font-weight: 600;
-		font-size: var(--text-base);
-		transition: all 0.3s ease;
-	}
-
-	.back-link:hover {
-		background: rgba(0, 255, 136, 0.2);
-		border-color: #00ff88;
-		transform: translateX(-5px);
-	}
-
-	@media (max-width: 768px) {
-		.mv-info-section {
-			padding: 1.5rem;
+	@media (max-width: 820px) {
+		.mv-detail {
+			grid-template-columns: 1fr;
 		}
 
-		.intro-text {
-			font-size: var(--text-base);
+		.mv-pager {
+			grid-template-columns: 1fr;
 		}
 
-		.action-buttons {
-			flex-direction: column;
-		}
-
-		.note-link, .back-link {
-			width: 100%;
-			justify-content: center;
+		.mv-pager > span:empty {
+			display: none;
 		}
 	}
 </style>

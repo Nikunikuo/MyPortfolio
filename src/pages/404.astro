@@ -1,18 +1,25 @@
 ---
-import Hero from "../components/Hero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
+import CreatorNav from "../components/CreatorNav.astro";
+import CreatorFooter from "../components/CreatorFooter.astro";
+import '../styles/studio-overprint.css';
 ---
 
-<BaseLayout title="Not Found" description="404 Error — this page was not found">
+<BaseLayout title="ページが見つかりません | NIKU STUDIO" description="お探しのページが見つかりませんでした。" showChrome={false} headVariant="creator" htmlTheme="overprint">
 	<!-- Default 404 Content -->
-	<div id="default-404">
-		<Hero
-			title="Page Not Found"
-			tagline="お探しのページが見つかりませんでした"
-			titleI18n="404_title"
-			taglineI18n="404_tagline"
-		/>
+	<div id="default-404" class="portfolio creator-site">
+		<CreatorNav />
+		<main class="creator-page-hero is-compact">
+			<div class="creator-page-copy">
+				<p class="creator-eyebrow">404 / NOT FOUND</p>
+				<h1><span>ここには、何もない。</span></h1>
+				<p class="creator-intro">お探しのページが見つかりませんでした。</p>
+				<a class="creator-text-link" href="/">秘密基地の入口へ戻る →</a>
+			</div>
+			<span class="creator-page-number" aria-hidden="true">404</span>
+		</main>
+		<CreatorFooter />
 	</div>
 
 	<!-- GHOSTS 404 Content (Hidden by default) -->

@@ -1,0 +1,38 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<a class="footer-brand" href="/">NIKU STUDIO<small>大鹿ニクの秘密基地</small></a>
+	<nav aria-label="フッターナビ">
+		<a href="/work/">制作物</a>
+		<a href="/about/">プロフィール</a>
+		<a href="https://github.com/Nikunikuo" target="_blank" rel="noopener noreferrer">GitHub</a>
+		<a href="/create-with-me/">お問い合わせ</a>
+	</nav>
+	<div class="footer-bottom">
+		<span class="footer-copyright">© {currentYear} 大鹿ニク</span>
+		<button class="studio-motion" data-motion-toggle type="button" aria-pressed="false">背景を停止 Ⅱ</button>
+	</div>
+</footer>
+
+<script>
+	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+	let stopped = reducedMotion.matches;
+	function updateBackgroundMotion() {
+		if (document.documentElement.dataset.theme !== 'overprint') return;
+		const video = document.querySelector<HTMLVideoElement>('.bg-video');
+		const button = document.querySelector<HTMLButtonElement>('[data-motion-toggle]');
+		if (!video || !button) return;
+		if (stopped) video.pause();
+		else video.play().catch(() => {});
+		button.textContent = stopped ? '背景を再生 ▶' : '背景を停止 Ⅱ';
+		button.setAttribute('aria-pressed', String(stopped));
+		if (button.dataset.initialized) return;
+		button.dataset.initialized = 'true';
+		button.addEventListener('click', () => { stopped = !stopped; updateBackgroundMotion(); });
+	}
+	reducedMotion.addEventListener('change', (event) => { stopped = event.matches; updateBackgroundMotion(); });
+	document.addEventListener('astro:page-load', updateBackgroundMotion);
+	updateBackgroundMotion();
+</script>

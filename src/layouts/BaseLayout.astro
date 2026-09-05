@@ -5,6 +5,7 @@
 import Footer from '../components/Footer.astro';
 // Component Imports
 import MainHead from '../components/MainHead.astro';
+import CreatorHead from '../components/CreatorHead.astro';
 import Nav from '../components/Nav.astro';
 import LoadingScreen from '../components/LoadingScreen.astro';
 import { ViewTransitions } from 'astro:transitions';
@@ -13,14 +14,28 @@ interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
 	showLoading?: boolean;
+	showChrome?: boolean;
+	htmlTheme?: string | undefined;
+	headVariant?: 'default' | 'creator';
 }
 
-const { title, description, showLoading = false } = Astro.props;
+const {
+	title,
+	description,
+	showLoading = false,
+	showChrome = true,
+	htmlTheme,
+	headVariant = 'default',
+} = Astro.props;
 ---
 
-<html lang="ja">
+<html lang="ja" data-theme={htmlTheme}>
 	<head>
-		<MainHead title={title} description={description} />
+		{
+			headVariant === 'creator'
+				? <CreatorHead title={title} description={description} />
+				: <MainHead title={title} description={description} />
+		}
 		<ViewTransitions />
 		<slot name="head" />
 	</head>
@@ -31,9 +46,9 @@ const { title, description, showLoading = false } = Astro.props;
 		</video>
 		<div class="bg-overlay" transition:persist></div>
 		<div class="stack backgrounds">
-			<Nav />
+			{showChrome && <Nav />}
 			<slot />
-			<Footer />
+			{showChrome && <Footer />}
 		</div>
 
 		<script

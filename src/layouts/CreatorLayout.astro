@@ -1,0 +1,74 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import CreatorNav from '../components/CreatorNav.astro';
+import CreatorFooter from '../components/CreatorFooter.astro';
+import '../styles/studio-overprint.css';
+
+interface Props {
+	title: string;
+	description: string;
+	eyebrow: string;
+	heading: string;
+	intro?: string;
+	number?: string;
+	backHref?: string;
+	backLabel?: string;
+	compact?: boolean;
+	structuredData?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+	title,
+	description,
+	eyebrow,
+	heading,
+	intro,
+	number = '00',
+	backHref,
+	backLabel = '戻る',
+	compact = false,
+	structuredData,
+} = Astro.props;
+
+const structuredItems = structuredData
+	? Array.isArray(structuredData)
+		? structuredData
+		: [structuredData]
+	: [];
+---
+
+<BaseLayout
+	title={title}
+	description={description}
+	showChrome={false}
+	htmlTheme="overprint"
+	headVariant="creator"
+>
+	<Fragment slot="head">
+		{
+			structuredItems.map((item) => (
+				<script type="application/ld+json" set:html={JSON.stringify(item)} />
+			))
+		}
+	</Fragment>
+
+	<div class="portfolio creator-site">
+		<CreatorNav />
+		<main class="creator-main">
+			<header class:list={['creator-page-hero', { 'is-compact': compact }] }>
+				<div class="creator-page-copy">
+					{backHref && <a class="creator-back" href={backHref}>← {backLabel}</a>}
+					<p class="creator-eyebrow">{eyebrow}</p>
+					<h1><span>{heading}</span></h1>
+					{intro && <p class="creator-intro">{intro}</p>}
+				</div>
+				<span class="creator-page-number" aria-hidden="true">{number}</span>
+			</header>
+
+			<div class="creator-page-body">
+				<slot />
+			</div>
+		</main>
+		<CreatorFooter />
+	</div>
+</BaseLayout>

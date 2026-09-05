@@ -1,721 +1,134 @@
 ---
-import ContactCTA from "../components/ContactCTA.astro";
-import Hero from "../components/Hero.astro";
-import Icon from "../components/Icon.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import CreatorContactStrip from '../components/CreatorContactStrip.astro';
+import CreatorLayout from '../layouts/CreatorLayout.astro';
+import { musicVideos } from '../data/musicVideos';
+
+const title = 'その他制作物の倉庫 | 大鹿ニク';
+const description = '大鹿ニクが制作したミュージックビデオ、短編映像、AI創作100日チャレンジ、音楽・Web制作物のアーカイブ。';
+
+const archives = [
+	{
+		mark: 'MV',
+		title: 'Music Videos',
+		meta: `${musicVideos.length}本 / 音楽と映像`,
+		href: '/work/music-videos/',
+	},
+	{
+		mark: '映',
+		title: '映像作品アーカイブ',
+		meta: '短編・アニメーション',
+		href: '/video-archive/',
+	},
+	{
+		mark: '百',
+		title: '#AI創作100日',
+		meta: '100日分の制作記録',
+		href: '/100days/',
+	},
+];
+
+const outsideLinks = [
+	{ label: 'Suno', href: 'https://suno.com/@yajusika' },
+	{ label: 'Spotify', href: 'https://open.spotify.com/intl-ja/artist/4MjpBNzO8tRzviKOgXeHoY' },
+	{ label: 'Apple Music', href: 'https://music.apple.com/jp/artist/%E5%A4%A7%E9%B9%BF%E3%83%8B%E3%82%AF/1831287955' },
+	{ label: '大鹿堂 / BOOTH', href: 'https://nikuoosika.booth.pm/' },
+	{ label: 'GitHub', href: 'https://github.com/Nikunikuo' },
+];
+
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'CollectionPage',
+	name: 'その他制作物の倉庫',
+	description,
+	url: 'https://niku.studio/work/',
+	inLanguage: 'ja-JP',
+	mainEntity: {
+		'@type': 'ItemList',
+		numberOfItems: archives.length,
+		itemListElement: archives.map((archive, index) => ({
+			'@type': 'ListItem',
+			position: index + 1,
+			name: archive.title,
+			url: new URL(archive.href, 'https://niku.studio').href,
+		})),
+	},
+};
 ---
 
-<BaseLayout
-	title="Works | 大鹿ニク / M1RA"
-	description="生成AIで制作した作品集。ディスコグラフィー（ミュージックビデオ12作品、Spotify/Apple Music配信楽曲）、開発プロジェクト（AITuber M1RA、大鹿堂）など。定期的に新作公開中。"
+<CreatorLayout
+	title={title}
+	description={description}
+	eyebrow="WORKS / ARCHIVE"
+	heading="その他制作物の倉庫"
+	intro="完成したもの、試したもの、積み上げたもの。いま見せられる制作物だけを、種類ごとに置いています。"
+	number="02"
+	structuredData={structuredData}
 >
-	<!-- Breadcrumb Schema -->
-	<script type="application/ld+json" slot="head">
-		{
-			"@context": "https://schema.org",
-			"@type": "BreadcrumbList",
-			"itemListElement": [
+	<section class="creator-section" aria-labelledby="archive-title">
+		<header class="creator-section-heading">
+			<p class="creator-section-kicker">OPEN THE DOOR</p>
+			<h2 id="archive-title">見られるもの</h2>
+		</header>
+		<div class="creator-section-content">
+			<ol class="creator-rows archive-rows">
 				{
-					"@type": "ListItem",
-					"position": 1,
-					"name": "Home",
-					"item": "https://niku.studio/"
-				},
-				{
-					"@type": "ListItem",
-					"position": 2,
-					"name": "Work",
-					"item": "https://niku.studio/work/"
+					archives.map((archive, index) => (
+						<li class="creator-row">
+							<a href={archive.href}>
+								<span class="archive-mark">{archive.mark}</span>
+								<strong class="creator-row-title">{archive.title}</strong>
+								<span class="creator-row-meta">{archive.meta}</span>
+								<i class="creator-row-arrow" aria-hidden="true">↗</i>
+							</a>
+						</li>
+					))
 				}
-			]
-		}
-	</script>
+			</ol>
+		</div>
+	</section>
 
-	<div class="stack gap-20">
-		<main class="wrapper stack gap-8">
-			<Hero
-				title="Works"
-				tagline="生成AIで制作したものの紹介ページ。定期的に新作を公開しています。"
-				align="start"
-				titleI18n="work_title"
-				taglineI18n="work_desc"
-			>
-				<div class="youtube-link">
-					<a
-						href="https://www.youtube.com/@M1RA_Archive_Project"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="youtube-cta"
-					>
-						<Icon icon="youtube-logo" size="1.5em" />
-						<span data-i18n="work_youtube_link"
-							>YouTubeチャンネルを見る</span
-						>
-					</a>
-				</div>
-			</Hero>
+	<section class="creator-section" aria-labelledby="outside-title">
+		<header class="creator-section-heading">
+			<p class="creator-section-kicker">ELSEWHERE</p>
+			<h2 id="outside-title">外にあるもの</h2>
+		</header>
+		<div class="creator-section-content">
+			<div class="creator-link-grid">
+				{
+					outsideLinks.map((link) => (
+						<a href={link.href} target="_blank" rel="noopener noreferrer">
+							<span>{link.label} ↗</span>
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</section>
 
-			<!-- GHOSTS Section -->
-			<section class="ghosts-section">
-				<a href="/ghosts/" class="ghosts-banner">
-					<div class="ghosts-banner-bg"></div>
-					<div class="ghosts-banner-content">
-						<div class="ghosts-banner-icon">
-							<Icon icon="rocket-launch" size="3em" />
-						</div>
-						<div class="ghosts-banner-info">
-							<h2 class="ghosts-banner-title">GHOSTS</h2>
-							<p class="ghosts-banner-subtitle">
-								Noise in the Silence
-							</p>
-							<p class="ghosts-banner-desc">
-								AI統治下の2163年。音楽が禁じられた世界で、4人の若者が音を鳴らし始めた。
-							</p>
-						</div>
-						<div class="ghosts-banner-arrow">
-							<Icon icon="arrow-right" size="2.5em" />
-						</div>
-					</div>
-				</a>
-			</section>
-
-			<section class="work-category">
-				<div class="category-header">
-					<h2 data-i18n="work_discography">🎵 ディスコグラフィー</h2>
-					<p data-i18n="work_discography_desc">
-						生成AIで制作した楽曲・MV作品
-					</p>
-				</div>
-				<div class="category-content">
-					<div class="category-card">
-						<div class="card-icon">
-							<Icon icon="youtube-logo" size="3em" />
-						</div>
-						<h3 data-i18n="work_mv">ミュージックビデオ</h3>
-						<p data-i18n="work_mv_desc">
-							生成AIを活用して制作したミュージックビデオ作品集。映像と音楽の融合を追求しています。
-						</p>
-						<a href="/work/music-videos/" class="card-link">
-							<span data-i18n="work_mv_link">作品ページへ</span>
-							<Icon icon="arrow-right" size="1em" />
-						</a>
-					</div>
-					<div class="category-card">
-						<div class="card-icon">
-							<Icon icon="strategy" size="3em" />
-						</div>
-						<h3 data-i18n="work_songs">楽曲</h3>
-						<p data-i18n="work_songs_desc">
-							AIと人間のコラボレーションで生まれた楽曲たち。ジャンルを超えた音楽制作に挑戦中。
-						</p>
-						<div class="card-links-group">
-							<a
-								href="https://suno.com/@yajusika"
-								target="_blank"
-								rel="noopener noreferrer"
-								class="card-link"
-							>
-								Sunoプロフィール
-								<Icon icon="arrow-right" size="1em" />
-							</a>
-							<a
-								href="https://open.spotify.com/intl-ja/artist/4MjpBNzO8tRzviKOgXeHoY"
-								target="_blank"
-								rel="noopener noreferrer"
-								class="card-link"
-							>
-								Spotify
-								<Icon icon="arrow-right" size="1em" />
-							</a>
-							<a
-								href="https://music.apple.com/jp/artist/%E5%A4%A7%E9%B9%BF%E3%83%8B%E3%82%AF/1831287955"
-								target="_blank"
-								rel="noopener noreferrer"
-								class="card-link"
-							>
-								Apple Music
-								<Icon icon="arrow-right" size="1em" />
-							</a>
-						</div>
-					</div>
-					<div class="category-card">
-						<div class="card-icon">
-							<Icon icon="rocket-launch" size="3em" />
-						</div>
-						<h3 data-i18n="work_ai_anime">AIアニメーション</h3>
-						<p data-i18n="work_ai_anime_desc">
-							生成AIで作成したアニメーション作品。短編から実験的な映像表現まで。
-						</p>
-						<div class="card-links-group">
-							<a
-								href="https://www.youtube.com/@M1RA_Archive_Project"
-								target="_blank"
-								rel="noopener noreferrer"
-								class="card-link"
-							>
-								<span data-i18n="work_watch"
-									>YouTubeで視聴する</span
-								>
-								<Icon icon="arrow-right" size="1em" />
-							</a>
-							<a href="/video-archive/" class="card-link">
-								<span data-i18n="work_video_archive"
-									>作品アーカイブ</span
-								>
-								<Icon icon="arrow-right" size="1em" />
-							</a>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- #AI創作100日チャレンジ -->
-			<section class="work-category challenge-section">
-				<div class="category-header">
-					<h2 data-i18n="work_100days">🔥 #AI創作100日チャレンジ</h2>
-					<p data-i18n="work_100days_subtitle">
-						2025/8/9～ 生成AIで毎日創作を続ける100日間の軌跡
-					</p>
-				</div>
-				<div class="challenge-card-wrapper">
-					<a href="/100days/" class="challenge-card-full">
-						<div class="challenge-icon">
-							<Icon icon="rocket-launch" size="3em" />
-						</div>
-						<div class="challenge-info">
-							<h3 data-i18n="work_100days_desc">
-								2025/8/9～　100日チャレンジの軌跡
-							</h3>
-							<p data-i18n="work_100days_detail">
-								生成AIを使った創作を100日間毎日継続するチャレンジ。音楽、アニメ、ツール開発など多岐にわたる創作活動の記録を公開中。
-							</p>
-						</div>
-						<div class="challenge-arrow">
-							<Icon icon="arrow-right" size="2em" />
-						</div>
-					</a>
-				</div>
-			</section>
-
-			<section class="work-category">
-				<div class="category-header">
-					<h2 data-i18n="work_dev_projects">💻 開発プロジェクト</h2>
-					<p data-i18n="work_dev_projects_desc">
-						AI技術を活用した個人開発アプリケーション
-					</p>
-				</div>
-				<div class="category-content">
-					<div class="category-card">
-						<div class="card-icon">
-							<Icon icon="pencil-line" size="3em" />
-						</div>
-						<h3 data-i18n="work_ai_articles">AI活用記事</h3>
-						<p data-i18n="work_ai_articles_desc">
-							生成AIの活用方法や技術解説をNoteで公開しています。
-						</p>
-						<a
-							href="https://note.com/m1ra_project"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="card-link"
-						>
-							<span data-i18n="work_read_articles"
-								>記事を読む</span
-							>
-							<Icon icon="arrow-right" size="1em" />
-						</a>
-					</div>
-					<div class="category-card">
-						<div class="card-icon">
-							<Icon icon="strategy" size="3em" />
-						</div>
-						<h3 data-i18n="work_aituber_mira">AITuber M1RA</h3>
-						<p data-i18n="work_aituber_desc_short">
-							AITuber「M1RA」プロジェクト。AIと人間の新しい関係性を探求しています。
-						</p>
-						<a href="/mira/" class="card-link">
-							<span data-i18n="work_view_details">詳細を見る</span
-							>
-							<Icon icon="arrow-right" size="1em" />
-						</a>
-					</div>
-					<div class="category-card">
-						<div class="card-icon">
-							<Icon icon="x-logo" size="3em" />
-						</div>
-						<h3 data-i18n="work_x_posts">X 記事</h3>
-						<p data-i18n="work_x_posts_desc">
-							M1RA プロジェクトのX（@M1RA_A_Project）の投稿を一覧にまとめています。クリックでXの該当ポストに移動します。
-						</p>
-						<a href="/work/x-posts/" class="card-link">
-							<span data-i18n="work_x_posts_link">一覧を見る</span>
-							<Icon icon="arrow-right" size="1em" />
-						</a>
-					</div>
-				</div>
-			</section>
-
-			<section class="work-category">
-				<div class="category-header">
-					<h2 data-i18n="work_others">📝 その他</h2>
-					<p data-i18n="work_others_desc">
-						実験的な取り組みや試作品など
-					</p>
-				</div>
-				<div class="category-content">
-					<div class="category-card">
-						<div class="card-icon">
-							<Icon icon="code" size="3em" />
-						</div>
-						<h3 data-i18n="work_booth_title">
-							大鹿堂（Boothページ）
-						</h3>
-						<p data-i18n="work_booth_desc">
-							オリジナルグッズや制作物を販売しているBoothショップです。
-						</p>
-						<a
-							href="https://nikuoosika.booth.pm/"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="card-link"
-						>
-							<span data-i18n="work_booth_link"
-								>ショップを見る</span
-							>
-							<Icon icon="arrow-right" size="1em" />
-						</a>
-					</div>
-					<div class="category-card">
-						<div class="card-icon">
-							<Icon icon="strategy" size="3em" />
-						</div>
-						<h3 data-i18n="work_experimental_title">
-							実験的プロジェクト
-						</h3>
-						<p data-i18n="work_experimental_desc">
-							新しい技術やアイデアを試すための実験的な取り組みです。
-						</p>
-						<span class="card-link disabled">
-							<span>準備中</span>
-							<Icon icon="arrow-right" size="1em" />
-						</span>
-					</div>
-					<div class="category-card">
-						<div class="card-icon">
-							<Icon icon="code" size="3em" />
-						</div>
-						<h3 data-i18n="work_opensource_title">
-							オープンソース
-						</h3>
-						<p data-i18n="work_opensource_desc">
-							GitHubで公開している個人プロジェクトやライブラリです。
-						</p>
-						<a
-							href="https://github.com/Nikunikuo"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="card-link"
-						>
-							<span data-i18n="work_opensource_link"
-								>GitHubを見る</span
-							>
-							<Icon icon="arrow-right" size="1em" />
-						</a>
-					</div>
-				</div>
-			</section>
-		</main>
-		<ContactCTA />
-	</div>
-</BaseLayout>
+	<CreatorContactStrip />
+</CreatorLayout>
 
 <style>
-	.youtube-link {
-		margin-top: 1.5rem;
+	.archive-rows {
+		counter-reset: archive;
 	}
 
-	.youtube-cta {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.75rem;
-		padding: 1rem 2rem;
-		background: var(--gradient-accent);
-		color: var(--gray-999);
-		text-decoration: none;
-		border-radius: 999rem;
-		font-weight: 600;
-		font-size: var(--text-md);
-		transition: all 0.3s ease;
-		box-shadow: var(--shadow-md);
-	}
-
-	.youtube-cta:hover {
-		transform: translateY(-2px);
-		box-shadow: var(--shadow-lg);
-	}
-
-	.work-category {
-		margin-top: 4rem;
-		padding: 2rem 0;
-	}
-
-	.category-header {
-		text-align: center;
-		margin-bottom: 3rem;
-	}
-
-	.category-header h2 {
-		font-size: var(--text-3xl);
-		color: #ffffff;
-		font-weight: 700;
-		margin-bottom: 0.5rem;
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-	}
-
-	.category-header p {
-		font-size: var(--text-lg);
-		color: rgba(255, 255, 255, 0.8);
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-	}
-
-	.category-content {
+	.archive-mark {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
-	}
-
-	.category-card {
-		background: rgba(0, 20, 40, 0.6);
-		border: 2px solid rgba(0, 255, 136, 0.3);
-		border-radius: 1rem;
-		padding: 2rem;
-		text-align: center;
-		transition: all 0.3s ease;
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
-
-	.category-card:hover {
-		border-color: #00ff88;
-		box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
-		transform: translateY(-5px);
-	}
-
-	.card-icon {
-		color: #00ff88;
-		margin-bottom: 0.5rem;
-	}
-
-	.category-card h3 {
-		font-size: var(--text-xl);
-		color: #ffffff;
+		place-items: center;
+		width: clamp(44px, 5.5vw, 72px);
+		aspect-ratio: 1;
+		border: 2px solid currentColor;
+		font-family: var(--font-brand);
+		font-size: clamp(1.4rem, 2.8vw, 2.6rem);
 		font-weight: 700;
-		margin: 0;
+		line-height: 1.2;
 	}
 
-	.category-card p {
-		font-size: var(--text-base);
-		color: rgba(255, 255, 255, 0.9);
-		line-height: 1.6;
-		flex-grow: 1;
-		margin: 0;
-	}
-
-	.card-link {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.75rem 1.5rem;
-		background: rgba(0, 255, 136, 0.1);
-		border: 2px solid #00ff88;
-		border-radius: 0.5rem;
-		color: #00ff88;
-		text-decoration: none;
-		font-weight: 600;
-		transition: all 0.3s ease;
-		margin-top: auto;
-	}
-
-	.card-link:hover {
-		background: rgba(0, 255, 136, 0.2);
-		box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
-	}
-
-	.card-link.disabled {
-		opacity: 0.5;
-		cursor: not-allowed;
-		pointer-events: none;
-	}
-
-	.card-links-group {
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-		margin-top: auto;
-	}
-
-	.card-links-group .card-link {
-		margin-top: 0;
-	}
-
-	/* 100日チャレンジセクション */
-	.challenge-section {
-		margin-top: 4rem;
-		margin-bottom: 4rem;
-	}
-
-	.challenge-card-wrapper {
-		width: 100%;
-	}
-
-	.challenge-card-full {
-		display: flex;
-		align-items: center;
-		gap: 2rem;
-		padding: 2.5rem;
-		background: rgba(0, 20, 40, 0.6);
-		border: 2px solid rgba(0, 255, 136, 0.3);
-		border-radius: 1rem;
-		text-decoration: none;
-		transition: all 0.3s ease;
-	}
-
-	.challenge-card-full:hover {
-		border-color: #00ff88;
-		box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
-		transform: translateY(-5px);
-	}
-
-	.challenge-icon {
-		color: #00ff88;
-		flex-shrink: 0;
-	}
-
-	.challenge-info {
-		flex: 1;
-		min-width: 0;
-	}
-
-	.challenge-info h3 {
-		font-size: var(--text-2xl);
-		color: #ffffff;
-		font-weight: 700;
-		margin-bottom: 0.75rem;
-	}
-
-	.challenge-info p {
-		font-size: var(--text-base);
-		color: rgba(255, 255, 255, 0.9);
-		line-height: 1.6;
-		margin: 0;
-	}
-
-	.challenge-arrow {
-		color: #00ff88;
-		flex-shrink: 0;
-		transition: transform 0.3s ease;
-	}
-
-	.challenge-card-full:hover .challenge-arrow {
-		transform: translateX(10px);
-	}
-
-	/* GHOSTS Banner Section */
-	.ghosts-section {
-		margin: 3rem 0;
-		padding: 0;
-	}
-
-	.ghosts-banner {
-		display: block;
-		width: 100%;
-		text-decoration: none;
-		position: relative;
-		overflow: hidden;
-		border-radius: 1rem;
-		border: 3px solid #ff0844;
-		background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
-		box-shadow: 0 0 30px rgba(255, 8, 68, 0.4);
-		transition: all 0.4s ease;
-	}
-
-	.ghosts-banner:hover {
-		border-color: #27e1ff;
-		box-shadow: 0 0 50px rgba(39, 225, 255, 0.6);
-		transform: translateY(-5px);
-	}
-
-	.ghosts-banner-bg {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background:
-			linear-gradient(
-				45deg,
-				transparent 30%,
-				rgba(255, 8, 68, 0.1) 50%,
-				transparent 70%
-			),
-			linear-gradient(
-				-45deg,
-				transparent 30%,
-				rgba(39, 225, 255, 0.1) 50%,
-				transparent 70%
-			);
-		background-size: 200% 200%;
-		animation: ghosts-gradient 8s ease infinite;
-		opacity: 0.5;
-	}
-
-	.ghosts-banner-content {
-		position: relative;
-		display: flex;
-		align-items: center;
-		gap: 2rem;
-		padding: 2.5rem 3rem;
-		min-height: 160px;
-	}
-
-	.ghosts-banner-icon {
-		flex-shrink: 0;
-		color: #ff0844;
-		filter: drop-shadow(0 0 15px rgba(255, 8, 68, 0.8));
-		animation: pulse 2s ease-in-out infinite;
-	}
-
-	.ghosts-banner-info {
-		flex: 1;
-		min-width: 0;
-	}
-
-	.ghosts-banner-title {
-		font-size: clamp(2rem, 4vw, 3rem);
-		font-weight: 900;
-		letter-spacing: 0.3rem;
-		color: #ff0844;
-		text-shadow:
-			0 0 10px rgba(255, 8, 68, 0.8),
-			0 0 20px rgba(255, 8, 68, 0.5);
-		margin: 0 0 0.25rem 0;
-		animation: glitch-text 3s ease-in-out infinite;
-	}
-
-	.ghosts-banner-subtitle {
-		font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-		color: #27e1ff;
-		text-transform: uppercase;
-		letter-spacing: 0.2rem;
-		margin: 0 0 1rem 0;
-		opacity: 0.9;
-	}
-
-	.ghosts-banner-desc {
-		font-size: clamp(1rem, 1.8vw, 1.2rem);
-		color: rgba(255, 255, 255, 0.95);
-		line-height: 1.6;
-		margin: 0;
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-	}
-
-	.ghosts-banner-arrow {
-		flex-shrink: 0;
-		color: #ff0844;
-		filter: drop-shadow(0 0 10px rgba(255, 8, 68, 0.6));
-		transition: transform 0.4s ease;
-	}
-
-	.ghosts-banner:hover .ghosts-banner-arrow {
-		transform: translateX(15px);
-		color: #27e1ff;
-		filter: drop-shadow(0 0 15px rgba(39, 225, 255, 0.8));
-	}
-
-	@keyframes ghosts-gradient {
-		0% {
-			background-position: 0% 50%;
-		}
-		50% {
-			background-position: 100% 50%;
-		}
-		100% {
-			background-position: 0% 50%;
-		}
-	}
-
-	@keyframes pulse {
-		0%,
-		100% {
-			transform: scale(1);
-		}
-		50% {
-			transform: scale(1.1);
-		}
-	}
-
-	@keyframes glitch-text {
-		0%,
-		90%,
-		100% {
-			transform: translate(0);
-		}
-		92% {
-			transform: translate(-2px, 2px);
-		}
-		94% {
-			transform: translate(2px, -2px);
-		}
-		96% {
-			transform: translate(-2px, -2px);
-		}
-		98% {
-			transform: translate(2px, 2px);
-		}
-	}
-
-	@media (max-width: 768px) {
-		.category-content {
-			grid-template-columns: 1fr;
-		}
-
-		.category-header h2 {
-			font-size: var(--text-2xl);
-		}
-
-		.work-category {
-			margin-top: 2rem;
-		}
-
-		.challenge-card-full {
-			flex-direction: column;
-			text-align: center;
-			padding: 2rem;
-		}
-
-		.challenge-arrow {
-			transform: rotate(90deg);
-		}
-
-		.challenge-card-full:hover .challenge-arrow {
-			transform: rotate(90deg) translateX(10px);
-		}
-
-		/* GHOSTS Banner Mobile */
-		.ghosts-banner-content {
-			flex-direction: column;
-			text-align: center;
-			padding: 2rem 1.5rem;
-			gap: 1.5rem;
-		}
-
-		.ghosts-banner-arrow {
-			transform: rotate(90deg);
-		}
-
-		.ghosts-banner:hover .ghosts-banner-arrow {
-			transform: rotate(90deg) translateX(10px);
+	@media (max-width: 720px) {
+		.archive-mark {
+			width: 40px;
+			font-size: 1.3rem;
 		}
 	}
 </style>

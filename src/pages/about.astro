@@ -1,465 +1,229 @@
 ---
-import ContactCTA from '../components/ContactCTA.astro';
-import Hero from '../components/Hero.astro';
-import Icon from '../components/Icon.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import CreatorContactStrip from '../components/CreatorContactStrip.astro';
+import CreatorLayout from '../layouts/CreatorLayout.astro';
+
+const title = '大鹿ニクについて | NIKU STUDIO';
+const description = '映像、音楽、アニメーション、Webを横断して制作する大鹿ニクのプロフィールと、創作に向き合う理由。';
+
+const structuredData = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://niku.studio/' },
+			{ '@type': 'ListItem', position: 2, name: '大鹿ニクについて', item: 'https://niku.studio/about/' },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'AboutPage',
+		name: '大鹿ニクについて',
+		description,
+		url: 'https://niku.studio/about/',
+		mainEntity: { '@id': 'https://niku.studio/#person' },
+	},
+];
 ---
 
-<BaseLayout
-	title="Niku | 大鹿ニク / M1RA"
-	description="AI技術で人間の創造性を解放する。vibe coding信者のAI×エンタメクリエイター、大鹿ニク（OosikaNiku）のプロフィール。生成AIでMV制作、AITuberプロジェクト運営。哲学×AIの可能性を追求。"
+<CreatorLayout
+	title={title}
+	description={description}
+	eyebrow="ABOUT / NIKU OOSIKA"
+	heading="大鹿ニク"
+	intro="映像も、音楽も、アニメも、Webも。ひとつに絞れなかったから、全部つくることにしました。"
+	number="03"
+	structuredData={structuredData}
 >
-	<!-- Breadcrumb Schema -->
-	<script type="application/ld+json" slot="head">
-	{
-		"@context": "https://schema.org",
-		"@type": "BreadcrumbList",
-		"itemListElement": [
-			{
-				"@type": "ListItem",
-				"position": 1,
-				"name": "Home",
-				"item": "https://niku.studio/"
-			},
-			{
-				"@type": "ListItem",
-				"position": 2,
-				"name": "Niku",
-				"item": "https://niku.studio/about/"
-			}
-		]
-	}
-	</script>
+	<section class="creator-section about-lead" aria-labelledby="portrait-title">
+		<header class="creator-section-heading">
+			<p class="creator-section-kicker">PORTRAIT</p>
+			<h2 id="portrait-title">つくる人</h2>
+		</header>
+		<div class="creator-section-content">
+			<figure class="creator-media-frame about-visual">
+				<img
+					src="/images/niku.png"
+					alt="ノートパソコンで制作する大鹿ニクのキャラクタービジュアル"
+					width="1920"
+					height="1080"
+					loading="eager"
+					decoding="async"
+				/>
+				<figcaption>OOSIKA NIKU / CREATOR</figcaption>
+			</figure>
+		</div>
+	</section>
 
-	<!-- AboutPage Schema -->
-	<script type="application/ld+json" slot="head">
-	{
-		"@context": "https://schema.org",
-		"@type": "AboutPage",
-		"mainEntity": { "@id": "https://niku.studio/#person" }
-	}
-	</script>
+	<section class="creator-section" aria-labelledby="statement-title">
+		<header class="creator-section-heading">
+			<p class="creator-section-kicker">STATEMENT</p>
+			<h2 id="statement-title">なぜ、つくるのか</h2>
+		</header>
+		<div class="creator-section-content creator-prose statement">
+			<p>私は器用貧乏な人間です。</p>
+			<p>絵を描けばそれなりに見れるし、歌を歌えばそれなりに聞ける。何をやっても「それなり」には出来るけれど、決して一番にはなれない。小学生の頃は絵や漫画を描き、中学生の頃は音楽を始めて詩を書いたり曲を創ったりしていました。</p>
+			<p>大人になるにつれて、周りが自分より遥かに凄い人達で溢れていることに気づきます。あぁ、自分はやはりこんなものか——2番どころか3番、4番にもなれず、挫けてばかりでした。</p>
+			<p>器用貧乏だから、それなりに生きているし、まともな社会生活は送れています。でもだからこそ、燻って昇華させられない想いや鬱憤が溜まっていました。</p>
+			<p>私の活動は、長年溜め込んでいた創作への情熱を解放する場なのかもしれません。</p>
+			<p>生成AIは、私にとって「今まで自分が出来なかったこと」を可能にしてくれる武器です。</p>
+			<p>絵は描けるけれど、巷に溢れているような綺麗で魅力的な絵は難しい。曲も作れるけど、ダイナミックなアレンジなんて出来ない。自信をもって出せるのは詩だけだけど、それも一流には遠く及ばない。</p>
+			<p>でも、AIと一緒にだったらそれが出来るようになりました。<strong>自分の想いを「形」にすることが出来るようになりました。</strong></p>
+			<p>ようやく自分の内側に眠っている想いや願いを、自分の力を超える力で表現できる時代になりました。</p>
+			<p>大SNS時代、承認欲求に駆られて作品を発表する人もいれば、自分の想いを形にしたい人、自分に挑戦したい人もいる。いろんな人がいて、いろんな理由があっていいと思います。</p>
+			<blockquote>後ろを振り返るのもたまにはいいけれども、周りを気にしすぎるより、ただ前を見て歩く方が幾分マシなんじゃないかな。</blockquote>
+			<p>一見バラバラに見える作品たちも、その想いで繋がっているはずです。</p>
+		</div>
+	</section>
 
-	<div class="stack gap-20">
-		<main class="wrapper about">
-			<Hero
-				title="NikuOosika"
-				tagline="AI技術で人間の創造性を解放する。生成AIとエンタメの可能性を追求しています。"
-				titleI18n="about_title"
-				taglineI18n="about_tagline"
-			>
-				<div class="niku-image-container">
-					<img
-						width="1920"
-						height="1080"
-						src="/images/niku.png"
-						alt="大鹿ニク / M1RA"
-						class="niku-image"
-					/>
-				</div>
-			</Hero>
+	<section class="creator-section" aria-labelledby="practice-title">
+		<header class="creator-section-heading">
+			<p class="creator-section-kicker">PRACTICE</p>
+			<h2 id="practice-title">やっていること</h2>
+		</header>
+		<div class="creator-section-content practice-grid">
+			<article>
+				<span>01</span>
+				<h3>映像・アニメーション</h3>
+				<p>企画、画づくり、音、編集まで。生成AIも使いながら、一本の映像として仕上げます。</p>
+			</article>
+			<article>
+				<span>02</span>
+				<h3>音楽・言葉</h3>
+				<p>歌詞、楽曲、ミュージックビデオ。言葉から始まる作品をつくっています。</p>
+			</article>
+			<article>
+				<span>03</span>
+				<h3>Web・ツール</h3>
+				<p>AstroやReactを使ったWeb制作と、AIを組み込んだ個人開発。必要なら自分で仕組みもつくります。</p>
+			</article>
+		</div>
+	</section>
 
-			<section>
-				<h2 class="section-title" data-i18n="about_artist_statement">Artist Statement</h2>
-				<div class="content">
-					<p data-i18n="about_artist_statement_text">
-						私は器用貧乏な人間です。<br>
-						<br>
-						絵を描けばそれなりに見れるし、歌を歌えばそれなりに聞ける。<br>何をやっても「それなり」には出来るけれど、決して一番にはなれない。<br>小学生の頃は絵や漫画を描き、中学生の頃は音楽を始めて詩を書いたり曲を創ったりしていました。<br>
-						<br>
-						大人になるにつれて、周りが自分より遥かに凄い人達で溢れていることに気づきます。<br>あぁ、自分はやはりこんなものか——2番どころか3番、4番にもなれず、挫けてばかりでした。<br>
-						<br>
-						器用貧乏だから、それなりに生きているし、まともな社会生活は送れています。<br>でもだからこそ、燻って昇華させられない想いや鬱憤が溜まっていました。<br>
-						<br>
-						私の活動は、長年溜め込んでいた創作への情熱を解放する場なのかもしれません。<br>
-						<br>
-						生成AIは、私にとって「今まで自分が出来なかったこと」を可能にしてくれる武器です。<br>
-						<br>
-						絵は描けるけれど、巷に溢れているような綺麗で魅力的な絵は難しい。<br>曲も作れるけど、ダイナミックなアレンジなんて出来ない。<br>自信をもって出せるのは詩だけだけど、それも一流には遠く及ばない。<br>
-						<br>
-						でも、AIと一緒にだったらそれが出来るようになりました。<br>
-						<strong>自分の想いを「形」にすることが出来るようになりました。</strong><br>
-						<br>
-						ようやく自分の内側に眠っている想いや願いを、自分の力を超える力で表現できる時代になりました。<br>
-						<br>
-						大SNS時代、承認欲求に駆られて作品を発表する人もいれば、自分の想いを形にしたい人、自分に挑戦したい人もいる。<br>いろんな人がいて、いろんな理由があっていいと思います。<br>
-						<br>
-						ただ、私が作品を通して伝えたいことがあるとすれば——<br>
-						<br>
-						<span class="key-message"><strong>後ろを振り返るのもたまにはいいけれども、周りを気にしすぎるより、ただ前を見て歩く方が幾分マシなんじゃないかな。</strong></span><br>
-						<br>
-						一見バラバラに見える作品たちも、その想いで繋がっているはずです。
-					</p>
-				</div>
-			</section>
+	<section class="creator-section" aria-labelledby="method-title">
+		<header class="creator-section-heading">
+			<p class="creator-section-kicker">METHOD</p>
+			<h2 id="method-title">作り方</h2>
+		</header>
+		<div class="creator-section-content creator-prose method-copy">
+			<p>直感とフィーリングを大切にしながら、AIと協働してコードを書き、映像を組み、音をつくっています。</p>
+			<p>最初から完璧に固めるより、まず手を動かして、出てきたものを見ながら何度も直す。その繰り返しが自分の制作スタイルです。</p>
+		</div>
+	</section>
 
-			<section>
-				<h2 class="section-title" data-i18n="about_mira_project">M1RA Project</h2>
-				<div class="content">
-					<p data-i18n="about_mira_project_text">
-						AITuber「M1RA」プロジェクトでは、「AIに心はあるのか」という哲学的なテーマに挑戦しています。
-						単にAIを動かすだけでなく、AIと人間の対話、感情の表現、
-						そして存在意義について深く考えながら開発を進めています。<br><br>
-						このプロジェクトは技術的な実験であると同時に、
-						哲学×AIという新しい領域への挑戦でもあります。
-					</p>
-				</div>
-			</section>
+	<section class="creator-section" aria-labelledby="links-title">
+		<header class="creator-section-heading">
+			<p class="creator-section-kicker">LINKS</p>
+			<h2 id="links-title">外で見る</h2>
+		</header>
+		<div class="creator-section-content creator-link-grid">
+			<a href="https://github.com/Nikunikuo" target="_blank" rel="noopener noreferrer"><span>GitHub ↗</span></a>
+			<a href="https://nikuoosika.booth.pm/" target="_blank" rel="noopener noreferrer"><span>大鹿堂 / BOOTH ↗</span></a>
+			<a href="https://suno.com/@yajusika" target="_blank" rel="noopener noreferrer"><span>Suno ↗</span></a>
+			<a href="https://open.spotify.com/intl-ja/artist/4MjpBNzO8tRzviKOgXeHoY" target="_blank" rel="noopener noreferrer"><span>Spotify ↗</span></a>
+			<a href="https://music.apple.com/jp/artist/%E5%A4%A7%E9%B9%BF%E3%83%8B%E3%82%AF/1831287955" target="_blank" rel="noopener noreferrer"><span>Apple Music ↗</span></a>
+			<a href="/work/"><span>制作物一覧 →</span></a>
+		</div>
+	</section>
 
-			<section>
-				<h2 class="section-title" data-i18n="about_dev_style">Development Style</h2>
-				<div class="content">
-					<p data-i18n="about_dev_style_text">
-						開発スタイルは「vibe coding」信者。
-						直感とフィーリングを大切にしながら、AIと協働してコードを書いています。
-						完璧主義ではなく、スピード感を持って実験と改善を繰り返すアジャイルなアプローチを好みます。
-					</p>
-				</div>
-			</section>
-
-			<section>
-				<h2 class="section-title" data-i18n="about_tech_stack">Tech Stack</h2>
-				<div class="content tech-stack">
-					<div class="tech-category">
-						<h3><Icon icon="code" size="1.2em" /> AI & Creative Tools</h3>
-						<ul>
-							<li>生成AI (Stable Diffusion, Midjourney, etc.)</li>
-							<li>動画編集・エフェクト</li>
-							<li>音楽制作ツール</li>
-						</ul>
-					</div>
-					<div class="tech-category">
-						<h3><Icon icon="strategy" size="1.2em" /> Development</h3>
-						<ul>
-							<li>Web開発 (Astro, React, etc.)</li>
-							<li>AI統合開発</li>
-							<li>クリエイティブコーディング</li>
-						</ul>
-					</div>
-				</div>
-			</section>
-
-			<section>
-				<h2 class="section-title" data-i18n="about_links">Links</h2>
-				<div class="content">
-					<ul class="social-links">
-						<li>
-							<Icon icon="x-logo" size="1.5em" />
-							<a href="https://x.com/M1RA_A_Project" target="_blank" rel="noopener noreferrer">
-								X (Twitter) - @M1RA_A_Project
-							</a>
-						</li>
-						<li>
-							<Icon icon="youtube-logo" size="1.5em" />
-							<a href="https://www.youtube.com/@M1RA_Archive_Project" target="_blank" rel="noopener noreferrer">
-								YouTube - M1RA Archive Project
-							</a>
-						</li>
-						<li>
-							<Icon icon="pencil-line" size="1.5em" />
-							<a href="https://note.com/m1ra_project" target="_blank" rel="noopener noreferrer">
-								Note - M1RA Project
-							</a>
-						</li>
-					</ul>
-				</div>
-			</section>
-
-			<section>
-				<h2 class="section-title" data-i18n="about_projects">Projects</h2>
-				<div class="content">
-					<div class="project-link-card">
-						<div class="project-icon">
-							<Icon icon="rocket-launch" size="2.5em" />
-						</div>
-						<div class="project-details">
-							<h3 data-i18n="about_projects_title">作品一覧</h3>
-							<p data-i18n="about_projects_desc">ディスコグラフィー、開発プロジェクト、AITuber M1RAなど、全ての作品をご覧いただけます。</p>
-							<a href="/work/" class="project-cta">
-								<span data-i18n="about_projects_cta">Workページへ</span>
-								<Icon icon="arrow-right" size="1em" />
-							</a>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-
-		<ContactCTA />
-	</div>
-</BaseLayout>
+	<CreatorContactStrip />
+</CreatorLayout>
 
 <style>
-	.about {
-		display: flex;
-		flex-direction: column;
-		gap: 3.5rem;
+	.about-visual {
+		height: clamp(330px, 53vw, 740px);
+		transform: rotate(1.2deg);
 	}
 
-	.niku-image-container {
-		margin-top: 1.5rem;
-		position: relative;
-		border: 3px solid rgba(0, 255, 136, 0.5);
-		border-radius: 1rem;
-		padding: 0.5rem;
-		background: linear-gradient(135deg, rgba(0, 20, 40, 0.8), rgba(0, 40, 60, 0.8));
-		box-shadow:
-			0 0 30px rgba(0, 255, 136, 0.3),
-			inset 0 0 20px rgba(0, 255, 136, 0.1),
-			0 10px 40px rgba(0, 0, 0, 0.5);
-		animation: float 4s ease-in-out infinite;
+	.about-visual img {
+		filter: none;
 	}
 
-	@keyframes float {
-		0%, 100% {
-			transform: translateY(0px);
-		}
-		50% {
-			transform: translateY(-15px);
-		}
-	}
-
-	.niku-image-container::before {
-		content: '';
+	.about-visual figcaption {
 		position: absolute;
-		top: -3px;
-		left: -3px;
-		right: -3px;
-		bottom: -3px;
-		background: linear-gradient(135deg, #00ff88, #00ccff, #00ff88);
-		border-radius: 1rem;
-		z-index: -1;
-		opacity: 0.3;
-		animation: borderGlow 3s ease-in-out infinite;
+		right: 18px;
+		bottom: 16px;
+		padding: 7px 10px;
+		background: var(--studio-accent);
+		color: var(--studio-ink);
+		font-family: "IBM Plex Mono", monospace;
+		font-size: 0.75rem;
 	}
 
-	@keyframes borderGlow {
-		0%, 100% {
-			opacity: 0.3;
-		}
-		50% {
-			opacity: 0.6;
-		}
+	.statement {
+		max-width: 76ch;
 	}
 
-	.niku-image {
-		width: 100%;
-		height: auto;
-		display: block;
-		border-radius: 0.75rem;
-		object-fit: contain;
+	.statement strong {
+		color: var(--studio-ink);
+		background: var(--studio-accent);
 	}
 
-	section {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
-
-	.section-title {
-		grid-column-start: 1;
-		font-size: var(--text-xl);
-		color: #ffffff;
+	.statement blockquote {
+		margin: clamp(48px, 7vw, 90px) 0;
+		padding: clamp(28px, 5vw, 58px) clamp(24px, 5vw, 64px);
+		border: 2px solid var(--studio-ink);
+		background: var(--studio-accent);
+		box-shadow: 8px 8px 0 var(--studio-ink);
+		transform: rotate(-1deg);
+		color: var(--studio-ink);
+		font-family: var(--font-brand);
+		font-size: clamp(1.55rem, 3.1vw, 3rem);
 		font-weight: 700;
-		letter-spacing: 0.5px;
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+		line-height: 1.65;
 	}
 
-	.content {
-		grid-column: 2 / 4;
-	}
-
-	.content p {
-		line-height: 1.8;
-		margin-bottom: 1rem;
-		color: #ffffff;
-		font-weight: 500;
-		text-shadow:
-			0 0 8px rgba(0, 0, 0, 0.9),
-			2px 2px 4px rgba(0, 0, 0, 0.8);
-		background: rgba(0, 0, 0, 0.4);
-		padding: 1rem 1.5rem;
-		border-radius: 0.5rem;
-		border: 1px solid rgba(255, 255, 255, 0.2);
-	}
-
-	.key-message {
-		display: inline-block;
-		font-size: 1.15em;
-		color: #00ff88;
-		padding: 0.5rem 0;
-		text-shadow:
-			0 0 10px rgba(0, 255, 136, 0.6),
-			2px 2px 4px rgba(0, 0, 0, 0.8);
-	}
-
-	.content :global(a) {
-		color: var(--accent-regular);
-		text-decoration: 1px solid underline transparent;
-		text-underline-offset: 0.25em;
-		transition: text-decoration-color var(--theme-transition);
-	}
-
-	.content :global(a:hover),
-	.content :global(a:focus) {
-		text-decoration-color: currentColor;
-	}
-
-	.tech-stack {
+	.practice-grid {
 		display: grid;
-		gap: 2rem;
+		grid-template-columns: 1fr;
+		border-top: 2px solid var(--studio-ink);
+		border-left: 1px solid var(--studio-line);
 	}
 
-	.tech-category h3 {
-		font-size: var(--text-lg);
-		color: #ffffff;
-		font-weight: 700;
-		margin-bottom: 1rem;
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-		background: rgba(0, 0, 0, 0.4);
-		padding: 0.5rem 1rem;
-		border-radius: 0.5rem;
-		border: 1px solid rgba(0, 255, 136, 0.3);
+	.practice-grid article {
+		min-height: 220px;
+		padding: 26px;
+		border-right: 1px solid var(--studio-line);
+		border-bottom: 1px solid var(--studio-line);
+		background: var(--studio-panel);
 	}
 
-	.tech-category ul {
-		list-style: none;
-		padding: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
+	.practice-grid span {
+		color: var(--studio-ink);
+		font-family: "IBM Plex Mono", monospace;
+		font-size: 0.82rem;
 	}
 
-	.tech-category li {
-		padding: 0.75rem 1rem;
-		padding-left: 2rem;
-		position: relative;
-		color: #ffffff;
-		background: rgba(0, 0, 0, 0.3);
-		border-radius: 0.5rem;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+	.practice-grid h3 {
+		margin: 28px 0 18px;
+		color: var(--studio-ink);
+		font-family: var(--font-brand);
+		font-size: clamp(1.55rem, 2.6vw, 2.6rem);
+		font-weight: 900;
+		letter-spacing: -0.05em;
+		line-height: 1.2;
 	}
 
-	.tech-category li::before {
-		content: '▹';
-		position: absolute;
-		left: 0.75rem;
-		color: #00ff88;
+	.practice-grid p {
+		color: var(--studio-muted);
+		line-height: 1.85;
 	}
 
-	.social-links {
-		list-style: none;
-		padding: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
+	.method-copy {
+		max-width: 62ch;
+		font-size: clamp(1.1rem, 2vw, 1.45rem);
 	}
 
-	.social-links li {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		padding: 1rem;
-		background: rgba(0, 0, 0, 0.4);
-		border-radius: 0.75rem;
-		border: 2px solid rgba(0, 255, 136, 0.3);
-		transition: all 0.3s ease;
-	}
-
-	.social-links li:hover {
-		transform: translateX(8px);
-		border-color: #00ff88;
-		box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
-	}
-
-	.social-links a {
-		color: #ffffff;
-		text-decoration: none;
-		font-size: var(--text-md);
-		font-weight: 500;
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-	}
-
-	.project-link-card {
-		display: flex;
-		align-items: flex-start;
-		gap: 1.5rem;
-		padding: 2rem;
-		background: rgba(0, 0, 0, 0.4);
-		border-radius: 1rem;
-		border: 2px solid rgba(0, 255, 136, 0.3);
-		transition: all 0.3s ease;
-	}
-
-	.project-link-card:hover {
-		border-color: #00ff88;
-		box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
-		transform: translateY(-5px);
-	}
-
-	.project-icon {
-		color: #00ff88;
-		flex-shrink: 0;
-	}
-
-	.project-details {
-		flex: 1;
-	}
-
-	.project-details h3 {
-		font-size: var(--text-xl);
-		color: #ffffff;
-		margin-bottom: 0.75rem;
-		font-weight: 700;
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-	}
-
-	.project-details p {
-		margin-bottom: 1.5rem;
-	}
-
-	.project-cta {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.75rem 1.5rem;
-		background: rgba(0, 255, 136, 0.1);
-		border: 2px solid #00ff88;
-		border-radius: 0.5rem;
-		color: #00ff88;
-		text-decoration: none;
-		font-weight: 600;
-		font-size: var(--text-base);
-		transition: all 0.3s ease;
-	}
-
-	.project-cta:hover {
-		background: rgba(0, 255, 136, 0.2);
-		box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
-		transform: translateX(5px);
-	}
-
-	@media (min-width: 50em) {
-		.about {
-			display: grid;
-			grid-template-columns: 1fr 60% 1fr;
+	@media (max-width: 920px) {
+		.practice-grid {
+			grid-template-columns: 1fr;
 		}
 
-		.about > :global(:first-child) {
-			grid-column-start: 2;
+		.practice-grid article {
+			min-height: 230px;
 		}
 
-		section {
-			display: contents;
-			font-size: var(--text-lg);
-		}
-
-		.tech-stack {
-			grid-template-columns: repeat(2, 1fr);
+		.practice-grid h3 {
+			margin-top: 42px;
 		}
 	}
 </style>
