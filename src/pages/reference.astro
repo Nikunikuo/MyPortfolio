@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CreatorNav from '../components/CreatorNav.astro';
+import CreatorFooter from '../components/CreatorFooter.astro';
+import { nikuReferencePosts } from '../data/nikuReferencePosts';
+import '../styles/studio-overprint.css';
+import '../styles/reference-overprint.css';
+
+const portrait = '/images/Niku/niku-fictional-optical-shop-v1.png';
+const sheet = '/images/Niku/content.png';
+const shareWork = 'https://x.com/M1RA_A_Project';
+const description = '大鹿ニクのリファレンス。写真とリファレンスシートはフリー素材です。改変も、AIへの取り込みも、好きに遊んでください。投稿したら教えてね。';
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'CollectionPage',
+	name: '大鹿ニクのリファレンス',
+	description,
+	url: 'https://niku.studio/reference/',
+	image: [portrait, sheet].map((path) => `https://niku.studio${path}`),
+	isPartOf: { '@id': 'https://niku.studio/#website' },
+	about: { '@id': 'https://niku.studio/#person' },
+};
+---
+
+<BaseLayout title="大鹿ニクのリファレンス | NIKU STUDIO" description={description} showChrome={false} htmlTheme="overprint" headVariant="creator">
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	</Fragment>
+	<div class="portfolio reference-site">
+		<CreatorNav />
+		<main class="reference-main">
+			<header class="reference-heading">
+				<div class="reference-topline">
+					<a href="/">NIKU STUDIO <span aria-hidden="true">/</span> リファレンス</a>
+					<a href="#everyone">みんなの投稿へ <span aria-hidden="true">↓</span></a>
+				</div>
+				<h1><span>大鹿ニクの</span>リファレンス</h1>
+			</header>
+
+			<section class="reference-spread" aria-label="自由に使える大鹿ニクの画像">
+				<figure class="reference-photo">
+					<a class="reference-image-link" href={portrait} target="_blank" rel="noopener noreferrer" aria-label="大鹿ニクの画像を原寸で開く（新しいタブ）" data-astro-reload>
+						<img src={portrait} alt="金色のサングラスと白黒の柄シャツを着た大鹿ニク。背景は架空の眼鏡店に加工" width="1087" height="1446" fetchpriority="high" decoding="async" />
+					</a>
+					<figcaption>
+						<div class="reference-image-meta">
+							<span><b>01</b> 本人です。</span>
+							<small class="reference-image-credit">作成：<a href="https://x.com/0235_jp" target="_blank" rel="noopener noreferrer">山下</a></small>
+							<small class="reference-image-credit">背景はAIで架空の眼鏡店に差し替えています。</small>
+						</div>
+						<a href={portrait} download="niku-reference-photo.png" data-astro-reload>画像を保存 <span aria-hidden="true">↓</span></a>
+					</figcaption>
+				</figure>
+				<div class="reference-right">
+					<div class="reference-free">
+						<h2>フリー素材です。</h2>
+						<p>改変も、AIへの取り込みも。<br />好きに遊んでください。</p>
+					</div>
+					<figure class="reference-sheet">
+						<a class="reference-image-link" href={sheet} target="_blank" rel="noopener noreferrer" aria-label="顔・全身・衣装のリファレンスシートを原寸で開く（新しいタブ）" data-astro-reload>
+							<img src={sheet} alt="大鹿ニクの顔、全身、金色のサングラス、柄シャツと靴をさまざまな角度から見たリファレンスシート" width="1536" height="1024" decoding="async" />
+						</a>
+						<figcaption>
+							<div class="reference-image-meta">
+								<span><b>02</b> つくるときのお供に。</span>
+								<small class="reference-image-credit">作成：<a href="https://x.com/nyapan_mohy" target="_blank" rel="noopener noreferrer">モヒにゃぱん</a></small>
+							</div>
+							<a href={sheet} download="niku-reference-sheet.png" data-astro-reload>シートを保存 <span aria-hidden="true">↓</span></a>
+						</figcaption>
+					</figure>
+					<p class="reference-original-note">画像を押すと、原寸で開きます。</p>
+				</div>
+			</section>
+
+			<section class="reference-invitation" aria-labelledby="use-title">
+				<div class="reference-permission-copy">
+					<h2 id="use-title">何に使っても<span>いいです。</span></h2>
+					<p>絵でも、映像でも、3Dでも。<br />メディアはなんでも。好きなように使って、遊んでください。</p>
+				</div>
+				<div class="reference-ask">
+					<h3>でも見たいので、<br />投稿したら教えてね。</h3>
+					<a class="reference-text-link" href={shareWork} target="_blank" rel="noopener noreferrer">Xで教える <span aria-hidden="true">↗</span></a>
+				</div>
+			</section>
+
+			<section class="reference-everyone" id="everyone" aria-labelledby="everyone-title">
+				<header class="reference-everyone-heading">
+					<div>
+						<p class="reference-caption">つくってくれて、ありがとう。</p>
+						<h2 id="everyone-title">みんなが<br />つくったニク。</h2>
+					</div>
+					<p>Xで届けてもらった投稿を、<br />ここに並べていきます。</p>
+				</header>
+				{nikuReferencePosts.length > 0 ? (
+					<>
+						<ol class="reference-posts" aria-label="みんなの作品ギャラリー">
+							{nikuReferencePosts.map((post, index) => (
+								<li data-reference-post={post.id}>
+									<article class="reference-post">
+										<a class="reference-work-image" href={post.url} target="_blank" rel="noopener noreferrer" aria-label={`${post.authorName}さんの作品をXで見る（新しいタブ）`}>
+											{post.preview && <img data-work-preview data-fallback-src={post.previewFallback} src={post.preview.url} alt={`${post.authorName}さんがつくった大鹿ニクの作品${post.media[0]?.type === 'photo' ? '' : 'の動画サムネイル'}`} width={post.preview.width} height={post.preview.height} loading="lazy" decoding="async" referrerpolicy="no-referrer" />}
+											<span class="reference-preview-unavailable" data-preview-unavailable hidden={Boolean(post.preview)}>作品をXで見る <span aria-hidden="true">↗</span></span>
+											{post.media[0] && post.media[0].type !== 'photo' && <span class="reference-video-label"><span aria-hidden="true">▶</span> {post.media[0].type === 'gif' ? 'GIF' : '動画'}</span>}
+											{post.media.length > 1 && <span class="reference-media-count">全{post.media.length}点</span>}
+										</a>
+										<div class="reference-work-caption">
+											<span class="reference-work-number">{String(index + 1).padStart(2, '0')}</span>
+											<a href={post.url} target="_blank" rel="noopener noreferrer">
+												{post.comment && <small class="reference-work-comment">{post.comment}</small>}
+												<strong>{post.authorName}</strong>
+												<small>{post.authorHandle}</small>
+											</a>
+											<span aria-hidden="true">↗</span>
+										</div>
+									</article>
+								</li>
+							))}
+						</ol>
+						<p class="reference-post-note">作品を押すとXで開きます。動画の再生や、同じ投稿のほかの画像もそちらから。</p>
+					</>
+				) : (
+					<div class="reference-posts-pending">
+						<p>届いた投稿を、<br />ただいま並べる準備中。</p>
+						<span>まずは上の2枚で、好きに遊んでみてね。</span>
+						<a class="reference-text-link" href={shareWork} target="_blank" rel="noopener noreferrer">Xで教える <span aria-hidden="true">↗</span></a>
+					</div>
+				)}
+				<p class="reference-credit-note">フリー素材として配布しているのは、上の2枚です。ここで紹介するみんなの作品は、各投稿者のものです。</p>
+			</section>
+		</main>
+		<CreatorFooter />
+	</div>
+</BaseLayout>
+
+<script>
+	// No X widgets or client API calls: show a permanent link if a remote preview fails.
+	function prepareReferencePreviews() {
+		document.querySelectorAll<HTMLImageElement>('[data-work-preview]').forEach((preview) => {
+			if (preview.dataset.initialized) return;
+			preview.dataset.initialized = 'true';
+			const unavailable = () => {
+				const fallback = preview.dataset.fallbackSrc;
+				if (fallback) {
+					delete preview.dataset.fallbackSrc;
+					preview.src = fallback;
+					return;
+				}
+				preview.hidden = true;
+				const label = preview.parentElement?.querySelector<HTMLElement>('[data-preview-unavailable]');
+				if (label) label.hidden = false;
+			};
+			preview.addEventListener('error', unavailable);
+			if (preview.complete && preview.naturalWidth === 0) unavailable();
+		});
+	}
+	document.addEventListener('astro:page-load', prepareReferencePreviews);
+	prepareReferencePreviews();
+</script>
