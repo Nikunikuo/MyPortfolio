@@ -1,6 +1,6 @@
 import galleryMetadata from './nikuReferenceMedia.json';
 import { nikuReferenceComments } from './nikuReferenceComments';
-import { nikuReferenceThumbnails } from './nikuReferenceThumbnails';
+import { nikuReferenceThumbnails, nikuReferenceThumbnailIndexes } from './nikuReferenceThumbnails';
 
 interface ReferenceMedia {
 	type: 'photo' | 'video' | 'gif';
@@ -25,7 +25,8 @@ const gallery = galleryMetadata as Record<string, {
  * 配列の順が掲載順です。同じ人の別の投稿も、そのまま追加できます。
  * サムネイル・作者名は nikuReferenceMedia.json に同じ投稿IDで追加します。
  * 一言コメントは nikuReferenceComments.ts に、本人の引用リポストを元に追加します。
- * 動画途中の表紙は nikuReferenceThumbnails.ts で指定。元のメディア配列は変更しません。
+ * 動画途中の表紙・何枚目を表紙にするかは nikuReferenceThumbnails.ts で指定します。
+ * 元のメディア配列は変更しません。
  * メタデータ未登録の投稿も、Xへのリンクとして表示されます。
  * 更新後は通常どおりビルド・公開が必要です。ブラウザ上での編集画面ではありません。
  */
@@ -77,7 +78,7 @@ export const nikuReferencePosts = nikuReferencePostUrls
 		authorName: gallery[post.id]?.authorName ?? post.handle ?? '投稿者',
 		authorHandle: gallery[post.id]?.authorHandle ?? post.handle,
 		media: gallery[post.id]?.media ?? [],
-		preview: nikuReferenceThumbnails[post.id] ?? gallery[post.id]?.media[0],
+		preview: nikuReferenceThumbnails[post.id] ?? gallery[post.id]?.media[nikuReferenceThumbnailIndexes[post.id] ?? 0] ?? gallery[post.id]?.media[0],
 		previewFallback: nikuReferenceThumbnails[post.id] ? gallery[post.id]?.media[0]?.url : undefined,
 		comment: nikuReferenceComments[post.id]?.summary,
 	}));

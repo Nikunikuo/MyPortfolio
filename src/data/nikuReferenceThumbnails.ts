@@ -8,6 +8,12 @@ interface ReferenceThumbnail {
 	timestampSeconds: number;
 }
 
+/** 元投稿の何枚目を表紙にするか（0始まり）。メディアの並び順は変更しない。 */
+export const nikuReferenceThumbnailIndexes: Record<string, number> = {
+	'2097497246929760331': 1,
+	'2097496049019674896': 1,
+};
+
 /**
  * 一覧専用の表紙。元投稿の media は保存したまま、表示画像だけ差し替える。
  * ここにない作品、またはローカル画像が読めない場合は元のXプレビューを使う。
