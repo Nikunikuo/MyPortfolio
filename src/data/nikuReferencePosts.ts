@@ -53,6 +53,12 @@ export const nikuReferencePostUrls: string[] = [
 	'https://x.com/haruuraeadss/status/2097902010746261690',
 	'https://x.com/mei_999_/status/2097909154514186481',
 	'https://x.com/kukoinari/status/2097914385117421610',
+	'https://x.com/tori_kizi/status/2097940196725751815',
+	'https://x.com/umimya_trbgani/status/2097955520200245326',
+	'https://x.com/ZetoGroovin/status/2097962333020774429',
+	'https://x.com/TK2Works/status/2097972296954830993',
+	'https://x.com/mei_999_/status/2097973856741065096',
+	'https://x.com/0235_jp/status/2097980483225477548',
 ];
 
 export function parseReferencePost(rawUrl: string) {

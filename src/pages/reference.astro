@@ -94,13 +94,17 @@ const structuredData = {
 				{nikuReferencePosts.length > 0 ? (
 					<>
 						<ol class="reference-posts" aria-label="みんなの作品ギャラリー">
-							{nikuReferencePosts.map((post, index) => (
+							{nikuReferencePosts.map((post, index) => {
+								const motionMedia = post.media.find((media) => media.type === 'video' || media.type === 'gif');
+								const motionLabel = motionMedia?.type === 'gif' ? 'GIF' : '動画';
+								return (
 								<li data-reference-post={post.id}>
 									<article class="reference-post">
-										<a class="reference-work-image" href={post.url} target="_blank" rel="noopener noreferrer" aria-label={`${post.authorName}さんの作品をXで見る（新しいタブ）`}>
-											{post.preview && <img data-work-preview data-fallback-src={post.previewFallback} src={post.preview.url} alt={`${post.authorName}さんがつくった大鹿ニクの作品${post.media[0]?.type === 'photo' ? '' : 'の動画サムネイル'}`} width={post.preview.width} height={post.preview.height} loading="lazy" decoding="async" referrerpolicy="no-referrer" />}
+										<a class="reference-work-image" href={post.url} target="_blank" rel="noopener noreferrer" aria-label={`${post.authorName}さんの${motionMedia ? motionLabel : '作品'}をXで見る（新しいタブ）`}>
+											{post.preview && <img data-work-preview data-fallback-src={post.previewFallback} src={post.preview.url} alt={`${post.authorName}さんがつくった大鹿ニクの作品${motionMedia ? `の${motionLabel}サムネイル` : ''}`} width={post.preview.width} height={post.preview.height} loading="lazy" decoding="async" referrerpolicy="no-referrer" />}
+											{post.preview && motionMedia && <span class="reference-play-indicator" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><path d="M8 5v14l11-7z" fill="currentColor" /></svg></span>}
 											<span class="reference-preview-unavailable" data-preview-unavailable hidden={Boolean(post.preview)}>作品をXで見る <span aria-hidden="true">↗</span></span>
-											{post.media[0] && post.media[0].type !== 'photo' && <span class="reference-video-label"><span aria-hidden="true">▶</span> {post.media[0].type === 'gif' ? 'GIF' : '動画'}</span>}
+											{motionMedia && <span class="reference-video-label">{motionLabel}</span>}
 											{post.media.length > 1 && <span class="reference-media-count">全{post.media.length}点</span>}
 										</a>
 										<div class="reference-work-caption">
@@ -114,7 +118,8 @@ const structuredData = {
 										</div>
 									</article>
 								</li>
-							))}
+								);
+							})}
 						</ol>
 						<p class="reference-post-note">作品を押すとXで開きます。動画の再生や、同じ投稿のほかの画像もそちらから。</p>
 					</>
