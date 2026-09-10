@@ -51,6 +51,8 @@ export const nikuReferencePostUrls: string[] = [
 	'https://x.com/0235_jp/status/2097356901038346283',
 	'https://x.com/torotoromoney/status/2097600983891366083',
 	'https://x.com/haruuraeadss/status/2097902010746261690',
+	'https://x.com/mei_999_/status/2097909154514186481',
+	'https://x.com/kukoinari/status/2097914385117421610',
 ];
 
 export function parseReferencePost(rawUrl: string) {
