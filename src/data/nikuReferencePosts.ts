@@ -9,13 +9,15 @@ interface ReferenceMedia {
 	height: number;
 }
 
-// Public metadata snapshot (2026-09-10): only each supplied post's OWN media, never quoted_tweet.
+// Public metadata snapshots: media contains the post's OWN attachments, never quoted_tweet.
 // Collected server-side from public syndication data, not a guaranteed/stable X API.
-// Remote previews stay on X's image CDN. Missing entries fall back to the X link.
+// Explicit video links are stored separately in linkedVideo with their source URL.
+// Remote previews stay on their source CDNs. Missing entries fall back to the X link.
 const gallery = galleryMetadata as Record<string, {
 	authorName: string;
 	authorHandle: string;
 	media: ReferenceMedia[];
+	linkedVideo?: ReferenceMedia & { type: 'video'; sourceUrl: string };
 }>;
 
 /**
@@ -27,6 +29,7 @@ const gallery = galleryMetadata as Record<string, {
  * 一言コメントは nikuReferenceComments.ts に、本人の引用リポストを元に追加します。
  * 動画途中の表紙・何枚目を表紙にするかは nikuReferenceThumbnails.ts で指定します。
  * 元のメディア配列は変更しません。
+ * 動画リンクだけの投稿は、確認済みの共有カードを linkedVideo に別途登録します。
  * メタデータ未登録の投稿も、Xへのリンクとして表示されます。
  * 更新後は通常どおりビルド・公開が必要です。ブラウザ上での編集画面ではありません。
  */
@@ -63,6 +66,11 @@ export const nikuReferencePostUrls: string[] = [
 	'https://x.com/capelin_1208/status/2098065813760819366',
 	'https://x.com/darche2/status/2098257213420929475',
 	'https://x.com/punkuma_ai/status/2098290063562219938',
+	'https://x.com/kedamasuzume/status/2098389569372860808',
+	'https://x.com/lilyAIstudy/status/2098371867480621302',
+	'https://x.com/0235_jp/status/2098393063597203692',
+	'https://x.com/M1RA_A_Project/status/2098139370603860288',
+	'https://x.com/Nokosu_kansoku/status/2098402137810378932',
 ];
 
 export function parseReferencePost(rawUrl: string) {
@@ -85,12 +93,17 @@ export function parseReferencePost(rawUrl: string) {
 export const nikuReferencePosts = nikuReferencePostUrls
 	.map(parseReferencePost)
 	.filter((post, index, posts) => posts.findIndex((item) => item.id === post.id) === index)
-	.map((post) => ({
-		...post,
-		authorName: gallery[post.id]?.authorName ?? post.handle ?? '投稿者',
-		authorHandle: gallery[post.id]?.authorHandle ?? post.handle,
-		media: gallery[post.id]?.media ?? [],
-		preview: nikuReferenceThumbnails[post.id] ?? gallery[post.id]?.media[nikuReferenceThumbnailIndexes[post.id] ?? 0] ?? gallery[post.id]?.media[0],
-		previewFallback: nikuReferenceThumbnails[post.id] ? gallery[post.id]?.media[0]?.url : undefined,
-		comment: nikuReferenceComments[post.id]?.summary,
-	}));
+	.map((post) => {
+		const metadata = gallery[post.id];
+		// Only use a linked video's card when the post has no attachments of its own.
+		const media = metadata?.media.length ? metadata.media : metadata?.linkedVideo ? [metadata.linkedVideo] : [];
+		return {
+			...post,
+			authorName: metadata?.authorName ?? post.handle ?? '投稿者',
+			authorHandle: metadata?.authorHandle ?? post.handle,
+			media,
+			preview: nikuReferenceThumbnails[post.id] ?? media[nikuReferenceThumbnailIndexes[post.id] ?? 0] ?? media[0],
+			previewFallback: nikuReferenceThumbnails[post.id] ? media[0]?.url : undefined,
+			comment: nikuReferenceComments[post.id]?.summary,
+		};
+	});

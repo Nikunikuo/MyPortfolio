@@ -455,6 +455,72 @@
       }
     ]
   },
+  "2098389569372860808": {
+    "authorName": "毛玉雀",
+    "authorHandle": "@kedamasuzume",
+    "media": [
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HR76Jgca0AAa4Tf.jpg",
+        "width": 1087,
+        "height": 1447
+      }
+    ]
+  },
+  "2098371867480621302": {
+    "authorName": "リリー@AI勉強中",
+    "authorHandle": "@lilyAIstudy",
+    "media": [
+      {
+        "type": "video",
+        "url": "https://pbs.twimg.com/amplify_video_thumb/2098369863043698688/img/7VerSIUPazdADvkX.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
+  "2098393063597203692": {
+    "authorName": "㈱0235 - 山下 | からくりワールド開発",
+    "authorHandle": "@0235_jp",
+    "media": [],
+    "linkedVideo": {
+      "type": "video",
+      "url": "https://pbs.twimg.com/card_img/2098392474259685376/cyBoHat8?format=jpg&name=orig",
+      "width": 1280,
+      "height": 720,
+      "sourceUrl": "https://youtu.be/NxDNB3SloO8"
+    }
+  },
+  "2098139370603860288": {
+    "authorName": "大鹿ニク（AI：M1RA）",
+    "authorHandle": "@M1RA_A_Project",
+    "media": [
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HR4WkmsaUAAmXut.jpg",
+        "width": 1254,
+        "height": 1254
+      }
+    ]
+  },
+  "2098402137810378932": {
+    "authorName": "Nokosu",
+    "authorHandle": "@Nokosu_kansoku",
+    "media": [
+      {
+        "type": "video",
+        "url": "https://pbs.twimg.com/amplify_video_thumb/2098400702238449664/img/75nRj3AiQFUVS_hD.jpg",
+        "width": 896,
+        "height": 1184
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HR8EWxSbsAEmM2x.jpg",
+        "width": 1087,
+        "height": 1446
+      }
+    ]
+  },
   "2097600983891366083": {
     "authorName": "こうたろう🐸ケロキング👑",
     "authorHandle": "@torotoromoney",
