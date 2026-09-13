@@ -138,6 +138,20 @@ const structuredData = {
 </BaseLayout>
 
 <script>
+	function shuffleReferencePosts() {
+		const gallery = document.querySelector<HTMLOListElement>('.reference-posts');
+		if (!gallery || gallery.dataset.shuffled) return;
+		const posts = Array.from(gallery.querySelectorAll<HTMLLIElement>(':scope > li[data-reference-post]'));
+		// Shuffle the existing cards, keeping each work's number, links and image handlers intact.
+		for (let index = posts.length - 1; index > 0; index--) {
+			const randomIndex = Math.floor(Math.random() * (index + 1));
+			[posts[index], posts[randomIndex]] = [posts[randomIndex], posts[index]];
+		}
+		gallery.append(...posts);
+		// Initial execution and astro:page-load may both run for the same document.
+		gallery.dataset.shuffled = 'true';
+	}
+
 	// No X widgets or client API calls: show a permanent link if a remote preview fails.
 	function prepareReferencePreviews() {
 		document.querySelectorAll<HTMLImageElement>('[data-work-preview]').forEach((preview) => {
@@ -158,6 +172,10 @@ const structuredData = {
 			if (preview.complete && preview.naturalWidth === 0) unavailable();
 		});
 	}
-	document.addEventListener('astro:page-load', prepareReferencePreviews);
+	document.addEventListener('astro:page-load', () => {
+		shuffleReferencePosts();
+		prepareReferencePreviews();
+	});
+	shuffleReferencePosts();
 	prepareReferencePreviews();
 </script>
