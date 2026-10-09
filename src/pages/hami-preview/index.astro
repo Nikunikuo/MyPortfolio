@@ -118,6 +118,15 @@ const episodes = [
 		youtubeId: 'vyYJYYfK98A',
 	},
 	{
+		no: 'AKUTAN',
+		episodeNumberUnconfirmed: true,
+		title: 'あくたんの日常編',
+		food: '煮込みハンバーグ',
+		image: '/images/hami/episodes/-sxfuDfWgAg.avif',
+		copy: 'あくたんの家に招かれたハミとミル。三人分の煮込みハンバーグに、意外な素顔がのぞく。',
+		youtubeId: '-sxfuDfWgAg',
+	},
+	{
 		no: 'PARFAIT',
 		episodeNumberUnconfirmed: true,
 		title: '好きなものだけパフェ編',
@@ -126,13 +135,74 @@ const episodes = [
 		copy: '苺、マンゴー、ラズベリー。好きなものだけ、グラスいっぱいに。',
 		youtubeId: '0-LZ7_sGK38',
 		recipeHref: '/hami-preview/recipes/favorite-parfait-party/',
+	},
+	{
+		no: 'KATSUDON',
+		episodeNumberUnconfirmed: true,
+		title: '双璧のカツ丼編',
+		food: '卵とじカツ丼／ソースカツ丼',
+		image: '/images/hami/episodes/XY7RDIplJZg.avif',
+		copy: '同じカツ丼を頼んだはずのミルとあくたん。卵とじとソース、思わぬすれ違いの食堂回。',
+		youtubeId: 'XY7RDIplJZg',
+	},
+	{
+		no: 'TRIAL',
+		episodeNumberUnconfirmed: true,
+		title: '一口ちょうだい裁判編',
+		food: 'アイスクリーム',
+		image: '/images/hami/episodes/tp-gq5wO7oY.avif',
+		copy: '「ひとくちちょうだい」から始まる大騒ぎ。ハミとミルがアイスをめぐるすれ違いを解いていく。',
+		youtubeId: 'tp-gq5wO7oY',
+	},
+	{
+		no: 'CHAHAN',
+		episodeNumberUnconfirmed: true,
+		title: '紛失のチャーハン編',
+		food: 'チャーハン',
+		image: '/images/hami/episodes/mSerpmgt3QI.avif',
+		copy: '財布探しで知り合った飯店の店主・林素。ハミはお礼のチャーハンをごちそうになる。',
+		youtubeId: 'mSerpmgt3QI',
+	},
+	{
+		no: 'YAKISOBA',
+		episodeNumberUnconfirmed: true,
+		title: '回転のカタ焼きそば編',
+		food: 'カタ焼きそば',
+		image: '/images/hami/episodes/DjfHjLy1CG0.avif',
+		copy: '回転テーブルに並ぶカタ焼きそば。四人で分けるはずが、食べる順番をめぐって大騒ぎ。',
+		youtubeId: 'DjfHjLy1CG0',
+	},
+	{
+		no: 'CURRY',
+		episodeNumberUnconfirmed: true,
+		title: '山林のカレー編（前編）',
+		food: 'キャンプカレー',
+		image: '/images/hami/episodes/EmdY-7tIWR4.avif',
+		copy: '四人で山林キャンプへ。火起こしに奮闘しながら、ハミがごろっと具材のカレー作りに挑む。',
+		youtubeId: 'EmdY-7tIWR4',
 		isLatest: true,
 	},
 ];
 
 const specials = [
 	{
-		no: 'SP',
+		no: 'INTRO',
+		title: 'はじめての「ハミちゃんの日常飯」',
+		food: '入門紹介',
+		image: '/images/hami/episodes/CoywZlZIZ2I.avif',
+		copy: 'キャラクターと作品の見どころを、この一本で。',
+		youtubeId: 'CoywZlZIZ2I',
+	},
+	{
+		no: 'NG 2',
+		title: 'NG集２',
+		food: 'NG集',
+		image: '/images/hami/episodes/f9z3gu9EyOM.avif',
+		copy: 'うまくいかなかった場面も、まとめてどうぞ。',
+		youtubeId: 'f9z3gu9EyOM',
+	},
+	{
+		no: 'NG 1',
 		title: 'NG集１',
 		food: 'NG集',
 		image: '/images/hami/ng-card.avif',
@@ -162,21 +232,23 @@ const youtubePlaylistUrl = `https://www.youtube.com/playlist?list=${youtubePlayl
 const youtubeWatchUrl = (videoId) => `https://www.youtube.com/watch?v=${videoId}`;
 const publishedEpisodes = episodes.filter((episode) => !episode.isUpcoming);
 const publishedVideos = [...publishedEpisodes, ...specials];
+const mainEpisodeCount = publishedEpisodes.length;
+const displayEpisodes = [...publishedEpisodes].reverse();
 const latestEpisode = episodes.find((episode) => episode.isLatest) ?? publishedEpisodes.at(-1);
 const watchPicks = [
 	{
-		label: 'はじめての一皿',
-		title: '黄金のナポリタン編',
-		copy: 'シリーズのかわいさと勢いを、まず一皿で。',
-		image: '/images/hami/napolitan-card.avif',
-		youtubeId: 'Piyz9IQu_Zc',
+		label: 'はじめての方へ',
+		title: 'はじめての「ハミちゃんの日常飯」',
+		copy: 'キャラクターと作品の見どころを、この一本で。',
+		image: '/images/hami/episodes/CoywZlZIZ2I.avif',
+		youtubeId: 'CoywZlZIZ2I',
 	},
 	{
-		label: 'ふたりを知る一皿',
-		title: '忘却のホットサンド編',
-		copy: 'ハミちゃんとミルちゃんの距離感までおいしい回。',
-		image: '/images/hami/hot-sand-eating.avif',
-		youtubeId: 'hg6qIefyr_I',
+		label: 'おまけもどうぞ',
+		title: 'NG集２',
+		copy: 'うまくいかなかった場面も、まとめてどうぞ。',
+		image: '/images/hami/episodes/f9z3gu9EyOM.avif',
+		youtubeId: 'f9z3gu9EyOM',
 	},
 ];
 
@@ -299,7 +371,7 @@ const galleryFrames = [
 		image: '/images/hami/akutan-expressions.avif',
 		tilt: 2,
 		lift: -0.18,
-		label: 'New face',
+		label: 'Akutan expressions',
 	},
 ];
 
@@ -315,7 +387,7 @@ const siteUrl = Astro.site ?? new URL('https://niku.studio');
 const canonicalUrl = new URL('/hami-preview/', siteUrl).toString();
 const pageTitle = 'ハミちゃんの日常飯 | 日常系ごはんアニメ特設サイト';
 const pageDescription =
-	'ハミちゃんの日常飯は、食べることが大好きなハミちゃん、無口で食欲旺盛なミルちゃん、激辛に強く猫舌なあくたんが、ごはんを通して毎回ちょっとした事件を起こす日常系ごはんアニメです。パフェ編をはじめとする家庭向けレシピと、広島旅行特別編の食べもの案内を掲載しています。';
+	`ハミちゃんの日常飯は、食べることが大好きなハミちゃん、無口で食欲旺盛なミルちゃん、激辛に強く猫舌なあくたんを中心に、中華飯店の店主・林素も食卓を囲む日常系ごはんアニメです。公開済みの本編${mainEpisodeCount}本、広島旅行特別編、対応する家庭向けレシピを案内しています。最新本編は「山林のカレー編（前編）」です。`;
 const pageKeywords = [
 	'ハミちゃんの日常飯',
 	'ハミちゃん',
@@ -324,6 +396,8 @@ const pageKeywords = [
 	'美沙尾ぷるむ',
 	'あくたん',
 	'阿久科辛子',
+	'林素',
+	'リン・スー',
 	'日常系アニメ',
 	'料理アニメ',
 	'ごはんアニメ',
@@ -340,6 +414,10 @@ const pageKeywords = [
 	'プリン',
 	'焼き餃子',
 	'激辛ラーメン',
+	'カツ丼',
+	'チャーハン',
+	'カタ焼きそば',
+	'キャンプカレー',
 	'広島旅行',
 	'もみじ饅頭',
 	'広島お好み焼き',
@@ -353,6 +431,7 @@ const seriesId = `${canonicalUrl}#series`;
 const hamiId = `${canonicalUrl}#hamichan`;
 const miruId = `${canonicalUrl}#miruchan`;
 const akutanId = `${canonicalUrl}#akutan`;
+const linSuId = `${canonicalUrl}#lin-su`;
 const goodsListItems = goods.map((item, index) => ({
 	'@type': 'ListItem',
 	position: index + 1,
@@ -376,11 +455,11 @@ const episodeListItems = publishedEpisodes.map((episode, index) => ({
 	name: episode.title,
 	item: {
 		'@type': 'TVEpisode',
-		'@id': `${canonicalUrl}#episode-${episode.no.toLowerCase()}`,
+		'@id': `${canonicalUrl}#episode-${episode.youtubeId}`,
 		name: episode.title,
 		description: episode.copy,
 		position: index + 1,
-		...(episode.episodeNumberUnconfirmed ? {} : { episodeNumber: episode.no }),
+		...(episode.episodeNumberUnconfirmed ? {} : { episodeNumber: Number(episode.no) }),
 		image: new URL(episode.image, siteUrl).toString(),
 		url: youtubeWatchUrl(episode.youtubeId),
 		partOfSeries: { '@id': seriesId },
@@ -391,9 +470,9 @@ const episodeListItems = publishedEpisodes.map((episode, index) => ({
 		},
 	},
 }));
-const videoObjects = publishedVideos.map((episode) => ({
+const createVideoObject = (episode: (typeof publishedVideos)[number]) => ({
 	'@type': 'VideoObject',
-	'@id': `${canonicalUrl}#video-${episode.no.toLowerCase()}`,
+	'@id': `${canonicalUrl}#video-${episode.youtubeId}`,
 	name: `${episode.title} | ハミちゃんの日常飯`,
 	description: episode.copy,
 	thumbnailUrl: [new URL(episode.image, siteUrl).toString()],
@@ -403,7 +482,10 @@ const videoObjects = publishedVideos.map((episode) => ({
 	inLanguage: 'ja-JP',
 	actor: [{ '@id': hamiId }, { '@id': miruId }],
 	creator: { '@id': personId },
-}));
+});
+const mainEpisodeVideoObjects = publishedEpisodes.map(createVideoObject);
+const specialVideoObjects = specials.map(createVideoObject);
+const videoObjects = [...mainEpisodeVideoObjects, ...specialVideoObjects];
 const hamiStructuredData = {
 	'@context': 'https://schema.org',
 	'@graph': [
@@ -424,6 +506,7 @@ const hamiStructuredData = {
 			inLanguage: 'ja-JP',
 			isPartOf: { '@id': 'https://niku.studio/#website' },
 			about: { '@id': seriesId },
+			mentions: { '@id': linSuId },
 			mainEntity: { '@id': seriesId },
 			primaryImageOfPage: {
 				'@type': 'ImageObject',
@@ -434,7 +517,7 @@ const hamiStructuredData = {
 			},
 			breadcrumb: { '@id': `${canonicalUrl}#breadcrumb` },
 			datePublished: '2026-06-03',
-			dateModified: '2026-09-05',
+			dateModified: '2026-10-09',
 			relatedLink: [
 				new URL('/hami-preview/recipes/', siteUrl).toString(),
 				new URL('/hami-preview/recipes/hiroshima-gourmet/', siteUrl).toString(),
@@ -455,12 +538,12 @@ const hamiStructuredData = {
 			logo: logoUrl,
 			genre: ['日常系アニメ', '料理アニメ', 'ごはんアニメ', 'ショートアニメ', '飯テロ'],
 			keywords: pageKeywords,
-			numberOfEpisodes: publishedEpisodes.length,
+			numberOfEpisodes: mainEpisodeCount,
 			inLanguage: 'ja-JP',
 			creator: { '@id': personId },
-			character: [{ '@id': hamiId }, { '@id': miruId }, { '@id': akutanId }],
+			character: [{ '@id': hamiId }, { '@id': miruId }, { '@id': akutanId }, { '@id': linSuId }],
 			actor: [{ '@id': hamiId }, { '@id': miruId }, { '@id': akutanId }],
-			hasPart: videoObjects.map((video) => ({ '@id': video['@id'] })),
+			hasPart: mainEpisodeVideoObjects.map((video) => ({ '@id': video['@id'] })),
 			potentialAction: {
 				'@type': 'WatchAction',
 				target: youtubePlaylistUrl,
@@ -491,10 +574,17 @@ const hamiStructuredData = {
 				'長身でスマートな体型と、赤と黒のロングウルフ、赤い目、黒いライダースが特徴の姉御肌。激辛には強いが熱さには弱い猫舌で、ミルちゃんから「あくたん」と命名された。',
 		},
 		{
+			'@type': 'Person',
+			'@id': linSuId,
+			name: '林素',
+			alternateName: 'リン・スー',
+			description: '中華飯店の店主。財布探しでハミちゃんと知り合い、食卓を囲む仲間になる。',
+		},
+		{
 			'@type': 'ItemList',
 			'@id': `${canonicalUrl}#episodes`,
 			name: 'ハミちゃんの日常飯 エピソード一覧',
-			numberOfItems: publishedEpisodes.length,
+			numberOfItems: mainEpisodeCount,
 			itemListElement: episodeListItems,
 		},
 		{
@@ -538,7 +628,7 @@ const hamiStructuredData = {
 					name: 'ハミちゃんの日常飯の登場人物は誰ですか？',
 					acceptedAnswer: {
 						'@type': 'Answer',
-						text: '登場人物は、食べることが大好きな羽村美緒ことハミちゃん、無口寄りで食欲旺盛な美沙尾ぷるむことミルちゃん、激辛に強く猫舌な阿久科辛子ことあくたんです。',
+						text: '主な登場人物は、食べることが大好きな羽村美緒ことハミちゃん、無口寄りで食欲旺盛な美沙尾ぷるむことミルちゃん、激辛に強く猫舌な阿久科辛子ことあくたん、中華飯店の店主・林素です。',
 					},
 				},
 				{
@@ -546,7 +636,23 @@ const hamiStructuredData = {
 					name: 'ハミちゃんの日常飯はどこで見られますか？',
 					acceptedAnswer: {
 						'@type': 'Answer',
-						text: `YouTube再生リストで各エピソードを視聴できます。再生リストURLは ${youtubePlaylistUrl} です。`,
+						text: `この特設サイトの各本編カードから、YouTubeの動画ページへ直接移動できます。再生リストも ${youtubePlaylistUrl} で案内しています。`,
+					},
+				},
+				{
+					'@type': 'Question',
+					name: '公開済みの本編はいくつですか？',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: `公開済みの本編は${mainEpisodeCount}本です。広島旅行特別編、NG集、入門紹介は本編とは別に案内しています。`,
+					},
+				},
+				{
+					'@type': 'Question',
+					name: 'レシピは全話にありますか？',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: `家庭向けレシピは対応する回をもとにした${recipeCount}件を掲載しています。公開済みのすべての本編にレシピがあるわけではありません。`,
 					},
 				},
 				{
@@ -595,7 +701,7 @@ const hamiStructuredData = {
 		<meta name="theme-color" content="#f28f77" />
 		<meta
 			name="abstract"
-			content="『ハミちゃんの日常飯』は、ハミちゃん、ミルちゃん、あくたんが身近な料理を食べるだけなのに毎回ちょっと事件になる、かわいい日常系ごはんアニメです。"
+			content="『ハミちゃんの日常飯』は、ハミちゃん、ミルちゃん、あくたんと中華飯店の店主・林素が、身近な料理を囲むたびにちょっとした事件になる日常系ごはんアニメです。"
 		/>
 		<meta name="classification" content="日常系アニメ, 料理アニメ, ショートアニメ" />
 		<link rel="canonical" href={canonicalUrl} />
@@ -618,7 +724,7 @@ const hamiStructuredData = {
 		<meta property="og:image:height" content="720" />
 		<meta property="og:image:alt" content="ハミちゃんの日常飯。ハミちゃん、ミルちゃん、あくたんと激辛ラーメンが描かれたキービジュアル。" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:updated_time" content="2026-08-15T22:39:00+09:00" />
+		<meta property="og:updated_time" content="2026-10-09T00:00:00+09:00" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="@M1RA_A_Project" />
 		<meta name="twitter:creator" content="@M1RA_A_Project" />
@@ -684,9 +790,9 @@ const hamiStructuredData = {
 						<span class="ai-production-copy">この作品は、<wbr />ほとんどの制作工程で<wbr />AIを使用して<wbr />作られています。</span>
 					</p>
 					<div class="hero-actions">
-						<a href="#watch">最新話をみる</a>
-						<a href="#episodes">全話から選ぶ</a>
-						<a class="hero-recipe-action" href="/hami-preview/recipes/"><span>NEW</span><strong>全{recipeCount}レシピ</strong></a>
+						<a href="#watch">最新本編をみる</a>
+						<a href="#episodes">本編から選ぶ</a>
+						<a class="hero-recipe-action" href="/hami-preview/recipes/"><span>PICK UP</span><strong>家庭向けレシピ</strong></a>
 						<a class="hero-hiroshima-action" href="/hami-preview/hiroshima/"><span>SP</span><strong>広島旅行特別編</strong></a>
 					</div>
 				</div>
@@ -707,24 +813,29 @@ const hamiStructuredData = {
 				<header class="watch-header">
 					<div>
 						<p class="section-kicker">WATCH NOW</p>
-						<h2 id="watch-title">今日見るなら、この一皿。</h2>
-						<p>最新話をここで再生。初めての人向けと、ふたりを知る回も選びました。</p>
+						<h2 id="watch-title">今日見るなら、<span class="watch-title-tail">この一皿。</span></h2>
+						<p>最新本編と、初めての方へ向けた紹介動画。気になる一本からどうぞ。</p>
 					</div>
 					<div class="watch-header-links">
-						{latestEpisode.recipeHref && <a class="playlist-link" href={latestEpisode.recipeHref}>この回のレシピを見る →</a>}
-						<a class="playlist-link" href={youtubePlaylistUrl} target="_blank" rel="noreferrer">全話をまとめて見る</a>
+						<a class="playlist-link" href="#episodes">本編一覧へ</a>
+						<a class="playlist-link" href={youtubePlaylistUrl} target="_blank" rel="noreferrer">再生リストを見る</a>
 					</div>
 				</header>
 				<div class="watch-layout">
-					<div class="inline-player" data-video-id={latestEpisode.youtubeId}>
-						<button class="video-poster" type="button" aria-label={`${latestEpisode.title}をこのページで再生`}>
-							<HamiImage src={latestEpisode.image} alt="" />
-							<span class="play-disc" aria-hidden="true">▶</span>
-							<span class="poster-copy">
-								<small>最新話</small>
-								<strong>{latestEpisode.title}</strong>
-							</span>
-						</button>
+					<div class="watch-feature">
+						<div class="inline-player" data-video-id={latestEpisode.youtubeId}>
+							<button class="video-poster" type="button" aria-label={`${latestEpisode.title}をこのページで再生`}>
+								<HamiImage src={latestEpisode.image} alt="" />
+								<span class="play-disc" aria-hidden="true">▶</span>
+								<span class="poster-copy">
+									<small>最新本編</small>
+									<strong>{latestEpisode.title}</strong>
+								</span>
+							</button>
+						</div>
+						<a class="watch-direct-link" href={youtubeWatchUrl(latestEpisode.youtubeId)} target="_blank" rel="noreferrer">
+							YouTubeで直接見る <span aria-hidden="true">↗</span>
+						</a>
 					</div>
 					<div class="watch-picks" aria-label="おすすめエピソード">
 						{watchPicks.map((pick) => (
@@ -771,23 +882,23 @@ const hamiStructuredData = {
 				<p class="recipe-spotlight-watermark" aria-hidden="true">RECIPE BOOK</p>
 				<div class="recipe-spotlight-inner">
 					<div class="recipe-spotlight-copy">
-						<div class="recipe-launch-badge"><span>NEW</span><strong><a href="/hami-preview/recipes/favorite-parfait-party/">好きなものだけパフェ編、できました。 →</a></strong></div>
+						<div class="recipe-launch-badge"><span>PICK UP</span><strong><a href="/hami-preview/recipes/favorite-parfait-party/">3人のパフェレシピを見る →</a></strong></div>
 						<p class="section-kicker">HAMICHAN RECIPE COLLECTION</p>
 						<h2 id="recipes-title">アニメを観たら、<br /><em>次はつくろう。</em></h2>
 						<p class="recipe-spotlight-lead">
-							本編に登場した「あの一皿」を、おうちの台所で再現できるレシピにしました。
-							3人それぞれのパフェも仲間入り。材料も作り方も、ハミちゃんたちのひとことも、一冊に。
+							対応する本編の「あの一皿」を、おうちの台所で再現できるレシピにしました。
+							3人それぞれのパフェも含めて、材料も作り方も、ハミちゃんたちのひとことも、一冊に。
 						</p>
 						<div class="recipe-spotlight-stats" aria-label="レシピコレクションの概要">
-							<div><strong>{recipeCount}</strong><span>RECIPES</span><small>全{recipeCount}レシピ</small></div>
-							<div><strong>{publishedEpisodes.length}</strong><span>WITH MOVIE</span><small>本編リンクつき</small></div>
+							<div><strong>{recipeCount}</strong><span>RECIPE COLLECTION</span><small>対応回の家庭向けレシピ</small></div>
+							<div><strong>{recipeCount}</strong><span>WITH MOVIE</span><small>本編リンクつき</small></div>
 							<div><strong>3</strong><span>PARFAITS</span><small>3人のとっておき</small></div>
 						</div>
 						<a class="recipe-spotlight-cta" href="/hami-preview/recipes/">
-							<span><small>HAMICHAN RECIPE BOOK</small><strong>全{recipeCount}レシピの本をひらく</strong></span>
+							<span><small>HAMICHAN RECIPE COLLECTION</small><strong>家庭向けレシピをひらく</strong></span>
 							<b aria-hidden="true">→</b>
 						</a>
-						<p class="recipe-spotlight-note">作中でわかることと、家庭向けに補った分量・手順を分けて掲載しています。</p>
+						<p class="recipe-spotlight-note">対応する回でわかることと、家庭向けに補った分量・手順を分けて掲載しています。</p>
 					</div>
 
 					<div class="recipe-spotlight-showcase" aria-label="オムライス、焼き餃子、激辛ラーメンと、ハミちゃん、ミルちゃん、あくたん">
@@ -870,7 +981,7 @@ const hamiStructuredData = {
 					</div>
 					<div>
 						<dt>登場人物</dt>
-						<dd>羽村美緒（ハミちゃん）、美沙尾ぷるむ（ミルちゃん）、阿久科辛子（あくたん）</dd>
+						<dd>羽村美緒（ハミちゃん）、美沙尾ぷるむ（ミルちゃん）、阿久科辛子（あくたん）、林素（リン・スー）</dd>
 					</div>
 					<div>
 						<dt>見られる場所</dt>
@@ -878,25 +989,24 @@ const hamiStructuredData = {
 					</div>
 					<div>
 						<dt>現在の話数</dt>
-						<dd>公開本編{publishedEpisodes.length}話。ショート、総集編、NG集に加えて、全話の家庭向けレシピも公開中です。</dd>
+						<dd>公開済みの本編{mainEpisodeCount}本。広島旅行特別編、NG集、入門紹介は別に案内し、家庭向けレシピは対応回のみ掲載しています。</dd>
 					</div>
 				</dl>
 			</section>
 
 			<section class="new-face-band" aria-labelledby="new-face-title">
 				<div class="new-face-visual">
-					<HamiImage src="/images/hami/gekikara-card.avif" alt="激辛ラーメンを前にしたあくたん、ハミちゃん、ミルちゃん" />
+					<HamiImage src="/images/hami/episodes/mSerpmgt3QI.avif" alt="チャーハンを作る林素と、目を輝かせるハミちゃん" />
 				</div>
 				<div class="new-face-copy">
-					<p class="section-kicker">NEW FACE</p>
-					<h2 id="new-face-title">赤くて辛くて、名前はかわいい。</h2>
+					<p class="section-kicker">LIN SU / NEW FACE</p>
+					<h2 id="new-face-title">中華飯店で、<br />もうひとり。</h2>
 					<p>
-						強そうな姉御が、激辛チャレンジに参戦。辛さには余裕なのに、湯気の前では箸が止まる。
-						ミルちゃんがつけた呼び名は「あくたん」。本人だけが、まだ慣れていません。
+						中華飯店の店主・林素（リン・スー）。財布探しでハミちゃんと知り合い、食卓を囲む仲間に。
 					</p>
 					<div class="new-face-actions">
-						<span>第14話・公開中</span>
-						<a href="#akutan">あくたんを知る</a>
+						<span>紛失のチャーハン編・公開中</span>
+						<a href={youtubeWatchUrl('mSerpmgt3QI')} target="_blank" rel="noreferrer">紛失のチャーハン編を見る</a>
 					</div>
 				</div>
 			</section>
@@ -952,7 +1062,7 @@ const hamiStructuredData = {
 					<article class="character-card akutan-card" id="akutan">
 						<div class="akutan-meal-frame">
 							<HamiImage src="/images/hami/akutan-reveal.avif" alt="激辛ラーメンを持ち上げる阿久科辛子" />
-							<span>NEW CHARACTER</span>
+							<span>SPICY &amp; KIND</span>
 						</div>
 						<div class="akutan-profile-row">
 							<div class="akutan-expression-strip">
@@ -976,20 +1086,20 @@ const hamiStructuredData = {
 				</div>
 				<figure class="trio-lineup">
 					<HamiImage src="/images/hami/character-lineup.avif" alt="ハミちゃん、ミルちゃん、あくたんの全身と身長差" />
-					<figcaption>小さなリアクション王、静かな大食い、赤い姉御。三人になりました。</figcaption>
+					<figcaption>小さなリアクション王、静かな大食い、赤い姉御。三人の食卓です。</figcaption>
 				</figure>
 			</section>
 
 			<section class="episode-strip" id="episodes" aria-label="Episode cards">
 				<header>
 					<div>
-						<p class="section-kicker">EPISODE</p>
-						<h2>今あるシリーズ</h2>
+						<p class="section-kicker">EPISODE / NEWEST FIRST</p>
+						<h2>公開済みの本編</h2>
 					</div>
-					<a class="playlist-link" href={youtubePlaylistUrl} target="_blank" rel="noreferrer">再生リスト</a>
+					<a class="playlist-link" href={youtubePlaylistUrl} target="_blank" rel="noreferrer">再生リストを見る</a>
 				</header>
 				<div class="episode-grid">
-					{episodes.map((episode) => episode.isUpcoming ? (
+					{displayEpisodes.map((episode) => episode.isUpcoming ? (
 						<article class="episode-card is-upcoming" aria-label={`${episode.title}は公開準備中`}>
 							<HamiImage src={episode.image} alt={episode.title} />
 							<div class="episode-info">
@@ -1020,7 +1130,7 @@ const hamiStructuredData = {
 					))}
 				</div>
 				<div class="episode-extras">
-					<p class="section-kicker">EXTRA DISH</p>
+					<p class="section-kicker">EXTRA &amp; GUIDE</p>
 					<div>
 						{specials.map((episode) => (
 							<a class="extra-card" href={youtubeWatchUrl(episode.youtubeId)} target="_blank" rel="noreferrer">
@@ -1746,6 +1856,10 @@ const hamiStructuredData = {
 		line-height: 1.08;
 	}
 
+	.watch-title-tail {
+		white-space: nowrap;
+	}
+
 	.watch-header p:not(.section-kicker) {
 		margin: 0;
 		color: var(--muted);
@@ -1757,6 +1871,13 @@ const hamiStructuredData = {
 		grid-template-columns: minmax(0, 1.55fr) minmax(18rem, 0.65fr);
 		gap: 1rem;
 		align-items: stretch;
+	}
+
+	.watch-feature {
+		display: grid;
+		min-width: 0;
+		align-content: start;
+		gap: 0.7rem;
 	}
 
 	.inline-player {
@@ -2308,6 +2429,34 @@ const hamiStructuredData = {
 			radial-gradient(circle at 92% 92%, rgba(79, 177, 177, 0.28), transparent 30%),
 			linear-gradient(135deg, #e9f8f0, #fff8e8 52%, #d5efeb);
 		box-shadow: var(--shadow);
+	}
+
+	.watch-direct-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		min-height: 2.8rem;
+		padding: 0.55rem 1rem;
+		background: #ffffff;
+		border: 1px solid rgba(182, 46, 57, 0.28);
+		border-radius: 999px;
+		box-shadow: 0 8px 18px rgba(91, 61, 35, 0.1);
+		color: var(--chili-dark);
+		font-size: 0.85rem;
+		font-weight: 900;
+		text-decoration: none;
+		transition: transform 160ms ease, box-shadow 160ms ease;
+	}
+
+	.watch-direct-link span {
+		color: var(--chili);
+		font-size: 1rem;
+	}
+
+	.watch-direct-link:hover {
+		box-shadow: 0 12px 24px rgba(91, 61, 35, 0.16);
+		transform: translateY(-2px);
 	}
 
 	.hiroshima-spotlight::before,
@@ -4192,7 +4341,12 @@ const hamiStructuredData = {
 		}
 
 		.episode-strip header {
-			align-items: center;
+			align-items: flex-start;
+			flex-direction: column;
+		}
+
+		.episode-strip header .playlist-link {
+			align-self: flex-start;
 		}
 
 		.episode-strip header h2 {

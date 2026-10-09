@@ -2258,6 +2258,10 @@ h3 {
 }
 
 @media (max-width: 460px) {
+	.recipe-index-hero h1 {
+		font-size: clamp(1.65rem, 8.2vw, 2.35rem);
+	}
+
 	.recipe-site-brand strong {
 		max-width: 150px;
 		font-size: 0.75rem;
