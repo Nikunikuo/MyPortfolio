@@ -1,25 +1,12 @@
 ---
 import CreatorContactStrip from '../components/CreatorContactStrip.astro';
 import CreatorLayout from '../layouts/CreatorLayout.astro';
-
-const videos = [
-	{
-		title: 'AI Music Video 2025年上半期クロスフェード',
-		description: '2025年上半期に公開したAI Music Videoのクロスフェード映像。',
-		id: '19XJHhlEPQs',
-		detailHref: '/work/sample-mv-01/',
-	},
-	{
-		title: '架空のＡＩアニメ「ポルテポルカドット」',
-		description: '生成AIで制作した架空のアニメ作品。',
-		id: 'ufYzgDmrw4I',
-		detailHref: '/work/sample-short-01/',
-	},
-];
+import VideoCard from '../components/VideoCard.astro';
+import YouTubeArchiveLink from '../components/YouTubeArchiveLink.astro';
+import { videoArchive, youtubeWatchUrl } from '../data/videoArchive';
 
 const title = '映像作品アーカイブ | 大鹿ニク';
-const description = '大鹿ニクが公開している短編映像とAIアニメーションをまとめたアーカイブ。';
-
+const description = '大鹿ニクのアニメーション、短編、ミュージックビデオをピックアップ。気になる作品からYouTubeでご覧いただけます。';
 const structuredData = {
 	'@context': 'https://schema.org',
 	'@type': 'CollectionPage',
@@ -28,8 +15,8 @@ const structuredData = {
 	url: 'https://niku.studio/video-archive/',
 	mainEntity: {
 		'@type': 'ItemList',
-		numberOfItems: videos.length,
-		itemListElement: videos.map((video, index) => ({
+		numberOfItems: videoArchive.length,
+		itemListElement: videoArchive.map((video, index) => ({
 			'@type': 'ListItem',
 			position: index + 1,
 			item: {
@@ -37,8 +24,8 @@ const structuredData = {
 				name: video.title,
 				description: video.description,
 				embedUrl: `https://www.youtube.com/embed/${video.id}`,
-				thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`,
-				url: `https://www.youtube.com/watch?v=${video.id}`,
+				thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/${video.thumbnail ?? 'hqdefault'}.jpg`,
+				url: youtubeWatchUrl(video.id),
 			},
 		})),
 	},
@@ -50,108 +37,37 @@ const structuredData = {
 	description={description}
 	eyebrow="VIDEO / ARCHIVE"
 	heading="映像作品アーカイブ"
-	intro="短編、アニメーション、クロスフェード。いま公開している映像を、そのまま再生できます。"
+	intro="アニメーション、短編、音楽の映像。気になる一本を見つけたら、YouTubeへ。"
 	number="05"
 	backHref="/work/"
 	backLabel="その他制作物の倉庫"
 	structuredData={structuredData}
 >
-	<section class="archive-stack" aria-label="映像作品一覧">
-		{
-			videos.map((video, index) => (
-				<article class="archive-video">
-					<header>
-						<span>{String(index + 1).padStart(2, '0')} / {String(videos.length).padStart(2, '0')}</span>
-						<h2>{video.title}</h2>
-						<p>{video.description}</p>
-					</header>
-					<div class="creator-video">
-						<iframe
-							src={`https://www.youtube.com/embed/${video.id}`}
-							title={video.title}
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen
-							loading="lazy"
-						/>
-					</div>
-					<a class="creator-text-link" href={video.detailHref}>作品の記録を読む <span aria-hidden="true">→</span></a>
-				</article>
-			))
-		}
+	<div class="archive-intro">
+		<YouTubeArchiveLink />
+		<nav class="archive-related" aria-label="ほかの作品ページ">
+			<span>{String(videoArchive.length).padStart(2, '0')} WORKS / PICK UP</span>
+			<div>
+				<a href="/work/music-videos/">Music Videos <span aria-hidden="true">→</span></a>
+				<a href="/hami-preview/">ハミちゃんの日常飯 <span aria-hidden="true">→</span></a>
+			</div>
+		</nav>
+	</div>
+
+	<section class="archive-grid" aria-label="映像作品一覧">
+		{videoArchive.map((video, index) => <VideoCard video={video} index={index} />)}
 	</section>
 
+	<YouTubeArchiveLink />
 	<CreatorContactStrip />
 </CreatorLayout>
 
 <style>
-	.archive-stack {
-		display: grid;
-		gap: clamp(90px, 14vw, 190px);
-		padding-bottom: clamp(80px, 12vw, 170px);
-	}
-
-	.archive-video {
-		display: grid;
-		grid-template-columns: minmax(240px, 0.44fr) minmax(0, 1fr);
-		gap: clamp(28px, 6vw, 90px);
-		align-items: start;
-	}
-
-	.archive-video:nth-child(even) header {
-		order: 2;
-	}
-
-	.archive-video header {
-		padding-top: 12px;
-		border-top: 2px solid var(--studio-ink);
-	}
-
-	.archive-video header > span {
-		color: var(--studio-ink);
-		font-family: "IBM Plex Mono", monospace;
-		font-size: 0.82rem;
-		font-weight: 600;
-	}
-
-	.archive-video h2 {
-		margin: clamp(50px, 7vw, 92px) 0 20px;
-		color: var(--studio-ink);
-		font-family: var(--font-body);
-		font-size: clamp(2rem, 4.2vw, 4.4rem);
-		font-weight: 700;
-		letter-spacing: 0;
-		line-height: 1.35;
-		overflow-wrap: anywhere;
-	}
-
-	.archive-video p {
-		color: var(--studio-muted);
-		line-height: 1.8;
-	}
-
-	.archive-video > .creator-text-link {
-		grid-column: 2;
-		justify-self: end;
-	}
-
-	.archive-video:nth-child(even) > .creator-text-link {
-		grid-column: 1;
-		justify-self: start;
-	}
-
-	@media (max-width: 840px) {
-		.archive-video {
-			grid-template-columns: 1fr;
-		}
-
-		.archive-video:nth-child(even) header {
-			order: initial;
-		}
-
-		.archive-video > .creator-text-link,
-		.archive-video:nth-child(even) > .creator-text-link {
-			grid-column: 1;
-			justify-self: start;
-		}
-	}
+	.archive-intro { margin-bottom: 42px; }
+	.archive-related { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px 30px; padding-block: 24px; border-bottom: 2px solid var(--studio-ink); }
+	.archive-related > span { font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 600; }
+	.archive-related > div { display: flex; flex-wrap: wrap; gap: 18px 26px; }
+	.archive-related a { display: inline-flex; gap: 14px; padding-block: 5px; color: inherit; font-size: 14px; font-weight: 700; text-underline-offset: 5px; }
+	.archive-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 52px 38px; padding: 0 5px clamp(60px, 8vw, 120px) 0; }
+	@media (max-width: 680px) { .archive-grid { grid-template-columns: minmax(0, 1fr); gap: 38px; } }
 </style>

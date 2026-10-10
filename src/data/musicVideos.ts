@@ -2,6 +2,7 @@ export interface MusicVideo {
 	slug: string;
 	title: string;
 	youtubeId: string;
+	thumbnail?: 'maxresdefault';
 	intro: string;
 	noteUrl?: string;
 	description: string;
@@ -12,13 +13,58 @@ export interface MusicVideo {
 // ミュージックビデオ作品データ（新しい順）
 export const musicVideos: MusicVideo[] = [
 	{
+		slug: '17',
+		title: 'NEXT NEXT NEXT【リメイク】',
+		youtubeId: 'lfG9czgCj74',
+		thumbnail: 'maxresdefault',
+		intro: '「NEXT NEXT NEXT」を、JIZURAを使ってリメイクしたミュージックビデオ。',
+		description: '',
+		releaseDate: '2026-09-24T19:43:14-07:00',
+		isNew: true,
+	},
+	{
+		slug: '16',
+		title: 'ライジングサン！',
+		youtubeId: 'DB1ZeTc02DM',
+		thumbnail: 'maxresdefault',
+		intro: 'AIニケちゃんDiscord一周年を記念して制作したミュージックビデオ。',
+		description: '',
+		releaseDate: '2026-09-01T05:27:35-07:00',
+	},
+	{
+		slug: '15',
+		title: 'Poison girl',
+		youtubeId: '23q6a-mp9uQ',
+		thumbnail: 'maxresdefault',
+		intro: '大鹿ニク「Poison girl」のミュージックビデオ。',
+		description: '',
+		releaseDate: '2026-06-04T04:45:06-07:00',
+	},
+	{
+		slug: '14',
+		title: 'NEXT NEXT NEXT - めい feat.大鹿ニク',
+		youtubeId: 'b0-jJ3GghZk',
+		thumbnail: 'maxresdefault',
+		intro: 'めい作曲「NEXT NEXT NEXT」のオリジナル版ミュージックビデオ。',
+		description: '',
+		releaseDate: '2026-05-30T17:13:33-07:00',
+	},
+	{
+		slug: '13',
+		title: 'パチンコ・スロット！ - feat.AIニケちゃん',
+		youtubeId: 'yHSQKx3kfa0',
+		thumbnail: 'maxresdefault',
+		intro: 'AIニケちゃん、桜草メイ、M1RAが出演するミュージックビデオ。',
+		description: '',
+		releaseDate: '2026-04-23T17:20:16-07:00',
+	},
+	{
 		slug: '12',
 		title: '情熱ブロッサム',
 		youtubeId: '397bpH3HSfQ',
 		intro: '情熱が花開くように広がる、エナジーあふれる楽曲のミュージックビデオ。',
 		description: '',
 		releaseDate: '',
-		isNew: true,
 	},
 	{
 		slug: '01',

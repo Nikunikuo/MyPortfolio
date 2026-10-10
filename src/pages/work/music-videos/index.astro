@@ -1,6 +1,7 @@
 ---
 import CreatorContactStrip from '../../../components/CreatorContactStrip.astro';
 import CreatorLayout from '../../../layouts/CreatorLayout.astro';
+import YouTubeArchiveLink from '../../../components/YouTubeArchiveLink.astro';
 import { musicVideos } from '../../../data/musicVideos';
 
 const title = 'ミュージックビデオ | 大鹿ニク';
@@ -54,16 +55,17 @@ const structuredData = [
 	backLabel="その他制作物の倉庫"
 	structuredData={structuredData}
 >
+	<div class="mv-channel"><YouTubeArchiveLink /></div>
 	<section class="mv-grid" aria-label="ミュージックビデオ一覧">
 		{
 			musicVideos.map((mv, index) => (
 				<a class="mv-entry" href={`/work/music-videos/${mv.slug}/`}>
 					<figure class="mv-thumb">
 						<img
-							src={`https://i.ytimg.com/vi/${mv.youtubeId}/hqdefault.jpg`}
+							src={`https://i.ytimg.com/vi/${mv.youtubeId}/${mv.thumbnail ?? 'hqdefault'}.jpg`}
 							alt={`${mv.title} の動画サムネイル`}
-							width="480"
-							height="360"
+							width={mv.thumbnail ? 1280 : 480}
+							height={mv.thumbnail ? 720 : 360}
 							loading={index < 2 ? 'eager' : 'lazy'}
 							decoding="async"
 						/>
@@ -80,10 +82,13 @@ const structuredData = [
 		}
 	</section>
 
+	<YouTubeArchiveLink />
 	<CreatorContactStrip />
 </CreatorLayout>
 
 <style>
+	.mv-channel { margin-bottom: clamp(40px, 6vw, 80px); }
+
 	.mv-grid {
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -106,7 +111,7 @@ const structuredData = [
 		position: relative;
 		overflow: hidden;
 		margin: 0;
-		aspect-ratio: 16 / 10;
+		aspect-ratio: 16 / 9;
 		border: 2px solid var(--studio-ink);
 		background: var(--studio-paper);
 		box-shadow: 8px 8px 0 var(--studio-ink);
@@ -175,6 +180,7 @@ const structuredData = [
 		font-weight: 700;
 		letter-spacing: 0;
 		line-height: 1.35;
+		word-break: keep-all;
 		overflow-wrap: anywhere;
 	}
 
